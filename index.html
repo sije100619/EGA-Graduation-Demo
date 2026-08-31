@@ -2,1002 +2,1586 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#071322">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b14">
 
-<title>Graduation Invitation — Nadia Aurelia Putri</title>
+<title>EGA Digital — Graduation Invitation</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
 
 <style>
 
+/* =====================================================
+   ROOT
+===================================================== */
+
 :root{
---bg:#071322;
---card:#0d2035;
---gold:#e9c76b;
---gold2:#f7dda0;
---white:#f7f5ef;
---muted:#aeb9c8;
---line:rgba(233,199,107,.22);
+    --bg:#080b14;
+    --bg2:#0d1320;
+    --gold:#d9b65c;
+    --gold2:#f3d98b;
+    --cream:#f4f0e7;
+    --muted:#a7adbb;
+    --line:rgba(217,182,92,.24);
 }
 
+
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
-box-sizing:border-box;
-margin:0;
-padding:0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html{
-scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-background:
-radial-gradient(circle at 15% 10%,rgba(233,199,107,.08),transparent 28%),
-radial-gradient(circle at 90% 50%,rgba(65,110,170,.10),transparent 30%),
-var(--bg);
+    background:
+        radial-gradient(
+            circle at 18% 12%,
+            rgba(217,182,92,.09),
+            transparent 24%
+        ),
+        radial-gradient(
+            circle at 82% 38%,
+            rgba(71,100,150,.12),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 45% 90%,
+            rgba(217,182,92,.05),
+            transparent 25%
+        ),
+        var(--bg);
 
-color:var(--white);
-font-family:"DM Sans",sans-serif;
-overflow-x:hidden;
+    color:var(--cream);
+
+    font-family:"DM Sans",sans-serif;
+
+    overflow-x:hidden;
 }
 
 body:before{
-content:"";
-position:fixed;
-inset:0;
-pointer-events:none;
-opacity:.5;
 
-background:
-radial-gradient(
-ellipse at 15% 25%,
-transparent 0 30%,
-rgba(233,199,107,.07) 30.1% 30.25%,
-transparent 30.4%
-),
+    content:"";
 
-radial-gradient(
-ellipse at 80% 65%,
-transparent 0 27%,
-rgba(233,199,107,.06) 27.1% 27.25%,
-transparent 27.4%
-);
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:0;
+
+    background:
+        radial-gradient(
+            ellipse at 15% 25%,
+            transparent 0 30%,
+            rgba(217,182,92,.07)
+            30.1% 30.25%,
+            transparent 30.4%
+        ),
+
+        radial-gradient(
+            ellipse at 80% 65%,
+            transparent 0 27%,
+            rgba(217,182,92,.06)
+            27.1% 27.25%,
+            transparent 27.4%
+        );
+}
+
+canvas#particles{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:0;
+
+    pointer-events:none;
+
+    opacity:.65;
+}
+
+main,
+nav,
+footer{
+
+    position:relative;
+
+    z-index:2;
 }
 
 .container{
-width:min(1120px,calc(100% - 40px));
-margin:auto;
+
+    width:min(
+        1080px,
+        calc(100% - 34px)
+    );
+
+    margin:auto;
 }
 
-h1,h2,h3{
-font-family:"Playfair Display",serif;
+h1,
+h2,
+h3{
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-weight:600;
 }
 
 .gold{
-color:var(--gold);
+
+    color:var(--gold);
 }
 
 .eyebrow{
-color:var(--gold);
-font-size:11px;
-letter-spacing:5px;
-font-weight:700;
-text-transform:uppercase;
+
+    font-size:10px;
+
+    letter-spacing:5px;
+
+    color:var(--gold2);
+
+    font-weight:700;
 }
 
 .reveal{
-opacity:0;
-transform:translateY(25px);
-transition:.8s ease;
+
+    opacity:0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        1s cubic-bezier(
+            .2,
+            .7,
+            .2,
+            1
+        );
 }
 
 .reveal.show{
-opacity:1;
-transform:none;
+
+    opacity:1;
+
+    transform:none;
 }
 
 
-/* ================= OPENING ================= */
+/* =====================================================
+   DECORATIVE CURVES
+===================================================== */
+
+.decor{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:0;
+}
+
+.decor svg{
+
+    position:absolute;
+
+    width:1200px;
+
+    max-width:none;
+
+    opacity:.42;
+}
+
+.decor .line1{
+
+    left:-350px;
+
+    top:80px;
+}
+
+.decor .line2{
+
+    right:-500px;
+
+    top:48%;
+
+    transform:
+        rotate(180deg);
+
+    opacity:.28;
+}
+
+.decor path{
+
+    fill:none;
+
+    stroke:var(--gold);
+
+    stroke-width:1;
+}
+
+
+/* =====================================================
+   OPENING
+===================================================== */
 
 .opening{
 
-position:fixed;
-inset:0;
+    position:fixed;
 
-z-index:9999;
+    inset:0;
 
-display:grid;
-place-items:center;
+    z-index:9999;
 
-text-align:center;
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(217,182,92,.11),
+            transparent 28%
+        ),
+        #050811;
 
-padding:25px;
+    display:grid;
 
-background:
-radial-gradient(
-circle at 50% 45%,
-rgba(233,199,107,.10),
-transparent 28%
-),
-#050d17;
+    place-items:center;
 
-transition:.9s ease;
+    text-align:center;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
 }
 
 .opening.hide{
-opacity:0;
-visibility:hidden;
-pointer-events:none;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
 }
 
-.opening-mark{
+.opening:after{
 
-width:86px;
-height:86px;
+    content:"";
 
-border:1px solid var(--line);
+    position:absolute;
 
-border-radius:50%;
+    width:360px;
 
-display:grid;
-place-items:center;
+    height:360px;
 
-margin:0 auto 28px;
+    border:
+        1px solid
+        rgba(217,182,92,.13);
 
-color:var(--gold);
+    border-radius:50%;
 
-font:35px "Playfair Display";
+    animation:
+        pulse 3s infinite;
+}
 
-box-shadow:
-0 0 60px rgba(233,199,107,.08);
+.opening-inner{
+
+    position:relative;
+
+    z-index:2;
+
+    padding:25px;
+}
+
+.seal{
+
+    width:88px;
+
+    height:88px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:50%;
+
+    display:grid;
+
+    place-items:center;
+
+    margin:
+        0 auto 28px;
+
+    color:var(--gold2);
+
+    font:
+        34px
+        "Playfair Display";
+
+    box-shadow:
+        0 0 80px
+        rgba(217,182,92,.10);
+
+    background:
+        rgba(255,255,255,.02);
 }
 
 .opening h1{
 
-font-size:
-clamp(48px,9vw,92px);
+    font-size:
+        clamp(
+            45px,
+            9vw,
+            82px
+        );
 
-line-height:.95;
+    line-height:.94;
 
-margin:15px 0 24px;
+    margin:
+        16px 0 22px;
 }
 
-.opening p{
+.opening-copy{
 
-color:var(--muted);
+    max-width:530px;
 
-line-height:1.8;
+    margin:auto;
 
-max-width:580px;
+    color:var(--muted);
 
-margin:auto;
+    font-size:13px;
+
+    line-height:1.9;
 }
 
-.open-btn,
-.map-btn,
-.wa-btn{
+.open-btn{
 
-display:inline-block;
+    margin-top:28px;
 
-margin-top:28px;
+    padding:
+        14px 25px;
 
-border:0;
+    border:
+        1px solid
+        var(--gold);
 
-border-radius:999px;
+    background:
+        linear-gradient(
+            110deg,
+            #b99442,
+            #edce78,
+            #b99442
+        );
 
-background:var(--gold);
+    background-size:200%;
 
-color:#10151d;
+    color:#12151c;
 
-padding:15px 27px;
+    border-radius:999px;
 
-font-weight:800;
+    font-weight:800;
 
-font-size:12px;
+    letter-spacing:1px;
 
-text-decoration:none;
+    cursor:pointer;
 
-cursor:pointer;
+    transition:.5s;
 
-transition:.3s;
+    box-shadow:
+        0 12px 40px
+        rgba(217,182,92,.13);
 }
 
-.open-btn:hover,
-.map-btn:hover,
-.wa-btn:hover{
+.open-btn:hover{
 
-transform:translateY(-3px);
+    background-position:right;
 
-background:var(--gold2);
+    transform:
+        translateY(-3px);
 }
 
-.small-note{
+.hint{
 
-font-size:10px!important;
+    font-size:9px !important;
 
-color:#758396!important;
+    margin-top:12px;
 
-margin-top:12px!important;
+    color:#6f7786 !important;
 }
 
 
-/* ================= NAV ================= */
+/* =====================================================
+   NAV
+===================================================== */
 
 nav{
 
-position:sticky;
+    position:sticky;
 
-top:10px;
+    top:10px;
 
-z-index:100;
+    z-index:100;
 
-width:min(930px,calc(100% - 28px));
+    width:min(
+        880px,
+        calc(100% - 24px)
+    );
 
-margin:10px auto 0;
+    margin:
+        10px auto 0;
 
-border:
-1px solid rgba(255,255,255,.12);
+    background:
+        rgba(7,11,19,.68);
 
-background:
-rgba(6,17,30,.74);
+    border:
+        1px solid
+        rgba(255,255,255,.10);
 
-backdrop-filter:blur(18px);
+    backdrop-filter:
+        blur(18px);
 
-border-radius:999px;
+    border-radius:999px;
 }
 
 .nav{
 
-display:flex;
+    display:flex;
 
-justify-content:center;
+    justify-content:center;
 
-gap:3px;
+    gap:2px;
 
-padding:8px;
+    padding:7px;
 
-overflow-x:auto;
+    overflow-x:auto;
 }
 
 .nav a{
 
-color:#aeb9c8;
+    color:#aab1be;
 
-text-decoration:none;
+    text-decoration:none;
 
-font-size:13px;
+    font-size:11px;
 
-padding:10px 17px;
+    letter-spacing:.4px;
 
-border-radius:999px;
+    padding:
+        10px 15px;
 
-white-space:nowrap;
+    border-radius:999px;
+
+    white-space:nowrap;
+
+    transition:.3s;
 }
 
 .nav a:hover{
 
-background:rgba(255,255,255,.06);
+    background:
+        rgba(217,182,92,.10);
 
-color:#fff;
+    color:var(--gold2);
 }
 
 
-/* ================= HERO ================= */
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
 
-min-height:92vh;
+    min-height:88vh;
 
-display:grid;
+    display:grid;
 
-place-items:center;
+    place-items:center;
 
-text-align:center;
+    text-align:center;
 
-padding:80px 0;
+    position:relative;
+}
+
+.hero-inner{
+
+    padding:
+        100px 0;
+}
+
+.hero-kicker{
+
+    font-size:11px;
+
+    letter-spacing:6px;
+
+    color:var(--gold2);
 }
 
 .hero h1{
 
-font-size:
-clamp(58px,10vw,118px);
+    font-size:
+        clamp(
+            58px,
+            11vw,
+            126px
+        );
 
-line-height:.88;
+    line-height:.82;
 
-margin:18px 0 25px;
+    margin:
+        23px 0;
 }
 
-.hero h1 span{
-color:var(--gold);
+.hero h1 em{
+
+    font-weight:500;
 }
 
-.lead{
+.hero-sub{
 
-max-width:700px;
+    color:var(--muted);
 
-margin:auto;
+    max-width:620px;
 
-color:var(--muted);
+    margin:auto;
 
-font-size:16px;
+    font-size:14px;
 
-line-height:1.9;
+    line-height:1.9;
 }
 
-.date{
+.hero-meta{
 
-margin-top:28px;
+    display:flex;
 
-color:var(--gold2);
+    align-items:center;
 
-letter-spacing:4px;
+    justify-content:center;
 
-font-size:13px;
+    gap:18px;
 
-font-weight:700;
+    margin-top:30px;
+
+    color:var(--gold2);
+
+    font-size:10px;
+
+    letter-spacing:3px;
 }
 
-.hero-line{
+.dot{
 
-width:80px;
+    width:4px;
 
-height:1px;
+    height:4px;
 
-background:var(--gold);
+    border-radius:50%;
 
-margin:28px auto;
+    background:var(--gold);
+}
+
+.rule{
+
+    width:90px;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--gold),
+            transparent
+        );
+
+    margin:
+        28px auto;
 }
 
 
-/* ================= SECTION ================= */
+/* =====================================================
+   SECTION
+===================================================== */
 
 .section{
 
-padding:105px 0;
+    padding:
+        105px 0;
 }
 
 .section-head{
 
-margin-bottom:50px;
+    margin-bottom:42px;
 }
 
 .section-head h2{
 
-font-size:
-clamp(42px,6vw,72px);
+    font-size:
+        clamp(
+            42px,
+            7vw,
+            78px
+        );
 
-line-height:1;
+    line-height:.96;
 
-margin-top:12px;
+    margin-top:12px;
 }
 
 .section-head p{
 
-color:var(--muted);
+    color:var(--muted);
 
-font-size:16px;
+    max-width:700px;
 
-line-height:1.8;
+    line-height:1.9;
 
-margin-top:18px;
+    font-size:13px;
 
-max-width:800px;
+    margin-top:18px;
 }
 
 
-/* ================= PROFILE ================= */
+/* =====================================================
+   PROFILE
+===================================================== */
 
-.profile-grid{
+.profile{
 
-display:grid;
+    display:grid;
 
-grid-template-columns:.9fr 1.1fr;
+    grid-template-columns:
+        1fr 1fr;
 
-gap:55px;
+    gap:42px;
 
-align-items:center;
+    align-items:center;
 }
 
-.profile-photo{
+.photo-frame{
 
-height:650px;
+    height:620px;
 
-border-radius:30px;
+    padding:9px;
 
-overflow:hidden;
+    border:
+        1px solid
+        var(--line);
 
-border:
-1px solid var(--line);
+    border-radius:30px;
 
-background:#172536;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(217,182,92,.12),
+            rgba(255,255,255,.015)
+        );
 }
 
-.profile-photo img{
+.photo-frame-inner{
 
-width:100%;
+    height:100%;
 
-height:100%;
+    overflow:hidden;
 
-object-fit:cover;
+    border-radius:23px;
 
-display:block;
+    position:relative;
 }
 
-.profile-card{
+.photo-frame img{
 
-padding:38px;
+    width:100%;
 
-border:
-1px solid rgba(255,255,255,.10);
+    height:100%;
 
-border-radius:28px;
+    object-fit:cover;
 
-background:
-linear-gradient(
-145deg,
-rgba(18,42,67,.9),
-rgba(8,24,40,.75)
-);
+    display:block;
+
+    filter:
+        saturate(.86)
+        contrast(1.02);
 }
 
-.profile-card h2{
+.photo-frame-inner:after{
 
-font-size:45px;
+    content:"";
 
-line-height:1.05;
+    position:absolute;
 
-margin-top:12px;
+    inset:0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 55%,
+            rgba(3,7,13,.6)
+        );
 }
 
-.bio{
+.profile-copy{
 
-color:var(--muted);
-
-line-height:1.9;
-
-margin:20px 0 28px;
+    padding:
+        15px 5px;
 }
 
-.info-row{
+.profile-copy h2{
 
-display:flex;
+    font-size:54px;
 
-justify-content:space-between;
+    line-height:.98;
 
-gap:20px;
-
-padding:17px 0;
-
-border-top:
-1px solid rgba(255,255,255,.09);
-
-color:var(--muted);
-
-font-size:14px;
+    margin:
+        14px 0 20px;
 }
 
-.info-row strong{
+.profile-copy p{
 
-color:#fff;
+    color:var(--muted);
 
-text-align:right;
+    line-height:1.9;
+
+    font-size:14px;
 }
 
+.signature{
 
-/* ================= STORY ================= */
+    margin-top:28px;
 
-.timeline{
+    color:var(--gold2);
 
-border-left:
-1px solid rgba(233,199,107,.35);
-
-margin-left:15px;
+    font:
+        italic 25px
+        "Playfair Display";
 }
 
-.timeline-item{
+.info-list{
 
-position:relative;
+    margin-top:28px;
 
-padding:
-0 0 65px 45px;
+    border-top:
+        1px solid
+        rgba(255,255,255,.09);
 }
 
-.timeline-item:last-child{
+.info{
 
-padding-bottom:0;
+    display:flex;
+
+    justify-content:space-between;
+
+    padding:15px 0;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.07);
+
+    font-size:12px;
+
+    color:var(--muted);
 }
 
-.timeline-item:before{
+.info strong{
 
-content:"";
+    color:var(--cream);
 
-position:absolute;
-
-left:-7px;
-
-top:5px;
-
-width:13px;
-
-height:13px;
-
-border-radius:50%;
-
-background:var(--gold);
-
-box-shadow:
-0 0 0 7px rgba(233,199,107,.07);
-}
-
-.year{
-
-color:var(--gold);
-
-letter-spacing:4px;
-
-font-size:12px;
-
-font-weight:700;
-}
-
-.timeline h3{
-
-font-size:34px;
-
-margin:10px 0;
-}
-
-.timeline p{
-
-color:var(--muted);
-
-line-height:1.8;
-
-max-width:800px;
+    text-align:right;
 }
 
 
-/* ================= COUNTDOWN ================= */
+/* =====================================================
+   STORY
+===================================================== */
+
+.story-card{
+
+    position:relative;
+
+    padding:
+        15px 0 0;
+}
+
+.story-card:before{
+
+    content:"";
+
+    position:absolute;
+
+    left:12px;
+
+    top:0;
+
+    bottom:0;
+
+    width:1px;
+
+    background:
+        linear-gradient(
+            var(--gold),
+            transparent
+        );
+}
+
+.story-item{
+
+    position:relative;
+
+    padding:
+        0 0 62px 52px;
+}
+
+.story-item:before{
+
+    content:"";
+
+    position:absolute;
+
+    left:7px;
+
+    top:3px;
+
+    width:11px;
+
+    height:11px;
+
+    border-radius:50%;
+
+    background:var(--gold);
+
+    box-shadow:
+        0 0 0 8px
+        rgba(217,182,92,.06);
+}
+
+.story-year{
+
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    color:var(--gold);
+}
+
+.story-item h3{
+
+    font-size:33px;
+
+    margin:
+        10px 0;
+}
+
+.story-item p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.9;
+
+    max-width:720px;
+}
+
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+.count-wrap{
+
+    padding:38px;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(217,182,92,.05),
+            rgba(255,255,255,.015)
+        );
+}
 
 .countdown{
 
-display:grid;
+    display:grid;
 
-grid-template-columns:
-repeat(4,1fr);
+    grid-template-columns:
+        repeat(4,1fr);
 
-gap:14px;
+    gap:10px;
 }
 
-.count-box{
+.count{
 
-padding:32px 15px;
+    padding:
+        25px 10px;
 
-text-align:center;
+    text-align:center;
 
-border:
-1px solid var(--line);
-
-border-radius:24px;
-
-background:
-rgba(255,255,255,.025);
+    border-right:
+        1px solid
+        rgba(255,255,255,.07);
 }
 
-.count-box strong{
+.count:last-child{
 
-display:block;
-
-color:var(--gold2);
-
-font:
-700 48px "Playfair Display";
+    border-right:0;
 }
 
-.count-box span{
+.count b{
 
-display:block;
+    font:
+        600 51px
+        "Playfair Display";
 
-color:#9ba8b8;
+    color:var(--gold2);
+}
 
-font-size:11px;
+.count span{
 
-letter-spacing:4px;
+    display:block;
 
-margin-top:7px;
+    color:#777f8e;
+
+    font-size:9px;
+
+    letter-spacing:4px;
+
+    margin-top:6px;
 }
 
 
-/* ================= EVENT ================= */
+/* =====================================================
+   EVENT
+===================================================== */
 
-.event-grid{
+.events{
 
-display:grid;
+    display:grid;
 
-grid-template-columns:
-1fr 1fr;
+    grid-template-columns:
+        1fr 1fr;
 
-gap:18px;
+    gap:15px;
 }
 
-.event-card{
+.event{
 
-padding:35px;
+    position:relative;
 
-border-radius:28px;
+    padding:35px;
 
-border:
-1px solid rgba(255,255,255,.10);
+    border-radius:25px;
 
-background:
-linear-gradient(
-145deg,
-#0d2238,
-#09192a
-);
+    border:
+        1px solid
+        rgba(255,255,255,.10);
+
+    background:
+        linear-gradient(
+            145deg,
+            #101a29,
+            #09111d
+        );
+
+    overflow:hidden;
+}
+
+.event:before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    right:-90px;
+
+    top:-90px;
+
+    border:
+        1px solid
+        rgba(217,182,92,.18);
 }
 
 .event-icon{
 
-font-size:28px;
+    font-size:24px;
 }
 
-.event-card h3{
+.event h3{
 
-font-size:38px;
+    font-size:39px;
 
-margin:18px 0 12px;
+    margin:
+        16px 0 12px;
 }
 
-.event-card p{
+.event p{
 
-color:var(--muted);
+    color:var(--muted);
 
-line-height:1.9;
+    font-size:13px;
+
+    line-height:1.9;
+}
+
+.map-btn,
+.wa-btn{
+
+    display:inline-block;
+
+    margin-top:23px;
+
+    padding:
+        12px 19px;
+
+    border-radius:999px;
+
+    background:var(--gold);
+
+    color:#12161d;
+
+    text-decoration:none;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    transition:.3s;
+}
+
+.map-btn:hover,
+.wa-btn:hover{
+
+    transform:
+        translateY(-3px);
+
+    background:var(--gold2);
 }
 
 
-/* ================= GALLERY ================= */
+/* =====================================================
+   GALLERY
+===================================================== */
 
 .gallery{
 
-display:grid;
+    display:grid;
 
-grid-template-columns:
-repeat(3,1fr);
+    grid-template-columns:
+        repeat(12,1fr);
 
-gap:14px;
+    gap:12px;
 }
 
 .gallery figure{
 
-height:390px;
+    position:relative;
 
-border-radius:24px;
+    overflow:hidden;
 
-overflow:hidden;
+    border-radius:22px;
 
-border:
-1px solid rgba(255,255,255,.10);
+    border:
+        1px solid
+        rgba(255,255,255,.09);
 
-position:relative;
+    background:#111b29;
 
-background:#102239;
+    min-height:280px;
 }
 
-.gallery figure:nth-child(2),
-.gallery figure:nth-child(5){
+.gallery figure:nth-child(1){
 
-height:300px;
+    grid-column:span 5;
+
+    height:450px;
 }
 
-.gallery figure:nth-child(3),
+.gallery figure:nth-child(2){
+
+    grid-column:span 7;
+
+    height:330px;
+}
+
+.gallery figure:nth-child(3){
+
+    grid-column:span 4;
+
+    height:390px;
+}
+
 .gallery figure:nth-child(4){
 
-height:460px;
+    grid-column:span 4;
+
+    height:390px;
+}
+
+.gallery figure:nth-child(5){
+
+    grid-column:span 4;
+
+    height:390px;
+}
+
+.gallery figure:nth-child(6){
+
+    grid-column:span 7;
+
+    height:330px;
 }
 
 .gallery img{
 
-width:100%;
+    width:100%;
 
-height:100%;
+    height:100%;
 
-object-fit:cover;
+    object-fit:cover;
 
-display:block;
+    display:block;
 
-transition:.6s;
+    transition:.7s;
 }
 
 .gallery figure:hover img{
 
-transform:scale(1.05);
+    transform:
+        scale(1.07);
 }
 
-.gallery figcaption{
+.gallery figure:after{
 
-position:absolute;
+    content:"";
 
-left:14px;
+    position:absolute;
 
-right:14px;
+    inset:0;
 
-bottom:14px;
+    background:
+        linear-gradient(
+            180deg,
+            transparent 50%,
+            rgba(3,7,12,.68)
+        );
+}
 
-padding:12px 14px;
+.caption{
 
-border-radius:14px;
+    position:absolute;
 
-background:
-rgba(3,12,21,.68);
+    left:17px;
 
-backdrop-filter:blur(10px);
+    bottom:15px;
 
-font-size:12px;
+    z-index:2;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    color:#fff;
 }
 
 
-/* ================= RSVP ================= */
+/* =====================================================
+   RSVP
+===================================================== */
 
 .rsvp{
 
-text-align:center;
+    text-align:center;
 
-padding:70px 30px;
+    padding:
+        75px 25px;
 
-border-radius:32px;
+    border:
+        1px solid
+        var(--line);
 
-border:
-1px solid var(--line);
+    border-radius:32px;
 
-background:
-radial-gradient(
-circle at 50% 0,
-rgba(233,199,107,.10),
-transparent 45%
-),
-#0a1b2e;
+    background:
+        radial-gradient(
+            circle at 50% 0,
+            rgba(217,182,92,.12),
+            transparent 40%
+        ),
+        linear-gradient(
+            145deg,
+            #0e1928,
+            #08111d
+        );
 }
 
 .rsvp h2{
 
-font-size:
-clamp(48px,7vw,82px);
+    font-size:
+        clamp(
+            50px,
+            8vw,
+            90px
+        );
 
-margin:14px 0;
+    line-height:.9;
+
+    margin:
+        15px 0 20px;
 }
 
 .rsvp p{
 
-color:var(--muted);
+    color:var(--muted);
 
-line-height:1.8;
+    font-size:13px;
+
+    line-height:1.8;
 }
 
 
-/* ================= FOOTER ================= */
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer{
 
-text-align:center;
+    text-align:center;
 
-padding:
-100px 20px 60px;
+    padding:
+        95px 20px 55px;
 
-border-top:
-1px solid rgba(255,255,255,.08);
+    border-top:
+        1px solid
+        rgba(255,255,255,.07);
 }
 
 footer h2{
 
-font-size:46px;
+    font-size:46px;
 }
 
 footer p{
 
-color:var(--muted);
+    color:var(--muted);
 
-margin-top:12px;
+    font-size:12px;
+
+    margin-top:10px;
 }
 
 .brand{
 
-color:var(--gold);
+    margin-top:30px;
 
-letter-spacing:5px;
+    color:var(--gold);
 
-font-size:10px;
+    font-size:9px;
 
-margin-top:35px;
+    letter-spacing:5px;
 }
 
 
-/* ================= MOBILE ================= */
+/* =====================================================
+   MOBILE
+===================================================== */
 
-@media(max-width:800px){
+@media(max-width:780px){
 
-.container{
+    .container{
 
-width:
-min(100% - 28px,600px);
-}
+        width:
+            min(
+                100% - 28px,
+                600px
+            );
+    }
 
-.section{
+    .section{
 
-padding:75px 0;
-}
+        padding:78px 0;
+    }
 
-.nav{
+    .hero{
 
-justify-content:flex-start;
-}
+        min-height:82vh;
+    }
 
-.hero{
+    .hero-inner{
 
-min-height:85vh;
+        padding:70px 0;
+    }
 
-padding:70px 0;
-}
+    .profile{
 
-.profile-grid,
-.event-grid{
+        grid-template-columns:1fr;
 
-grid-template-columns:1fr;
+        gap:35px;
+    }
 
-gap:25px;
-}
+    .photo-frame{
 
-.profile-photo{
+        height:500px;
+    }
 
-height:520px;
-}
+    .profile-copy h2{
 
-.profile-card{
+        font-size:43px;
+    }
 
-padding:27px;
-}
+    .count-wrap{
 
-.profile-card h2{
+        padding:22px 10px;
+    }
 
-font-size:38px;
-}
+    .countdown{
 
-.countdown{
+        grid-template-columns:
+            1fr 1fr;
+    }
 
-grid-template-columns:
-1fr 1fr;
-}
+    .count{
 
-.count-box strong{
+        border-right:0;
 
-font-size:40px;
-}
+        border-bottom:
+            1px solid
+            rgba(255,255,255,.07);
+    }
 
-.gallery{
+    .count:nth-child(3),
+    .count:nth-child(4){
 
-grid-template-columns:
-1fr 1fr;
-}
+        border-bottom:0;
+    }
 
-.gallery figure,
-.gallery figure:nth-child(n){
+    .events{
 
-height:330px;
-}
+        grid-template-columns:1fr;
+    }
 
-.gallery figure:nth-child(2),
-.gallery figure:nth-child(5){
+    .gallery{
 
-height:250px;
-}
+        grid-template-columns:
+            1fr 1fr;
+    }
 
+    .gallery figure,
+    .gallery figure:nth-child(n){
+
+        grid-column:span 1 !important;
+
+        height:300px !important;
+    }
 }
 
 @media(max-width:480px){
 
-.gallery{
+    .nav a{
 
-grid-template-columns:1fr;
+        padding:
+            9px 12px;
+
+        font-size:10px;
+    }
+
+    .hero h1{
+
+        font-size:57px;
+    }
+
+    .gallery{
+
+        grid-template-columns:1fr;
+    }
+
+    .gallery figure,
+    .gallery figure:nth-child(n){
+
+        height:360px !important;
+    }
+
+    .gallery figure:first-child{
+
+        height:430px !important;
+    }
+
+    .profile-photo{
+
+        height:450px;
+    }
+
+    .info{
+
+        font-size:11px;
+    }
 }
 
-.gallery figure,
-.gallery figure:nth-child(n){
 
-height:390px;
-}
+/* =====================================================
+   ANIMATION
+===================================================== */
 
-.timeline h3{
+@keyframes pulse{
 
-font-size:29px;
-}
+    0%,
+    100%{
 
-.info-row{
+        transform:scale(.85);
 
-font-size:12px;
-}
+        opacity:.25;
+    }
 
+    50%{
+
+        transform:scale(1.05);
+
+        opacity:.6;
+    }
 }
 
 </style>
 </head>
 
+
 <body>
 
 
-<!-- ================= OPENING ================= -->
+<!-- =====================================================
+     PARTICLES
+===================================================== -->
 
-<div class="opening" id="opening">
+<canvas id="particles"></canvas>
 
-<div>
 
-<div class="opening-mark">
+<!-- =====================================================
+     OPENING
+===================================================== -->
+
+<div
+class="opening"
+id="opening">
+
+<div class="opening-inner">
+
+
+<div class="seal">
 N
 </div>
 
+
 <div class="eyebrow">
-Graduation Invitation
+
+EGA DIGITAL • PRESENTS
+
 </div>
 
+
 <h1>
-Nadia<br>
+
+Nadia
+
+<br>
+
 <span class="gold">
+
 Aurelia Putri
+
 </span>
+
 </h1>
 
-<p>
+
+<p class="opening-copy">
+
+Sebuah perayaan kecil
+untuk sebuah pencapaian besar.
+
 Dengan penuh rasa syukur,
-kami mengundang Anda untuk
-menjadi bagian dari momen spesial
-perjalanan pendidikan Nadia.
+kami mengundang Anda untuk hadir
+di hari spesial ini.
+
 </p>
+
 
 <button
 class="open-btn"
 onclick="openInvitation()">
 
-BUKA UNDANGAN →
+BUKA UNDANGAN
+&nbsp;&nbsp;
+→
 
 </button>
 
-<p class="small-note">
-Klik untuk membuka undangan
+
+<p class="hint">
+
+sentuh untuk membuka
+
 </p>
 
-</div>
 
 </div>
 
+</div>
 
-<!-- ================= NAV ================= -->
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
 
 <nav>
 
 <div class="nav">
 
 <a href="#home">
-Home
+HOME
 </a>
 
 <a href="#profil">
-Profil
+PROFIL
 </a>
 
 <a href="#story">
-Story
+STORY
 </a>
 
 <a href="#acara">
-Acara
+ACARA
 </a>
 
 <a href="#galeri">
-Galeri
+GALERI
+</a>
+
+<a href="#rsvp">
+RSVP
 </a>
 
 </div>
@@ -1005,89 +1589,188 @@ Galeri
 </nav>
 
 
-<!-- ================= HERO ================= -->
+<main>
 
-<header
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section
 class="hero container"
 id="home">
 
-<div class="reveal">
 
-<div class="eyebrow">
-The Graduate
+<div class="decor">
+
+
+<svg
+class="line1"
+viewBox="0 0 1200 700">
+
+<path
+d="M-50 480 C170 120 430 120 560 330 S850 650 1250 100">
+</path>
+
+<path
+d="M-100 520 C170 170 420 170 550 360 S880 700 1300 140">
+</path>
+
+</svg>
+
+
+<svg
+class="line2"
+viewBox="0 0 1200 700">
+
+<path
+d="M-50 480 C170 120 430 120 560 330 S850 650 1250 100">
+</path>
+
+<path
+d="M-100 520 C170 170 420 170 550 360 S880 700 1300 140">
+</path>
+
+</svg>
+
+
 </div>
 
+
+<div class="hero-inner reveal">
+
+
+<div class="hero-kicker">
+
+THE GRADUATE
+
+</div>
+
+
 <h1>
+
 A new chapter
+
 <br>
-<span>
+
+<em class="gold">
+
 begins.
-</span>
+
+</em>
+
 </h1>
 
-<p class="lead">
+
+<p class="hero-sub">
 
 Satu perjalanan panjang
 akhirnya sampai pada sebuah
 pencapaian.
 
-Mari rayakan hari ketika
-perjuangan berubah menjadi
-kenangan.
+Hari ini bukan sekadar akhir,
+tetapi awal dari cerita yang baru.
 
 </p>
 
-<div class="hero-line">
+
+<div class="rule">
 </div>
 
-<div class="date">
-20 • SEPTEMBER • 2026
-</div>
+
+<div class="hero-meta">
+
+<span>
+20 SEPTEMBER 2026
+</span>
+
+<i class="dot">
+</i>
+
+<span>
+09.00 WIB
+</span>
 
 </div>
 
-</header>
+
+</div>
+
+</section>
 
 
-<!-- ================= PROFILE ================= -->
+<!-- =====================================================
+     PROFILE
+===================================================== -->
 
 <section
 class="section container"
 id="profil">
 
-<div class="profile-grid reveal">
 
-<div class="profile-photo">
+<div class="profile reveal">
+
+
+<div class="photo-frame">
+
+
+<div class="photo-frame-inner">
+
 
 <img
-src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=85"
-alt="Graduation memory">
+src="https://images.unsplash.com/photo-1627556704302-624286467c65?auto=format&fit=crop&w=1000&q=90"
+alt="Graduation">
+
+
+</div>
 
 </div>
 
 
-<div class="profile-card">
+<div class="profile-copy">
+
 
 <div class="eyebrow">
-The Graduate
+
+THE GRADUATE
+
 </div>
 
+
 <h2>
+
 Nadia Aurelia
+
 <br>
+
 Putri
+
 </h2>
 
-<p class="bio">
 
-Sarjana Komputer yang menyelesaikan
-perjalanan akademiknya dengan penuh
-perjuangan, proses, dan cerita.
+<p>
+
+Perjalanan akademik yang penuh
+proses, tantangan, dan cerita
+akhirnya sampai pada satu momen
+yang begitu berarti:
+
+kelulusan.
 
 </p>
 
 
-<div class="info-row">
+<div class="signature">
+
+Nadia
+
+</div>
+
+
+<div class="info-list">
+
+
+<div class="info">
 
 <span>
 Universitas
@@ -1100,20 +1783,20 @@ EGA Nusantara
 </div>
 
 
-<div class="info-row">
+<div class="info">
 
 <span>
 Fakultas
 </span>
 
 <strong>
-Teknologi &amp; Informatika
+Teknologi & Informatika
 </strong>
 
 </div>
 
 
-<div class="info-row">
+<div class="info">
 
 <span>
 Program Studi
@@ -1126,7 +1809,7 @@ Informatika
 </div>
 
 
-<div class="info-row">
+<div class="info">
 
 <span>
 Gelar
@@ -1138,6 +1821,9 @@ S.Kom.
 
 </div>
 
+
+</div>
+
 </div>
 
 </div>
@@ -1145,112 +1831,168 @@ S.Kom.
 </section>
 
 
-<!-- ================= STORY ================= -->
+<!-- =====================================================
+     STORY
+===================================================== -->
 
 <section
 class="section container"
 id="story">
 
+
 <div class="section-head reveal">
 
+
 <div class="eyebrow">
-My Journey
+
+THE JOURNEY
+
 </div>
+
 
 <h2>
+
 Perjalanan yang
+
 <br>
-tidak terlupakan.
+
+membentuk cerita.
+
 </h2>
 
+
 <p>
 
-Empat tahun bukan hanya tentang
-angka, tetapi tentang orang-orang,
-pengalaman, kegagalan, dan
-keberhasilan yang membentuk
-perjalanan ini.
+Setiap tahun membawa pengalaman
+baru.
+
+Setiap tantangan menjadi bagian
+dari perjalanan menuju hari ini.
 
 </p>
+
 
 </div>
 
 
-<div class="timeline reveal">
+<div class="story-card reveal">
 
 
-<div class="timeline-item">
+<div class="story-item">
 
-<div class="year">
+
+<div class="story-year">
+
 2022
+
 </div>
 
+
 <h3>
+
 Langkah Pertama
+
 </h3>
 
+
 <p>
-Memulai perjalanan sebagai mahasiswa
-dan beradaptasi dengan dunia
-perkuliahan.
+
+Memulai perjalanan sebagai
+mahasiswa, bertemu lingkungan
+baru dan belajar menata langkah.
+
 </p>
+
 
 </div>
 
 
-<div class="timeline-item">
+<div class="story-item">
 
-<div class="year">
+
+<div class="story-year">
+
 2023
+
 </div>
+
 
 <h3>
-Belajar &amp; Bertumbuh
+
+Belajar & Bertumbuh
+
 </h3>
 
+
 <p>
-Mulai menemukan passion,
-membangun relasi, dan mengikuti
-berbagai kegiatan.
+
+Menemukan banyak pengalaman,
+membangun relasi, dan semakin
+mengenal apa yang ingin dicapai.
+
 </p>
+
 
 </div>
 
 
-<div class="timeline-item">
+<div class="story-item">
 
-<div class="year">
+
+<div class="story-year">
+
 2025
+
 </div>
+
 
 <h3>
-Menyelesaikan Perjuangan
+
+Menuntaskan Perjuangan
+
 </h3>
 
+
 <p>
-Menyelesaikan tugas akhir dan
-menghadapi salah satu fase
-paling menantang.
+
+Tugas akhir, tekanan, revisi,
+dan hari-hari panjang menjadi
+bagian dari proses menuju
+garis akhir.
+
 </p>
+
 
 </div>
 
 
-<div class="timeline-item">
+<div class="story-item">
 
-<div class="year">
+
+<div class="story-year">
+
 2026
+
 </div>
 
+
 <h3>
+
 Graduation Day
+
 </h3>
 
+
 <p>
+
 Hari ketika semua perjuangan
-akhirnya berubah menjadi sebuah
-pencapaian.
+memiliki arti.
+
+Sebuah akhir yang sekaligus
+menjadi awal yang baru.
+
 </p>
+
 
 </div>
 
@@ -1260,31 +2002,45 @@ pencapaian.
 </section>
 
 
-<!-- ================= COUNTDOWN ================= -->
+<!-- =====================================================
+     COUNTDOWN
+===================================================== -->
 
-<section class="section container">
+<section
+class="section container">
+
 
 <div class="section-head reveal">
 
+
 <div class="eyebrow">
-See You There
+
+COUNTDOWN
+
 </div>
+
 
 <h2>
-Menuju hari yang spesial.
+
+Menuju hari spesial.
+
 </h2>
+
 
 </div>
 
 
-<div class="countdown reveal">
+<div class="count-wrap reveal">
 
 
-<div class="count-box">
+<div class="countdown">
 
-<strong id="days">
+
+<div class="count">
+
+<b id="days">
 00
-</strong>
+</b>
 
 <span>
 HARI
@@ -1293,11 +2049,11 @@ HARI
 </div>
 
 
-<div class="count-box">
+<div class="count">
 
-<strong id="hours">
+<b id="hours">
 00
-</strong>
+</b>
 
 <span>
 JAM
@@ -1306,11 +2062,11 @@ JAM
 </div>
 
 
-<div class="count-box">
+<div class="count">
 
-<strong id="minutes">
+<b id="minutes">
 00
-</strong>
+</b>
 
 <span>
 MENIT
@@ -1319,11 +2075,11 @@ MENIT
 </div>
 
 
-<div class="count-box">
+<div class="count">
 
-<strong id="seconds">
+<b id="seconds">
 00
-</strong>
+</b>
 
 <span>
 DETIK
@@ -1334,46 +2090,66 @@ DETIK
 
 </div>
 
+</div>
+
 </section>
 
 
-<!-- ================= EVENT ================= -->
+<!-- =====================================================
+     EVENT
+===================================================== -->
 
 <section
 class="section container"
 id="acara">
 
+
 <div class="section-head reveal">
 
+
 <div class="eyebrow">
-Save The Date
+
+SAVE THE DATE
+
 </div>
+
 
 <h2>
+
 Graduation Day
+
 </h2>
 
+
 <p>
-Kehadiran Anda akan menjadi
-bagian dari kenangan yang
-tidak terlupakan.
+
+Kehadiran Anda akan membuat
+momen ini menjadi kenangan
+yang lebih lengkap.
+
 </p>
+
 
 </div>
 
 
-<div class="event-grid reveal">
+<div class="events reveal">
 
 
-<div class="event-card">
+<div class="event">
+
 
 <div class="event-icon">
 🎓
 </div>
 
+
 <h3>
+
 Wisuda
+
 </h3>
+
 
 <p>
 
@@ -1386,18 +2162,24 @@ Minggu,
 
 </p>
 
+
 </div>
 
 
-<div class="event-card">
+<div class="event">
+
 
 <div class="event-icon">
-📍
+✦
 </div>
 
+
 <h3>
+
 Grand Hall
+
 </h3>
+
 
 <p>
 
@@ -1416,9 +2198,10 @@ class="map-btn"
 target="_blank"
 href="https://www.google.com/maps/search/?api=1&query=EGA+Convention+Center+Jakarta">
 
-BUKA GOOGLE MAPS →
+LIHAT LOKASI →
 
 </a>
+
 
 </div>
 
@@ -1428,29 +2211,44 @@ BUKA GOOGLE MAPS →
 </section>
 
 
-<!-- ================= GALLERY ================= -->
+<!-- =====================================================
+     GALLERY
+===================================================== -->
 
 <section
 class="section container"
 id="galeri">
 
+
 <div class="section-head reveal">
 
+
 <div class="eyebrow">
-Memories
+
+MEMORIES
+
 </div>
 
+
 <h2>
+
 Little moments,
+
 <br>
+
 big memories.
+
 </h2>
 
+
 <p>
-Beberapa momen dari perjalanan
-yang akhirnya membawa kita
-sampai di hari ini.
+
+Beberapa potongan cerita
+dari perjalanan panjang
+menuju hari kelulusan.
+
 </p>
+
 
 </div>
 
@@ -1461,12 +2259,14 @@ sampai di hari ini.
 <figure>
 
 <img
-src="https://images.unsplash.com/photo-1627556704302-624286467c65?auto=format&fit=crop&w=900&q=85"
+src="https://images.unsplash.com/photo-1627556704302-624286467c65?auto=format&fit=crop&w=1000&q=90"
 alt="Graduation">
 
-<figcaption>
-Graduation
-</figcaption>
+<div class="caption">
+
+THE GRADUATE
+
+</div>
 
 </figure>
 
@@ -1474,12 +2274,14 @@ Graduation
 <figure>
 
 <img
-src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=900&q=85"
+src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1000&q=90"
 alt="Campus">
 
-<figcaption>
-Campus days
-</figcaption>
+<div class="caption">
+
+CAMPUS DAYS
+
+</div>
 
 </figure>
 
@@ -1487,12 +2289,14 @@ Campus days
 <figure>
 
 <img
-src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=85"
+src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=90"
 alt="Graduates">
 
-<figcaption>
-One unforgettable day
-</figcaption>
+<div class="caption">
+
+THE MOMENT
+
+</div>
 
 </figure>
 
@@ -1500,12 +2304,14 @@ One unforgettable day
 <figure>
 
 <img
-src="https://images.unsplash.com/photo-1564982752979-3f7bc974d29a?auto=format&fit=crop&w=900&q=85"
+src="https://images.unsplash.com/photo-1564982752979-3f7bc974d29a?auto=format&fit=crop&w=1000&q=90"
 alt="Library">
 
-<figcaption>
-Where it all began
-</figcaption>
+<div class="caption">
+
+THE PROCESS
+
+</div>
 
 </figure>
 
@@ -1513,12 +2319,14 @@ Where it all began
 <figure>
 
 <img
-src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=85"
+src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=90"
 alt="Friends">
 
-<figcaption>
-Friends &amp; stories
-</figcaption>
+<div class="caption">
+
+GOOD PEOPLE
+
+</div>
 
 </figure>
 
@@ -1526,12 +2334,14 @@ Friends &amp; stories
 <figure>
 
 <img
-src="https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=900&q=85"
+src="https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=1000&q=90"
 alt="Celebration">
 
-<figcaption>
-Celebrate the journey
-</figcaption>
+<div class="caption">
+
+CELEBRATE
+
+</div>
 
 </figure>
 
@@ -1541,23 +2351,38 @@ Celebrate the journey
 </section>
 
 
-<!-- ================= RSVP ================= -->
+<!-- =====================================================
+     RSVP
+===================================================== -->
 
-<section class="section container">
+<section
+class="section container"
+id="rsvp">
+
 
 <div class="rsvp reveal">
 
+
 <div class="eyebrow">
+
 RSVP
+
 </div>
 
+
 <h2>
+
 Will you join us?
+
 </h2>
 
+
 <p>
-Konfirmasi kehadiran Anda dan ikut
-merayakan hari spesial ini bersama kami.
+
+Konfirmasi kehadiran Anda
+untuk ikut merayakan hari spesial
+ini bersama Nadia.
+
 </p>
 
 
@@ -1566,166 +2391,379 @@ class="wa-btn"
 target="_blank"
 href="https://wa.me/6280000000000?text=Halo%20Nadia%2C%20saya%20ingin%20mengonfirmasi%20kehadiran%20untuk%20Graduation%20Day.">
 
-KONFIRMASI VIA WHATSAPP →
+KONFIRMASI KEHADIRAN →
 
 </a>
+
 
 </div>
 
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
+
 <h2>
+
 Thank You
+
 </h2>
 
+
 <p>
+
 Sampai bertemu di hari yang spesial.
+
 </p>
 
+
 <div class="brand">
+
 EGA DIGITAL • DIGITAL INVITATION
+
 </div>
+
 
 </footer>
 
 
-<!-- ================= JAVASCRIPT ================= -->
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script>
 
+
+/* =====================================================
+   OPENING
+===================================================== */
+
 function openInvitation(){
 
-document
-.getElementById("opening")
-.classList.add("hide");
+    document
+        .getElementById("opening")
+        .classList
+        .add("hide");
 
-document.body.style.overflow="auto";
+    document.body.style.overflow="auto";
 
-window.scrollTo(0,0);
-
+    window.scrollTo(
+        0,
+        0
+    );
 }
 
 
-/* COUNTDOWN */
+/* =====================================================
+   COUNTDOWN
+===================================================== */
 
 const target =
-new Date(
-"2026-09-20T09:00:00+07:00"
-).getTime();
+    new Date(
+        "2026-09-20T09:00:00+07:00"
+    ).getTime();
 
 
-function countdown(){
+function updateCountdown(){
 
-let d =
-Math.max(
-0,
-target-Date.now()
-);
-
-
-const day =
-Math.floor(
-d/86400000
-);
-
-d%=86400000;
+    let d =
+        Math.max(
+            0,
+            target - Date.now()
+        );
 
 
-const hour =
-Math.floor(
-d/3600000
-);
-
-d%=3600000;
+    const day =
+        Math.floor(
+            d / 86400000
+        );
 
 
-const min =
-Math.floor(
-d/60000
-);
-
-d%=60000;
+    d %= 86400000;
 
 
-const sec =
-Math.floor(
-d/1000
-);
+    const hour =
+        Math.floor(
+            d / 3600000
+        );
 
 
-document.getElementById("days")
-.textContent =
-String(day).padStart(2,"0");
+    d %= 3600000;
 
 
-document.getElementById("hours")
-.textContent =
-String(hour).padStart(2,"0");
+    const min =
+        Math.floor(
+            d / 60000
+        );
 
 
-document.getElementById("minutes")
-.textContent =
-String(min).padStart(2,"0");
+    d %= 60000;
 
 
-document.getElementById("seconds")
-.textContent =
-String(sec).padStart(2,"0");
+    const sec =
+        Math.floor(
+            d / 1000
+        );
 
+
+    document
+        .getElementById("days")
+        .textContent =
+        String(day)
+        .padStart(2,"0");
+
+
+    document
+        .getElementById("hours")
+        .textContent =
+        String(hour)
+        .padStart(2,"0");
+
+
+    document
+        .getElementById("minutes")
+        .textContent =
+        String(min)
+        .padStart(2,"0");
+
+
+    document
+        .getElementById("seconds")
+        .textContent =
+        String(sec)
+        .padStart(2,"0");
 }
 
 
-countdown();
+updateCountdown();
+
 
 setInterval(
-countdown,
-1000
+    updateCountdown,
+    1000
 );
 
 
-/* SCROLL ANIMATION */
+/* =====================================================
+   SCROLL REVEAL
+===================================================== */
 
 const observer =
-new IntersectionObserver(
+    new IntersectionObserver(
 
-entries=>{
+        entries => {
 
-entries.forEach(
-entry=>{
+            entries.forEach(
+                entry => {
 
-if(entry.isIntersecting){
+                    if(
+                        entry.isIntersecting
+                    ){
 
-entry.target
-.classList
-.add("show");
+                        entry
+                            .target
+                            .classList
+                            .add("show");
 
-}
+                    }
 
-});
+                }
+            );
 
-},
+        },
 
-{
-threshold:.12
-}
+        {
+            threshold:.12
+        }
 
-);
+    );
 
 
 document
-.querySelectorAll(".reveal")
-.forEach(
-element=>
-observer.observe(element)
+    .querySelectorAll(".reveal")
+    .forEach(
+        element =>
+        observer.observe(element)
+    );
+
+
+/* =====================================================
+   GOLD PARTICLES
+===================================================== */
+
+const canvas =
+    document.getElementById(
+        "particles"
+    );
+
+const ctx =
+    canvas.getContext("2d");
+
+
+let particles=[];
+
+
+function resizeCanvas(){
+
+    canvas.width =
+        window.innerWidth *
+        devicePixelRatio;
+
+    canvas.height =
+        window.innerHeight *
+        devicePixelRatio;
+
+    ctx.setTransform(
+        devicePixelRatio,
+        0,
+        0,
+        devicePixelRatio,
+        0,
+        0
+    );
+}
+
+
+function createParticles(){
+
+    particles=[];
+
+
+    const amount =
+        Math.min(
+            65,
+            Math.floor(
+                window.innerWidth / 14
+            )
+        );
+
+
+    for(
+        let i=0;
+        i<amount;
+        i++
+    ){
+
+        particles.push({
+
+            x:
+                Math.random() *
+                window.innerWidth,
+
+            y:
+                Math.random() *
+                window.innerHeight,
+
+            r:
+                Math.random() *
+                1.3 + .2,
+
+            a:
+                Math.random() *
+                .45 + .08,
+
+            speed:
+                Math.random() *
+                .18 + .03
+
+        });
+
+    }
+
+}
+
+
+function drawParticles(){
+
+    ctx.clearRect(
+        0,
+        0,
+        window.innerWidth,
+        window.innerHeight
+    );
+
+
+    particles.forEach(
+        particle => {
+
+            particle.y -=
+                particle.speed;
+
+
+            if(
+                particle.y < 0
+            ){
+
+                particle.y =
+                    window.innerHeight;
+
+                particle.x =
+                    Math.random() *
+                    window.innerWidth;
+
+            }
+
+
+            ctx.beginPath();
+
+
+            ctx.arc(
+                particle.x,
+                particle.y,
+                particle.r,
+                0,
+                Math.PI * 2
+            );
+
+
+            ctx.fillStyle =
+                "rgba(243,217,139," +
+                particle.a +
+                ")";
+
+
+            ctx.fill();
+
+        }
+    );
+
+
+    requestAnimationFrame(
+        drawParticles
+    );
+}
+
+
+resizeCanvas();
+
+createParticles();
+
+drawParticles();
+
+
+window.addEventListener(
+    "resize",
+    function(){
+
+        resizeCanvas();
+
+        createParticles();
+
+    }
 );
 
 
-/* LOCK SCREEN BEFORE OPEN */
+/* =====================================================
+   LOCK SCREEN BEFORE OPEN
+===================================================== */
 
 document.body.style.overflow="hidden";
 
