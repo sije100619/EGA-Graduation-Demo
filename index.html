@@ -14,10 +14,6 @@
 
 <style>
 
-/* =====================================================
-   ROOT
-===================================================== */
-
 :root{
     --bg:#080b14;
     --bg2:#0d1320;
@@ -27,11 +23,6 @@
     --muted:#a7adbb;
     --line:rgba(217,182,92,.24);
 }
-
-
-/* =====================================================
-   RESET
-===================================================== */
 
 *{
     box-sizing:border-box;
@@ -45,210 +36,128 @@ html{
 
 body{
     background:
-        radial-gradient(
-            circle at 18% 12%,
-            rgba(217,182,92,.09),
-            transparent 24%
-        ),
-        radial-gradient(
-            circle at 82% 38%,
-            rgba(71,100,150,.12),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 45% 90%,
-            rgba(217,182,92,.05),
-            transparent 25%
-        ),
+        radial-gradient(circle at 18% 12%,rgba(217,182,92,.09),transparent 24%),
+        radial-gradient(circle at 82% 38%,rgba(71,100,150,.12),transparent 28%),
+        radial-gradient(circle at 45% 90%,rgba(217,182,92,.05),transparent 25%),
         var(--bg);
 
     color:var(--cream);
-
     font-family:"DM Sans",sans-serif;
-
     overflow-x:hidden;
 }
 
 body:before{
-
     content:"";
-
     position:fixed;
-
     inset:0;
-
     pointer-events:none;
-
     z-index:0;
 
     background:
         radial-gradient(
             ellipse at 15% 25%,
             transparent 0 30%,
-            rgba(217,182,92,.07)
-            30.1% 30.25%,
+            rgba(217,182,92,.07) 30.1% 30.25%,
             transparent 30.4%
         ),
 
         radial-gradient(
             ellipse at 80% 65%,
             transparent 0 27%,
-            rgba(217,182,92,.06)
-            27.1% 27.25%,
+            rgba(217,182,92,.06) 27.1% 27.25%,
             transparent 27.4%
         );
 }
 
 canvas#particles{
-
     position:fixed;
-
     inset:0;
-
     z-index:0;
-
     pointer-events:none;
-
     opacity:.65;
 }
 
 main,
 nav,
 footer{
-
     position:relative;
-
     z-index:2;
 }
 
 .container{
-
-    width:min(
-        1080px,
-        calc(100% - 34px)
-    );
-
+    width:min(1080px,calc(100% - 34px));
     margin:auto;
 }
 
 h1,
 h2,
 h3{
-
-    font-family:
-        "Playfair Display",
-        serif;
-
+    font-family:"Playfair Display",serif;
     font-weight:600;
 }
 
 .gold{
-
     color:var(--gold);
 }
 
 .eyebrow{
-
     font-size:10px;
-
     letter-spacing:5px;
-
     color:var(--gold2);
-
     font-weight:700;
 }
 
 .reveal{
-
     opacity:0;
-
-    transform:
-        translateY(35px);
-
-    transition:
-        1s cubic-bezier(
-            .2,
-            .7,
-            .2,
-            1
-        );
+    transform:translateY(35px);
+    transition:1s cubic-bezier(.2,.7,.2,1);
 }
 
 .reveal.show{
-
     opacity:1;
-
     transform:none;
 }
 
-
-/* =====================================================
-   DECORATIVE CURVES
-===================================================== */
+/* ================= DECOR ================= */
 
 .decor{
-
     position:absolute;
-
     inset:0;
-
     overflow:hidden;
-
     pointer-events:none;
-
     z-index:0;
 }
 
 .decor svg{
-
     position:absolute;
-
     width:1200px;
-
     max-width:none;
-
     opacity:.42;
 }
 
 .decor .line1{
-
     left:-350px;
-
     top:80px;
 }
 
 .decor .line2{
-
     right:-500px;
-
     top:48%;
-
-    transform:
-        rotate(180deg);
-
+    transform:rotate(180deg);
     opacity:.28;
 }
 
 .decor path{
-
     fill:none;
-
     stroke:var(--gold);
-
     stroke-width:1;
 }
 
-
-/* =====================================================
-   OPENING
-===================================================== */
+/* ================= OPENING ================= */
 
 .opening{
-
     position:fixed;
-
     inset:0;
-
     z-index:9999;
 
     background:
@@ -260,9 +169,7 @@ h3{
         #050811;
 
     display:grid;
-
     place-items:center;
-
     text-align:center;
 
     transition:
@@ -271,114 +178,69 @@ h3{
 }
 
 .opening.hide{
-
     opacity:0;
-
     visibility:hidden;
-
     pointer-events:none;
 }
 
 .opening:after{
-
     content:"";
-
     position:absolute;
-
     width:360px;
-
     height:360px;
-
-    border:
-        1px solid
-        rgba(217,182,92,.13);
-
+    border:1px solid rgba(217,182,92,.13);
     border-radius:50%;
-
-    animation:
-        pulse 3s infinite;
+    animation:pulse 3s infinite;
 }
 
 .opening-inner{
-
     position:relative;
-
     z-index:2;
-
     padding:25px;
 }
 
 .seal{
-
     width:88px;
-
     height:88px;
 
-    border:
-        1px solid
-        var(--line);
-
+    border:1px solid var(--line);
     border-radius:50%;
 
     display:grid;
-
     place-items:center;
 
-    margin:
-        0 auto 28px;
+    margin:0 auto 28px;
 
     color:var(--gold2);
 
-    font:
-        34px
-        "Playfair Display";
+    font:34px "Playfair Display";
 
     box-shadow:
         0 0 80px
         rgba(217,182,92,.10);
 
-    background:
-        rgba(255,255,255,.02);
+    background:rgba(255,255,255,.02);
 }
 
 .opening h1{
-
-    font-size:
-        clamp(
-            45px,
-            9vw,
-            82px
-        );
-
+    font-size:clamp(45px,9vw,82px);
     line-height:.94;
-
-    margin:
-        16px 0 22px;
+    margin:16px 0 22px;
 }
 
 .opening-copy{
-
     max-width:530px;
-
     margin:auto;
-
     color:var(--muted);
-
     font-size:13px;
-
     line-height:1.9;
 }
 
 .open-btn{
-
     margin-top:28px;
+    padding:14px 25px;
 
-    padding:
-        14px 25px;
-
-    border:
-        1px solid
-        var(--gold);
+    border:1px solid var(--gold);
 
     background:
         linear-gradient(
@@ -391,15 +253,12 @@ h3{
     background-size:200%;
 
     color:#12151c;
-
     border-radius:999px;
 
     font-weight:800;
-
     letter-spacing:1px;
 
     cursor:pointer;
-
     transition:.5s;
 
     box-shadow:
@@ -408,33 +267,47 @@ h3{
 }
 
 .open-btn:hover{
-
     background-position:right;
-
-    transform:
-        translateY(-3px);
+    transform:translateY(-3px);
 }
 
 .hint{
-
     font-size:9px !important;
-
     margin-top:12px;
-
     color:#6f7786 !important;
 }
 
+/* ================= GUEST NAME ================= */
 
-/* =====================================================
-   NAV
-===================================================== */
+.guest-label{
+    margin-top:20px;
+    color:#81899a;
+    font-size:9px;
+    letter-spacing:4px;
+}
+
+.guest-name{
+    margin-top:8px;
+    color:var(--gold2);
+
+    font:
+        600 clamp(27px,6vw,43px)
+        "Playfair Display";
+
+    line-height:1.05;
+}
+
+.guest-from{
+    margin-top:7px;
+    color:#858d9b;
+    font-size:10px;
+}
+
+/* ================= NAV ================= */
 
 nav{
-
     position:sticky;
-
     top:10px;
-
     z-index:100;
 
     width:min(
@@ -442,8 +315,7 @@ nav{
         calc(100% - 24px)
     );
 
-    margin:
-        10px auto 0;
+    margin:10px auto 0;
 
     background:
         rgba(7,11,19,.68);
@@ -459,81 +331,50 @@ nav{
 }
 
 .nav{
-
     display:flex;
-
     justify-content:center;
-
     gap:2px;
-
     padding:7px;
-
     overflow-x:auto;
 }
 
 .nav a{
-
     color:#aab1be;
-
     text-decoration:none;
-
     font-size:11px;
-
     letter-spacing:.4px;
-
-    padding:
-        10px 15px;
-
+    padding:10px 15px;
     border-radius:999px;
-
     white-space:nowrap;
-
     transition:.3s;
 }
 
 .nav a:hover{
-
-    background:
-        rgba(217,182,92,.10);
-
+    background:rgba(217,182,92,.10);
     color:var(--gold2);
 }
 
-
-/* =====================================================
-   HERO
-===================================================== */
+/* ================= HERO ================= */
 
 .hero{
-
     min-height:88vh;
-
     display:grid;
-
     place-items:center;
-
     text-align:center;
-
     position:relative;
 }
 
 .hero-inner{
-
-    padding:
-        100px 0;
+    padding:100px 0;
 }
 
 .hero-kicker{
-
     font-size:11px;
-
     letter-spacing:6px;
-
     color:var(--gold2);
 }
 
 .hero h1{
-
     font-size:
         clamp(
             58px,
@@ -542,63 +383,41 @@ nav{
         );
 
     line-height:.82;
-
-    margin:
-        23px 0;
+    margin:23px 0;
 }
 
 .hero h1 em{
-
     font-weight:500;
 }
 
 .hero-sub{
-
     color:var(--muted);
-
     max-width:620px;
-
     margin:auto;
-
     font-size:14px;
-
     line-height:1.9;
 }
 
 .hero-meta{
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     gap:18px;
-
     margin-top:30px;
-
     color:var(--gold2);
-
     font-size:10px;
-
     letter-spacing:3px;
 }
 
 .dot{
-
     width:4px;
-
     height:4px;
-
     border-radius:50%;
-
     background:var(--gold);
 }
 
 .rule{
-
     width:90px;
-
     height:1px;
 
     background:
@@ -609,28 +428,20 @@ nav{
             transparent
         );
 
-    margin:
-        28px auto;
+    margin:28px auto;
 }
 
-
-/* =====================================================
-   SECTION
-===================================================== */
+/* ================= SECTION ================= */
 
 .section{
-
-    padding:
-        105px 0;
+    padding:105px 0;
 }
 
 .section-head{
-
     margin-bottom:42px;
 }
 
 .section-head h2{
-
     font-size:
         clamp(
             42px,
@@ -639,50 +450,31 @@ nav{
         );
 
     line-height:.96;
-
     margin-top:12px;
 }
 
 .section-head p{
-
     color:var(--muted);
-
     max-width:700px;
-
     line-height:1.9;
-
     font-size:13px;
-
     margin-top:18px;
 }
 
-
-/* =====================================================
-   PROFILE
-===================================================== */
+/* ================= PROFILE ================= */
 
 .profile{
-
     display:grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
+    grid-template-columns:1fr 1fr;
     gap:42px;
-
     align-items:center;
 }
 
 .photo-frame{
-
     height:620px;
-
     padding:9px;
 
-    border:
-        1px solid
-        var(--line);
-
+    border:1px solid var(--line);
     border-radius:30px;
 
     background:
@@ -694,24 +486,16 @@ nav{
 }
 
 .photo-frame-inner{
-
     height:100%;
-
     overflow:hidden;
-
     border-radius:23px;
-
     position:relative;
 }
 
 .photo-frame img{
-
     width:100%;
-
     height:100%;
-
     object-fit:cover;
-
     display:block;
 
     filter:
@@ -720,11 +504,8 @@ nav{
 }
 
 .photo-frame-inner:after{
-
     content:"";
-
     position:absolute;
-
     inset:0;
 
     background:
@@ -736,54 +517,34 @@ nav{
 }
 
 .profile-copy{
-
-    padding:
-        15px 5px;
+    padding:15px 5px;
 }
 
 .profile-copy h2{
-
     font-size:54px;
-
     line-height:.98;
-
-    margin:
-        14px 0 20px;
+    margin:14px 0 20px;
 }
 
 .profile-copy p{
-
     color:var(--muted);
-
     line-height:1.9;
-
     font-size:14px;
 }
 
 .signature{
-
     margin-top:28px;
-
     color:var(--gold2);
-
-    font:
-        italic 25px
-        "Playfair Display";
+    font:italic 25px "Playfair Display";
 }
 
 .info-list{
-
     margin-top:28px;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.09);
+    border-top:1px solid rgba(255,255,255,.09);
 }
 
 .info{
-
     display:flex;
-
     justify-content:space-between;
 
     padding:15px 0;
@@ -793,42 +554,27 @@ nav{
         rgba(255,255,255,.07);
 
     font-size:12px;
-
     color:var(--muted);
 }
 
 .info strong{
-
     color:var(--cream);
-
     text-align:right;
 }
 
-
-/* =====================================================
-   STORY
-===================================================== */
+/* ================= STORY ================= */
 
 .story-card{
-
     position:relative;
-
-    padding:
-        15px 0 0;
+    padding:15px 0 0;
 }
 
 .story-card:before{
-
     content:"";
-
     position:absolute;
-
     left:12px;
-
     top:0;
-
     bottom:0;
-
     width:1px;
 
     background:
@@ -839,29 +585,20 @@ nav{
 }
 
 .story-item{
-
     position:relative;
-
-    padding:
-        0 0 62px 52px;
+    padding:0 0 62px 52px;
 }
 
 .story-item:before{
-
     content:"";
-
     position:absolute;
-
     left:7px;
-
     top:3px;
 
     width:11px;
-
     height:11px;
 
     border-radius:50%;
-
     background:var(--gold);
 
     box-shadow:
@@ -870,40 +607,26 @@ nav{
 }
 
 .story-year{
-
     font-size:10px;
-
     letter-spacing:4px;
-
     color:var(--gold);
 }
 
 .story-item h3{
-
     font-size:33px;
-
-    margin:
-        10px 0;
+    margin:10px 0;
 }
 
 .story-item p{
-
     color:var(--muted);
-
     font-size:13px;
-
     line-height:1.9;
-
     max-width:720px;
 }
 
-
-/* =====================================================
-   COUNTDOWN
-===================================================== */
+/* ================= COUNTDOWN ================= */
 
 .count-wrap{
-
     padding:38px;
 
     border:
@@ -921,20 +644,14 @@ nav{
 }
 
 .countdown{
-
     display:grid;
-
     grid-template-columns:
         repeat(4,1fr);
-
     gap:10px;
 }
 
 .count{
-
-    padding:
-        25px 10px;
-
+    padding:25px 10px;
     text-align:center;
 
     border-right:
@@ -943,12 +660,10 @@ nav{
 }
 
 .count:last-child{
-
     border-right:0;
 }
 
 .count b{
-
     font:
         600 51px
         "Playfair Display";
@@ -957,35 +672,23 @@ nav{
 }
 
 .count span{
-
     display:block;
-
     color:#777f8e;
-
     font-size:9px;
-
     letter-spacing:4px;
-
     margin-top:6px;
 }
 
-
-/* =====================================================
-   EVENT
-===================================================== */
+/* ================= EVENT ================= */
 
 .events{
-
     display:grid;
-
     grid-template-columns:
         1fr 1fr;
-
     gap:15px;
 }
 
 .event{
-
     position:relative;
 
     padding:35px;
@@ -1007,19 +710,15 @@ nav{
 }
 
 .event:before{
-
     content:"";
-
     position:absolute;
 
     width:180px;
-
     height:180px;
 
     border-radius:50%;
 
     right:-90px;
-
     top:-90px;
 
     border:
@@ -1028,30 +727,22 @@ nav{
 }
 
 .event-icon{
-
     font-size:24px;
 }
 
 .event h3{
-
     font-size:39px;
-
-    margin:
-        16px 0 12px;
+    margin:16px 0 12px;
 }
 
 .event p{
-
     color:var(--muted);
-
     font-size:13px;
-
     line-height:1.9;
 }
 
 .map-btn,
 .wa-btn{
-
     display:inline-block;
 
     margin-top:23px;
@@ -1068,7 +759,6 @@ nav{
     text-decoration:none;
 
     font-size:10px;
-
     font-weight:800;
 
     transition:.3s;
@@ -1076,32 +766,21 @@ nav{
 
 .map-btn:hover,
 .wa-btn:hover{
-
-    transform:
-        translateY(-3px);
-
+    transform:translateY(-3px);
     background:var(--gold2);
 }
 
-
-/* =====================================================
-   GALLERY
-===================================================== */
+/* ================= GALLERY ================= */
 
 .gallery{
-
     display:grid;
-
     grid-template-columns:
         repeat(12,1fr);
-
     gap:12px;
 }
 
 .gallery figure{
-
     position:relative;
-
     overflow:hidden;
 
     border-radius:22px;
@@ -1116,72 +795,42 @@ nav{
 }
 
 .gallery figure:nth-child(1){
-
     grid-column:span 5;
-
     height:450px;
 }
 
 .gallery figure:nth-child(2){
-
     grid-column:span 7;
-
     height:330px;
 }
 
-.gallery figure:nth-child(3){
-
-    grid-column:span 4;
-
-    height:390px;
-}
-
-.gallery figure:nth-child(4){
-
-    grid-column:span 4;
-
-    height:390px;
-}
-
+.gallery figure:nth-child(3),
+.gallery figure:nth-child(4),
 .gallery figure:nth-child(5){
-
     grid-column:span 4;
-
     height:390px;
 }
 
 .gallery figure:nth-child(6){
-
     grid-column:span 7;
-
     height:330px;
 }
 
 .gallery img{
-
     width:100%;
-
     height:100%;
-
     object-fit:cover;
-
     display:block;
-
     transition:.7s;
 }
 
 .gallery figure:hover img{
-
-    transform:
-        scale(1.07);
+    transform:scale(1.07);
 }
 
 .gallery figure:after{
-
     content:"";
-
     position:absolute;
-
     inset:0;
 
     background:
@@ -1193,29 +842,19 @@ nav{
 }
 
 .caption{
-
     position:absolute;
-
     left:17px;
-
     bottom:15px;
-
     z-index:2;
 
     font-size:10px;
-
     letter-spacing:2px;
-
     color:#fff;
 }
 
-
-/* =====================================================
-   RSVP
-===================================================== */
+/* ================= RSVP ================= */
 
 .rsvp{
-
     text-align:center;
 
     padding:
@@ -1241,7 +880,6 @@ nav{
 }
 
 .rsvp h2{
-
     font-size:
         clamp(
             50px,
@@ -1250,27 +888,18 @@ nav{
         );
 
     line-height:.9;
-
-    margin:
-        15px 0 20px;
+    margin:15px 0 20px;
 }
 
 .rsvp p{
-
     color:var(--muted);
-
     font-size:13px;
-
     line-height:1.8;
 }
 
-
-/* =====================================================
-   FOOTER
-===================================================== */
+/* ================= FOOTER ================= */
 
 footer{
-
     text-align:center;
 
     padding:
@@ -1282,39 +911,204 @@ footer{
 }
 
 footer h2{
-
     font-size:46px;
 }
 
 footer p{
-
     color:var(--muted);
-
     font-size:12px;
-
     margin-top:10px;
 }
 
 .brand{
-
     margin-top:30px;
-
     color:var(--gold);
-
     font-size:9px;
-
     letter-spacing:5px;
 }
 
+/* ================= GUEST MANAGER ================= */
 
-/* =====================================================
-   MOBILE
-===================================================== */
+.manager{
+    display:none;
+
+    padding:30px;
+
+    margin:30px auto 0;
+
+    border:
+        1px solid
+        var(--line);
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(217,182,92,.08),
+            rgba(255,255,255,.025)
+        );
+}
+
+.manager.show{
+    display:block;
+}
+
+.manager-head h2{
+    margin-top:10px;
+    font-size:38px;
+}
+
+.manager-head p{
+    margin-top:10px;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.8;
+}
+
+.guest-input{
+    width:100%;
+    min-height:220px;
+
+    margin-top:20px;
+    padding:17px;
+
+    border:
+        1px solid
+        rgba(217,182,92,.22);
+
+    border-radius:16px;
+
+    background:#080d16;
+    color:var(--cream);
+
+    font:
+        13px/1.8
+        "DM Sans",
+        sans-serif;
+
+    outline:none;
+    resize:vertical;
+}
+
+.guest-input:focus{
+    border-color:var(--gold);
+}
+
+.manager-actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:12px;
+}
+
+.manager-btn{
+    padding:
+        12px 17px;
+
+    border:
+        1px solid
+        rgba(217,182,92,.35);
+
+    border-radius:999px;
+
+    background:#151d29;
+    color:var(--cream);
+
+    font-size:10px;
+    font-weight:800;
+
+    cursor:pointer;
+}
+
+.manager-btn.main{
+    background:var(--gold);
+    color:#10151c;
+}
+
+.manager-btn:hover{
+    transform:translateY(-2px);
+}
+
+.result-list{
+    margin-top:25px;
+
+    display:grid;
+    gap:9px;
+}
+
+.result-item{
+    display:grid;
+    grid-template-columns:
+        1fr auto;
+
+    gap:10px;
+    align-items:center;
+
+    padding:13px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    border-radius:14px;
+
+    background:
+        rgba(255,255,255,.025);
+}
+
+.result-name{
+    font-size:12px;
+    font-weight:700;
+}
+
+.result-link{
+    margin-top:4px;
+    color:#7e8797;
+    font-size:9px;
+    word-break:break-all;
+}
+
+.copy-link{
+    padding:
+        9px 12px;
+
+    border:
+        1px solid
+        rgba(217,182,92,.25);
+
+    border-radius:9px;
+
+    background:#111924;
+    color:var(--gold2);
+
+    font-size:9px;
+    font-weight:800;
+
+    cursor:pointer;
+}
+
+.manager-note{
+    margin-top:18px;
+
+    padding:13px;
+
+    border-radius:12px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    color:#8d96a5;
+
+    font-size:10px;
+    line-height:1.7;
+}
+
+/* ================= MOBILE ================= */
 
 @media(max-width:780px){
 
     .container{
-
         width:
             min(
                 100% - 28px,
@@ -1323,50 +1117,40 @@ footer p{
     }
 
     .section{
-
         padding:78px 0;
     }
 
     .hero{
-
         min-height:82vh;
     }
 
     .hero-inner{
-
         padding:70px 0;
     }
 
     .profile{
-
         grid-template-columns:1fr;
-
         gap:35px;
     }
 
     .photo-frame{
-
         height:500px;
     }
 
     .profile-copy h2{
-
         font-size:43px;
     }
 
     .count-wrap{
-
         padding:22px 10px;
     }
 
     .countdown{
-
         grid-template-columns:
             1fr 1fr;
     }
 
     .count{
-
         border-right:0;
 
         border-bottom:
@@ -1376,34 +1160,39 @@ footer p{
 
     .count:nth-child(3),
     .count:nth-child(4){
-
         border-bottom:0;
     }
 
     .events{
-
         grid-template-columns:1fr;
     }
 
     .gallery{
-
         grid-template-columns:
             1fr 1fr;
     }
 
     .gallery figure,
     .gallery figure:nth-child(n){
+        grid-column:
+            span 1 !important;
 
-        grid-column:span 1 !important;
+        height:
+            300px !important;
+    }
 
-        height:300px !important;
+    .manager{
+        padding:21px;
+    }
+
+    .result-item{
+        grid-template-columns:1fr;
     }
 }
 
 @media(max-width:480px){
 
     .nav a{
-
         padding:
             9px 12px;
 
@@ -1411,56 +1200,41 @@ footer p{
     }
 
     .hero h1{
-
         font-size:57px;
     }
 
     .gallery{
-
         grid-template-columns:1fr;
     }
 
     .gallery figure,
     .gallery figure:nth-child(n){
-
-        height:360px !important;
+        height:
+            360px !important;
     }
 
     .gallery figure:first-child{
-
-        height:430px !important;
-    }
-
-    .profile-photo{
-
-        height:450px;
+        height:
+            430px !important;
     }
 
     .info{
-
         font-size:11px;
     }
 }
 
-
-/* =====================================================
-   ANIMATION
-===================================================== */
+/* ================= ANIMATION ================= */
 
 @keyframes pulse{
 
     0%,
     100%{
-
         transform:scale(.85);
-
         opacity:.25;
     }
 
     50%{
-
         transform:scale(1.05);
-
         opacity:.6;
     }
 }
@@ -1468,13 +1242,7 @@ footer p{
 </style>
 </head>
 
-
 <body>
-
-
-<!-- =====================================================
-     PARTICLES
-===================================================== -->
 
 <canvas id="particles"></canvas>
 
@@ -1489,15 +1257,33 @@ id="opening">
 
 <div class="opening-inner">
 
-
 <div class="seal">
 N
 </div>
 
-
 <div class="eyebrow">
-
 EGA DIGITAL • PRESENTS
+</div>
+
+
+<!-- NAMA TAMU -->
+<div class="guest-label">
+KEPADA YTH.
+</div>
+
+<div
+id="guest-name"
+class="guest-name">
+
+Tamu Undangan
+
+</div>
+
+<div
+id="guest-from"
+class="guest-from">
+
+Anda diundang untuk hadir di hari spesial ini.
 
 </div>
 
@@ -1509,9 +1295,7 @@ Nadia
 <br>
 
 <span class="gold">
-
 Aurelia Putri
-
 </span>
 
 </h1>
@@ -1523,8 +1307,8 @@ Sebuah perayaan kecil
 untuk sebuah pencapaian besar.
 
 Dengan penuh rasa syukur,
-kami mengundang Anda untuk hadir
-di hari spesial ini.
+kami mengundang Anda
+untuk hadir di hari spesial ini.
 
 </p>
 
@@ -1545,7 +1329,6 @@ BUKA UNDANGAN
 sentuh untuk membuka
 
 </p>
-
 
 </div>
 
@@ -1589,6 +1372,108 @@ RSVP
 </nav>
 
 
+<!-- =====================================================
+     CUSTOMER GUEST MANAGER
+     
+     AKSES CUSTOMER:
+     https://domainmu.com/?admin=1
+===================================================== -->
+
+<section
+class="container manager"
+id="guest-manager">
+
+<div class="manager-head">
+
+<div class="eyebrow">
+CUSTOMER GUEST MANAGER
+</div>
+
+<h2>
+Kelola Nama Tamu
+</h2>
+
+<p>
+
+Masukkan satu nama tamu
+per baris.
+
+Sistem otomatis membuat
+link personal untuk setiap nama.
+
+</p>
+
+</div>
+
+
+<textarea
+id="guest-input"
+class="guest-input"
+placeholder="Contoh:
+Budi Santoso
+Andi Saputra
+Siti Rahma
+Keluarga Bapak Ahmad
+Rina & Keluarga"></textarea>
+
+
+<div class="manager-actions">
+
+<button
+class="manager-btn main"
+onclick="generateGuestLinks()">
+
+GENERATE LINK
+
+</button>
+
+
+<button
+class="manager-btn"
+onclick="clearGuestManager()">
+
+BERSIHKAN
+
+</button>
+
+
+<button
+class="manager-btn"
+onclick="copyAllLinks()">
+
+SALIN SEMUA LINK
+
+</button>
+
+</div>
+
+
+<div
+id="result-list"
+class="result-list">
+</div>
+
+
+<div class="manager-note">
+
+<strong>Catatan:</strong>
+
+Fitur ini menggunakan nama
+yang dimasukkan customer/admin
+untuk membuat link personal.
+
+Contoh:
+
+?to=Budi%20Santoso
+
+Jadi penerima undangan
+tidak perlu mengetik nama sendiri.
+
+</div>
+
+</section>
+
+
 <main>
 
 
@@ -1600,9 +1485,7 @@ RSVP
 class="hero container"
 id="home">
 
-
 <div class="decor">
-
 
 <svg
 class="line1"
@@ -1633,17 +1516,13 @@ d="M-100 520 C170 170 420 170 550 360 S880 700 1300 140">
 
 </svg>
 
-
 </div>
 
 
 <div class="hero-inner reveal">
 
-
 <div class="hero-kicker">
-
 THE GRADUATE
-
 </div>
 
 
@@ -1654,9 +1533,7 @@ A new chapter
 <br>
 
 <em class="gold">
-
 begins.
-
 </em>
 
 </h1>
@@ -1693,7 +1570,6 @@ tetapi awal dari cerita yang baru.
 
 </div>
 
-
 </div>
 
 </section>
@@ -1707,20 +1583,16 @@ tetapi awal dari cerita yang baru.
 class="section container"
 id="profil">
 
-
 <div class="profile reveal">
 
 
 <div class="photo-frame">
 
-
 <div class="photo-frame-inner">
-
 
 <img
 src="https://images.unsplash.com/photo-1627556704302-624286467c65?auto=format&fit=crop&w=1000&q=90"
 alt="Graduation">
-
 
 </div>
 
@@ -1729,11 +1601,8 @@ alt="Graduation">
 
 <div class="profile-copy">
 
-
 <div class="eyebrow">
-
 THE GRADUATE
-
 </div>
 
 
@@ -1761,14 +1630,11 @@ kelulusan.
 
 
 <div class="signature">
-
 Nadia
-
 </div>
 
 
 <div class="info-list">
-
 
 <div class="info">
 
@@ -1821,7 +1687,6 @@ S.Kom.
 
 </div>
 
-
 </div>
 
 </div>
@@ -1839,14 +1704,10 @@ S.Kom.
 class="section container"
 id="story">
 
-
 <div class="section-head reveal">
 
-
 <div class="eyebrow">
-
 THE JOURNEY
-
 </div>
 
 
@@ -1871,7 +1732,6 @@ dari perjalanan menuju hari ini.
 
 </p>
 
-
 </div>
 
 
@@ -1880,18 +1740,13 @@ dari perjalanan menuju hari ini.
 
 <div class="story-item">
 
-
 <div class="story-year">
-
 2022
-
 </div>
 
 
 <h3>
-
 Langkah Pertama
-
 </h3>
 
 
@@ -1903,24 +1758,18 @@ baru dan belajar menata langkah.
 
 </p>
 
-
 </div>
 
 
 <div class="story-item">
 
-
 <div class="story-year">
-
 2023
-
 </div>
 
 
 <h3>
-
 Belajar & Bertumbuh
-
 </h3>
 
 
@@ -1932,24 +1781,18 @@ mengenal apa yang ingin dicapai.
 
 </p>
 
-
 </div>
 
 
 <div class="story-item">
 
-
 <div class="story-year">
-
 2025
-
 </div>
 
 
 <h3>
-
 Menuntaskan Perjuangan
-
 </h3>
 
 
@@ -1962,24 +1805,18 @@ garis akhir.
 
 </p>
 
-
 </div>
 
 
 <div class="story-item">
 
-
 <div class="story-year">
-
 2026
-
 </div>
 
 
 <h3>
-
 Graduation Day
-
 </h3>
 
 
@@ -1993,9 +1830,7 @@ menjadi awal yang baru.
 
 </p>
 
-
 </div>
-
 
 </div>
 
@@ -2009,32 +1844,23 @@ menjadi awal yang baru.
 <section
 class="section container">
 
-
 <div class="section-head reveal">
 
-
 <div class="eyebrow">
-
 COUNTDOWN
-
 </div>
 
 
 <h2>
-
 Menuju hari spesial.
-
 </h2>
-
 
 </div>
 
 
 <div class="count-wrap reveal">
 
-
 <div class="countdown">
-
 
 <div class="count">
 
@@ -2087,7 +1913,6 @@ DETIK
 
 </div>
 
-
 </div>
 
 </div>
@@ -2103,21 +1928,15 @@ DETIK
 class="section container"
 id="acara">
 
-
 <div class="section-head reveal">
 
-
 <div class="eyebrow">
-
 SAVE THE DATE
-
 </div>
 
 
 <h2>
-
 Graduation Day
-
 </h2>
 
 
@@ -2129,7 +1948,6 @@ yang lebih lengkap.
 
 </p>
 
-
 </div>
 
 
@@ -2138,16 +1956,13 @@ yang lebih lengkap.
 
 <div class="event">
 
-
 <div class="event-icon">
 🎓
 </div>
 
 
 <h3>
-
 Wisuda
-
 </h3>
 
 
@@ -2162,12 +1977,10 @@ Minggu,
 
 </p>
 
-
 </div>
 
 
 <div class="event">
-
 
 <div class="event-icon">
 ✦
@@ -2175,9 +1988,7 @@ Minggu,
 
 
 <h3>
-
 Grand Hall
-
 </h3>
 
 
@@ -2202,9 +2013,7 @@ LIHAT LOKASI →
 
 </a>
 
-
 </div>
-
 
 </div>
 
@@ -2219,14 +2028,10 @@ LIHAT LOKASI →
 class="section container"
 id="galeri">
 
-
 <div class="section-head reveal">
 
-
 <div class="eyebrow">
-
 MEMORIES
-
 </div>
 
 
@@ -2249,7 +2054,6 @@ menuju hari kelulusan.
 
 </p>
 
-
 </div>
 
 
@@ -2263,9 +2067,7 @@ src="https://images.unsplash.com/photo-1627556704302-624286467c65?auto=format&fi
 alt="Graduation">
 
 <div class="caption">
-
 THE GRADUATE
-
 </div>
 
 </figure>
@@ -2278,9 +2080,7 @@ src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fi
 alt="Campus">
 
 <div class="caption">
-
 CAMPUS DAYS
-
 </div>
 
 </figure>
@@ -2293,9 +2093,7 @@ src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fi
 alt="Graduates">
 
 <div class="caption">
-
 THE MOMENT
-
 </div>
 
 </figure>
@@ -2308,9 +2106,7 @@ src="https://images.unsplash.com/photo-1564982752979-3f7bc974d29a?auto=format&fi
 alt="Library">
 
 <div class="caption">
-
 THE PROCESS
-
 </div>
 
 </figure>
@@ -2323,9 +2119,7 @@ src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fi
 alt="Friends">
 
 <div class="caption">
-
 GOOD PEOPLE
-
 </div>
 
 </figure>
@@ -2338,13 +2132,10 @@ src="https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fi
 alt="Celebration">
 
 <div class="caption">
-
 CELEBRATE
-
 </div>
 
 </figure>
-
 
 </div>
 
@@ -2359,21 +2150,15 @@ CELEBRATE
 class="section container"
 id="rsvp">
 
-
 <div class="rsvp reveal">
 
-
 <div class="eyebrow">
-
 RSVP
-
 </div>
 
 
 <h2>
-
 Will you join us?
-
 </h2>
 
 
@@ -2395,7 +2180,6 @@ KONFIRMASI KEHADIRAN →
 
 </a>
 
-
 </div>
 
 </section>
@@ -2410,27 +2194,19 @@ KONFIRMASI KEHADIRAN →
 
 <footer>
 
-
 <h2>
-
 Thank You
-
 </h2>
 
 
 <p>
-
 Sampai bertemu di hari yang spesial.
-
 </p>
 
 
 <div class="brand">
-
 EGA DIGITAL • DIGITAL INVITATION
-
 </div>
-
 
 </footer>
 
@@ -2441,24 +2217,405 @@ EGA DIGITAL • DIGITAL INVITATION
 
 <script>
 
+/* =====================================================
+   BACA NAMA TAMU DARI LINK
+
+   CONTOH:
+   ?to=Budi%20Santoso
+===================================================== */
+
+const urlParams =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const guest =
+    urlParams.get("to");
+
+
+const guestName =
+    document.getElementById(
+        "guest-name"
+    );
+
+
+const guestFrom =
+    document.getElementById(
+        "guest-from"
+    );
+
+
+if(
+    guest &&
+    guest.trim() !== ""
+){
+
+    const cleanName =
+        guest
+        .trim()
+        .replace(
+            /\s+/g,
+            " "
+        );
+
+
+    guestName.textContent =
+        cleanName;
+
+
+    guestFrom.textContent =
+        "Anda diundang untuk menghadiri Graduation Day Nadia.";
+
+}
+
 
 /* =====================================================
-   OPENING
+   ADMIN / CUSTOMER MODE
+
+   BUKA:
+   https://domainmu.com/?admin=1
+===================================================== */
+
+const isAdmin =
+    urlParams.get("admin") === "1";
+
+
+const manager =
+    document.getElementById(
+        "guest-manager"
+    );
+
+
+if(isAdmin){
+
+    manager.classList.add(
+        "show"
+    );
+
+    document.body.style.overflow =
+        "auto";
+
+}
+
+
+/* =====================================================
+   GENERATE LINK TAMU
+===================================================== */
+
+let generatedLinks = [];
+
+
+function generateGuestLinks(){
+
+    const input =
+        document.getElementById(
+            "guest-input"
+        ).value;
+
+
+    const names =
+        input
+        .split(/\r?\n/)
+        .map(
+            name =>
+                name.trim()
+        )
+        .filter(
+            name =>
+                name.length > 0
+        );
+
+
+    const result =
+        document.getElementById(
+            "result-list"
+        );
+
+
+    result.innerHTML = "";
+
+    generatedLinks = [];
+
+
+    if(
+        names.length === 0
+    ){
+
+        result.innerHTML =
+            '<div class="manager-note">Masukkan minimal 1 nama tamu.</div>';
+
+        return;
+
+    }
+
+
+    const baseUrl =
+        window.location.origin +
+        window.location.pathname;
+
+
+    names.forEach(
+        (name,index) => {
+
+            const link =
+                baseUrl +
+                "?to=" +
+                encodeURIComponent(
+                    name
+                );
+
+
+            generatedLinks.push(
+                link
+            );
+
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+
+            item.className =
+                "result-item";
+
+
+            item.innerHTML = `
+
+                <div>
+
+                    <div class="result-name">
+                        ${escapeHtml(name)}
+                    </div>
+
+                    <div class="result-link">
+                        ${escapeHtml(link)}
+                    </div>
+
+                </div>
+
+                <button
+                    class="copy-link"
+                    onclick="copyOneLink(${index})">
+
+                    COPY LINK
+
+                </button>
+
+            `;
+
+
+            result.appendChild(
+                item
+            );
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   COPY SATU LINK
+===================================================== */
+
+function copyOneLink(index){
+
+    const link =
+        generatedLinks[index];
+
+
+    if(!link){
+        return;
+    }
+
+
+    if(
+        navigator.clipboard &&
+        window.isSecureContext
+    ){
+
+        navigator.clipboard
+        .writeText(link)
+        .then(
+            function(){
+
+                alert(
+                    "Link tamu berhasil disalin."
+                );
+
+            }
+        )
+        .catch(
+            function(){
+
+                prompt(
+                    "Salin link ini:",
+                    link
+                );
+
+            }
+        );
+
+    }else{
+
+        prompt(
+            "Salin link ini:",
+            link
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   COPY SEMUA LINK
+===================================================== */
+
+function copyAllLinks(){
+
+    if(
+        generatedLinks.length === 0
+    ){
+
+        alert(
+            "Generate link terlebih dahulu."
+        );
+
+        return;
+
+    }
+
+
+    const text =
+        generatedLinks.join(
+            "\n"
+        );
+
+
+    if(
+        navigator.clipboard &&
+        window.isSecureContext
+    ){
+
+        navigator.clipboard
+        .writeText(text)
+        .then(
+            function(){
+
+                alert(
+                    generatedLinks.length +
+                    " link berhasil disalin."
+                );
+
+            }
+        )
+        .catch(
+            function(){
+
+                prompt(
+                    "Salin semua link:",
+                    text
+                );
+
+            }
+        );
+
+    }else{
+
+        prompt(
+            "Salin semua link:",
+            text
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   BERSIHKAN
+===================================================== */
+
+function clearGuestManager(){
+
+    document
+        .getElementById(
+            "guest-input"
+        )
+        .value = "";
+
+
+    document
+        .getElementById(
+            "result-list"
+        )
+        .innerHTML = "";
+
+
+    generatedLinks = [];
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHtml(value){
+
+    return value
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =====================================================
+   OPEN INVITATION
 ===================================================== */
 
 function openInvitation(){
 
     document
-        .getElementById("opening")
+        .getElementById(
+            "opening"
+        )
         .classList
-        .add("hide");
+        .add(
+            "hide"
+        );
 
-    document.body.style.overflow="auto";
+
+    document.body.style.overflow =
+        "auto";
+
 
     window.scrollTo(
         0,
         0
     );
+
 }
 
 
@@ -2515,31 +2672,52 @@ function updateCountdown(){
 
 
     document
-        .getElementById("days")
+        .getElementById(
+            "days"
+        )
         .textContent =
         String(day)
-        .padStart(2,"0");
+        .padStart(
+            2,
+            "0"
+        );
 
 
     document
-        .getElementById("hours")
+        .getElementById(
+            "hours"
+        )
         .textContent =
         String(hour)
-        .padStart(2,"0");
+        .padStart(
+            2,
+            "0"
+        );
 
 
     document
-        .getElementById("minutes")
+        .getElementById(
+            "minutes"
+        )
         .textContent =
         String(min)
-        .padStart(2,"0");
+        .padStart(
+            2,
+            "0"
+        );
 
 
     document
-        .getElementById("seconds")
+        .getElementById(
+            "seconds"
+        )
         .textContent =
         String(sec)
-        .padStart(2,"0");
+        .padStart(
+            2,
+            "0"
+        );
+
 }
 
 
@@ -2571,7 +2749,9 @@ const observer =
                         entry
                             .target
                             .classList
-                            .add("show");
+                            .add(
+                                "show"
+                            );
 
                     }
 
@@ -2588,10 +2768,14 @@ const observer =
 
 
 document
-    .querySelectorAll(".reveal")
+    .querySelectorAll(
+        ".reveal"
+    )
     .forEach(
         element =>
-        observer.observe(element)
+        observer.observe(
+            element
+        )
     );
 
 
@@ -2604,11 +2788,14 @@ const canvas =
         "particles"
     );
 
+
 const ctx =
-    canvas.getContext("2d");
+    canvas.getContext(
+        "2d"
+    );
 
 
-let particles=[];
+let particles = [];
 
 
 function resizeCanvas(){
@@ -2617,9 +2804,11 @@ function resizeCanvas(){
         window.innerWidth *
         devicePixelRatio;
 
+
     canvas.height =
         window.innerHeight *
         devicePixelRatio;
+
 
     ctx.setTransform(
         devicePixelRatio,
@@ -2629,12 +2818,13 @@ function resizeCanvas(){
         0,
         0
     );
+
 }
 
 
 function createParticles(){
 
-    particles=[];
+    particles = [];
 
 
     const amount =
@@ -2664,15 +2854,18 @@ function createParticles(){
 
             r:
                 Math.random() *
-                1.3 + .2,
+                1.3 +
+                .2,
 
             a:
                 Math.random() *
-                .45 + .08,
+                .45 +
+                .08,
 
             speed:
                 Math.random() *
-                .18 + .03
+                .18 +
+                .03
 
         });
 
@@ -2704,6 +2897,7 @@ function drawParticles(){
 
                 particle.y =
                     window.innerHeight;
+
 
                 particle.x =
                     Math.random() *
@@ -2739,6 +2933,7 @@ function drawParticles(){
     requestAnimationFrame(
         drawParticles
     );
+
 }
 
 
@@ -2762,10 +2957,15 @@ window.addEventListener(
 
 
 /* =====================================================
-   LOCK SCREEN BEFORE OPEN
+   LOCK SCREEN
 ===================================================== */
 
-document.body.style.overflow="hidden";
+if(!isAdmin){
+
+    document.body.style.overflow =
+        "hidden";
+
+}
 
 </script>
 
