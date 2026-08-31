@@ -2966,7 +2966,65 @@ if(!isAdmin){
         "hidden";
 
 }
+/* =====================================================
+   PERSONALIZED GUEST NAME
+===================================================== */
 
+const guestParams =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const guestName =
+    guestParams.get("to");
+
+if(guestName){
+
+    const name =
+        decodeURIComponent(guestName);
+
+    const openingCopy =
+        document.querySelector(
+            ".opening-copy"
+        );
+
+    if(openingCopy){
+
+        const guestBox =
+            document.createElement("div");
+
+        guestBox.style.margin =
+            "0 0 18px";
+
+        guestBox.style.color =
+            "#f3d98b";
+
+        guestBox.style.fontSize =
+            "14px";
+
+        guestBox.style.letterSpacing =
+            "1px";
+
+        guestBox.style.fontWeight =
+            "600";
+
+        guestBox.innerHTML =
+            "Kepada Yth.<br>" +
+            "<strong style=\"" +
+            "font-size:22px;" +
+            "font-family:'Playfair Display',serif;" +
+            "color:#f4f0e7;" +
+            "\">" +
+            name +
+            "</strong>";
+
+        openingCopy.prepend(
+            guestBox
+        );
+
+    }
+
+}
 </script>
 
 </body>
