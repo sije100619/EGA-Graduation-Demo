@@ -1,18 +1,33 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b14">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color"
+      content="#080b14">
 
 <title>EGA Digital — Graduation Invitation</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap"
+      rel="stylesheet">
+
 
 <style>
+
+/* =====================================================
+   ROOT
+===================================================== */
 
 :root{
     --bg:#080b14;
@@ -23,6 +38,11 @@
     --muted:#a7adbb;
     --line:rgba(217,182,92,.24);
 }
+
+
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
     box-sizing:border-box;
@@ -35,64 +55,103 @@ html{
 }
 
 body{
+
     background:
-        radial-gradient(circle at 18% 12%,rgba(217,182,92,.09),transparent 24%),
-        radial-gradient(circle at 82% 38%,rgba(71,100,150,.12),transparent 28%),
-        radial-gradient(circle at 45% 90%,rgba(217,182,92,.05),transparent 25%),
+        radial-gradient(
+            circle at 18% 12%,
+            rgba(217,182,92,.09),
+            transparent 24%
+        ),
+        radial-gradient(
+            circle at 82% 38%,
+            rgba(71,100,150,.12),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 45% 90%,
+            rgba(217,182,92,.05),
+            transparent 25%
+        ),
         var(--bg);
 
     color:var(--cream);
+
     font-family:"DM Sans",sans-serif;
+
     overflow-x:hidden;
 }
 
 body:before{
+
     content:"";
+
     position:fixed;
+
     inset:0;
+
     pointer-events:none;
+
     z-index:0;
 
     background:
+
         radial-gradient(
             ellipse at 15% 25%,
             transparent 0 30%,
-            rgba(217,182,92,.07) 30.1% 30.25%,
+            rgba(217,182,92,.07)
+            30.1% 30.25%,
             transparent 30.4%
         ),
 
         radial-gradient(
             ellipse at 80% 65%,
             transparent 0 27%,
-            rgba(217,182,92,.06) 27.1% 27.25%,
+            rgba(217,182,92,.06)
+            27.1% 27.25%,
             transparent 27.4%
         );
 }
 
 canvas#particles{
+
     position:fixed;
+
     inset:0;
+
     z-index:0;
+
     pointer-events:none;
+
     opacity:.65;
 }
 
 main,
 nav,
 footer{
+
     position:relative;
+
     z-index:2;
 }
 
 .container{
-    width:min(1080px,calc(100% - 34px));
+
+    width:min(
+        1080px,
+        calc(100% - 34px)
+    );
+
     margin:auto;
 }
 
 h1,
 h2,
 h3{
-    font-family:"Playfair Display",serif;
+
+    font-family:
+        "Playfair Display",
+        serif;
+
     font-weight:600;
 }
 
@@ -101,75 +160,116 @@ h3{
 }
 
 .eyebrow{
+
     font-size:10px;
+
     letter-spacing:5px;
+
     color:var(--gold2);
+
     font-weight:700;
 }
 
 .reveal{
+
     opacity:0;
+
     transform:translateY(35px);
-    transition:1s cubic-bezier(.2,.7,.2,1);
+
+    transition:
+        1s cubic-bezier(.2,.7,.2,1);
 }
 
 .reveal.show{
+
     opacity:1;
+
     transform:none;
 }
 
-/* ================= DECOR ================= */
+
+/* =====================================================
+   DECOR
+===================================================== */
 
 .decor{
+
     position:absolute;
+
     inset:0;
+
     overflow:hidden;
+
     pointer-events:none;
+
     z-index:0;
 }
 
 .decor svg{
+
     position:absolute;
+
     width:1200px;
+
     max-width:none;
+
     opacity:.42;
 }
 
 .decor .line1{
+
     left:-350px;
+
     top:80px;
 }
 
 .decor .line2{
+
     right:-500px;
+
     top:48%;
+
     transform:rotate(180deg);
+
     opacity:.28;
 }
 
 .decor path{
+
     fill:none;
+
     stroke:var(--gold);
+
     stroke-width:1;
 }
 
-/* ================= OPENING ================= */
+
+/* =====================================================
+   OPENING
+===================================================== */
 
 .opening{
+
     position:fixed;
+
     inset:0;
+
     z-index:9999;
 
     background:
+
         radial-gradient(
             circle at 50% 45%,
             rgba(217,182,92,.11),
             transparent 28%
         ),
+
         #050811;
 
     display:grid;
+
     place-items:center;
+
     text-align:center;
 
     transition:
@@ -178,69 +278,157 @@ h3{
 }
 
 .opening.hide{
+
     opacity:0;
+
     visibility:hidden;
+
     pointer-events:none;
 }
 
 .opening:after{
+
     content:"";
+
     position:absolute;
+
     width:360px;
+
     height:360px;
-    border:1px solid rgba(217,182,92,.13);
+
+    border:
+        1px solid
+        rgba(217,182,92,.13);
+
     border-radius:50%;
+
     animation:pulse 3s infinite;
 }
 
 .opening-inner{
+
     position:relative;
+
     z-index:2;
+
     padding:25px;
+
+    width:min(
+        900px,
+        100%
+    );
 }
 
 .seal{
+
     width:88px;
+
     height:88px;
 
-    border:1px solid var(--line);
+    border:
+        1px solid
+        var(--line);
+
     border-radius:50%;
 
     display:grid;
+
     place-items:center;
 
-    margin:0 auto 28px;
+    margin:
+        0 auto 28px;
 
     color:var(--gold2);
 
-    font:34px "Playfair Display";
+    font:
+        34px
+        "Playfair Display";
 
     box-shadow:
         0 0 80px
         rgba(217,182,92,.10);
 
-    background:rgba(255,255,255,.02);
+    background:
+        rgba(255,255,255,.02);
 }
 
 .opening h1{
-    font-size:clamp(45px,9vw,82px);
+
+    font-size:
+        clamp(
+            45px,
+            9vw,
+            82px
+        );
+
     line-height:.94;
-    margin:16px 0 22px;
+
+    margin:
+        16px 0 22px;
 }
 
 .opening-copy{
-    max-width:530px;
+
+    max-width:650px;
+
     margin:auto;
+
     color:var(--muted);
+
     font-size:13px;
+
     line-height:1.9;
 }
 
-.open-btn{
-    margin-top:28px;
-    padding:14px 25px;
 
-    border:1px solid var(--gold);
+/* NAMA TAMU */
+
+.guest-label{
+
+    font-size:9px;
+
+    letter-spacing:5px;
+
+    color:#777f8e;
+
+    margin-top:18px;
+
+    margin-bottom:5px;
+}
+
+.guest-name{
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(
+            30px,
+            5vw,
+            48px
+        );
+
+    color:var(--gold2);
+
+    line-height:1.1;
+
+    margin-bottom:10px;
+
+    font-weight:600;
+}
+
+
+.open-btn{
+
+    margin-top:28px;
+
+    padding:
+        14px 25px;
+
+    border:
+        1px solid
+        var(--gold);
 
     background:
         linear-gradient(
@@ -253,12 +441,15 @@ h3{
     background-size:200%;
 
     color:#12151c;
+
     border-radius:999px;
 
     font-weight:800;
+
     letter-spacing:1px;
 
     cursor:pointer;
+
     transition:.5s;
 
     box-shadow:
@@ -267,47 +458,32 @@ h3{
 }
 
 .open-btn:hover{
+
     background-position:right;
+
     transform:translateY(-3px);
 }
 
 .hint{
+
     font-size:9px !important;
+
     margin-top:12px;
+
     color:#6f7786 !important;
 }
 
-/* ================= GUEST NAME ================= */
 
-.guest-label{
-    margin-top:20px;
-    color:#81899a;
-    font-size:9px;
-    letter-spacing:4px;
-}
-
-.guest-name{
-    margin-top:8px;
-    color:var(--gold2);
-
-    font:
-        600 clamp(27px,6vw,43px)
-        "Playfair Display";
-
-    line-height:1.05;
-}
-
-.guest-from{
-    margin-top:7px;
-    color:#858d9b;
-    font-size:10px;
-}
-
-/* ================= NAV ================= */
+/* =====================================================
+   NAV
+===================================================== */
 
 nav{
+
     position:sticky;
+
     top:10px;
+
     z-index:100;
 
     width:min(
@@ -315,7 +491,8 @@ nav{
         calc(100% - 24px)
     );
 
-    margin:10px auto 0;
+    margin:
+        10px auto 0;
 
     background:
         rgba(7,11,19,.68);
@@ -324,57 +501,87 @@ nav{
         1px solid
         rgba(255,255,255,.10);
 
-    backdrop-filter:
-        blur(18px);
+    backdrop-filter:blur(18px);
 
     border-radius:999px;
 }
 
 .nav{
+
     display:flex;
+
     justify-content:center;
+
     gap:2px;
+
     padding:7px;
+
     overflow-x:auto;
 }
 
 .nav a{
+
     color:#aab1be;
+
     text-decoration:none;
+
     font-size:11px;
+
     letter-spacing:.4px;
-    padding:10px 15px;
+
+    padding:
+        10px 15px;
+
     border-radius:999px;
+
     white-space:nowrap;
+
     transition:.3s;
 }
 
 .nav a:hover{
-    background:rgba(217,182,92,.10);
+
+    background:
+        rgba(217,182,92,.10);
+
     color:var(--gold2);
 }
 
-/* ================= HERO ================= */
+
+/* =====================================================
+   HERO
+===================================================== */
 
 .hero{
+
     min-height:88vh;
+
     display:grid;
+
     place-items:center;
+
     text-align:center;
+
     position:relative;
 }
 
 .hero-inner{
-    padding:100px 0;
+
+    padding:
+        100px 0;
 }
 
 .hero-kicker{
+
     font-size:11px;
+
     letter-spacing:6px;
+
     color:var(--gold2);
 }
 
 .hero h1{
+
     font-size:
         clamp(
             58px,
@@ -383,41 +590,63 @@ nav{
         );
 
     line-height:.82;
-    margin:23px 0;
+
+    margin:
+        23px 0;
 }
 
 .hero h1 em{
+
     font-weight:500;
 }
 
 .hero-sub{
+
     color:var(--muted);
+
     max-width:620px;
+
     margin:auto;
+
     font-size:14px;
+
     line-height:1.9;
 }
 
 .hero-meta{
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     gap:18px;
+
     margin-top:30px;
+
     color:var(--gold2);
+
     font-size:10px;
+
     letter-spacing:3px;
 }
 
 .dot{
+
     width:4px;
+
     height:4px;
+
     border-radius:50%;
+
     background:var(--gold);
 }
 
 .rule{
+
     width:90px;
+
     height:1px;
 
     background:
@@ -428,20 +657,28 @@ nav{
             transparent
         );
 
-    margin:28px auto;
+    margin:
+        28px auto;
 }
 
-/* ================= SECTION ================= */
+
+/* =====================================================
+   SECTION
+===================================================== */
 
 .section{
-    padding:105px 0;
+
+    padding:
+        105px 0;
 }
 
 .section-head{
+
     margin-bottom:42px;
 }
 
 .section-head h2{
+
     font-size:
         clamp(
             42px,
@@ -450,31 +687,50 @@ nav{
         );
 
     line-height:.96;
+
     margin-top:12px;
 }
 
 .section-head p{
+
     color:var(--muted);
+
     max-width:700px;
+
     line-height:1.9;
+
     font-size:13px;
+
     margin-top:18px;
 }
 
-/* ================= PROFILE ================= */
+
+/* =====================================================
+   PROFILE
+===================================================== */
 
 .profile{
+
     display:grid;
-    grid-template-columns:1fr 1fr;
+
+    grid-template-columns:
+        1fr 1fr;
+
     gap:42px;
+
     align-items:center;
 }
 
 .photo-frame{
+
     height:620px;
+
     padding:9px;
 
-    border:1px solid var(--line);
+    border:
+        1px solid
+        var(--line);
+
     border-radius:30px;
 
     background:
@@ -486,16 +742,24 @@ nav{
 }
 
 .photo-frame-inner{
+
     height:100%;
+
     overflow:hidden;
+
     border-radius:23px;
+
     position:relative;
 }
 
 .photo-frame img{
+
     width:100%;
+
     height:100%;
+
     object-fit:cover;
+
     display:block;
 
     filter:
@@ -504,8 +768,11 @@ nav{
 }
 
 .photo-frame-inner:after{
+
     content:"";
+
     position:absolute;
+
     inset:0;
 
     background:
@@ -517,34 +784,54 @@ nav{
 }
 
 .profile-copy{
-    padding:15px 5px;
+
+    padding:
+        15px 5px;
 }
 
 .profile-copy h2{
+
     font-size:54px;
+
     line-height:.98;
-    margin:14px 0 20px;
+
+    margin:
+        14px 0 20px;
 }
 
 .profile-copy p{
+
     color:var(--muted);
+
     line-height:1.9;
+
     font-size:14px;
 }
 
 .signature{
+
     margin-top:28px;
+
     color:var(--gold2);
-    font:italic 25px "Playfair Display";
+
+    font:
+        italic 25px
+        "Playfair Display";
 }
 
 .info-list{
+
     margin-top:28px;
-    border-top:1px solid rgba(255,255,255,.09);
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.09);
 }
 
 .info{
+
     display:flex;
+
     justify-content:space-between;
 
     padding:15px 0;
@@ -554,27 +841,42 @@ nav{
         rgba(255,255,255,.07);
 
     font-size:12px;
+
     color:var(--muted);
 }
 
 .info strong{
+
     color:var(--cream);
+
     text-align:right;
 }
 
-/* ================= STORY ================= */
+
+/* =====================================================
+   STORY
+===================================================== */
 
 .story-card{
+
     position:relative;
-    padding:15px 0 0;
+
+    padding:
+        15px 0 0;
 }
 
 .story-card:before{
+
     content:"";
+
     position:absolute;
+
     left:12px;
+
     top:0;
+
     bottom:0;
+
     width:1px;
 
     background:
@@ -585,20 +887,29 @@ nav{
 }
 
 .story-item{
+
     position:relative;
-    padding:0 0 62px 52px;
+
+    padding:
+        0 0 62px 52px;
 }
 
 .story-item:before{
+
     content:"";
+
     position:absolute;
+
     left:7px;
+
     top:3px;
 
     width:11px;
+
     height:11px;
 
     border-radius:50%;
+
     background:var(--gold);
 
     box-shadow:
@@ -607,26 +918,40 @@ nav{
 }
 
 .story-year{
+
     font-size:10px;
+
     letter-spacing:4px;
+
     color:var(--gold);
 }
 
 .story-item h3{
+
     font-size:33px;
-    margin:10px 0;
+
+    margin:
+        10px 0;
 }
 
 .story-item p{
+
     color:var(--muted);
+
     font-size:13px;
+
     line-height:1.9;
+
     max-width:720px;
 }
 
-/* ================= COUNTDOWN ================= */
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
 
 .count-wrap{
+
     padding:38px;
 
     border:
@@ -644,14 +969,20 @@ nav{
 }
 
 .countdown{
+
     display:grid;
+
     grid-template-columns:
         repeat(4,1fr);
+
     gap:10px;
 }
 
 .count{
-    padding:25px 10px;
+
+    padding:
+        25px 10px;
+
     text-align:center;
 
     border-right:
@@ -660,10 +991,12 @@ nav{
 }
 
 .count:last-child{
+
     border-right:0;
 }
 
 .count b{
+
     font:
         600 51px
         "Playfair Display";
@@ -672,23 +1005,35 @@ nav{
 }
 
 .count span{
+
     display:block;
+
     color:#777f8e;
+
     font-size:9px;
+
     letter-spacing:4px;
+
     margin-top:6px;
 }
 
-/* ================= EVENT ================= */
+
+/* =====================================================
+   EVENT
+===================================================== */
 
 .events{
+
     display:grid;
+
     grid-template-columns:
         1fr 1fr;
+
     gap:15px;
 }
 
 .event{
+
     position:relative;
 
     padding:35px;
@@ -710,15 +1055,19 @@ nav{
 }
 
 .event:before{
+
     content:"";
+
     position:absolute;
 
     width:180px;
+
     height:180px;
 
     border-radius:50%;
 
     right:-90px;
+
     top:-90px;
 
     border:
@@ -727,22 +1076,30 @@ nav{
 }
 
 .event-icon{
+
     font-size:24px;
 }
 
 .event h3{
+
     font-size:39px;
-    margin:16px 0 12px;
+
+    margin:
+        16px 0 12px;
 }
 
 .event p{
+
     color:var(--muted);
+
     font-size:13px;
+
     line-height:1.9;
 }
 
 .map-btn,
 .wa-btn{
+
     display:inline-block;
 
     margin-top:23px;
@@ -759,6 +1116,7 @@ nav{
     text-decoration:none;
 
     font-size:10px;
+
     font-weight:800;
 
     transition:.3s;
@@ -766,21 +1124,31 @@ nav{
 
 .map-btn:hover,
 .wa-btn:hover{
+
     transform:translateY(-3px);
+
     background:var(--gold2);
 }
 
-/* ================= GALLERY ================= */
+
+/* =====================================================
+   GALLERY
+===================================================== */
 
 .gallery{
+
     display:grid;
+
     grid-template-columns:
         repeat(12,1fr);
+
     gap:12px;
 }
 
 .gallery figure{
+
     position:relative;
+
     overflow:hidden;
 
     border-radius:22px;
@@ -795,42 +1163,71 @@ nav{
 }
 
 .gallery figure:nth-child(1){
+
     grid-column:span 5;
+
     height:450px;
 }
 
 .gallery figure:nth-child(2){
+
     grid-column:span 7;
+
     height:330px;
 }
 
-.gallery figure:nth-child(3),
-.gallery figure:nth-child(4),
-.gallery figure:nth-child(5){
+.gallery figure:nth-child(3){
+
     grid-column:span 4;
+
+    height:390px;
+}
+
+.gallery figure:nth-child(4){
+
+    grid-column:span 4;
+
+    height:390px;
+}
+
+.gallery figure:nth-child(5){
+
+    grid-column:span 4;
+
     height:390px;
 }
 
 .gallery figure:nth-child(6){
+
     grid-column:span 7;
+
     height:330px;
 }
 
 .gallery img{
+
     width:100%;
+
     height:100%;
+
     object-fit:cover;
+
     display:block;
+
     transition:.7s;
 }
 
 .gallery figure:hover img{
+
     transform:scale(1.07);
 }
 
 .gallery figure:after{
+
     content:"";
+
     position:absolute;
+
     inset:0;
 
     background:
@@ -842,19 +1239,29 @@ nav{
 }
 
 .caption{
+
     position:absolute;
+
     left:17px;
+
     bottom:15px;
+
     z-index:2;
 
     font-size:10px;
+
     letter-spacing:2px;
+
     color:#fff;
 }
 
-/* ================= RSVP ================= */
+
+/* =====================================================
+   RSVP
+===================================================== */
 
 .rsvp{
+
     text-align:center;
 
     padding:
@@ -867,11 +1274,13 @@ nav{
     border-radius:32px;
 
     background:
+
         radial-gradient(
             circle at 50% 0,
             rgba(217,182,92,.12),
             transparent 40%
         ),
+
         linear-gradient(
             145deg,
             #0e1928,
@@ -880,6 +1289,7 @@ nav{
 }
 
 .rsvp h2{
+
     font-size:
         clamp(
             50px,
@@ -888,18 +1298,27 @@ nav{
         );
 
     line-height:.9;
-    margin:15px 0 20px;
+
+    margin:
+        15px 0 20px;
 }
 
 .rsvp p{
+
     color:var(--muted);
+
     font-size:13px;
+
     line-height:1.8;
 }
 
-/* ================= FOOTER ================= */
+
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer{
+
     text-align:center;
 
     padding:
@@ -911,204 +1330,39 @@ footer{
 }
 
 footer h2{
+
     font-size:46px;
 }
 
 footer p{
+
     color:var(--muted);
+
     font-size:12px;
+
     margin-top:10px;
 }
 
 .brand{
+
     margin-top:30px;
+
     color:var(--gold);
+
     font-size:9px;
+
     letter-spacing:5px;
 }
 
-/* ================= GUEST MANAGER ================= */
 
-.manager{
-    display:none;
-
-    padding:30px;
-
-    margin:30px auto 0;
-
-    border:
-        1px solid
-        var(--line);
-
-    border-radius:28px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(217,182,92,.08),
-            rgba(255,255,255,.025)
-        );
-}
-
-.manager.show{
-    display:block;
-}
-
-.manager-head h2{
-    margin-top:10px;
-    font-size:38px;
-}
-
-.manager-head p{
-    margin-top:10px;
-    color:var(--muted);
-    font-size:12px;
-    line-height:1.8;
-}
-
-.guest-input{
-    width:100%;
-    min-height:220px;
-
-    margin-top:20px;
-    padding:17px;
-
-    border:
-        1px solid
-        rgba(217,182,92,.22);
-
-    border-radius:16px;
-
-    background:#080d16;
-    color:var(--cream);
-
-    font:
-        13px/1.8
-        "DM Sans",
-        sans-serif;
-
-    outline:none;
-    resize:vertical;
-}
-
-.guest-input:focus{
-    border-color:var(--gold);
-}
-
-.manager-actions{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:12px;
-}
-
-.manager-btn{
-    padding:
-        12px 17px;
-
-    border:
-        1px solid
-        rgba(217,182,92,.35);
-
-    border-radius:999px;
-
-    background:#151d29;
-    color:var(--cream);
-
-    font-size:10px;
-    font-weight:800;
-
-    cursor:pointer;
-}
-
-.manager-btn.main{
-    background:var(--gold);
-    color:#10151c;
-}
-
-.manager-btn:hover{
-    transform:translateY(-2px);
-}
-
-.result-list{
-    margin-top:25px;
-
-    display:grid;
-    gap:9px;
-}
-
-.result-item{
-    display:grid;
-    grid-template-columns:
-        1fr auto;
-
-    gap:10px;
-    align-items:center;
-
-    padding:13px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.07);
-
-    border-radius:14px;
-
-    background:
-        rgba(255,255,255,.025);
-}
-
-.result-name{
-    font-size:12px;
-    font-weight:700;
-}
-
-.result-link{
-    margin-top:4px;
-    color:#7e8797;
-    font-size:9px;
-    word-break:break-all;
-}
-
-.copy-link{
-    padding:
-        9px 12px;
-
-    border:
-        1px solid
-        rgba(217,182,92,.25);
-
-    border-radius:9px;
-
-    background:#111924;
-    color:var(--gold2);
-
-    font-size:9px;
-    font-weight:800;
-
-    cursor:pointer;
-}
-
-.manager-note{
-    margin-top:18px;
-
-    padding:13px;
-
-    border-radius:12px;
-
-    background:
-        rgba(255,255,255,.035);
-
-    color:#8d96a5;
-
-    font-size:10px;
-    line-height:1.7;
-}
-
-/* ================= MOBILE ================= */
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media(max-width:780px){
 
     .container{
+
         width:
             min(
                 100% - 28px,
@@ -1117,40 +1371,50 @@ footer p{
     }
 
     .section{
+
         padding:78px 0;
     }
 
     .hero{
+
         min-height:82vh;
     }
 
     .hero-inner{
+
         padding:70px 0;
     }
 
     .profile{
+
         grid-template-columns:1fr;
+
         gap:35px;
     }
 
     .photo-frame{
+
         height:500px;
     }
 
     .profile-copy h2{
+
         font-size:43px;
     }
 
     .count-wrap{
+
         padding:22px 10px;
     }
 
     .countdown{
+
         grid-template-columns:
             1fr 1fr;
     }
 
     .count{
+
         border-right:0;
 
         border-bottom:
@@ -1160,39 +1424,34 @@ footer p{
 
     .count:nth-child(3),
     .count:nth-child(4){
+
         border-bottom:0;
     }
 
     .events{
+
         grid-template-columns:1fr;
     }
 
     .gallery{
+
         grid-template-columns:
             1fr 1fr;
     }
 
     .gallery figure,
     .gallery figure:nth-child(n){
-        grid-column:
-            span 1 !important;
 
-        height:
-            300px !important;
-    }
+        grid-column:span 1 !important;
 
-    .manager{
-        padding:21px;
-    }
-
-    .result-item{
-        grid-template-columns:1fr;
+        height:300px !important;
     }
 }
 
 @media(max-width:480px){
 
     .nav a{
+
         padding:
             9px 12px;
 
@@ -1200,41 +1459,56 @@ footer p{
     }
 
     .hero h1{
+
         font-size:57px;
     }
 
     .gallery{
+
         grid-template-columns:1fr;
     }
 
     .gallery figure,
     .gallery figure:nth-child(n){
-        height:
-            360px !important;
+
+        height:360px !important;
     }
 
     .gallery figure:first-child{
-        height:
-            430px !important;
+
+        height:430px !important;
     }
 
     .info{
+
         font-size:11px;
+    }
+
+    .guest-name{
+
+        font-size:34px;
     }
 }
 
-/* ================= ANIMATION ================= */
+
+/* =====================================================
+   ANIMATION
+===================================================== */
 
 @keyframes pulse{
 
     0%,
     100%{
+
         transform:scale(.85);
+
         opacity:.25;
     }
 
     50%{
+
         transform:scale(1.05);
+
         opacity:.6;
     }
 }
@@ -1242,7 +1516,13 @@ footer p{
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =====================================================
+     PARTICLES
+===================================================== -->
 
 <canvas id="particles"></canvas>
 
@@ -1252,85 +1532,98 @@ footer p{
 ===================================================== -->
 
 <div
-class="opening"
-id="opening">
+    class="opening"
+    id="opening">
 
-<div class="opening-inner">
-
-<div class="seal">
-N
-</div>
-
-<div class="eyebrow">
-EGA DIGITAL • PRESENTS
-</div>
+    <div class="opening-inner">
 
 
-<!-- NAMA TAMU -->
-<div class="guest-label">
-KEPADA YTH.
-</div>
-
-<div
-id="guest-name"
-class="guest-name">
-
-Tamu Undangan
-
-</div>
-
-<div
-id="guest-from"
-class="guest-from">
-
-Anda diundang untuk hadir di hari spesial ini.
-
-</div>
+        <div class="seal">
+            N
+        </div>
 
 
-<h1>
-
-Nadia
-
-<br>
-
-<span class="gold">
-Aurelia Putri
-</span>
-
-</h1>
+        <div class="eyebrow">
+            EGA DIGITAL • PRESENTS
+        </div>
 
 
-<p class="opening-copy">
+        <!-- NAMA TAMU AKAN MASUK DI SINI -->
 
-Sebuah perayaan kecil
-untuk sebuah pencapaian besar.
+        <div
+            class="guest-label"
+            id="guestLabel">
 
-Dengan penuh rasa syukur,
-kami mengundang Anda
-untuk hadir di hari spesial ini.
+            KEPADA YTH.
 
-</p>
-
-
-<button
-class="open-btn"
-onclick="openInvitation()">
-
-BUKA UNDANGAN
-&nbsp;&nbsp;
-→
-
-</button>
+        </div>
 
 
-<p class="hint">
+        <div
+            class="guest-name"
+            id="guestName">
 
-sentuh untuk membuka
+            Tamu Undangan
 
-</p>
+        </div>
 
-</div>
+
+        <p
+            style="
+                color:#8b93a2;
+                font-size:11px;
+                margin-bottom:4px;
+            ">
+
+            Anda diundang untuk hadir
+            di hari spesial ini.
+
+        </p>
+
+
+        <h1>
+
+            Nadia
+
+            <br>
+
+            <span class="gold">
+                Aurelia Putri
+            </span>
+
+        </h1>
+
+
+        <p class="opening-copy">
+
+            Sebuah perayaan kecil
+            untuk sebuah pencapaian besar.
+
+            Dengan penuh rasa syukur,
+            kami mengundang Anda untuk hadir
+            di hari spesial ini.
+
+        </p>
+
+
+        <button
+            class="open-btn"
+            id="openButton"
+            type="button">
+
+            BUKA UNDANGAN
+            &nbsp;&nbsp;
+            →
+
+        </button>
+
+
+        <p class="hint">
+            sentuh untuk membuka
+        </p>
+
+
+    </div>
 
 </div>
 
@@ -1341,137 +1634,35 @@ sentuh untuk membuka
 
 <nav>
 
-<div class="nav">
+    <div class="nav">
 
-<a href="#home">
-HOME
-</a>
+        <a href="#home">
+            HOME
+        </a>
 
-<a href="#profil">
-PROFIL
-</a>
+        <a href="#profil">
+            PROFIL
+        </a>
 
-<a href="#story">
-STORY
-</a>
+        <a href="#story">
+            STORY
+        </a>
 
-<a href="#acara">
-ACARA
-</a>
+        <a href="#acara">
+            ACARA
+        </a>
 
-<a href="#galeri">
-GALERI
-</a>
+        <a href="#galeri">
+            GALERI
+        </a>
 
-<a href="#rsvp">
-RSVP
-</a>
+        <a href="#rsvp">
+            RSVP
+        </a>
 
-</div>
+    </div>
 
 </nav>
-
-
-<!-- =====================================================
-     CUSTOMER GUEST MANAGER
-     
-     AKSES CUSTOMER:
-     https://domainmu.com/?admin=1
-===================================================== -->
-
-<section
-class="container manager"
-id="guest-manager">
-
-<div class="manager-head">
-
-<div class="eyebrow">
-CUSTOMER GUEST MANAGER
-</div>
-
-<h2>
-Kelola Nama Tamu
-</h2>
-
-<p>
-
-Masukkan satu nama tamu
-per baris.
-
-Sistem otomatis membuat
-link personal untuk setiap nama.
-
-</p>
-
-</div>
-
-
-<textarea
-id="guest-input"
-class="guest-input"
-placeholder="Contoh:
-Budi Santoso
-Andi Saputra
-Siti Rahma
-Keluarga Bapak Ahmad
-Rina & Keluarga"></textarea>
-
-
-<div class="manager-actions">
-
-<button
-class="manager-btn main"
-onclick="generateGuestLinks()">
-
-GENERATE LINK
-
-</button>
-
-
-<button
-class="manager-btn"
-onclick="clearGuestManager()">
-
-BERSIHKAN
-
-</button>
-
-
-<button
-class="manager-btn"
-onclick="copyAllLinks()">
-
-SALIN SEMUA LINK
-
-</button>
-
-</div>
-
-
-<div
-id="result-list"
-class="result-list">
-</div>
-
-
-<div class="manager-note">
-
-<strong>Catatan:</strong>
-
-Fitur ini menggunakan nama
-yang dimasukkan customer/admin
-untuk membuat link personal.
-
-Contoh:
-
-?to=Budi%20Santoso
-
-Jadi penerima undangan
-tidak perlu mengetik nama sendiri.
-
-</div>
-
-</section>
 
 
 <main>
@@ -1482,95 +1673,98 @@ tidak perlu mengetik nama sendiri.
 ===================================================== -->
 
 <section
-class="hero container"
-id="home">
-
-<div class="decor">
-
-<svg
-class="line1"
-viewBox="0 0 1200 700">
-
-<path
-d="M-50 480 C170 120 430 120 560 330 S850 650 1250 100">
-</path>
-
-<path
-d="M-100 520 C170 170 420 170 550 360 S880 700 1300 140">
-</path>
-
-</svg>
+    class="hero container"
+    id="home">
 
 
-<svg
-class="line2"
-viewBox="0 0 1200 700">
-
-<path
-d="M-50 480 C170 120 430 120 560 330 S850 650 1250 100">
-</path>
-
-<path
-d="M-100 520 C170 170 420 170 550 360 S880 700 1300 140">
-</path>
-
-</svg>
-
-</div>
+    <div class="decor">
 
 
-<div class="hero-inner reveal">
+        <svg
+            class="line1"
+            viewBox="0 0 1200 700">
 
-<div class="hero-kicker">
-THE GRADUATE
-</div>
+            <path
+                d="M-50 480 C170 120 430 120 560 330 S850 650 1250 100">
+            </path>
 
+            <path
+                d="M-100 520 C170 170 420 170 550 360 S880 700 1300 140">
+            </path>
 
-<h1>
-
-A new chapter
-
-<br>
-
-<em class="gold">
-begins.
-</em>
-
-</h1>
+        </svg>
 
 
-<p class="hero-sub">
+        <svg
+            class="line2"
+            viewBox="0 0 1200 700">
 
-Satu perjalanan panjang
-akhirnya sampai pada sebuah
-pencapaian.
+            <path
+                d="M-50 480 C170 120 430 120 560 330 S850 650 1250 100">
+            </path>
 
-Hari ini bukan sekadar akhir,
-tetapi awal dari cerita yang baru.
+            <path
+                d="M-100 520 C170 170 420 170 550 360 S880 700 1300 140">
+            </path>
 
-</p>
-
-
-<div class="rule">
-</div>
+        </svg>
 
 
-<div class="hero-meta">
+    </div>
 
-<span>
-20 SEPTEMBER 2026
-</span>
 
-<i class="dot">
-</i>
+    <div class="hero-inner reveal">
 
-<span>
-09.00 WIB
-</span>
 
-</div>
+        <div class="hero-kicker">
+            THE GRADUATE
+        </div>
 
-</div>
+
+        <h1>
+
+            A new chapter
+
+            <br>
+
+            <em class="gold">
+                begins.
+            </em>
+
+        </h1>
+
+
+        <p class="hero-sub">
+
+            Satu perjalanan panjang
+            akhirnya sampai pada sebuah
+            pencapaian.
+
+            Hari ini bukan sekadar akhir,
+            tetapi awal dari cerita yang baru.
+
+        </p>
+
+
+        <div class="rule"></div>
+
+
+        <div class="hero-meta">
+
+            <span>
+                20 SEPTEMBER 2026
+            </span>
+
+            <i class="dot"></i>
+
+            <span>
+                09.00 WIB
+            </span>
+
+        </div>
+
+
+    </div>
 
 </section>
 
@@ -1580,118 +1774,122 @@ tetapi awal dari cerita yang baru.
 ===================================================== -->
 
 <section
-class="section container"
-id="profil">
-
-<div class="profile reveal">
+    class="section container"
+    id="profil">
 
 
-<div class="photo-frame">
-
-<div class="photo-frame-inner">
-
-<img
-src="https://images.unsplash.com/photo-1627556704302-624286467c65?auto=format&fit=crop&w=1000&q=90"
-alt="Graduation">
-
-</div>
-
-</div>
+    <div class="profile reveal">
 
 
-<div class="profile-copy">
+        <div class="photo-frame">
 
-<div class="eyebrow">
-THE GRADUATE
-</div>
+            <div class="photo-frame-inner">
 
+                <img
+                    src="https://images.unsplash.com/photo-1627556704302-624286467c65?auto=format&fit=crop&w=1000&q=90"
+                    alt="Graduation">
 
-<h2>
+            </div>
 
-Nadia Aurelia
-
-<br>
-
-Putri
-
-</h2>
+        </div>
 
 
-<p>
-
-Perjalanan akademik yang penuh
-proses, tantangan, dan cerita
-akhirnya sampai pada satu momen
-yang begitu berarti:
-
-kelulusan.
-
-</p>
+        <div class="profile-copy">
 
 
-<div class="signature">
-Nadia
-</div>
+            <div class="eyebrow">
+                THE GRADUATE
+            </div>
 
 
-<div class="info-list">
+            <h2>
 
-<div class="info">
+                Nadia Aurelia
 
-<span>
-Universitas
-</span>
+                <br>
 
-<strong>
-EGA Nusantara
-</strong>
+                Putri
 
-</div>
+            </h2>
 
 
-<div class="info">
+            <p>
 
-<span>
-Fakultas
-</span>
+                Perjalanan akademik yang penuh
+                proses, tantangan, dan cerita
+                akhirnya sampai pada satu momen
+                yang begitu berarti:
 
-<strong>
-Teknologi & Informatika
-</strong>
+                kelulusan.
 
-</div>
-
-
-<div class="info">
-
-<span>
-Program Studi
-</span>
-
-<strong>
-Informatika
-</strong>
-
-</div>
+            </p>
 
 
-<div class="info">
+            <div class="signature">
+                Nadia
+            </div>
 
-<span>
-Gelar
-</span>
 
-<strong>
-S.Kom.
-</strong>
+            <div class="info-list">
 
-</div>
 
-</div>
+                <div class="info">
 
-</div>
+                    <span>
+                        Universitas
+                    </span>
 
-</div>
+                    <strong>
+                        EGA Nusantara
+                    </strong>
+
+                </div>
+
+
+                <div class="info">
+
+                    <span>
+                        Fakultas
+                    </span>
+
+                    <strong>
+                        Teknologi & Informatika
+                    </strong>
+
+                </div>
+
+
+                <div class="info">
+
+                    <span>
+                        Program Studi
+                    </span>
+
+                    <strong>
+                        Informatika
+                    </strong>
+
+                </div>
+
+
+                <div class="info">
+
+                    <span>
+                        Gelar
+                    </span>
+
+                    <strong>
+                        S.Kom.
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -1701,138 +1899,134 @@ S.Kom.
 ===================================================== -->
 
 <section
-class="section container"
-id="story">
-
-<div class="section-head reveal">
-
-<div class="eyebrow">
-THE JOURNEY
-</div>
+    class="section container"
+    id="story">
 
 
-<h2>
-
-Perjalanan yang
-
-<br>
-
-membentuk cerita.
-
-</h2>
+    <div class="section-head reveal">
 
 
-<p>
-
-Setiap tahun membawa pengalaman
-baru.
-
-Setiap tantangan menjadi bagian
-dari perjalanan menuju hari ini.
-
-</p>
-
-</div>
+        <div class="eyebrow">
+            THE JOURNEY
+        </div>
 
 
-<div class="story-card reveal">
+        <h2>
+
+            Perjalanan yang
+
+            <br>
+
+            membentuk cerita.
+
+        </h2>
 
 
-<div class="story-item">
+        <p>
 
-<div class="story-year">
-2022
-</div>
+            Setiap tahun membawa pengalaman
+            baru.
 
+            Setiap tantangan menjadi bagian
+            dari perjalanan menuju hari ini.
 
-<h3>
-Langkah Pertama
-</h3>
-
-
-<p>
-
-Memulai perjalanan sebagai
-mahasiswa, bertemu lingkungan
-baru dan belajar menata langkah.
-
-</p>
-
-</div>
+        </p>
 
 
-<div class="story-item">
-
-<div class="story-year">
-2023
-</div>
+    </div>
 
 
-<h3>
-Belajar & Bertumbuh
-</h3>
+    <div class="story-card reveal">
 
 
-<p>
+        <div class="story-item">
 
-Menemukan banyak pengalaman,
-membangun relasi, dan semakin
-mengenal apa yang ingin dicapai.
+            <div class="story-year">
+                2022
+            </div>
 
-</p>
+            <h3>
+                Langkah Pertama
+            </h3>
 
-</div>
+            <p>
 
+                Memulai perjalanan sebagai
+                mahasiswa, bertemu lingkungan
+                baru dan belajar menata langkah.
 
-<div class="story-item">
+            </p>
 
-<div class="story-year">
-2025
-</div>
-
-
-<h3>
-Menuntaskan Perjuangan
-</h3>
+        </div>
 
 
-<p>
+        <div class="story-item">
 
-Tugas akhir, tekanan, revisi,
-dan hari-hari panjang menjadi
-bagian dari proses menuju
-garis akhir.
+            <div class="story-year">
+                2023
+            </div>
 
-</p>
+            <h3>
+                Belajar & Bertumbuh
+            </h3>
 
-</div>
+            <p>
 
+                Menemukan banyak pengalaman,
+                membangun relasi, dan semakin
+                mengenal apa yang ingin dicapai.
 
-<div class="story-item">
+            </p>
 
-<div class="story-year">
-2026
-</div>
-
-
-<h3>
-Graduation Day
-</h3>
+        </div>
 
 
-<p>
+        <div class="story-item">
 
-Hari ketika semua perjuangan
-memiliki arti.
+            <div class="story-year">
+                2025
+            </div>
 
-Sebuah akhir yang sekaligus
-menjadi awal yang baru.
+            <h3>
+                Menuntaskan Perjuangan
+            </h3>
 
-</p>
+            <p>
 
-</div>
+                Tugas akhir, tekanan, revisi,
+                dan hari-hari panjang menjadi
+                bagian dari proses menuju
+                garis akhir.
 
-</div>
+            </p>
+
+        </div>
+
+
+        <div class="story-item">
+
+            <div class="story-year">
+                2026
+            </div>
+
+            <h3>
+                Graduation Day
+            </h3>
+
+            <p>
+
+                Hari ketika semua perjuangan
+                memiliki arti.
+
+                Sebuah akhir yang sekaligus
+                menjadi awal yang baru.
+
+            </p>
+
+        </div>
+
+
+    </div>
 
 </section>
 
@@ -1842,80 +2036,86 @@ menjadi awal yang baru.
 ===================================================== -->
 
 <section
-class="section container">
-
-<div class="section-head reveal">
-
-<div class="eyebrow">
-COUNTDOWN
-</div>
+    class="section container">
 
 
-<h2>
-Menuju hari spesial.
-</h2>
-
-</div>
+    <div class="section-head reveal">
 
 
-<div class="count-wrap reveal">
-
-<div class="countdown">
-
-<div class="count">
-
-<b id="days">
-00
-</b>
-
-<span>
-HARI
-</span>
-
-</div>
+        <div class="eyebrow">
+            COUNTDOWN
+        </div>
 
 
-<div class="count">
-
-<b id="hours">
-00
-</b>
-
-<span>
-JAM
-</span>
-
-</div>
+        <h2>
+            Menuju hari spesial.
+        </h2>
 
 
-<div class="count">
-
-<b id="minutes">
-00
-</b>
-
-<span>
-MENIT
-</span>
-
-</div>
+    </div>
 
 
-<div class="count">
+    <div class="count-wrap reveal">
 
-<b id="seconds">
-00
-</b>
 
-<span>
-DETIK
-</span>
+        <div class="countdown">
 
-</div>
 
-</div>
+            <div class="count">
 
-</div>
+                <b id="days">
+                    00
+                </b>
+
+                <span>
+                    HARI
+                </span>
+
+            </div>
+
+
+            <div class="count">
+
+                <b id="hours">
+                    00
+                </b>
+
+                <span>
+                    JAM
+                </span>
+
+            </div>
+
+
+            <div class="count">
+
+                <b id="minutes">
+                    00
+                </b>
+
+                <span>
+                    MENIT
+                </span>
+
+            </div>
+
+
+            <div class="count">
+
+                <b id="seconds">
+                    00
+                </b>
+
+                <span>
+                    DETIK
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -1925,97 +2125,106 @@ DETIK
 ===================================================== -->
 
 <section
-class="section container"
-id="acara">
-
-<div class="section-head reveal">
-
-<div class="eyebrow">
-SAVE THE DATE
-</div>
+    class="section container"
+    id="acara">
 
 
-<h2>
-Graduation Day
-</h2>
+    <div class="section-head reveal">
 
 
-<p>
-
-Kehadiran Anda akan membuat
-momen ini menjadi kenangan
-yang lebih lengkap.
-
-</p>
-
-</div>
+        <div class="eyebrow">
+            SAVE THE DATE
+        </div>
 
 
-<div class="events reveal">
+        <h2>
+            Graduation Day
+        </h2>
 
 
-<div class="event">
+        <p>
 
-<div class="event-icon">
-🎓
-</div>
+            Kehadiran Anda akan membuat
+            momen ini menjadi kenangan
+            yang lebih lengkap.
 
-
-<h3>
-Wisuda
-</h3>
+        </p>
 
 
-<p>
-
-Minggu,
-20 September 2026
-
-<br>
-
-09.00 WIB — selesai
-
-</p>
-
-</div>
+    </div>
 
 
-<div class="event">
-
-<div class="event-icon">
-✦
-</div>
+    <div class="events reveal">
 
 
-<h3>
-Grand Hall
-</h3>
+        <div class="event">
 
 
-<p>
-
-EGA Convention Center
-
-<br>
-
-Jl. Contoh No. 88,
-Jakarta
-
-</p>
+            <div class="event-icon">
+                🎓
+            </div>
 
 
-<a
-class="map-btn"
-target="_blank"
-href="https://www.google.com/maps/search/?api=1&query=EGA+Convention+Center+Jakarta">
+            <h3>
+                Wisuda
+            </h3>
 
-LIHAT LOKASI →
 
-</a>
+            <p>
 
-</div>
+                Minggu,
+                20 September 2026
 
-</div>
+                <br>
+
+                09.00 WIB — selesai
+
+            </p>
+
+
+        </div>
+
+
+        <div class="event">
+
+
+            <div class="event-icon">
+                ✦
+            </div>
+
+
+            <h3>
+                Grand Hall
+            </h3>
+
+
+            <p>
+
+                EGA Convention Center
+
+                <br>
+
+                Jl. Contoh No. 88,
+                Jakarta
+
+            </p>
+
+
+            <a
+                class="map-btn"
+                target="_blank"
+                rel="noopener"
+                href="https://www.google.com/maps/search/?api=1&query=EGA+Convention+Center+Jakarta">
+
+                LIHAT LOKASI →
+
+            </a>
+
+
+        </div>
+
+
+    </div>
 
 </section>
 
@@ -2025,119 +2234,123 @@ LIHAT LOKASI →
 ===================================================== -->
 
 <section
-class="section container"
-id="galeri">
-
-<div class="section-head reveal">
-
-<div class="eyebrow">
-MEMORIES
-</div>
+    class="section container"
+    id="galeri">
 
 
-<h2>
-
-Little moments,
-
-<br>
-
-big memories.
-
-</h2>
+    <div class="section-head reveal">
 
 
-<p>
-
-Beberapa potongan cerita
-dari perjalanan panjang
-menuju hari kelulusan.
-
-</p>
-
-</div>
+        <div class="eyebrow">
+            MEMORIES
+        </div>
 
 
-<div class="gallery reveal">
+        <h2>
+
+            Little moments,
+
+            <br>
+
+            big memories.
+
+        </h2>
 
 
-<figure>
+        <p>
 
-<img
-src="https://images.unsplash.com/photo-1627556704302-624286467c65?auto=format&fit=crop&w=1000&q=90"
-alt="Graduation">
+            Beberapa potongan cerita
+            dari perjalanan panjang
+            menuju hari kelulusan.
 
-<div class="caption">
-THE GRADUATE
-</div>
-
-</figure>
+        </p>
 
 
-<figure>
-
-<img
-src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1000&q=90"
-alt="Campus">
-
-<div class="caption">
-CAMPUS DAYS
-</div>
-
-</figure>
+    </div>
 
 
-<figure>
-
-<img
-src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=90"
-alt="Graduates">
-
-<div class="caption">
-THE MOMENT
-</div>
-
-</figure>
+    <div class="gallery reveal">
 
 
-<figure>
+        <figure>
 
-<img
-src="https://images.unsplash.com/photo-1564982752979-3f7bc974d29a?auto=format&fit=crop&w=1000&q=90"
-alt="Library">
+            <img
+                src="https://images.unsplash.com/photo-1627556704302-624286467c65?auto=format&fit=crop&w=1000&q=90"
+                alt="Graduation">
 
-<div class="caption">
-THE PROCESS
-</div>
+            <div class="caption">
+                THE GRADUATE
+            </div>
 
-</figure>
-
-
-<figure>
-
-<img
-src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=90"
-alt="Friends">
-
-<div class="caption">
-GOOD PEOPLE
-</div>
-
-</figure>
+        </figure>
 
 
-<figure>
+        <figure>
 
-<img
-src="https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=1000&q=90"
-alt="Celebration">
+            <img
+                src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1000&q=90"
+                alt="Campus">
 
-<div class="caption">
-CELEBRATE
-</div>
+            <div class="caption">
+                CAMPUS DAYS
+            </div>
 
-</figure>
+        </figure>
 
-</div>
+
+        <figure>
+
+            <img
+                src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=90"
+                alt="Graduates">
+
+            <div class="caption">
+                THE MOMENT
+            </div>
+
+        </figure>
+
+
+        <figure>
+
+            <img
+                src="https://images.unsplash.com/photo-1564982752979-3f7bc974d29a?auto=format&fit=crop&w=1000&q=90"
+                alt="Library">
+
+            <div class="caption">
+                THE PROCESS
+            </div>
+
+        </figure>
+
+
+        <figure>
+
+            <img
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=90"
+                alt="Friends">
+
+            <div class="caption">
+                GOOD PEOPLE
+            </div>
+
+        </figure>
+
+
+        <figure>
+
+            <img
+                src="https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=1000&q=90"
+                alt="Celebration">
+
+            <div class="caption">
+                CELEBRATE
+            </div>
+
+        </figure>
+
+
+    </div>
 
 </section>
 
@@ -2147,40 +2360,45 @@ CELEBRATE
 ===================================================== -->
 
 <section
-class="section container"
-id="rsvp">
-
-<div class="rsvp reveal">
-
-<div class="eyebrow">
-RSVP
-</div>
+    class="section container"
+    id="rsvp">
 
 
-<h2>
-Will you join us?
-</h2>
+    <div class="rsvp reveal">
 
 
-<p>
-
-Konfirmasi kehadiran Anda
-untuk ikut merayakan hari spesial
-ini bersama Nadia.
-
-</p>
+        <div class="eyebrow">
+            RSVP
+        </div>
 
 
-<a
-class="wa-btn"
-target="_blank"
-href="https://wa.me/6280000000000?text=Halo%20Nadia%2C%20saya%20ingin%20mengonfirmasi%20kehadiran%20untuk%20Graduation%20Day.">
+        <h2>
+            Will you join us?
+        </h2>
 
-KONFIRMASI KEHADIRAN →
 
-</a>
+        <p>
 
-</div>
+            Konfirmasi kehadiran Anda
+            untuk ikut merayakan hari spesial
+            ini bersama Nadia.
+
+        </p>
+
+
+        <a
+            class="wa-btn"
+            id="waButton"
+            target="_blank"
+            rel="noopener"
+            href="https://wa.me/6280000000000">
+
+            KONFIRMASI KEHADIRAN →
+
+        </a>
+
+
+    </div>
 
 </section>
 
@@ -2194,401 +2412,78 @@ KONFIRMASI KEHADIRAN →
 
 <footer>
 
-<h2>
-Thank You
-</h2>
+
+    <h2>
+        Thank You
+    </h2>
 
 
-<p>
-Sampai bertemu di hari yang spesial.
-</p>
+    <p>
+        Sampai bertemu di hari yang spesial.
+    </p>
 
 
-<div class="brand">
-EGA DIGITAL • DIGITAL INVITATION
-</div>
+    <div class="brand">
+        EGA DIGITAL • DIGITAL INVITATION
+    </div>
+
 
 </footer>
 
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
 <script>
 
 /* =====================================================
-   BACA NAMA TAMU DARI LINK
-
-   CONTOH:
-   ?to=Budi%20Santoso
+   PERSONALIZED GUEST NAME
 ===================================================== */
 
-const urlParams =
-    new URLSearchParams(
-        window.location.search
-    );
+(function(){
 
-
-const guest =
-    urlParams.get("to");
-
-
-const guestName =
-    document.getElementById(
-        "guest-name"
-    );
-
-
-const guestFrom =
-    document.getElementById(
-        "guest-from"
-    );
-
-
-if(
-    guest &&
-    guest.trim() !== ""
-){
-
-    const cleanName =
-        guest
-        .trim()
-        .replace(
-            /\s+/g,
-            " "
+    const params =
+        new URLSearchParams(
+            window.location.search
         );
 
+    const guest =
+        params.get("to");
 
-    guestName.textContent =
-        cleanName;
-
-
-    guestFrom.textContent =
-        "Anda diundang untuk menghadiri Graduation Day Nadia.";
-
-}
-
-
-/* =====================================================
-   ADMIN / CUSTOMER MODE
-
-   BUKA:
-   https://domainmu.com/?admin=1
-===================================================== */
-
-const isAdmin =
-    urlParams.get("admin") === "1";
-
-
-const manager =
-    document.getElementById(
-        "guest-manager"
-    );
-
-
-if(isAdmin){
-
-    manager.classList.add(
-        "show"
-    );
-
-    document.body.style.overflow =
-        "auto";
-
-}
-
-
-/* =====================================================
-   GENERATE LINK TAMU
-===================================================== */
-
-let generatedLinks = [];
-
-
-function generateGuestLinks(){
-
-    const input =
+    const guestName =
         document.getElementById(
-            "guest-input"
-        ).value;
-
-
-    const names =
-        input
-        .split(/\r?\n/)
-        .map(
-            name =>
-                name.trim()
-        )
-        .filter(
-            name =>
-                name.length > 0
+            "guestName"
         );
 
-
-    const result =
+    const guestLabel =
         document.getElementById(
-            "result-list"
+            "guestLabel"
         );
-
-
-    result.innerHTML = "";
-
-    generatedLinks = [];
 
 
     if(
-        names.length === 0
+        guest &&
+        guestName
     ){
 
-        result.innerHTML =
-            '<div class="manager-note">Masukkan minimal 1 nama tamu.</div>';
-
-        return;
-
-    }
+        const cleanName =
+            guest.trim();
 
 
-    const baseUrl =
-        window.location.origin +
-        window.location.pathname;
+        if(cleanName){
 
+            guestName.textContent =
+                cleanName;
 
-    names.forEach(
-        (name,index) => {
+            if(guestLabel){
 
-            const link =
-                baseUrl +
-                "?to=" +
-                encodeURIComponent(
-                    name
-                );
+                guestLabel.textContent =
+                    "KEPADA YTH.";
 
-
-            generatedLinks.push(
-                link
-            );
-
-
-            const item =
-                document.createElement(
-                    "div"
-                );
-
-
-            item.className =
-                "result-item";
-
-
-            item.innerHTML = `
-
-                <div>
-
-                    <div class="result-name">
-                        ${escapeHtml(name)}
-                    </div>
-
-                    <div class="result-link">
-                        ${escapeHtml(link)}
-                    </div>
-
-                </div>
-
-                <button
-                    class="copy-link"
-                    onclick="copyOneLink(${index})">
-
-                    COPY LINK
-
-                </button>
-
-            `;
-
-
-            result.appendChild(
-                item
-            );
+            }
 
         }
-    );
-
-}
-
-
-/* =====================================================
-   COPY SATU LINK
-===================================================== */
-
-function copyOneLink(index){
-
-    const link =
-        generatedLinks[index];
-
-
-    if(!link){
-        return;
-    }
-
-
-    if(
-        navigator.clipboard &&
-        window.isSecureContext
-    ){
-
-        navigator.clipboard
-        .writeText(link)
-        .then(
-            function(){
-
-                alert(
-                    "Link tamu berhasil disalin."
-                );
-
-            }
-        )
-        .catch(
-            function(){
-
-                prompt(
-                    "Salin link ini:",
-                    link
-                );
-
-            }
-        );
-
-    }else{
-
-        prompt(
-            "Salin link ini:",
-            link
-        );
 
     }
 
-}
-
-
-/* =====================================================
-   COPY SEMUA LINK
-===================================================== */
-
-function copyAllLinks(){
-
-    if(
-        generatedLinks.length === 0
-    ){
-
-        alert(
-            "Generate link terlebih dahulu."
-        );
-
-        return;
-
-    }
-
-
-    const text =
-        generatedLinks.join(
-            "\n"
-        );
-
-
-    if(
-        navigator.clipboard &&
-        window.isSecureContext
-    ){
-
-        navigator.clipboard
-        .writeText(text)
-        .then(
-            function(){
-
-                alert(
-                    generatedLinks.length +
-                    " link berhasil disalin."
-                );
-
-            }
-        )
-        .catch(
-            function(){
-
-                prompt(
-                    "Salin semua link:",
-                    text
-                );
-
-            }
-        );
-
-    }else{
-
-        prompt(
-            "Salin semua link:",
-            text
-        );
-
-    }
-
-}
-
-
-/* =====================================================
-   BERSIHKAN
-===================================================== */
-
-function clearGuestManager(){
-
-    document
-        .getElementById(
-            "guest-input"
-        )
-        .value = "";
-
-
-    document
-        .getElementById(
-            "result-list"
-        )
-        .innerHTML = "";
-
-
-    generatedLinks = [];
-
-}
-
-
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
-
-function escapeHtml(value){
-
-    return value
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
-}
+})();
 
 
 /* =====================================================
@@ -2597,26 +2492,55 @@ function escapeHtml(value){
 
 function openInvitation(){
 
-    document
-        .getElementById(
+    const opening =
+        document.getElementById(
             "opening"
-        )
-        .classList
-        .add(
-            "hide"
         );
+
+    if(!opening) return;
+
+
+    opening.classList.add(
+        "hide"
+    );
 
 
     document.body.style.overflow =
         "auto";
 
 
-    window.scrollTo(
-        0,
-        0
-    );
+    window.scrollTo({
+        top:0,
+        behavior:"instant"
+    });
 
 }
+
+
+/* =====================================================
+   BUTTON EVENT
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        const button =
+            document.getElementById(
+                "openButton"
+            );
+
+        if(button){
+
+            button.addEventListener(
+                "click",
+                openInvitation
+            );
+
+        }
+
+    }
+);
 
 
 /* =====================================================
@@ -2671,52 +2595,61 @@ function updateCountdown(){
         );
 
 
-    document
-        .getElementById(
+    const days =
+        document.getElementById(
             "days"
-        )
-        .textContent =
-        String(day)
-        .padStart(
-            2,
-            "0"
         );
 
-
-    document
-        .getElementById(
+    const hours =
+        document.getElementById(
             "hours"
-        )
-        .textContent =
-        String(hour)
-        .padStart(
-            2,
-            "0"
         );
 
-
-    document
-        .getElementById(
+    const minutes =
+        document.getElementById(
             "minutes"
-        )
-        .textContent =
-        String(min)
-        .padStart(
-            2,
-            "0"
         );
 
-
-    document
-        .getElementById(
+    const seconds =
+        document.getElementById(
             "seconds"
-        )
-        .textContent =
-        String(sec)
-        .padStart(
-            2,
-            "0"
         );
+
+
+    if(days){
+
+        days.textContent =
+            String(day)
+            .padStart(2,"0");
+
+    }
+
+
+    if(hours){
+
+        hours.textContent =
+            String(hour)
+            .padStart(2,"0");
+
+    }
+
+
+    if(minutes){
+
+        minutes.textContent =
+            String(min)
+            .padStart(2,"0");
+
+    }
+
+
+    if(seconds){
+
+        seconds.textContent =
+            String(sec)
+            .padStart(2,"0");
+
+    }
 
 }
 
@@ -2749,9 +2682,7 @@ const observer =
                         entry
                             .target
                             .classList
-                            .add(
-                                "show"
-                            );
+                            .add("show");
 
                     }
 
@@ -2768,14 +2699,10 @@ const observer =
 
 
 document
-    .querySelectorAll(
-        ".reveal"
-    )
+    .querySelectorAll(".reveal")
     .forEach(
         element =>
-        observer.observe(
-            element
-        )
+        observer.observe(element)
     );
 
 
@@ -2788,14 +2715,11 @@ const canvas =
         "particles"
     );
 
-
 const ctx =
-    canvas.getContext(
-        "2d"
-    );
+    canvas.getContext("2d");
 
 
-let particles = [];
+let particles=[];
 
 
 function resizeCanvas(){
@@ -2804,11 +2728,9 @@ function resizeCanvas(){
         window.innerWidth *
         devicePixelRatio;
 
-
     canvas.height =
         window.innerHeight *
         devicePixelRatio;
-
 
     ctx.setTransform(
         devicePixelRatio,
@@ -2824,7 +2746,7 @@ function resizeCanvas(){
 
 function createParticles(){
 
-    particles = [];
+    particles=[];
 
 
     const amount =
@@ -2854,18 +2776,15 @@ function createParticles(){
 
             r:
                 Math.random() *
-                1.3 +
-                .2,
+                1.3 + .2,
 
             a:
                 Math.random() *
-                .45 +
-                .08,
+                .45 + .08,
 
             speed:
                 Math.random() *
-                .18 +
-                .03
+                .18 + .03
 
         });
 
@@ -2897,7 +2816,6 @@ function drawParticles(){
 
                 particle.y =
                     window.innerHeight;
-
 
                 particle.x =
                     Math.random() *
@@ -2960,14 +2878,12 @@ window.addEventListener(
    LOCK SCREEN
 ===================================================== */
 
-if(!isAdmin){
+document.body.style.overflow =
+    "hidden";
 
-    document.body.style.overflow =
-        "hidden";
 
-}
 /* =====================================================
-   PERSONALIZED GUEST NAME V2
+   PERSONALIZED WHATSAPP
 ===================================================== */
 
 (function(){
@@ -2977,55 +2893,45 @@ if(!isAdmin){
             window.location.search
         );
 
-    const guestName =
+    const guest =
         params.get("to");
 
-    if(!guestName) return;
+    const waButton =
+        document.getElementById(
+            "waButton"
+        );
 
-    const name =
-        decodeURIComponent(
-            guestName
-        ).trim();
 
-    if(!name) return;
+    if(
+        guest &&
+        waButton
+    ){
 
-    /*
-       Cari tulisan "Tamu Undangan"
-       di seluruh halaman lalu ganti
-       dengan nama tamu.
-    */
+        const name =
+            guest.trim();
 
-    const elements =
-        document.querySelectorAll("*");
 
-    elements.forEach(
-        function(element){
+        if(name){
 
-            if(
-                element.children.length === 0 &&
-                element.textContent.trim() ===
-                "Tamu Undangan"
-            ){
+            const message =
+                "Halo Nadia, saya " +
+                name +
+                " ingin mengonfirmasi " +
+                "kehadiran untuk Graduation Day.";
 
-                element.textContent =
-                    name;
 
-                element.style.color =
-                    "#f3d98b";
-
-                element.style.fontFamily =
-                    "'Playfair Display', serif";
-
-                element.style.fontWeight =
-                    "600";
-
-            }
+            waButton.href =
+                "https://wa.me/6280000000000" +
+                "?text=" +
+                encodeURIComponent(
+                    message
+                );
 
         }
-    );
+
+    }
 
 })();
-
 
 </script>
 
