@@ -2967,64 +2967,66 @@ if(!isAdmin){
 
 }
 /* =====================================================
-   PERSONALIZED GUEST NAME
+   PERSONALIZED GUEST NAME V2
 ===================================================== */
 
-const guestParams =
-    new URLSearchParams(
-        window.location.search
-    );
+(function(){
 
-const guestName =
-    guestParams.get("to");
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
 
-if(guestName){
+    const guestName =
+        params.get("to");
+
+    if(!guestName) return;
 
     const name =
-        decodeURIComponent(guestName);
+        decodeURIComponent(
+            guestName
+        ).trim();
 
-    const openingCopy =
-        document.querySelector(
-            ".opening-copy"
-        );
+    if(!name) return;
 
-    if(openingCopy){
+    /*
+       Cari tulisan "Tamu Undangan"
+       di seluruh halaman lalu ganti
+       dengan nama tamu.
+    */
 
-        const guestBox =
-            document.createElement("div");
+    const elements =
+        document.querySelectorAll("*");
 
-        guestBox.style.margin =
-            "0 0 18px";
+    elements.forEach(
+        function(element){
 
-        guestBox.style.color =
-            "#f3d98b";
+            if(
+                element.children.length === 0 &&
+                element.textContent.trim() ===
+                "Tamu Undangan"
+            ){
 
-        guestBox.style.fontSize =
-            "14px";
+                element.textContent =
+                    name;
 
-        guestBox.style.letterSpacing =
-            "1px";
+                element.style.color =
+                    "#f3d98b";
 
-        guestBox.style.fontWeight =
-            "600";
+                element.style.fontFamily =
+                    "'Playfair Display', serif";
 
-        guestBox.innerHTML =
-            "Kepada Yth.<br>" +
-            "<strong style=\"" +
-            "font-size:22px;" +
-            "font-family:'Playfair Display',serif;" +
-            "color:#f4f0e7;" +
-            "\">" +
-            name +
-            "</strong>";
+                element.style.fontWeight =
+                    "600";
 
-        openingCopy.prepend(
-            guestBox
-        );
+            }
 
-    }
+        }
+    );
 
-}
+})();
+
+
 </script>
 
 </body>
