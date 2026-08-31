@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b14">
+
+<title>EGA Digital — Guest Manager</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --bg:#070a12;
+    --bg2:#0d1421;
+    --card:#101a29;
+    --gold:#d9b65c;
+    --gold2:#f3d98b;
+    --cream:#f4f0e7;
+    --muted:#9ea7b8;
+    --line:rgba(217,182,92,.22);
+    --danger:#d96c6c;
+    --success:#45d483;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(217,182,92,.10),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 90% 40%,
+            rgba(67,100,150,.13),
+            transparent 30%
+        ),
+        var(--bg);
+
+    color:var(--cream);
+    font-family:"DM Sans",sans-serif;
+    padding-bottom:60px;
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background:
+        radial-gradient(
+            ellipse at 20% 25%,
+            transparent 0 30%,
+            rgba(217,182,92,.055) 30.1% 30.2%,
+            transparent 30.4%
+        ),
+        radial-gradient(
+            ellipse at 80% 70%,
+            transparent 0 28%,
+            rgba(217,182,92,.045) 28.1% 28.2%,
+            transparent 28.4%
+        );
+}
+
+.container{
+    width:min(1050px, calc(100% - 30px));
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+header{
+    padding:55px 0 35px;
+}
+
+.eyebrow{
+    color:var(--gold2);
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:5px;
+}
+
+h1,
+h2,
+h3{
+    font-family:"Playfair Display",serif;
+}
+
+header h1{
+    font-size:clamp(42px,8vw,72px);
+    line-height:.95;
+    margin-top:13px;
+}
+
+header h1 span{
+    color:var(--gold2);
+}
+
+header p{
+    color:var(--muted);
+    max-width:650px;
+    margin-top:18px;
+    line-height:1.8;
+    font-size:14px;
+}
+
+.panel{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16,26,41,.95),
+            rgba(8,14,24,.95)
+        );
+
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:28px;
+    padding:28px;
+    margin-bottom:20px;
+    box-shadow:
+        0 20px 80px rgba(0,0,0,.18);
+}
+
+.panel-title{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.panel-title h2{
+    font-size:28px;
+}
+
+.badge{
+    border:1px solid var(--line);
+    color:var(--gold2);
+    border-radius:999px;
+    padding:7px 12px;
+    font-size:10px;
+    letter-spacing:1px;
+}
+
+textarea{
+    width:100%;
+    min-height:180px;
+    resize:vertical;
+
+    background:#080d17;
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:18px;
+
+    color:var(--cream);
+    outline:none;
+
+    padding:18px;
+
+    font-family:"DM Sans",sans-serif;
+    font-size:14px;
+    line-height:1.8;
+
+    transition:.3s;
+}
+
+textarea:focus{
+    border-color:var(--gold);
+    box-shadow:
+        0 0 0 3px
+        rgba(217,182,92,.07);
+}
+
+textarea::placeholder{
+    color:#687284;
+}
+
+.actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:15px;
+}
+
+button{
+    border:0;
+    cursor:pointer;
+    font-family:"DM Sans",sans-serif;
+    font-weight:700;
+}
+
+.btn{
+    padding:13px 18px;
+    border-radius:999px;
+    transition:.3s;
+    font-size:11px;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-gold{
+    background:
+        linear-gradient(
+            110deg,
+            #b99442,
+            #f0d17b,
+            #b99442
+        );
+
+    background-size:200%;
+    color:#11151c;
+}
+
+.btn-gold:hover{
+    background-position:right;
+}
+
+.btn-dark{
+    background:#172334;
+    border:1px solid rgba(255,255,255,.10);
+    color:var(--cream);
+}
+
+.btn-danger{
+    background:rgba(217,108,108,.10);
+    border:1px solid rgba(217,108,108,.25);
+    color:#ed9292;
+}
+
+.url-box{
+    margin-top:20px;
+    padding:15px 17px;
+    border-radius:16px;
+    background:rgba(217,182,92,.045);
+    border:1px solid var(--line);
+}
+
+.url-label{
+    color:#7e8797;
+    font-size:9px;
+    letter-spacing:2px;
+    margin-bottom:7px;
+}
+
+#baseUrl{
+    color:var(--gold2);
+    font-size:12px;
+    word-break:break-all;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.stat{
+    padding:20px;
+    background:#0c1420;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:20px;
+}
+
+.stat b{
+    display:block;
+    font-family:"Playfair Display",serif;
+    font-size:35px;
+    color:var(--gold2);
+}
+
+.stat span{
+    color:#788294;
+    font-size:9px;
+    letter-spacing:2px;
+}
+
+.table-wrap{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:700px;
+}
+
+th{
+    text-align:left;
+    color:var(--gold2);
+    font-size:9px;
+    letter-spacing:2px;
+    font-weight:700;
+    padding:14px 12px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.10);
+}
+
+td{
+    padding:15px 12px;
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.06);
+
+    color:#b8bfca;
+    font-size:12px;
+    vertical-align:middle;
+}
+
+.number{
+    color:var(--gold);
+    font-weight:700;
+}
+
+.guest-name{
+    color:var(--cream);
+    font-weight:600;
+}
+
+.link-cell{
+    max-width:280px;
+}
+
+.guest-link{
+    color:#8894a7;
+    font-size:10px;
+    word-break:break-all;
+}
+
+.copy-btn{
+    padding:8px 12px;
+    border-radius:999px;
+    background:#172334;
+    border:1px solid rgba(255,255,255,.10);
+    color:var(--cream);
+    font-size:9px;
+}
+
+.copy-btn:hover{
+    border-color:var(--gold);
+    color:var(--gold2);
+}
+
+.delete-btn{
+    padding:8px 11px;
+    border-radius:999px;
+    background:transparent;
+    border:1px solid rgba(217,108,108,.20);
+    color:#d98080;
+    font-size:9px;
+}
+
+.empty{
+    text-align:center;
+    padding:55px 20px;
+    color:#687284;
+}
+
+.empty strong{
+    display:block;
+    color:#a0a8b6;
+    margin-bottom:8px;
+}
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:
+        translate(-50%,20px);
+
+    background:#152131;
+    border:1px solid var(--line);
+    color:var(--cream);
+
+    padding:13px 18px;
+    border-radius:999px;
+
+    font-size:11px;
+    font-weight:600;
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:.3s;
+
+    z-index:999;
+}
+
+.toast.show{
+    opacity:1;
+    transform:
+        translate(-50%,0);
+}
+
+footer{
+    text-align:center;
+    padding:30px 0;
+    color:#586274;
+    font-size:9px;
+    letter-spacing:3px;
+}
+
+@media(max-width:650px){
+
+    .container{
+        width:min(
+            100% - 22px,
+            600px
+        );
+    }
+
+    header{
+        padding-top:35px;
+    }
+
+    .panel{
+        padding:20px;
+        border-radius:22px;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .stat:last-child{
+        grid-column:span 2;
+    }
+
+    .panel-title{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+
+<div class="eyebrow">
+EGA DIGITAL • ADMIN
+</div>
+
+<h1>
+Guest
+<span>Manager.</span>
+</h1>
+
+<p>
+Kelola nama tamu undangan secara otomatis.
+Masukkan daftar nama customer, lalu sistem akan
+membuat link personal untuk setiap tamu.
+</p>
+
+</header>
+
+
+<!-- INPUT TAMU -->
+
+<section class="panel">
+
+<div class="panel-title">
+
+<h2>
+Tambah Tamu
+</h2>
+
+<div class="badge">
+BULK INPUT
+</div>
+
+</div>
+
+<textarea
+id="guestInput"
+placeholder="Masukkan nama tamu...
+
+Contoh:
+Budi
+Andi
+Siti
+Rina
+Fajar
+Dinda
+
+Satu nama satu baris."
+></textarea>
+
+
+<div class="actions">
+
+<button
+class="btn btn-gold"
+onclick="addGuests()"
+>
++ TAMBAHKAN TAMU
+</button>
+
+<button
+class="btn btn-dark"
+onclick="clearInput()"
+>
+BERSIHKAN
+</button>
+
+</div>
+
+
+<div class="url-box">
+
+<div class="url-label">
+LINK UNDANGAN
+</div>
+
+<div id="baseUrl">
+Memuat...
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STATISTIK -->
+
+<div class="stats">
+
+<div class="stat">
+
+<b id="totalGuests">
+0
+</b>
+
+<span>
+TOTAL TAMU
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<b id="sentGuests">
+0
+</b>
+
+<span>
+LINK TERBUAT
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<b>
+100%
+</b>
+
+<span>
+PERSONALIZED
+</span>
+
+</div>
+
+</div>
+
+
+<!-- DAFTAR TAMU -->
+
+<section class="panel">
+
+<div class="panel-title">
+
+<h2>
+Daftar Tamu
+</h2>
+
+<div class="actions" style="margin:0">
+
+<button
+class="btn btn-dark"
+onclick="copyAllLinks()"
+>
+COPY SEMUA LINK
+</button>
+
+<button
+class="btn btn-danger"
+onclick="deleteAll()"
+>
+HAPUS SEMUA
+</button>
+
+</div>
+
+</div>
+
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+NO
+</th>
+
+<th>
+NAMA TAMU
+</th>
+
+<th>
+LINK PERSONAL
+</th>
+
+<th>
+AKSI
+</th>
+
+</tr>
+
+</thead>
+
+
+<tbody id="guestTable">
+
+</tbody>
+
+</table>
+
+<div
+class="empty"
+id="emptyState"
+>
+
+<strong>
+Belum ada tamu.
+</strong>
+
+Masukkan nama tamu di kolom di atas.
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+EGA DIGITAL • GUEST MANAGEMENT SYSTEM
+
+</footer>
+
+</div>
+
+
+<div
+class="toast"
+id="toast"
+>
+Berhasil!
+</div>
+
+
+<script>
+
+/* =====================================================
+   CONFIG
+===================================================== */
+
+const STORAGE_KEY =
+    "ega_digital_guest_list";
+
+
+/* =====================================================
+   BASE URL
+===================================================== */
+
+function getBaseUrl(){
+
+    return (
+        window.location.origin +
+        window.location.pathname
+            .replace(
+                /\/admin\.html$/i,
+                "/index.html"
+            )
+    );
+
+}
+
+
+document.getElementById(
+    "baseUrl"
+).textContent =
+    getBaseUrl();
+
+
+/* =====================================================
+   LOAD DATA
+===================================================== */
+
+function getGuests(){
+
+    try{
+
+        return JSON.parse(
+            localStorage.getItem(
+                STORAGE_KEY
+            )
+        ) || [];
+
+    }catch(error){
+
+        return [];
+
+    }
+
+}
+
+
+function saveGuests(guests){
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(guests)
+    );
+
+}
+
+
+/* =====================================================
+   ADD GUESTS
+===================================================== */
+
+function addGuests(){
+
+    const input =
+        document
+        .getElementById("guestInput")
+        .value
+        .trim();
+
+
+    if(!input){
+
+        showToast(
+            "Masukkan nama tamu dulu."
+        );
+
+        return;
+
+    }
+
+
+    const names =
+        input
+        .split(/\r?\n/)
+        .map(
+            name =>
+            name
+            .replace(
+                /^\s*\d+[\.\)\-]\s*/,
+                ""
+            )
+            .trim()
+        )
+        .filter(Boolean);
+
+
+    if(!names.length){
+
+        showToast(
+            "Nama tamu tidak ditemukan."
+        );
+
+        return;
+
+    }
+
+
+    const guests =
+        getGuests();
+
+
+    names.forEach(
+        name => {
+
+            guests.push({
+
+                id:
+                    Date.now() +
+                    Math.random(),
+
+                name:name
+
+            });
+
+        }
+    );
+
+
+    saveGuests(guests);
+
+
+    document.getElementById(
+        "guestInput"
+    ).value = "";
+
+
+    render();
+
+
+    showToast(
+        names.length +
+        " tamu berhasil ditambahkan."
+    );
+
+}
+
+
+/* =====================================================
+   RENDER
+===================================================== */
+
+function render(){
+
+    const guests =
+        getGuests();
+
+
+    const table =
+        document.getElementById(
+            "guestTable"
+        );
+
+
+    const empty =
+        document.getElementById(
+            "emptyState"
+        );
+
+
+    table.innerHTML = "";
+
+
+    if(!guests.length){
+
+        empty.style.display =
+            "block";
+
+    }else{
+
+        empty.style.display =
+            "none";
+
+    }
+
+
+    guests.forEach(
+        (guest,index) => {
+
+            const link =
+                createGuestLink(
+                    guest.name
+                );
+
+
+            const tr =
+                document.createElement(
+                    "tr"
+                );
+
+
+            tr.innerHTML = `
+
+<td class="number">
+${String(index + 1).padStart(3,"0")}
+</td>
+
+<td class="guest-name">
+${escapeHtml(guest.name)}
+</td>
+
+<td class="link-cell">
+
+<div class="guest-link">
+${escapeHtml(link)}
+</div>
+
+</td>
+
+<td>
+
+<div style="
+display:flex;
+gap:7px;
+flex-wrap:wrap;
+">
+
+<button
+class="copy-btn"
+onclick="copyLink(${index})"
+>
+COPY
+</button>
+
+<button
+class="copy-btn"
+onclick="openLink(${index})"
+>
+BUKA
+</button>
+
+<button
+class="delete-btn"
+onclick="deleteGuest(${index})"
+>
+HAPUS
+</button>
+
+</div>
+
+</td>
+
+`;
+
+
+            table.appendChild(tr);
+
+        }
+    );
+
+
+    document.getElementById(
+        "totalGuests"
+    ).textContent =
+        guests.length;
+
+
+    document.getElementById(
+        "sentGuests"
+    ).textContent =
+        guests.length;
+
+}
+
+
+/* =====================================================
+   CREATE PERSONAL LINK
+===================================================== */
+
+function createGuestLink(name){
+
+    const base =
+        getBaseUrl();
+
+
+    return (
+        base +
+        "?to=" +
+        encodeURIComponent(name)
+    );
+
+}
+
+
+/* =====================================================
+   COPY ONE LINK
+===================================================== */
+
+async function copyLink(index){
+
+    const guests =
+        getGuests();
+
+
+    if(!guests[index]){
+        return;
+    }
+
+
+    const link =
+        createGuestLink(
+            guests[index].name
+        );
+
+
+    await copyText(link);
+
+
+    showToast(
+        "Link " +
+        guests[index].name +
+        " berhasil disalin."
+    );
+
+}
+
+
+/* =====================================================
+   OPEN ONE LINK
+===================================================== */
+
+function openLink(index){
+
+    const guests =
+        getGuests();
+
+
+    if(!guests[index]){
+        return;
+    }
+
+
+    const link =
+        createGuestLink(
+            guests[index].name
+        );
+
+
+    window.open(
+        link,
+        "_blank"
+    );
+
+}
+
+
+/* =====================================================
+   COPY ALL LINKS
+===================================================== */
+
+async function copyAllLinks(){
+
+    const guests =
+        getGuests();
+
+
+    if(!guests.length){
+
+        showToast(
+            "Belum ada tamu."
+        );
+
+        return;
+
+    }
+
+
+    const links =
+        guests
+        .map(
+            (guest,index) => {
+
+                return (
+                    String(index + 1)
+                    .padStart(3,"0") +
+                    " — " +
+                    guest.name +
+                    "\n" +
+                    createGuestLink(
+                        guest.name
+                    )
+                );
+
+            }
+        )
+        .join("\n\n");
+
+
+    await copyText(links);
+
+
+    showToast(
+        "Semua link berhasil disalin."
+    );
+
+}
+
+
+/* =====================================================
+   DELETE ONE
+===================================================== */
+
+function deleteGuest(index){
+
+    const guests =
+        getGuests();
+
+
+    if(!guests[index]){
+        return;
+    }
+
+
+    const name =
+        guests[index].name;
+
+
+    guests.splice(
+        index,
+        1
+    );
+
+
+    saveGuests(guests);
+
+    render();
+
+
+    showToast(
+        name +
+        " dihapus."
+    );
+
+}
+
+
+/* =====================================================
+   DELETE ALL
+===================================================== */
+
+function deleteAll(){
+
+    const guests =
+        getGuests();
+
+
+    if(!guests.length){
+
+        showToast(
+            "Daftar tamu sudah kosong."
+        );
+
+        return;
+
+    }
+
+
+    const confirmDelete =
+        confirm(
+            "Hapus semua " +
+            guests.length +
+            " tamu?"
+        );
+
+
+    if(!confirmDelete){
+        return;
+    }
+
+
+    localStorage.removeItem(
+        STORAGE_KEY
+    );
+
+
+    render();
+
+
+    showToast(
+        "Semua tamu berhasil dihapus."
+    );
+
+}
+
+
+/* =====================================================
+   CLEAR INPUT
+===================================================== */
+
+function clearInput(){
+
+    document.getElementById(
+        "guestInput"
+    ).value = "";
+
+}
+
+
+/* =====================================================
+   COPY HELPER
+===================================================== */
+
+async function copyText(text){
+
+    try{
+
+        await navigator.clipboard.writeText(
+            text
+        );
+
+    }catch(error){
+
+        const area =
+            document.createElement(
+                "textarea"
+            );
+
+        area.value = text;
+
+        document.body.appendChild(
+            area
+        );
+
+        area.select();
+
+        document.execCommand(
+            "copy"
+        );
+
+        area.remove();
+
+    }
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHtml(text){
+
+    return text
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+let toastTimer;
+
+
+function showToast(message){
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    toast.textContent =
+        message;
+
+
+    toast.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        toastTimer
+    );
+
+
+    toastTimer =
+        setTimeout(
+            () => {
+
+                toast.classList.remove(
+                    "show"
+                );
+
+            },
+            2200
+        );
+
+}
+
+
+/* =====================================================
+   INIT
+===================================================== */
+
+render();
+
+</script>
+
+</body>
+</html>
