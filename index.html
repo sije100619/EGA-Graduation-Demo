@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Graduation Invitation — Nadia Aurelia</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root{
+  --navy:#07111f;
+  --navy2:#0d1d31;
+  --gold:#d5b36a;
+  --gold2:#f0d99b;
+  --cream:#f8f4ea;
+  --white:#fff;
+  --muted:#aab6c5;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--navy);
+  color:white;
+  font-family:'DM Sans',sans-serif;
+  overflow-x:hidden;
+}
+
+/* ================= OPENING ================= */
+
+#opening{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:
+    radial-gradient(circle at 50% 35%,#203653 0%,#0b1727 38%,#030913 100%);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  transition:1s ease;
+}
+
+.opening-content{
+  width:90%;
+  max-width:500px;
+  animation:fadeUp 1.2s ease;
+}
+
+.opening-small{
+  color:var(--gold2);
+  letter-spacing:5px;
+  font-size:11px;
+  font-weight:600;
+}
+
+.opening-content h1{
+  font-family:'Playfair Display',serif;
+  font-size:54px;
+  margin:18px 0 8px;
+}
+
+.opening-content p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.open-btn{
+  margin-top:35px;
+  padding:15px 30px;
+  border:1px solid var(--gold);
+  border-radius:40px;
+  background:linear-gradient(135deg,var(--gold),#a47d38);
+  color:#07111f;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 10px 40px rgba(213,179,106,.2);
+  transition:.3s;
+}
+
+.open-btn:hover{
+  transform:translateY(-4px);
+}
+
+/* ================= PARTICLES ================= */
+
+.particles{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  overflow:hidden;
+}
+
+.particle{
+  position:absolute;
+  width:3px;
+  height:3px;
+  background:var(--gold2);
+  border-radius:50%;
+  opacity:.4;
+  animation:float 8s infinite linear;
+}
+
+.particle:nth-child(1){left:10%;top:20%}
+.particle:nth-child(2){left:25%;top:70%;animation-delay:2s}
+.particle:nth-child(3){left:45%;top:30%;animation-delay:4s}
+.particle:nth-child(4){left:65%;top:75%;animation-delay:1s}
+.particle:nth-child(5){left:80%;top:25%;animation-delay:3s}
+.particle:nth-child(6){left:90%;top:60%;animation-delay:5s}
+.particle:nth-child(7){left:55%;top:90%;animation-delay:2s}
+.particle:nth-child(8){left:15%;top:90%;animation-delay:4s}
+
+/* ================= NAV ================= */
+
+nav{
+  position:fixed;
+  top:15px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:100;
+  width:calc(100% - 30px);
+  max-width:700px;
+  padding:10px;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:40px;
+  background:rgba(7,17,31,.72);
+  backdrop-filter:blur(15px);
+  display:flex;
+  justify-content:center;
+  gap:6px;
+}
+
+nav a{
+  color:#b8c3d0;
+  text-decoration:none;
+  font-size:11px;
+  padding:9px 13px;
+  border-radius:25px;
+}
+
+nav a:hover{
+  background:rgba(213,179,106,.15);
+  color:white;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  min-height:100vh;
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:100px 20px 70px;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:650px;
+  height:650px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(213,179,106,.13),transparent 65%);
+  animation:pulse 5s infinite;
+}
+
+.hero-content{
+  position:relative;
+  max-width:800px;
+  animation:fadeUp 1.4s ease;
+}
+
+.label{
+  color:var(--gold2);
+  font-size:11px;
+  letter-spacing:5px;
+  font-weight:600;
+}
+
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(48px,10vw,92px);
+  line-height:.95;
+  margin:25px 0 18px;
+}
+
+.hero h1 span{
+  color:var(--gold2);
+}
+
+.hero p{
+  color:var(--muted);
+  max-width:580px;
+  margin:auto;
+  line-height:1.8;
+}
+
+.date{
+  margin-top:30px;
+  color:white;
+  font-size:13px;
+  letter-spacing:2px;
+}
+
+/* ================= GOLD LINE ================= */
+
+.gold-line{
+  width:70px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:25px auto;
+}
+
+/* ================= SECTION ================= */
+
+section{
+  position:relative;
+  z-index:1;
+  max-width:1050px;
+  margin:auto;
+  padding:110px 20px;
+}
+
+.section-label{
+  color:var(--gold2);
+  font-size:10px;
+  letter-spacing:4px;
+  font-weight:600;
+}
+
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,7vw,60px);
+  margin-top:10px;
+  line-height:1;
+}
+
+.section-desc{
+  color:var(--muted);
+  line-height:1.8;
+  max-width:650px;
+  margin-top:15px;
+}
+
+/* ================= PHOTO ================= */
+
+.main-photo{
+  margin:50px auto 0;
+  max-width:520px;
+  height:620px;
+  border-radius:250px 250px 25px 25px;
+  overflow:hidden;
+  border:1px solid rgba(213,179,106,.35);
+  box-shadow:0 30px 80px rgba(0,0,0,.35);
+}
+
+.main-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* ================= PROFILE ================= */
+
+.profile{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+
+.profile-info{
+  padding:35px;
+  border:1px solid rgba(255,255,255,.09);
+  background:rgba(255,255,255,.035);
+  border-radius:25px;
+}
+
+.profile-info h3{
+  font-family:'Playfair Display',serif;
+  font-size:32px;
+}
+
+.profile-info p{
+  color:var(--muted);
+  line-height:1.9;
+  margin-top:15px;
+}
+
+.info-row{
+  display:flex;
+  justify-content:space-between;
+  padding:15px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  font-size:13px;
+}
+
+.info-row span:first-child{
+  color:var(--muted);
+}
+
+/* ================= TIMELINE ================= */
+
+.timeline{
+  margin-top:50px;
+  border-left:1px solid rgba(213,179,106,.4);
+  padding-left:30px;
+}
+
+.timeline-item{
+  position:relative;
+  margin-bottom:45px;
+}
+
+.timeline-item::before{
+  content:"";
+  position:absolute;
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  background:var(--gold);
+  left:-36px;
+  top:5px;
+  box-shadow:0 0 20px rgba(213,179,106,.7);
+}
+
+.timeline-year{
+  color:var(--gold2);
+  font-size:12px;
+  letter-spacing:2px;
+}
+
+.timeline h3{
+  font-family:'Playfair Display',serif;
+  font-size:28px;
+  margin-top:7px;
+}
+
+.timeline p{
+  color:var(--muted);
+  line-height:1.7;
+  margin-top:6px;
+}
+
+/* ================= COUNTDOWN ================= */
+
+.countdown{
+  margin-top:45px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.count-box{
+  padding:25px 10px;
+  text-align:center;
+  border:1px solid rgba(213,179,106,.22);
+  background:rgba(255,255,255,.035);
+  border-radius:18px;
+}
+
+.count-box strong{
+  display:block;
+  font-family:'Playfair Display',serif;
+  font-size:36px;
+  color:var(--gold2);
+}
+
+.count-box span{
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:2px;
+}
+
+/* ================= EVENT ================= */
+
+.event-grid{
+  margin-top:45px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.event-card{
+  padding:30px;
+  border-radius:22px;
+  background:linear-gradient(145deg,#10243b,#091523);
+  border:1px solid rgba(255,255,255,.08);
+}
+
+.event-icon{
+  font-size:28px;
+}
+
+.event-card h3{
+  font-family:'Playfair Display',serif;
+  font-size:27px;
+  margin-top:15px;
+}
+
+.event-card p{
+  color:var(--muted);
+  line-height:1.8;
+  margin-top:10px;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:12px 20px;
+  border-radius:30px;
+  text-decoration:none;
+  color:#08111e;
+  background:var(--gold2);
+  font-size:12px;
+  font-weight:700;
+}
+
+/* ================= GALLERY ================= */
+
+.gallery{
+  margin-top:45px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.gallery img{
+  width:100%;
+  height:300px;
+  object-fit:cover;
+  border-radius:18px;
+  filter:saturate(.8);
+  transition:.5s;
+}
+
+.gallery img:hover{
+  transform:scale(1.025);
+  filter:saturate(1);
+}
+
+/* ================= QUOTE ================= */
+
+.quote{
+  text-align:center;
+  max-width:750px;
+  margin:auto;
+}
+
+.quote-mark{
+  color:var(--gold);
+  font-family:serif;
+  font-size:70px;
+  line-height:.5;
+}
+
+.quote p{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(24px,5vw,38px);
+  line-height:1.4;
+  margin-top:20px;
+}
+
+.quote small{
+  display:block;
+  color:var(--muted);
+  margin-top:20px;
+}
+
+/* ================= RSVP ================= */
+
+.rsvp{
+  max-width:650px;
+  margin:auto;
+  text-align:center;
+  padding:45px 30px;
+  border-radius:28px;
+  background:linear-gradient(145deg,#132a43,#091523);
+  border:1px solid rgba(213,179,106,.2);
+}
+
+.rsvp p{
+  color:var(--muted);
+  line-height:1.8;
+  margin-top:12px;
+}
+
+.rsvp-button{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 28px;
+  background:#25d366;
+  color:white;
+  text-decoration:none;
+  border-radius:30px;
+  font-weight:700;
+  font-size:13px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  position:relative;
+  z-index:1;
+  padding:70px 20px 50px;
+  text-align:center;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+
+footer h2{
+  font-family:'Playfair Display',serif;
+  font-size:35px;
+}
+
+footer p{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:10px;
+}
+
+.brand{
+  color:var(--gold2);
+  margin-top:30px;
+  font-size:10px;
+  letter-spacing:3px;
+}
+
+/* ================= REVEAL ================= */
+
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s ease;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(30px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@keyframes pulse{
+  0%,100%{transform:scale(1);opacity:.7}
+  50%{transform:scale(1.15);opacity:1}
+}
+
+@keyframes float{
+  0%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-70px);
+  }
+  100%{
+    transform:translateY(-140px);
+    opacity:0;
+  }
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+
+  nav{
+    overflow-x:auto;
+    justify-content:flex-start;
+  }
+
+  nav a{
+    white-space:nowrap;
+  }
+
+  .profile{
+    grid-template-columns:1fr;
+  }
+
+  .main-photo{
+    height:500px;
+  }
+
+  .event-grid{
+    grid-template-columns:1fr;
+  }
+
+  .gallery{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .gallery img{
+    height:220px;
+  }
+
+  .countdown{
+    grid-template-columns:1fr 1fr;
+  }
+
+  section{
+    padding:80px 18px;
+  }
+}
+
+@media(max-width:430px){
+
+  .opening-content h1{
+    font-size:45px;
+  }
+
+  .hero h1{
+    font-size:52px;
+  }
+
+  .profile-info{
+    padding:25px;
+  }
+
+  .gallery{
+    gap:8px;
+  }
+
+  .gallery img{
+    height:190px;
+    border-radius:12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= OPENING ================= -->
+
+<div id="opening">
+
+  <div class="opening-content">
+
+    <div class="opening-small">
+      THE GRADUATION DAY
+    </div>
+
+    <h1>
+      Nadia<br>
+      Aurelia
+    </h1>
+
+    <p>
+      Graduation Invitation • 2026
+    </p>
+
+    <button class="open-btn" onclick="openInvitation()">
+      ✦ BUKA UNDANGAN
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ================= PARTICLES ================= -->
+
+<div class="particles">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+</div>
+
+
+<!-- ================= NAV ================= -->
+
+<nav>
+
+  <a href="#home">Home</a>
+  <a href="#profile">Profil</a>
+  <a href="#story">Story</a>
+  <a href="#event">Acara</a>
+  <a href="#gallery">Galeri</a>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<header class="hero" id="home">
+
+  <div class="hero-content">
+
+    <div class="label">
+      GRADUATION INVITATION
+    </div>
+
+    <h1>
+      Nadia<br>
+      <span>Aurelia Putri</span>
+    </h1>
+
+    <div class="gold-line"></div>
+
+    <p>
+      Dengan penuh rasa syukur, kami mengundang
+      Anda untuk menjadi bagian dari momen
+      spesial perjalanan pendidikan Nadia.
+    </p>
+
+    <div class="date">
+      20 • SEPTEMBER • 2026
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- ================= PROFILE ================= -->
+
+<section id="profile">
+
+  <div class="section-label">
+    THE GRADUATE
+  </div>
+
+  <h2 class="section-title">
+    A new chapter<br>
+    begins.
+  </h2>
+
+  <div class="profile">
+
+    <div class="main-photo reveal">
+
+      <img
+        src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=85"
+        alt="Graduation"
+      >
+
+    </div>
+
+
+    <div class="profile-info reveal">
+
+      <h3>
+        Nadia Aurelia Putri
+      </h3>
+
+      <p>
+        Sarjana Komputer yang menyelesaikan
+        perjalanan akademiknya dengan penuh
+        perjuangan, proses, dan cerita.
+      </p>
+
+      <div class="info-row">
+        <span>Universitas</span>
+        <strong>EGA Nusantara</strong>
+      </div>
+
+      <div class="info-row">
+        <span>Fakultas</span>
+        <strong>Teknologi & Informatika</strong>
+      </div>
+
+      <div class="info-row">
+        <span>Program Studi</span>
+        <strong>Informatika</strong>
+      </div>
+
+      <div class="info-row">
+        <span>Gelar</span>
+        <strong>S.Kom.</strong>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= QUOTE ================= -->
+
+<section>
+
+  <div class="quote reveal">
+
+    <div class="quote-mark">
+      “
+    </div>
+
+    <p>
+      Tidak semua perjalanan mudah,
+      tetapi setiap langkah akhirnya
+      membawa kita ke tempat yang tepat.
+    </p>
+
+    <small>
+      — Nadia Aurelia
+    </small>
+
+  </div>
+
+</section>
+
+
+<!-- ================= STORY ================= -->
+
+<section id="story">
+
+  <div class="section-label">
+    MY JOURNEY
+  </div>
+
+  <h2 class="section-title">
+    Perjalanan yang<br>
+    tidak terlupakan.
+  </h2>
+
+  <p class="section-desc">
+    Empat tahun bukan hanya tentang angka,
+    tetapi tentang orang-orang, pengalaman,
+    kegagalan, dan keberhasilan yang membentuk
+    perjalanan ini.
+  </p>
+
+
+  <div class="timeline">
+
+    <div class="timeline-item reveal">
+
+      <div class="timeline-year">
+        2022
+      </div>
+
+      <h3>
+        Langkah Pertama
+      </h3>
+
+      <p>
+        Memulai perjalanan sebagai mahasiswa
+        dan beradaptasi dengan dunia perkuliahan.
+      </p>
+
+    </div>
+
+
+    <div class="timeline-item reveal">
+
+      <div class="timeline-year">
+        2023
+      </div>
+
+      <h3>
+        Belajar & Bertumbuh
+      </h3>
+
+      <p>
+        Mulai menemukan passion, membangun
+        relasi, dan mengikuti berbagai kegiatan.
+      </p>
+
+    </div>
+
+
+    <div class="timeline-item reveal">
+
+      <div class="timeline-year">
+        2025
+      </div>
+
+      <h3>
+        Menyelesaikan Perjuangan
+      </h3>
+
+      <p>
+        Menyelesaikan tugas akhir dan menghadapi
+        salah satu fase paling menantang.
+      </p>
+
+    </div>
+
+
+    <div class="timeline-item reveal">
+
+      <div class="timeline-year">
+        2026
+      </div>
+
+      <h3>
+        Graduation Day
+      </h3>
+
+      <p>
+        Hari ketika semua perjuangan akhirnya
+        berubah menjadi sebuah pencapaian.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= COUNTDOWN ================= -->
+
+<section>
+
+  <div class="section-label">
+    COUNTDOWN
+  </div>
+
+  <h2 class="section-title">
+    See you there.
+  </h2>
+
+  <p class="section-desc">
+    Hitung mundur menuju hari yang spesial.
+  </p>
+
+
+  <div class="countdown">
+
+    <div class="count-box">
+      <strong id="days">00</strong>
+      <span>HARI</span>
+    </div>
+
+    <div class="count-box">
+      <strong id="hours">00</strong>
+      <span>JAM</span>
+    </div>
+
+    <div class="count-box">
+      <strong id="minutes">00</strong>
+      <span>MENIT</span>
+    </div>
+
+    <div class="count-box">
+      <strong id="seconds">00</strong>
+      <span>DETIK</span>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= EVENT ================= -->
+
+<section id="event">
+
+  <div class="section-label">
+    SAVE THE DATE
+  </div>
+
+  <h2 class="section-title">
+    Graduation Day
+  </h2>
+
+  <p class="section-desc">
+    Kehadiran Anda akan menjadi bagian
+    dari kenangan yang tidak terlupakan.
+  </p>
+
+
+  <div class="event-grid">
+
+    <div class="event-card reveal">
+
+      <div class="event-icon">
+        🎓
+      </div>
+
+      <h3>
+        Wisuda
+      </h3>
+
+      <p>
+        Minggu, 20 September 2026<br>
+        09.00 WIB — selesai
+      </p>
+
+    </div>
+
+
+    <div class="event-card reveal">
+
+      <div class="event-icon">
+        📍
+      </div>
+
+      <h3>
+        Grand Hall
+      </h3>
+
+      <p>
+        EGA Convention Center<br>
+        Jl. Contoh No. 88, Jakarta
+      </p>
+
+      <a
+        class="btn"
+        href="https://maps.google.com/?q=Jakarta"
+        target="_blank"
+      >
+        BUKA GOOGLE MAPS →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= GALLERY ================= -->
+
+<section id="gallery">
+
+  <div class="section-label">
+    MEMORIES
+  </div>
+
+  <h2 class="section-title">
+    Little moments,<br>
+    big memories.
+  </h2>
+
+  <p class="section-desc">
+    Beberapa momen dari perjalanan yang
+    akhirnya membawa kita sampai di hari ini.
+  </p>
+
+
+  <div class="gallery">
+
+    <img
+      class="reveal"
+      src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=700&q=85"
+      alt="Graduation"
+    >
+
+    <img
+      class="reveal"
+      src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=700&q=85"
+      alt="Graduation"
+    >
+
+    <img
+      class="reveal"
+      src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=700&q=85"
+      alt="Graduation"
+    >
+
+    <img
+      class="reveal"
+      src="https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=700&q=85"
+      alt="University"
+    >
+
+    <img
+      class="reveal"
+      src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=700&q=85"
+      alt="Campus"
+    >
+
+    <img
+      class="reveal"
+      src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=700&q=85"
+      alt="Graduation"
+    >
+
+  </div>
+
+</section>
+
+
+<!-- ================= RSVP ================= -->
+
+<section>
+
+  <div class="rsvp reveal">
+
+    <div class="section-label">
+      RSVP
+    </div>
+
+    <h2 class="section-title">
+      Will you join us?
+    </h2>
+
+    <p>
+      Konfirmasi kehadiran Anda dan
+      ikut merayakan hari spesial ini bersama kami.
+    </p>
+
+    <a
+      class="rsvp-button"
+      href="https://wa.me/6281234567890?text=Halo%20Nadia%2C%20saya%20ingin%20konfirmasi%20kehadiran%20untuk%20acara%20wisuda."
+      target="_blank"
+    >
+      KONFIRMASI VIA WHATSAPP →
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <h2>
+    Thank You
+  </h2>
+
+  <p>
+    Sampai bertemu di hari yang spesial.
+  </p>
+
+  <div class="brand">
+    EGA DIGITAL • DIGITAL INVITATION
+  </div>
+
+</footer>
+
+
+<script>
+
+/* ================= OPEN INVITATION ================= */
+
+function openInvitation(){
+
+  const opening =
+    document.getElementById("opening");
+
+  opening.style.opacity = "0";
+
+  setTimeout(function(){
+
+    opening.style.display = "none";
+
+  },1000);
+
+}
+
+
+/* ================= COUNTDOWN ================= */
+
+const targetDate =
+  new Date("September 20, 2026 09:00:00").getTime();
+
+
+function updateCountdown(){
+
+  const now =
+    new Date().getTime();
+
+  const distance =
+    targetDate - now;
+
+
+  if(distance <= 0){
+
+    document.getElementById("days").innerText = "00";
+    document.getElementById("hours").innerText = "00";
+    document.getElementById("minutes").innerText = "00";
+    document.getElementById("seconds").innerText = "00";
+
+    return;
+
+  }
+
+
+  const days =
+    Math.floor(
+      distance /
+      (1000 * 60 * 60 * 24)
+    );
+
+
+  const hours =
+    Math.floor(
+      (distance %
+      (1000 * 60 * 60 * 24)) /
+      (1000 * 60 * 60)
+    );
+
+
+  const minutes =
+    Math.floor(
+      (distance %
+      (1000 * 60 * 60)) /
+      (1000 * 60)
+    );
+
+
+  const seconds =
+    Math.floor(
+      (distance %
+      (1000 * 60)) /
+      1000
+    );
+
+
+  document.getElementById("days").innerText =
+    String(days).padStart(2,"0");
+
+  document.getElementById("hours").innerText =
+    String(hours).padStart(2,"0");
+
+  document.getElementById("minutes").innerText =
+    String(minutes).padStart(2,"0");
+
+  document.getElementById("seconds").innerText =
+    String(seconds).padStart(2,"0");
+
+}
+
+
+setInterval(updateCountdown,1000);
+
+updateCountdown();
+
+
+/* ================= SCROLL REVEAL ================= */
+
+const observer =
+  new IntersectionObserver(
+    function(entries){
+
+      entries.forEach(function(entry){
+
+        if(entry.isIntersecting){
+
+          entry.target.classList.add("show");
+
+        }
+
+      });
+
+    },
+    {
+      threshold:.12
+    }
+  );
+
+
+document
+  .querySelectorAll(".reveal")
+  .forEach(function(element){
+
+    observer.observe(element);
+
+  });
+
+</script>
+
+</body>
+</html>
