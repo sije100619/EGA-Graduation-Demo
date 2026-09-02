@@ -2,776 +2,685 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#32070d">
 
-<meta name="viewport"
-      content="width=device-width,
-      initial-scale=1,
-      viewport-fit=cover">
+<title>Graduation — Surtila S Urep</title>
 
-<title>Graduation Day — Surtila S Urep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-html,
-body{
-  width:100%;
-  height:100%;
-  overflow:hidden;
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-  background:#210307;
-  color:#f5dfb5;
-  font-family:Georgia,"Times New Roman",serif;
+    background:#210307;
+    color:#f7e6c4;
+    font-family:'Montserrat',sans-serif;
+    overflow-x:hidden;
 }
 
-/* =====================================================
+/* =========================
    OPENING
-   ===================================================== */
+========================= */
 
 #opening{
-  position:fixed;
-  inset:0;
-  z-index:1000;
+    position:fixed;
+    inset:0;
+    z-index:9999;
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
 
-  background:
-    linear-gradient(
-      rgba(28,2,7,.55),
-      rgba(28,2,7,.65)
-    ),
-    url("foto-customer.jpeg");
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(20,2,5,.15),
+            rgba(20,2,5,.35) 45%,
+            rgba(20,2,5,.92)
+        ),
+        url("foto-customer.jpeg");
 
-  background-size:cover;
-  background-position:center top;
+    background-size:cover;
+    background-position:center top;
 
-  transition:
-    opacity .6s ease,
-    visibility .6s ease;
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
 }
 
-#opening.hidden{
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-}
 body.opened #opening{
     opacity:0;
     visibility:hidden;
     pointer-events:none;
 }
-.open-card{
-  width:min(350px,82vw);
 
-  padding:
-    34px
-    28px
-    30px;
-
-  text-align:center;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(73,5,15,.98),
-      rgba(35,3,8,.98)
-    );
-
-  border:
-    1px solid #d4a04d;
-
-  border-radius:12px;
-
-  box-shadow:
-    0 25px 80px rgba(0,0,0,.65);
+.opening-content{
+    width:min(92%,520px);
+    text-align:center;
+    padding:0 20px 55px;
+    animation:fadeUp 1.2s ease;
 }
 
-.open-star{
-  font-size:27px;
-  color:#f0c879;
-
-  margin-bottom:10px;
+.opening-small{
+    font-size:11px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#e7c77e;
+    margin-bottom:16px;
 }
 
-.open-to{
-  font-family:Arial,sans-serif;
-  font-size:11px;
-
-  letter-spacing:4px;
-
-  color:#e9d7bf;
+.opening-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(52px,15vw,82px);
+    line-height:.8;
+    letter-spacing:2px;
+    font-weight:600;
 }
 
-.open-title{
-  margin-top:14px;
+.opening-name{
+    margin-top:18px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:22px;
+    letter-spacing:3px;
+}
 
-  color:#f0c879;
+.opening-line{
+    width:70px;
+    height:1px;
+    background:#cda95f;
+    margin:25px auto;
+}
 
-  font-size:48px;
-  line-height:.9;
+.opening-to{
+    font-size:11px;
+    letter-spacing:2px;
+    color:#e4d4b8;
+    margin-bottom:8px;
 }
 
 .guest-name{
-  margin-top:15px;
-  padding:12px 4px;
-
-  border-top:1px solid rgba(212,160,77,.55);
-  border-bottom:1px solid rgba(212,160,77,.55);
-
-  font-size:20px;
-}
-
-.open-text{
-  margin:
-    19px
-    5px
-    22px;
-
-  color:#e7d5bd;
-
-  font-family:Arial,sans-serif;
-  font-size:13px;
-  line-height:1.55;
+    font-family:'Cormorant Garamond',serif;
+    font-size:25px;
+    font-weight:600;
+    margin-bottom:25px;
 }
 
 .open-button{
-  width:100%;
+    border:1px solid #d4af62;
+    background:rgba(67,8,17,.75);
+    color:#f7dfae;
 
-  padding:14px 18px;
+    padding:15px 31px;
+    border-radius:50px;
 
-  border:
-    1px solid #d4a04d;
+    font-family:'Montserrat',sans-serif;
+    font-size:11px;
+    letter-spacing:3px;
+    font-weight:500;
 
-  border-radius:10px;
-
-  background:
-    linear-gradient(
-      #71101e,
-      #4c0710
-    );
-
-  color:#f3cd7d;
-
-  font-family:Georgia,"Times New Roman",serif;
-  font-size:17px;
-  font-weight:bold;
-
-  letter-spacing:1.5px;
-
-  cursor:pointer;
-
-  touch-action:manipulation;
+    cursor:pointer;
+    transition:.3s;
 }
 
-/* =====================================================
-   MAIN INVITATION
-   ===================================================== */
+.open-button:hover{
+    background:#d4af62;
+    color:#2b0509;
+    transform:translateY(-2px);
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   MAIN
+========================= */
 
 #main{
-  position:fixed;
-  inset:0;
-
-  width:100%;
-  height:100%;
-
-  overflow:hidden;
-
-  visibility:hidden;
-  opacity:0;
-  pointer-events:none;
-
-  background:#210307;
-
-  transition:
-    opacity .6s ease,
-    visibility .6s ease;
+    min-height:100vh;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:.8s ease;
 }
 
 body.opened #main{
-  visibility:visible;
-  opacity:1;
-  pointer-events:auto;
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
 }
 
-/* =====================================================
-   FOTO ASLI CUSTOMER
-   Tidak diproses / tidak diubah AI
-   ===================================================== */
+/* =========================
+   HERO PHOTO
+========================= */
 
-.photo{
-  position:absolute;
-
-  top:0;
-  left:0;
-
-  width:100%;
-  height:62%;
-
-  object-fit:cover;
-
-  /*
-    Foto asli.
-    Tidak ada filter AI.
-  */
-
-  object-position:center top;
+.hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
 }
 
-/* =====================================================
-   OVERLAY PREMIUM
-   ===================================================== */
+.hero-photo{
+    position:absolute;
+    inset:0;
 
-.photo-overlay{
-  position:absolute;
-  inset:0;
+    background-image:
+        linear-gradient(
+            to bottom,
+            rgba(24,2,6,.02) 20%,
+            rgba(24,2,6,.10) 42%,
+            rgba(24,2,6,.88) 82%,
+            #210307 100%
+        ),
+        url("foto-customer.jpeg");
 
-  background:
+    background-size:cover;
+    background-position:center top;
 
-    linear-gradient(
-      180deg,
-      rgba(28,3,7,.03) 0%,
-      rgba(28,3,7,.05) 32%,
-      rgba(28,3,7,.42) 52%,
-      rgba(28,3,7,.96) 78%,
-      #210307 100%
+    transform:scale(1.015);
+}
+
+/* Soft blur hanya di sisi/bagian belakang,
+   foto utama tetap asli */
+
+.hero-blur{
+    position:absolute;
+    left:-15%;
+    right:-15%;
+    bottom:-10%;
+    height:45%;
+
+    background:rgba(33,3,7,.55);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+
+    mask-image:linear-gradient(
+        to bottom,
+        transparent,
+        black 35%,
+        black
     );
 }
 
-/* =====================================================
-   KONTEN
-   ===================================================== */
+.hero-content{
+    position:relative;
+    z-index:2;
 
-.content{
-  position:absolute;
+    width:100%;
+    text-align:center;
 
-  z-index:5;
-
-  left:0;
-  right:0;
-  bottom:0;
-
-  height:53%;
-
-  display:flex;
-
-  flex-direction:column;
-
-  align-items:center;
-
-  justify-content:flex-end;
-
-  padding:
-    0
-    24px
-    75px;
+    padding:0 24px 48px;
 }
-
-/* =====================================================
-   JUDUL
-   ===================================================== */
 
 .eyebrow{
-  margin-bottom:8px;
-
-  color:#edc170;
-
-  font-size:14px;
-  font-weight:bold;
-
-  letter-spacing:5px;
-
-  text-align:center;
+    font-size:10px;
+    letter-spacing:5px;
+    color:#e5c77e;
+    margin-bottom:13px;
 }
 
-.name{
-  color:#f1c878;
-
-  font-size:
-    clamp(
-      40px,
-      7vw,
-      70px
-    );
-
-  line-height:.85;
-
-  text-align:center;
-
-  white-space:nowrap;
-
-  text-shadow:
-    0 3px 20px rgba(0,0,0,.5);
+.hero-title{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(52px,15vw,88px);
+    line-height:.82;
+    letter-spacing:1px;
+    font-weight:600;
 }
 
-.degree{
-  margin-top:9px;
-
-  color:#f4d79e;
-
-  font-size:28px;
-
-  text-align:center;
+.hero-degree{
+    font-family:'Cormorant Garamond',serif;
+    font-size:23px;
+    letter-spacing:3px;
+    margin-top:12px;
 }
 
-.description{
-  margin-top:11px;
-
-  max-width:600px;
-
-  color:#eadbc7;
-
-  font-family:Arial,sans-serif;
-
-  font-size:12px;
-
-  line-height:1.5;
-
-  text-align:center;
+.hero-divider{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:24px auto;
+    width:min(90%,330px);
 }
 
-/* =====================================================
-   PEMBATAS
-   ===================================================== */
-
-.divider{
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  width:min(600px,90vw);
-
-  gap:13px;
-
-  margin-top:16px;
-
-  color:#edc170;
-
-  font-size:20px;
-
-  letter-spacing:2px;
-}
-
-.divider::before,
-.divider::after{
-  content:"";
-
-  height:1px;
-
-  flex:1;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      #d4a04d
+.hero-divider span{
+    flex:1;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #b9914e,
+        transparent
     );
 }
 
-.divider::after{
-  background:
-    linear-gradient(
-      90deg,
-      #d4a04d,
-      transparent
-    );
+.hero-divider i{
+    width:5px;
+    height:5px;
+    border:1px solid #d3b16c;
+    transform:rotate(45deg);
 }
 
-/* =====================================================
-   LOKASI
-   ===================================================== */
-
-.location{
-  margin-top:13px;
+.date{
+    font-family:'Cormorant Garamond',serif;
+    font-size:25px;
+    letter-spacing:3px;
 }
 
-.location a{
-  display:inline-block;
-
-  padding:
-    10px
-    25px;
-
-  border:
-    1px solid #d4a04d;
-
-  border-radius:10px;
-
-  background:
-    linear-gradient(
-      #70101d,
-      #4a0710
-    );
-
-  color:#f2ca79;
-
-  text-decoration:none;
-
-  font-size:15px;
-
-  letter-spacing:1px;
+.time{
+    margin-top:7px;
+    font-size:10px;
+    letter-spacing:3px;
+    color:#dfcfb0;
 }
 
-/* =====================================================
-   QUOTE
-   ===================================================== */
+.scroll-indicator{
+    margin-top:30px;
+    font-size:9px;
+    letter-spacing:3px;
+    color:#bfae91;
+    animation:float 2s infinite;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+        opacity:.5;
+    }
+    50%{
+        transform:translateY(7px);
+        opacity:1;
+    }
+}
+
+/* =========================
+   INVITATION
+========================= */
+
+.invitation{
+    position:relative;
+    padding:90px 25px 55px;
+    text-align:center;
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(116,25,39,.24),
+            transparent 45%
+        ),
+        #210307;
+}
+
+.section-label{
+    font-size:9px;
+    letter-spacing:5px;
+    color:#d4b36d;
+    text-transform:uppercase;
+    margin-bottom:18px;
+}
+
+.invitation h2{
+    font-family:'Cormorant Garamond',serif;
+    font-size:42px;
+    font-weight:500;
+    line-height:1;
+    margin-bottom:22px;
+}
+
+.invitation-text{
+    max-width:500px;
+    margin:auto;
+
+    color:#d9cbb4;
+    font-size:13px;
+    line-height:2;
+    font-weight:300;
+}
 
 .quote{
-  margin-top:15px;
+    max-width:500px;
+    margin:55px auto 0;
 
-  max-width:600px;
+    padding:30px 25px;
 
-  color:#ddccb5;
+    border-top:1px solid rgba(208,173,100,.5);
+    border-bottom:1px solid rgba(208,173,100,.5);
 
-  font-size:12px;
-
-  line-height:1.5;
-
-  text-align:center;
+    font-family:'Cormorant Garamond',serif;
+    font-size:21px;
+    line-height:1.6;
+    font-style:italic;
+    color:#ead9b7;
 }
 
-.quote span{
-  color:#edc170;
+/* =========================
+   INFO CARD
+========================= */
 
-  font-size:22px;
+.info{
+    padding:15px 20px 85px;
+    background:#210307;
 }
 
-/* =====================================================
-   BOTTOM BAR
-   ===================================================== */
+.info-card{
+    max-width:520px;
+    margin:auto;
 
-.bottom{
-  position:absolute;
+    border:1px solid rgba(205,165,82,.65);
+    border-radius:24px;
 
-  z-index:10;
+    padding:34px 25px;
 
-  left:4%;
-  right:4%;
-  bottom:9px;
+    text-align:center;
 
-  height:54px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(93,16,29,.42),
+            rgba(32,3,7,.65)
+        );
 
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  border:
-    1px solid #b77e31;
-
-  border-radius:17px;
-
-  background:
-    rgba(35,3,8,.92);
-
-  color:#e9c57b;
-
-  font-family:Arial,sans-serif;
-
-  font-size:10px;
-
-  letter-spacing:1.5px;
+    box-shadow:
+        0 20px 70px rgba(0,0,0,.28);
 }
 
-/* =====================================================
-   MOBILE
-   ===================================================== */
-
-@media(max-width:700px){
-
-  .open-card{
-    width:82vw;
-
-    padding:
-      31px
-      24px
-      27px;
-  }
-
-  .open-title{
-    font-size:46px;
-  }
-
-  .open-text{
-    font-size:12px;
-  }
-
-  .photo{
-    height:61%;
-    object-position:center top;
-  }
-
-  .content{
-    height:57%;
-
-    padding:
-      0
-      15px
-      70px;
-  }
-
-  .eyebrow{
-    font-size:10px;
-    letter-spacing:4px;
-  }
-
-  .name{
-    font-size:40px;
-  }
-
-  .degree{
-    font-size:22px;
-  }
-
-  .description{
+.info-label{
     font-size:9px;
-    line-height:1.45;
-  }
-
-  .divider{
-    width:90vw;
-    font-size:15px;
-    margin-top:12px;
-  }
-
-  .location{
-    margin-top:9px;
-  }
-
-  .location a{
-    padding:
-      8px
-      19px;
-
-    font-size:13px;
-  }
-
-  .quote{
-    margin-top:9px;
-    font-size:8px;
-  }
-
-  .bottom{
-    height:49px;
-
-    font-size:8px;
-  }
-
+    letter-spacing:4px;
+    color:#c9a55e;
+    text-transform:uppercase;
+    margin-bottom:12px;
 }
 
-/* =====================================================
-   IPAD / LANDSCAPE
-   ===================================================== */
-
-@media(min-width:701px){
-
-  .photo{
-    height:67%;
-  }
-
-  .content{
-    height:47%;
-    padding-bottom:76px;
-  }
-
+.info-date{
+    font-family:'Cormorant Garamond',serif;
+    font-size:31px;
 }
 
+.info-time{
+    margin-top:6px;
+    font-size:11px;
+    letter-spacing:2px;
+    color:#cdbfa7;
+}
+
+.location-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-top:28px;
+
+    min-width:190px;
+    padding:14px 25px;
+
+    border-radius:50px;
+    border:1px solid #caa75e;
+
+    color:#f1dcae;
+    background:#4b0a16;
+
+    text-decoration:none;
+
+    font-size:10px;
+    letter-spacing:2px;
+
+    transition:.3s;
+}
+
+.location-button:hover{
+    background:#caa75e;
+    color:#31060b;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+    padding:30px 20px 45px;
+
+    font-size:9px;
+    letter-spacing:3px;
+    color:#8f7c67;
+}
+
+footer strong{
+    color:#b99a60;
+    font-weight:500;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(min-width:700px){
+
+    .hero-content{
+        padding-bottom:65px;
+    }
+
+    .invitation{
+        padding-top:110px;
+        padding-bottom:80px;
+    }
+
+    .hero-title{
+        font-size:92px;
+    }
+}
 </style>
 </head>
 
 <body>
 
-
-<!-- =====================================================
+<!-- =========================
      OPENING
-     ===================================================== -->
+========================= -->
 
 <section id="opening">
 
-  <div class="open-card">
+    <div class="opening-content">
 
-    <div class="open-star">
-      ✦
+        <div class="opening-small">
+            Graduation Day
+        </div>
+
+        <div class="opening-title">
+            SURTILA
+        </div>
+
+        <div class="opening-name">
+            S UREP
+        </div>
+
+        <div class="opening-line"></div>
+
+        <div class="opening-to">
+            Undangan untuk
+        </div>
+
+        <div class="guest-name" id="guestOpening">
+            Tamu Undangan
+        </div>
+
+        <button class="open-button" onclick="openInvitation()">
+            BUKA UNDANGAN
+        </button>
+
     </div>
-
-    <div class="open-to">
-      KEPADA YTH.
-    </div>
-
-    <div class="open-title">
-      Tamu<br>Undangan
-    </div>
-
-    <div
-      class="guest-name"
-      id="guestName">
-      Tamu Undangan
-    </div>
-
-    <div class="open-text">
-      Dengan penuh rasa syukur,
-      kami mengundang Anda
-      untuk hadir di hari yang
-      spesial ini.
-    </div>
-
-    <button
-      class="open-button"
-      type="button"
-      onclick="openInvitation()">
-
-      BUKA UNDANGAN&nbsp; ›
-
-    </button>
-
-  </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      MAIN
-     ===================================================== -->
+========================= -->
 
 <main id="main">
 
+    <!-- HERO -->
+    <section class="hero">
 
-  <!--
-    FOTO ASLI CUSTOMER.
-    FILE HARUS BERNAMA:
+        <div class="hero-photo"></div>
 
-    foto-customer.jpeg
+        <div class="hero-blur"></div>
 
-    Jangan edit foto ini.
-  -->
+        <div class="hero-content">
 
-  <img
-    class="photo"
-    src="foto-customer.jpeg"
-    alt="Foto Surtila S Urep">
+            <div class="eyebrow">
+                GRADUATION DAY
+            </div>
 
+            <h1 class="hero-title">
+                SURTILA S UREP
+            </h1>
 
-  <div class="photo-overlay"></div>
+            <div class="hero-degree">
+                A.Md.Keb
+            </div>
 
+            <div class="hero-divider">
+                <span></span>
+                <i></i>
+                <span></span>
+            </div>
 
-  <section class="content">
+            <div class="date">
+                12 SEPTEMBER 2026
+            </div>
 
-    <div class="eyebrow">
-      GRADUATION DAY
-    </div>
+            <div class="time">
+                12.00 WIB
+            </div>
 
-    <div class="name">
-      SURTILA S UREP
-    </div>
+            <div class="scroll-indicator">
+                SCROLL UNTUK MELANJUTKAN
+            </div>
 
-    <div class="degree">
-      A.Md.Keb
-    </div>
+        </div>
 
-    <div class="description">
-      Dengan penuh rasa syukur,
-      saya mengundang Anda
-      untuk hadir di hari yang
-      penuh kebahagiaan ini.
-    </div>
-
-
-    <div class="divider">
-      12 SEPTEMBER 2026
-    </div>
+    </section>
 
 
-    <div class="location">
+    <!-- INVITATION -->
+    <section class="invitation">
 
-      <a
-        href="https://www.google.com/maps?q=-1.33534,127.63596"
-        target="_blank"
-        rel="noopener">
+        <div class="section-label">
+            A SPECIAL MOMENT
+        </div>
 
-        ⌖&nbsp; LIHAT LOKASI&nbsp; ›
+        <h2>
+            Sebuah Pencapaian
+        </h2>
 
-      </a>
+        <p class="invitation-text">
+            Dengan penuh rasa syukur dan kebahagiaan,
+            saya mengundang Anda untuk hadir dan turut
+            menjadi bagian dari momen istimewa dalam
+            perjalanan pendidikan saya.
+        </p>
 
-    </div>
+        <div class="quote">
+            “Setiap langkah kecil membawa kita
+            menuju sebuah pencapaian besar.”
+        </div>
 
-
-    <div class="quote">
-
-      <span>“</span>
-
-      Sebuah langkah baru,
-      sebuah pencapaian yang patut dirayakan.
-      <br>
-
-      Terima kasih atas doa dan dukungan
-      yang selalu diberikan.
-
-      <span>”</span>
-
-    </div>
-
-  </section>
+    </section>
 
 
-  <!-- BAR BAWAH -->
+    <!-- INFO -->
+    <section class="info">
 
-  <div class="bottom">
-    GRADUATION DAY&nbsp;&nbsp; • &nbsp;&nbsp;SURTILA S UREP
-  </div>
+        <div class="info-card">
 
+            <div class="info-label">
+                Waktu Pelaksanaan
+            </div>
+
+            <div class="info-date">
+                12 September 2026
+            </div>
+
+            <div class="info-time">
+                12.00 WIB
+            </div>
+
+            <a
+                class="location-button"
+                href="https://www.google.com/maps?q=-1.33534,127.63596"
+                target="_blank"
+                rel="noopener"
+            >
+                ✦ &nbsp; LIHAT LOKASI
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        <strong>GRADUATION DAY</strong>
+        &nbsp;•&nbsp;
+        SURTILA S UREP
+    </footer>
 
 </main>
 
 
 <script>
 
-/* =====================================================
+/* =========================
    PERSONALIZED GUEST
-   Contoh:
+========================= */
 
-   ?to=Budi
-
-   ?to=Budi%20Santoso
-   ===================================================== */
-
-const params =
-  new URLSearchParams(
-    window.location.search
-  );
+const params = new URLSearchParams(window.location.search);
 
 const guest =
-  params.get("to");
+    params.get("to") ||
+    "Tamu Undangan";
 
-if(guest){
+const guestOpening =
+    document.getElementById("guestOpening");
 
-  document.getElementById(
-    "guestName"
-  ).textContent =
-    guest
-      .replace(/\+/g," ")
-      .trim();
-
+if(guestOpening){
+    guestOpening.textContent = guest;
 }
 
 
-/* =====================================================
+/* =========================
    OPEN INVITATION
-   ===================================================== */
+========================= */
 
 function openInvitation(){
 
-  document.body.classList.add(
-    "opened"
-  );
+    document.body.classList.add("opened");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 
 }
 
