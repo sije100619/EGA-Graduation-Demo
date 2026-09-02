@@ -1101,7 +1101,283 @@ footer{
 
 }
 
+/* =====================================================
+   EGA GRADUATION — MAROON PREMIUM THEME
+===================================================== */
 
+:root{
+    --bg:#210307;
+    --bg2:#32070d;
+    --card:#3b0a13;
+    --card2:#2b050a;
+
+    --gold:#d4af62;
+    --gold2:#f0d28a;
+
+    --cream:#ead9b7;
+    --muted:#b9a991;
+
+    --line:rgba(212,175,98,.28);
+
+    --success:#72d89a;
+    --danger:#e58b8b;
+}
+
+/* BODY */
+
+body{
+    background:
+        radial-gradient(
+            circle at 15% 5%,
+            rgba(212,175,98,.10),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 40%,
+            rgba(120,20,40,.22),
+            transparent 35%
+        ),
+        #210307;
+
+    color:var(--cream);
+}
+
+/* HEADER */
+
+.eyebrow{
+    color:var(--gold2);
+}
+
+header h1{
+    color:var(--cream);
+}
+
+header h1 span{
+    color:var(--gold2);
+}
+
+header p{
+    color:#c5b59b;
+}
+
+/* PANEL */
+
+.panel{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(67,12,23,.96),
+            rgba(39,5,11,.98)
+        );
+
+    border-color:
+        rgba(212,175,98,.20);
+
+    box-shadow:
+        0 25px 80px
+        rgba(0,0,0,.30);
+}
+
+.panel-title h2{
+    color:var(--cream);
+}
+
+.badge{
+    border-color:var(--line);
+    color:var(--gold2);
+}
+
+/* INPUT */
+
+textarea,
+.search-box input,
+.phone-input{
+    background:#26050a;
+    border-color:rgba(212,175,98,.18);
+    color:var(--cream);
+}
+
+textarea:focus,
+.search-box input:focus,
+.phone-input:focus{
+    border-color:var(--gold);
+    box-shadow:
+        0 0 0 3px
+        rgba(212,175,98,.08);
+}
+
+textarea::placeholder{
+    color:#897968;
+}
+
+/* BUTTON GOLD */
+
+.btn-gold{
+    background:
+        linear-gradient(
+            110deg,
+            #a77c32,
+            #f0d28a,
+            #a77c32
+        );
+
+    color:#2a0509;
+}
+
+/* BUTTON DARK */
+
+.btn-dark{
+    background:#4a0b16;
+    border-color:rgba(212,175,98,.18);
+    color:var(--cream);
+}
+
+.btn-dark:hover{
+    border-color:var(--gold);
+    color:var(--gold2);
+}
+
+/* DELETE */
+
+.btn-danger{
+    background:rgba(150,35,48,.16);
+    border-color:rgba(229,139,139,.25);
+    color:#ed9a9a;
+}
+
+/* URL BOX */
+
+.url-box{
+    background:
+        rgba(212,175,98,.055);
+
+    border-color:var(--line);
+}
+
+.url-label{
+    color:#a8957e;
+}
+
+#baseUrl{
+    color:var(--gold2);
+}
+
+/* SEARCH ICON */
+
+.search-icon{
+    color:#a9957e;
+}
+
+/* STATISTICS */
+
+.stat{
+    background:
+        linear-gradient(
+            145deg,
+            #430c17,
+            #2b050a
+        );
+
+    border-color:
+        rgba(212,175,98,.16);
+}
+
+.stat b{
+    color:var(--gold2);
+}
+
+.stat span{
+    color:#aa9984;
+}
+
+/* TABLE */
+
+th{
+    color:var(--gold2);
+    border-bottom-color:
+        rgba(212,175,98,.22);
+}
+
+td{
+    color:#c7b9a2;
+    border-bottom-color:
+        rgba(212,175,98,.08);
+}
+
+.number{
+    color:var(--gold2);
+}
+
+.guest-name{
+    color:var(--cream);
+}
+
+/* STATUS */
+
+.status.pending{
+    color:#e8c975;
+    background:rgba(212,175,98,.08);
+    border-color:rgba(212,175,98,.18);
+}
+
+.status.sent{
+    color:#72d89a;
+    background:rgba(72,180,115,.08);
+    border-color:rgba(72,180,115,.18);
+}
+
+/* TABLE BUTTON */
+
+.small-btn{
+    background:#4a0b16;
+    border-color:rgba(212,175,98,.16);
+    color:var(--cream);
+}
+
+.small-btn:hover{
+    border-color:var(--gold);
+    color:var(--gold2);
+}
+
+/* WHATSAPP */
+
+.small-btn.wa{
+    background:rgba(72,180,115,.08);
+    border-color:rgba(72,180,115,.20);
+    color:#72d89a;
+}
+
+/* DELETE BUTTON */
+
+.small-btn.delete{
+    background:rgba(150,35,48,.10);
+    border-color:rgba(229,139,139,.20);
+    color:#e58b8b;
+}
+
+/* EMPTY */
+
+.empty{
+    color:#9e8d79;
+}
+
+.empty strong{
+    color:#cdbda5;
+}
+
+/* TOAST */
+
+.toast{
+    background:#430c17;
+    border-color:var(--line);
+    color:var(--cream);
+}
+
+/* FOOTER */
+
+footer{
+    color:#927e69;
+}
 </style>
 
 </head>
