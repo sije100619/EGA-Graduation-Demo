@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,
+      initial-scale=1,
+      viewport-fit=cover">
+
+<title>Graduation Day — Surtila S Urep</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html,
+body{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+
+body{
+  background:#210307;
+  color:#f5dfb5;
+  font-family:Georgia,"Times New Roman",serif;
+}
+
+/* =====================================================
+   OPENING
+   ===================================================== */
+
+#opening{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:
+    linear-gradient(
+      rgba(28,2,7,.55),
+      rgba(28,2,7,.65)
+    ),
+    url("foto-customer.jpeg");
+
+  background-size:cover;
+  background-position:center top;
+
+  transition:
+    opacity .6s ease,
+    visibility .6s ease;
+}
+
+#opening.hidden{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+.open-card{
+  width:min(350px,82vw);
+
+  padding:
+    34px
+    28px
+    30px;
+
+  text-align:center;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(73,5,15,.98),
+      rgba(35,3,8,.98)
+    );
+
+  border:
+    1px solid #d4a04d;
+
+  border-radius:12px;
+
+  box-shadow:
+    0 25px 80px rgba(0,0,0,.65);
+}
+
+.open-star{
+  font-size:27px;
+  color:#f0c879;
+
+  margin-bottom:10px;
+}
+
+.open-to{
+  font-family:Arial,sans-serif;
+  font-size:11px;
+
+  letter-spacing:4px;
+
+  color:#e9d7bf;
+}
+
+.open-title{
+  margin-top:14px;
+
+  color:#f0c879;
+
+  font-size:48px;
+  line-height:.9;
+}
+
+.guest-name{
+  margin-top:15px;
+  padding:12px 4px;
+
+  border-top:1px solid rgba(212,160,77,.55);
+  border-bottom:1px solid rgba(212,160,77,.55);
+
+  font-size:20px;
+}
+
+.open-text{
+  margin:
+    19px
+    5px
+    22px;
+
+  color:#e7d5bd;
+
+  font-family:Arial,sans-serif;
+  font-size:13px;
+  line-height:1.55;
+}
+
+.open-button{
+  width:100%;
+
+  padding:14px 18px;
+
+  border:
+    1px solid #d4a04d;
+
+  border-radius:10px;
+
+  background:
+    linear-gradient(
+      #71101e,
+      #4c0710
+    );
+
+  color:#f3cd7d;
+
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:17px;
+  font-weight:bold;
+
+  letter-spacing:1.5px;
+
+  cursor:pointer;
+
+  touch-action:manipulation;
+}
+
+/* =====================================================
+   MAIN INVITATION
+   ===================================================== */
+
+#main{
+  position:fixed;
+  inset:0;
+
+  width:100%;
+  height:100%;
+
+  overflow:hidden;
+
+  visibility:hidden;
+  opacity:0;
+  pointer-events:none;
+
+  background:#210307;
+
+  transition:
+    opacity .6s ease,
+    visibility .6s ease;
+}
+
+body.opened #main{
+  visibility:visible;
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* =====================================================
+   FOTO ASLI CUSTOMER
+   Tidak diproses / tidak diubah AI
+   ===================================================== */
+
+.photo{
+  position:absolute;
+
+  top:0;
+  left:0;
+
+  width:100%;
+  height:62%;
+
+  object-fit:cover;
+
+  /*
+    Foto asli.
+    Tidak ada filter AI.
+  */
+
+  object-position:center top;
+}
+
+/* =====================================================
+   OVERLAY PREMIUM
+   ===================================================== */
+
+.photo-overlay{
+  position:absolute;
+  inset:0;
+
+  background:
+
+    linear-gradient(
+      180deg,
+      rgba(28,3,7,.03) 0%,
+      rgba(28,3,7,.05) 32%,
+      rgba(28,3,7,.42) 52%,
+      rgba(28,3,7,.96) 78%,
+      #210307 100%
+    );
+}
+
+/* =====================================================
+   KONTEN
+   ===================================================== */
+
+.content{
+  position:absolute;
+
+  z-index:5;
+
+  left:0;
+  right:0;
+  bottom:0;
+
+  height:53%;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:flex-end;
+
+  padding:
+    0
+    24px
+    75px;
+}
+
+/* =====================================================
+   JUDUL
+   ===================================================== */
+
+.eyebrow{
+  margin-bottom:8px;
+
+  color:#edc170;
+
+  font-size:14px;
+  font-weight:bold;
+
+  letter-spacing:5px;
+
+  text-align:center;
+}
+
+.name{
+  color:#f1c878;
+
+  font-size:
+    clamp(
+      40px,
+      7vw,
+      70px
+    );
+
+  line-height:.85;
+
+  text-align:center;
+
+  white-space:nowrap;
+
+  text-shadow:
+    0 3px 20px rgba(0,0,0,.5);
+}
+
+.degree{
+  margin-top:9px;
+
+  color:#f4d79e;
+
+  font-size:28px;
+
+  text-align:center;
+}
+
+.description{
+  margin-top:11px;
+
+  max-width:600px;
+
+  color:#eadbc7;
+
+  font-family:Arial,sans-serif;
+
+  font-size:12px;
+
+  line-height:1.5;
+
+  text-align:center;
+}
+
+/* =====================================================
+   PEMBATAS
+   ===================================================== */
+
+.divider{
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  width:min(600px,90vw);
+
+  gap:13px;
+
+  margin-top:16px;
+
+  color:#edc170;
+
+  font-size:20px;
+
+  letter-spacing:2px;
+}
+
+.divider::before,
+.divider::after{
+  content:"";
+
+  height:1px;
+
+  flex:1;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #d4a04d
+    );
+}
+
+.divider::after{
+  background:
+    linear-gradient(
+      90deg,
+      #d4a04d,
+      transparent
+    );
+}
+
+/* =====================================================
+   LOKASI
+   ===================================================== */
+
+.location{
+  margin-top:13px;
+}
+
+.location a{
+  display:inline-block;
+
+  padding:
+    10px
+    25px;
+
+  border:
+    1px solid #d4a04d;
+
+  border-radius:10px;
+
+  background:
+    linear-gradient(
+      #70101d,
+      #4a0710
+    );
+
+  color:#f2ca79;
+
+  text-decoration:none;
+
+  font-size:15px;
+
+  letter-spacing:1px;
+}
+
+/* =====================================================
+   QUOTE
+   ===================================================== */
+
+.quote{
+  margin-top:15px;
+
+  max-width:600px;
+
+  color:#ddccb5;
+
+  font-size:12px;
+
+  line-height:1.5;
+
+  text-align:center;
+}
+
+.quote span{
+  color:#edc170;
+
+  font-size:22px;
+}
+
+/* =====================================================
+   BOTTOM BAR
+   ===================================================== */
+
+.bottom{
+  position:absolute;
+
+  z-index:10;
+
+  left:4%;
+  right:4%;
+  bottom:9px;
+
+  height:54px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  border:
+    1px solid #b77e31;
+
+  border-radius:17px;
+
+  background:
+    rgba(35,3,8,.92);
+
+  color:#e9c57b;
+
+  font-family:Arial,sans-serif;
+
+  font-size:10px;
+
+  letter-spacing:1.5px;
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media(max-width:700px){
+
+  .open-card{
+    width:82vw;
+
+    padding:
+      31px
+      24px
+      27px;
+  }
+
+  .open-title{
+    font-size:46px;
+  }
+
+  .open-text{
+    font-size:12px;
+  }
+
+  .photo{
+    height:61%;
+    object-position:center top;
+  }
+
+  .content{
+    height:57%;
+
+    padding:
+      0
+      15px
+      70px;
+  }
+
+  .eyebrow{
+    font-size:10px;
+    letter-spacing:4px;
+  }
+
+  .name{
+    font-size:40px;
+  }
+
+  .degree{
+    font-size:22px;
+  }
+
+  .description{
+    font-size:9px;
+    line-height:1.45;
+  }
+
+  .divider{
+    width:90vw;
+    font-size:15px;
+    margin-top:12px;
+  }
+
+  .location{
+    margin-top:9px;
+  }
+
+  .location a{
+    padding:
+      8px
+      19px;
+
+    font-size:13px;
+  }
+
+  .quote{
+    margin-top:9px;
+    font-size:8px;
+  }
+
+  .bottom{
+    height:49px;
+
+    font-size:8px;
+  }
+
+}
+
+/* =====================================================
+   IPAD / LANDSCAPE
+   ===================================================== */
+
+@media(min-width:701px){
+
+  .photo{
+    height:67%;
+  }
+
+  .content{
+    height:47%;
+    padding-bottom:76px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     OPENING
+     ===================================================== -->
+
+<section id="opening">
+
+  <div class="open-card">
+
+    <div class="open-star">
+      ✦
+    </div>
+
+    <div class="open-to">
+      KEPADA YTH.
+    </div>
+
+    <div class="open-title">
+      Tamu<br>Undangan
+    </div>
+
+    <div
+      class="guest-name"
+      id="guestName">
+      Tamu Undangan
+    </div>
+
+    <div class="open-text">
+      Dengan penuh rasa syukur,
+      kami mengundang Anda
+      untuk hadir di hari yang
+      spesial ini.
+    </div>
+
+    <button
+      class="open-button"
+      type="button"
+      onclick="openInvitation()">
+
+      BUKA UNDANGAN&nbsp; ›
+
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     MAIN
+     ===================================================== -->
+
+<main id="main">
+
+
+  <!--
+    FOTO ASLI CUSTOMER.
+    FILE HARUS BERNAMA:
+
+    foto-customer.jpeg
+
+    Jangan edit foto ini.
+  -->
+
+  <img
+    class="photo"
+    src="foto-customer.jpeg"
+    alt="Foto Surtila S Urep">
+
+
+  <div class="photo-overlay"></div>
+
+
+  <section class="content">
+
+    <div class="eyebrow">
+      GRADUATION DAY
+    </div>
+
+    <div class="name">
+      SURTILA S UREP
+    </div>
+
+    <div class="degree">
+      A.Md.Keb
+    </div>
+
+    <div class="description">
+      Dengan penuh rasa syukur,
+      saya mengundang Anda
+      untuk hadir di hari yang
+      penuh kebahagiaan ini.
+    </div>
+
+
+    <div class="divider">
+      12 SEPTEMBER 2026
+    </div>
+
+
+    <div class="location">
+
+      <a
+        href="https://www.google.com/maps?q=-1.33534,127.63596"
+        target="_blank"
+        rel="noopener">
+
+        ⌖&nbsp; LIHAT LOKASI&nbsp; ›
+
+      </a>
+
+    </div>
+
+
+    <div class="quote">
+
+      <span>“</span>
+
+      Sebuah langkah baru,
+      sebuah pencapaian yang patut dirayakan.
+      <br>
+
+      Terima kasih atas doa dan dukungan
+      yang selalu diberikan.
+
+      <span>”</span>
+
+    </div>
+
+  </section>
+
+
+  <!-- BAR BAWAH -->
+
+  <div class="bottom">
+    GRADUATION DAY&nbsp;&nbsp; • &nbsp;&nbsp;SURTILA S UREP
+  </div>
+
+
+</main>
+
+
+<script>
+
+/* =====================================================
+   PERSONALIZED GUEST
+   Contoh:
+
+   ?to=Budi
+
+   ?to=Budi%20Santoso
+   ===================================================== */
+
+const params =
+  new URLSearchParams(
+    window.location.search
+  );
+
+const guest =
+  params.get("to");
+
+if(guest){
+
+  document.getElementById(
+    "guestName"
+  ).textContent =
+    guest
+      .replace(/\+/g," ")
+      .trim();
+
+}
+
+
+/* =====================================================
+   OPEN INVITATION
+   ===================================================== */
+
+function openInvitation(){
+
+  document.body.classList.add(
+    "opened"
+  );
+
+}
+
+</script>
+
+</body>
+</html>
