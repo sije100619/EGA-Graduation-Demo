@@ -1,1154 +1,67 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
-<meta
-    name="theme-color"
-    content="#070a12"
->
-
-<title>
-EGA Digital — Guest Manager V2
-</title>
-
-
-<link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
->
-
-<link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
->
-
-<link
-href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-rel="stylesheet"
->
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>EGA Digital — Guest Manager</title>
 
 <style>
-
-/* =====================================================
-   ROOT
-===================================================== */
-
-:root{
-
-    --bg:#070a12;
-
-    --bg2:#0d1421;
-
-    --card:#101a29;
-
-    --card2:#0b1320;
-
-    --gold:#d9b65c;
-
-    --gold2:#f3d98b;
-
-    --cream:#f4f0e7;
-
-    --muted:#9ea7b8;
-
-    --line:rgba(217,182,92,.22);
-
-    --success:#45d483;
-
-    --danger:#dc7777;
-
-}
-
-
-/* =====================================================
-   RESET
-===================================================== */
-
-*{
-
-    box-sizing:border-box;
-
-    margin:0;
-
-    padding:0;
-
-}
-
-
-html{
-
-    scroll-behavior:smooth;
-
-}
-
-
-body{
-
-    min-height:100vh;
-
-    background:
-
-        radial-gradient(
-            circle at 15% 10%,
-            rgba(217,182,92,.10),
-            transparent 25%
-        ),
-
-        radial-gradient(
-            circle at 90% 40%,
-            rgba(67,100,150,.13),
-            transparent 30%
-        ),
-
-        var(--bg);
-
-    color:var(--cream);
-
-    font-family:
-        "DM Sans",
-        sans-serif;
-
-    overflow-x:hidden;
-
-}
-
-
-body:before{
-
-    content:"";
-
-    position:fixed;
-
-    inset:0;
-
-    pointer-events:none;
-
-    background:
-
-        radial-gradient(
-            ellipse at 20% 25%,
-            transparent 0 30%,
-            rgba(217,182,92,.055)
-            30.1% 30.2%,
-            transparent 30.4%
-        ),
-
-        radial-gradient(
-            ellipse at 80% 70%,
-            transparent 0 28%,
-            rgba(217,182,92,.045)
-            28.1% 28.2%,
-            transparent 28.4%
-        );
-
-}
-
-
-.container{
-
-    width:
-        min(
-            1100px,
-            calc(100% - 28px)
-        );
-
-    margin:auto;
-
-    position:relative;
-
-    z-index:2;
-
-}
-
-
-/* =====================================================
-   HEADER
-===================================================== */
-
-header{
-
-    padding:
-        55px 0 30px;
-
-}
-
-
-.eyebrow{
-
-    color:var(--gold2);
-
-    font-size:10px;
-
-    font-weight:700;
-
-    letter-spacing:5px;
-
-}
-
-
-header h1{
-
-    font-family:
-        "Playfair Display",
-        serif;
-
-    font-size:
-        clamp(
-            44px,
-            8vw,
-            76px
-        );
-
-    line-height:.95;
-
-    margin-top:14px;
-
-}
-
-
-header h1 span{
-
-    color:var(--gold2);
-
-}
-
-
-header p{
-
-    color:var(--muted);
-
-    max-width:680px;
-
-    margin-top:18px;
-
-    line-height:1.8;
-
-    font-size:14px;
-
-}
-
-
-/* =====================================================
-   PANEL
-===================================================== */
-
-.panel{
-
-    background:
-
-        linear-gradient(
-            145deg,
-            rgba(16,26,41,.97),
-            rgba(8,14,24,.97)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.09);
-
-    border-radius:28px;
-
-    padding:28px;
-
-    margin-bottom:20px;
-
-    box-shadow:
-        0 20px 80px
-        rgba(0,0,0,.18);
-
-}
-
-
-.panel-title{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:15px;
-
-    margin-bottom:20px;
-
-}
-
-
-.panel-title h2{
-
-    font-family:
-        "Playfair Display",
-        serif;
-
-    font-size:29px;
-
-}
-
-
-.badge{
-
-    border:
-        1px solid
-        var(--line);
-
-    color:var(--gold2);
-
-    border-radius:999px;
-
-    padding:
-        7px 12px;
-
-    font-size:9px;
-
-    letter-spacing:2px;
-
-}
-
-
-/* =====================================================
-   INPUT
-===================================================== */
-
-textarea{
-
-    width:100%;
-
-    min-height:175px;
-
-    resize:vertical;
-
-    background:#080d17;
-
-    border:
-        1px solid
-        rgba(255,255,255,.10);
-
-    border-radius:18px;
-
-    color:var(--cream);
-
-    outline:none;
-
-    padding:18px;
-
-    font-family:
-        "DM Sans",
-        sans-serif;
-
-    font-size:14px;
-
-    line-height:1.8;
-
-    transition:.3s;
-
-}
-
-
-textarea:focus{
-
-    border-color:var(--gold);
-
-    box-shadow:
-        0 0 0 3px
-        rgba(217,182,92,.07);
-
-}
-
-
-textarea::placeholder{
-
-    color:#687284;
-
-}
-
-
-/* =====================================================
-   BUTTON
-===================================================== */
-
-.actions{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:10px;
-
-    margin-top:15px;
-
-}
-
-
-button{
-
-    border:0;
-
-    cursor:pointer;
-
-    font-family:
-        "DM Sans",
-        sans-serif;
-
-    font-weight:700;
-
-}
-
-
-.btn{
-
-    padding:
-        13px 18px;
-
-    border-radius:999px;
-
-    transition:.3s;
-
-    font-size:10px;
-
-    letter-spacing:.3px;
-
-}
-
-
-.btn:hover{
-
-    transform:
-        translateY(-2px);
-
-}
-
-
-.btn-gold{
-
-    background:
-        linear-gradient(
-            110deg,
-            #b99442,
-            #f0d17b,
-            #b99442
-        );
-
-    background-size:200%;
-
-    color:#11151c;
-
-}
-
-
-.btn-gold:hover{
-
-    background-position:right;
-
-}
-
-
-.btn-dark{
-
-    background:#172334;
-
-    border:
-        1px solid
-        rgba(255,255,255,.10);
-
-    color:var(--cream);
-
-}
-
-
-.btn-danger{
-
-    background:
-        rgba(217,108,108,.10);
-
-    border:
-        1px solid
-        rgba(217,108,108,.25);
-
-    color:#ed9292;
-
-}
-
-
-/* =====================================================
-   URL
-===================================================== */
-
-.url-box{
-
-    margin-top:20px;
-
-    padding:
-        15px 17px;
-
-    border-radius:16px;
-
-    background:
-        rgba(217,182,92,.045);
-
-    border:
-        1px solid
-        var(--line);
-
-}
-
-
-.url-label{
-
-    color:#7e8797;
-
-    font-size:9px;
-
-    letter-spacing:2px;
-
-    margin-bottom:7px;
-
-}
-
-
-#baseUrl{
-
-    color:var(--gold2);
-
-    font-size:11px;
-
-    word-break:break-all;
-
-}
-
-
-/* =====================================================
-   SEARCH
-===================================================== */
-
-.search-box{
-
-    position:relative;
-
-    margin-bottom:20px;
-
-}
-
-
-.search-box input{
-
-    width:100%;
-
-    height:52px;
-
-    padding:
-        0 18px 0 48px;
-
-    background:#080d17;
-
-    border:
-        1px solid
-        rgba(255,255,255,.10);
-
-    border-radius:999px;
-
-    color:var(--cream);
-
-    outline:none;
-
-    font-size:13px;
-
-}
-
-
-.search-box input:focus{
-
-    border-color:var(--gold);
-
-}
-
-
-.search-icon{
-
-    position:absolute;
-
-    left:18px;
-
-    top:50%;
-
-    transform:
-        translateY(-50%);
-
-    color:#687284;
-
-    font-size:16px;
-
-}
-
-
-/* =====================================================
-   STATS
-===================================================== */
-
-.stats{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:10px;
-
-    margin-bottom:20px;
-
-}
-
-
-.stat{
-
-    padding:20px;
-
-    background:#0c1420;
-
-    border:
-        1px solid
-        rgba(255,255,255,.08);
-
-    border-radius:20px;
-
-}
-
-
-.stat b{
-
-    display:block;
-
-    font-family:
-        "Playfair Display",
-        serif;
-
-    font-size:34px;
-
-    color:var(--gold2);
-
-}
-
-
-.stat span{
-
-    color:#788294;
-
-    font-size:9px;
-
-    letter-spacing:2px;
-
-}
-
-
-/* =====================================================
-   TABLE
-===================================================== */
-
-.table-wrap{
-
-    overflow-x:auto;
-
-}
-
-
-table{
-
-    width:100%;
-
-    border-collapse:collapse;
-
-    min-width:980px;
-
-}
-
-
-th{
-
-    text-align:left;
-
-    color:var(--gold2);
-
-    font-size:9px;
-
-    letter-spacing:2px;
-
-    font-weight:700;
-
-    padding:
-        14px 10px;
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.10);
-
-}
-
-
-td{
-
-    padding:
-        15px 10px;
-
-    border-bottom:
-        1px solid
-        rgba(255,255,255,.06);
-
-    color:#b8bfca;
-
-    font-size:12px;
-
-    vertical-align:middle;
-
-}
-
-
-.number{
-
-    color:var(--gold);
-
-    font-weight:700;
-
-}
-
-
-.guest-name{
-
-    color:var(--cream);
-
-    font-weight:600;
-
-}
-
-
-.phone-input{
-
-    width:150px;
-
-    background:#080d17;
-
-    border:
-        1px solid
-        rgba(255,255,255,.08);
-
-    border-radius:10px;
-
-    padding:
-        9px 10px;
-
-    color:var(--cream);
-
-    outline:none;
-
-    font-size:11px;
-
-}
-
-
-.phone-input:focus{
-
-    border-color:var(--gold);
-
-}
-
-
-.link-cell{
-
-    max-width:260px;
-
-}
-
-
-.guest-link{
-
-    color:#788497;
-
-    font-size:9px;
-
-    word-break:break-all;
-
-    line-height:1.5;
-
-}
-
-
-/* =====================================================
-   STATUS
-===================================================== */
-
-.status{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:6px;
-
-    padding:
-        7px 10px;
-
-    border-radius:999px;
-
-    font-size:8px;
-
-    letter-spacing:1px;
-
-    white-space:nowrap;
-
-}
-
-
-.status.pending{
-
-    color:#e6c56e;
-
-    background:
-        rgba(217,182,92,.09);
-
-    border:
-        1px solid
-        rgba(217,182,92,.18);
-
-}
-
-
-.status.sent{
-
-    color:var(--success);
-
-    background:
-        rgba(69,212,131,.08);
-
-    border:
-        1px solid
-        rgba(69,212,131,.18);
-
-}
-
-
-.status-dot{
-
-    width:6px;
-
-    height:6px;
-
-    border-radius:50%;
-
-    background:currentColor;
-
-}
-
-
-/* =====================================================
-   TABLE BUTTONS
-===================================================== */
-
-.table-actions{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    gap:6px;
-
-}
-
-
-.small-btn{
-
-    padding:
-        8px 10px;
-
-    border-radius:999px;
-
-    background:#172334;
-
-    border:
-        1px solid
-        rgba(255,255,255,.09);
-
-    color:var(--cream);
-
-    font-size:8px;
-
-    white-space:nowrap;
-
-}
-
-
-.small-btn:hover{
-
-    border-color:var(--gold);
-
-    color:var(--gold2);
-
-}
-
-
-.small-btn.wa{
-
-    background:
-        rgba(69,212,131,.08);
-
-    border-color:
-        rgba(69,212,131,.20);
-
-    color:#69dc94;
-
-}
-
-
-.small-btn.delete{
-
-    background:
-        rgba(217,108,108,.08);
-
-    border-color:
-        rgba(217,108,108,.20);
-
-    color:#df8989;
-
-}
-
-
-/* =====================================================
-   EMPTY
-===================================================== */
-
-.empty{
-
-    text-align:center;
-
-    padding:55px 20px;
-
-    color:#687284;
-
-}
-
-
-.empty strong{
-
-    display:block;
-
-    color:#a0a8b6;
-
-    margin-bottom:8px;
-
-}
-
-
-/* =====================================================
-   TOAST
-===================================================== */
-
-.toast{
-
-    position:fixed;
-
-    left:50%;
-
-    bottom:25px;
-
-    transform:
-        translate(-50%,20px);
-
-    background:#152131;
-
-    border:
-        1px solid
-        var(--line);
-
-    color:var(--cream);
-
-    padding:
-        13px 18px;
-
-    border-radius:999px;
-
-    font-size:11px;
-
-    font-weight:600;
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transition:.3s;
-
-    z-index:999;
-
-    max-width:
-        calc(100% - 30px);
-
-    text-align:center;
-
-}
-
-
-.toast.show{
-
-    opacity:1;
-
-    transform:
-        translate(-50%,0);
-
-}
-
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer{
-
-    text-align:center;
-
-    padding:
-        30px 0;
-
-    color:#586274;
-
-    font-size:9px;
-
-    letter-spacing:3px;
-
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media(max-width:750px){
-
-    .container{
-
-        width:
-            min(
-                100% - 20px,
-                600px
-            );
-
-    }
-
-
-    header{
-
-        padding-top:35px;
-
-    }
-
-
-    .panel{
-
-        padding:20px;
-
-        border-radius:22px;
-
-    }
-
-
-    .stats{
-
-        grid-template-columns:
-            1fr 1fr;
-
-    }
-
-
-    .stat{
-
-        padding:17px;
-
-    }
-
-
-    .panel-title{
-
-        align-items:flex-start;
-
-        flex-direction:column;
-
-    }
-
-
-    .actions{
-
-        flex-direction:column;
-
-    }
-
-
-    .btn{
-
-        width:100%;
-
-    }
-
-
-    table{
-
-        min-width:980px;
-
-    }
-
-}
-
-/* =====================================================
-   EGA GRADUATION — MAROON PREMIUM THEME
-===================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 :root{
     --bg:#210307;
     --bg2:#32070d;
     --card:#3b0a13;
     --card2:#2b050a;
-
     --gold:#d4af62;
     --gold2:#f0d28a;
-
     --cream:#ead9b7;
     --muted:#b9a991;
-
     --line:rgba(212,175,98,.28);
-
     --success:#72d89a;
     --danger:#e58b8b;
 }
 
-/* BODY */
-
-body{
-    background:
-        radial-gradient(
-            circle at 15% 5%,
-            rgba(212,175,98,.10),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 90% 40%,
-            rgba(120,20,40,.22),
-            transparent 35%
-        ),
-        #210307;
-
-    color:var(--cream);
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-/* HEADER */
+body{
+    min-height:100vh;
+    font-family:Inter,sans-serif;
+    background:
+        radial-gradient(circle at 15% 5%,rgba(212,175,98,.10),transparent 28%),
+        radial-gradient(circle at 90% 40%,rgba(120,20,40,.22),transparent 35%),
+        #210307;
+    color:var(--cream);
+    padding:25px 15px 50px;
+}
+
+.container{
+    width:min(1100px,100%);
+    margin:auto;
+}
+
+header{
+    text-align:center;
+    margin-bottom:30px;
+}
 
 .eyebrow{
     color:var(--gold2);
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    margin-bottom:10px;
 }
 
 header h1{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(42px,9vw,68px);
+    line-height:.9;
     color:var(--cream);
 }
 
@@ -1157,78 +70,121 @@ header h1 span{
 }
 
 header p{
+    margin-top:12px;
     color:#c5b59b;
+    font-size:14px;
 }
 
-/* PANEL */
-
 .panel{
-    background:
-        linear-gradient(
-            145deg,
-            rgba(67,12,23,.96),
-            rgba(39,5,11,.98)
-        );
+    background:linear-gradient(145deg,rgba(67,12,23,.96),rgba(39,5,11,.98));
+    border:1px solid rgba(212,175,98,.20);
+    border-radius:22px;
+    padding:22px;
+    margin-bottom:20px;
+    box-shadow:0 25px 80px rgba(0,0,0,.30);
+}
 
-    border-color:
-        rgba(212,175,98,.20);
-
-    box-shadow:
-        0 25px 80px
-        rgba(0,0,0,.30);
+.panel-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:18px;
 }
 
 .panel-title h2{
     color:var(--cream);
+    font-size:19px;
 }
 
 .badge{
-    border-color:var(--line);
+    border:1px solid var(--line);
     color:var(--gold2);
+    border-radius:999px;
+    padding:7px 12px;
+    font-size:11px;
+    font-weight:700;
 }
 
-/* INPUT */
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
 
-textarea,
-.search-box input,
-.phone-input{
+.field{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.field.full{
+    grid-column:1/-1;
+}
+
+label{
+    color:#b9a991;
+    font-size:12px;
+    font-weight:600;
+}
+
+input,
+textarea{
+    width:100%;
+    border:1px solid rgba(212,175,98,.18);
+    outline:none;
+    border-radius:13px;
     background:#26050a;
-    border-color:rgba(212,175,98,.18);
     color:var(--cream);
+    padding:13px 14px;
+    font-family:Inter,sans-serif;
+    font-size:14px;
 }
 
-textarea:focus,
-.search-box input:focus,
-.phone-input:focus{
+input:focus,
+textarea:focus{
     border-color:var(--gold);
-    box-shadow:
-        0 0 0 3px
-        rgba(212,175,98,.08);
+    box-shadow:0 0 0 3px rgba(212,175,98,.08);
+}
+
+textarea{
+    min-height:140px;
+    resize:vertical;
 }
 
 textarea::placeholder{
     color:#897968;
 }
 
-/* BUTTON GOLD */
+.btn-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:15px;
+}
+
+button{
+    border:0;
+    cursor:pointer;
+    font-family:Inter,sans-serif;
+    font-weight:700;
+    border-radius:12px;
+    padding:12px 16px;
+    transition:.2s;
+}
+
+button:active{
+    transform:scale(.97);
+}
 
 .btn-gold{
-    background:
-        linear-gradient(
-            110deg,
-            #a77c32,
-            #f0d28a,
-            #a77c32
-        );
-
+    background:linear-gradient(110deg,#a77c32,#f0d28a,#a77c32);
     color:#2a0509;
 }
 
-/* BUTTON DARK */
-
 .btn-dark{
     background:#4a0b16;
-    border-color:rgba(212,175,98,.18);
+    border:1px solid rgba(212,175,98,.18);
     color:var(--cream);
 }
 
@@ -1237,101 +193,144 @@ textarea::placeholder{
     color:var(--gold2);
 }
 
-/* DELETE */
-
 .btn-danger{
     background:rgba(150,35,48,.16);
-    border-color:rgba(229,139,139,.25);
+    border:1px solid rgba(229,139,139,.25);
     color:#ed9a9a;
 }
 
-/* URL BOX */
-
 .url-box{
-    background:
-        rgba(212,175,98,.055);
-
-    border-color:var(--line);
+    margin-top:15px;
+    padding:14px;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:rgba(212,175,98,.055);
 }
 
 .url-label{
     color:#a8957e;
+    font-size:11px;
+    margin-bottom:5px;
 }
 
 #baseUrl{
     color:var(--gold2);
+    font-size:13px;
+    word-break:break-all;
 }
 
-/* SEARCH ICON */
-
-.search-icon{
-    color:#a9957e;
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-bottom:20px;
 }
-
-/* STATISTICS */
 
 .stat{
-    background:
-        linear-gradient(
-            145deg,
-            #430c17,
-            #2b050a
-        );
-
-    border-color:
-        rgba(212,175,98,.16);
+    background:linear-gradient(145deg,#430c17,#2b050a);
+    border:1px solid rgba(212,175,98,.16);
+    border-radius:16px;
+    padding:17px;
+    text-align:center;
 }
 
 .stat b{
+    display:block;
     color:var(--gold2);
+    font-size:26px;
 }
 
 .stat span{
     color:#aa9984;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1px;
 }
 
-/* TABLE */
+.search-box{
+    margin-bottom:18px;
+}
+
+.search-box input{
+    width:100%;
+}
+
+.table-wrap{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:760px;
+}
 
 th{
+    text-align:left;
+    padding:13px 10px;
     color:var(--gold2);
-    border-bottom-color:
-        rgba(212,175,98,.22);
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    border-bottom:1px solid rgba(212,175,98,.22);
 }
 
 td{
+    padding:14px 10px;
     color:#c7b9a2;
-    border-bottom-color:
-        rgba(212,175,98,.08);
+    border-bottom:1px solid rgba(212,175,98,.08);
+    font-size:13px;
+    vertical-align:middle;
 }
 
 .number{
     color:var(--gold2);
+    font-weight:700;
 }
 
 .guest-name{
     color:var(--cream);
+    font-weight:700;
 }
 
-/* STATUS */
+.phone-input{
+    width:145px;
+    padding:9px 10px;
+    font-size:12px;
+}
+
+.status{
+    display:inline-flex;
+    padding:6px 9px;
+    border-radius:999px;
+    font-size:10px;
+    font-weight:700;
+}
 
 .status.pending{
     color:#e8c975;
     background:rgba(212,175,98,.08);
-    border-color:rgba(212,175,98,.18);
+    border:1px solid rgba(212,175,98,.18);
 }
 
 .status.sent{
     color:#72d89a;
     background:rgba(72,180,115,.08);
-    border-color:rgba(72,180,115,.18);
+    border:1px solid rgba(72,180,115,.18);
 }
 
-/* TABLE BUTTON */
+.actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+}
 
 .small-btn{
     background:#4a0b16;
-    border-color:rgba(212,175,98,.16);
+    border:1px solid rgba(212,175,98,.16);
     color:var(--cream);
+    padding:8px 10px;
+    font-size:11px;
 }
 
 .small-btn:hover{
@@ -1339,15 +338,11 @@ td{
     color:var(--gold2);
 }
 
-/* WHATSAPP */
-
 .small-btn.wa{
     background:rgba(72,180,115,.08);
     border-color:rgba(72,180,115,.20);
     color:#72d89a;
 }
-
-/* DELETE BUTTON */
 
 .small-btn.delete{
     background:rgba(150,35,48,.10);
@@ -1355,407 +350,487 @@ td{
     color:#e58b8b;
 }
 
-/* EMPTY */
-
 .empty{
+    text-align:center;
+    padding:35px 15px;
     color:#9e8d79;
 }
 
 .empty strong{
     color:#cdbda5;
+    display:block;
+    margin-bottom:5px;
 }
-
-/* TOAST */
 
 .toast{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    transform:translateX(-50%) translateY(20px);
     background:#430c17;
-    border-color:var(--line);
+    border:1px solid var(--line);
     color:var(--cream);
+    padding:12px 18px;
+    border-radius:12px;
+    font-size:13px;
+    opacity:0;
+    pointer-events:none;
+    transition:.25s;
+    z-index:999;
 }
 
-/* FOOTER */
+.toast.show{
+    opacity:1;
+    transform:translateX(-50%) translateY(0);
+}
 
 footer{
+    text-align:center;
     color:#927e69;
+    font-size:11px;
+    margin-top:25px;
+}
+
+@media(max-width:700px){
+    body{
+        padding:18px 11px 40px;
+    }
+
+    .panel{
+        padding:17px;
+        border-radius:18px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .field.full{
+        grid-column:auto;
+    }
+
+    .stats{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .stat{
+        padding:13px 5px;
+    }
+
+    .stat b{
+        font-size:21px;
+    }
+
+    .stat span{
+        font-size:9px;
+    }
+
+    .btn-row button{
+        width:100%;
+    }
 }
 </style>
-
 </head>
-
 
 <body>
 
-
 <div class="container">
 
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header>
-
-<div class="eyebrow">
-EGA DIGITAL • ADMIN V2
-</div>
-
-
-<h1>
-Guest
-<span>Manager.</span>
-</h1>
-
-
-<p>
-Kelola tamu undangan dengan lebih mudah.
-Tambahkan nama dan nomor WhatsApp,
-buat link personal, lalu kirim undangan
-langsung ke masing-masing tamu.
-</p>
-
+    <div class="eyebrow">EGA DIGITAL</div>
+    <h1>Guest <span>Manager</span></h1>
+    <p>Kelola tamu & kirim undangan personal dengan mudah.</p>
 </header>
 
-
-
-<!-- =====================================================
-     ADD GUEST
-===================================================== -->
-
+<!-- PENGATURAN -->
 <section class="panel">
 
+    <div class="panel-title">
+        <h2>⚙️ Pengaturan Undangan</h2>
+        <div class="badge">ADMIN</div>
+    </div>
 
-<div class="panel-title">
+    <div class="form-grid">
 
-<h2>
-Tambah Tamu
-</h2>
+        <div class="field">
+            <label>Nama Wisudawan / Pemilik Acara</label>
+            <input
+                type="text"
+                id="eventName"
+                placeholder="Contoh: Surtila S Urep"
+            >
+        </div>
 
-<div class="badge">
-BULK INPUT
-</div>
+        <div class="field">
+            <label>Link Undangan Utama</label>
+            <input
+                type="text"
+                id="invitationUrl"
+                placeholder="https://domain.com/"
+            >
+        </div>
 
-</div>
+    </div>
+
+    <div class="btn-row">
+        <button class="btn-gold" onclick="saveConfig()">
+            💾 Simpan Pengaturan
+        </button>
+
+        <button class="btn-dark" onclick="resetConfig()">
+            ↺ Reset
+        </button>
+    </div>
+
+    <div class="url-box">
+        <div class="url-label">LINK YANG AKAN DIGUNAKAN</div>
+        <div id="baseUrl"></div>
+    </div>
+
+</section>
 
 
-<textarea
-id="guestInput"
-placeholder="Masukkan nama tamu...
+<!-- TAMBAH TAMU -->
+<section class="panel">
 
-Contoh:
+    <div class="panel-title">
+        <h2>➕ Tambah Tamu</h2>
+        <div class="badge">BULK INPUT</div>
+    </div>
+
+    <div class="field">
+        <label>
+            Masukkan satu nama per baris
+        </label>
+
+        <textarea
+            id="guestInput"
+            placeholder="Contoh:
 
 Budi
 Andi
+Mega Laoda
 Siti
-Rina
-Dimas
-Ayu
+Rina"
+        ></textarea>
+    </div>
 
-Satu nama satu baris."
-></textarea>
+    <div class="btn-row">
 
+        <button class="btn-gold" onclick="addGuests()">
+            + Tambahkan Tamu
+        </button>
 
-<div class="actions">
+        <button class="btn-dark" onclick="clearInput()">
+            Bersihkan
+        </button>
 
-<button
-class="btn btn-gold"
-onclick="addGuests()"
->
-+ TAMBAHKAN TAMU
-</button>
-
-
-<button
-class="btn btn-dark"
-onclick="clearInput()"
->
-BERSIHKAN
-</button>
-
-</div>
-
-
-<div class="url-box">
-
-<div class="url-label">
-LINK UNDANGAN
-</div>
-
-<div id="baseUrl">
-Memuat...
-</div>
-
-</div>
+    </div>
 
 </section>
 
 
-
-<!-- =====================================================
-     STATS
-===================================================== -->
-
+<!-- STATISTIK -->
 <div class="stats">
 
+    <div class="stat">
+        <b id="totalGuests">0</b>
+        <span>Total Tamu</span>
+    </div>
 
-<div class="stat">
+    <div class="stat">
+        <b id="sentGuests">0</b>
+        <span>Sudah Dikirim</span>
+    </div>
 
-<b id="totalGuests">
-0
-</b>
-
-<span>
-TOTAL TAMU
-</span>
-
-</div>
-
-
-<div class="stat">
-
-<b id="sentGuests">
-0
-</b>
-
-<span>
-SUDAH DIKIRIM
-</span>
+    <div class="stat">
+        <b id="pendingGuests">0</b>
+        <span>Belum Dikirim</span>
+    </div>
 
 </div>
 
 
-<div class="stat">
-
-<b id="pendingGuests">
-0
-</b>
-
-<span>
-BELUM DIKIRIM
-</span>
-
-</div>
-
-
-<div class="stat">
-
-<b>
-100%
-</b>
-
-<span>
-PERSONALIZED
-</span>
-
-</div>
-
-
-</div>
-
-
-
-<!-- =====================================================
-     GUEST LIST
-===================================================== -->
-
+<!-- DAFTAR TAMU -->
 <section class="panel">
 
+    <div class="panel-title">
+        <h2>👥 Daftar Tamu</h2>
 
-<div class="panel-title">
+        <div class="badge" id="guestCount">
+            0 TAMU
+        </div>
+    </div>
 
-<h2>
-Daftar Tamu
-</h2>
+    <div class="search-box">
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔎 Cari nama tamu..."
+            oninput="renderGuests()"
+        >
+    </div>
 
+    <div class="table-wrap">
 
-<div class="actions" style="margin:0">
+        <table>
 
-<button
-class="btn btn-dark"
-onclick="copyAllLinks()"
->
-COPY SEMUA LINK
-</button>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Nama</th>
+                    <th>No. WhatsApp</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
 
+            <tbody id="guestTable"></tbody>
 
-<button
-class="btn btn-danger"
-onclick="deleteAll()"
->
-HAPUS SEMUA
-</button>
+        </table>
 
-</div>
-
-</div>
-
-
-
-<!-- SEARCH -->
-
-<div class="search-box">
-
-<div class="search-icon">
-⌕
-</div>
-
-<input
-type="text"
-id="searchInput"
-placeholder="Cari nama tamu..."
-oninput="render()"
->
-
-</div>
-
-
-
-<div class="table-wrap">
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>
-NO
-</th>
-
-<th>
-NAMA TAMU
-</th>
-
-<th>
-WHATSAPP
-</th>
-
-<th>
-STATUS
-</th>
-
-<th>
-LINK PERSONAL
-</th>
-
-<th>
-AKSI
-</th>
-
-</tr>
-
-</thead>
-
-
-<tbody
-id="guestTable"
->
-</tbody>
-
-</table>
-
-
-<div
-class="empty"
-id="emptyState"
->
-
-<strong>
-Belum ada tamu.
-</strong>
-
-Tambahkan nama tamu di bagian atas.
-
-</div>
-
-
-</div>
+    </div>
 
 </section>
 
 
+<!-- AKSI -->
+<section class="panel">
+
+    <div class="panel-title">
+        <h2>📤 Aksi Cepat</h2>
+    </div>
+
+    <div class="btn-row">
+
+        <button class="btn-gold" onclick="copyAllLinks()">
+            📋 Copy Semua Link
+        </button>
+
+        <button class="btn-dark" onclick="markAllPending()">
+            ↺ Reset Status
+        </button>
+
+        <button class="btn-danger" onclick="deleteAllGuests()">
+            🗑 Hapus Semua Tamu
+        </button>
+
+    </div>
+
+</section>
 
 <footer>
-
-EGA DIGITAL • GUEST MANAGEMENT SYSTEM V2
-
+    EGA DIGITAL • Graduation Invitation System
 </footer>
 
-
 </div>
 
-
-
-<div
-class="toast"
-id="toast"
->
-Berhasil!
-</div>
-
+<div class="toast" id="toast"></div>
 
 
 <script>
 
-/* =====================================================
-   CONFIG
-===================================================== */
+/* =========================================================
+   STORAGE
+========================================================= */
 
-const STORAGE_KEY =
-    "ega_digital_guest_list_v2";
-
-
-/* =====================================================
-   BASE URL
-===================================================== */
-
-function getBaseUrl(){
-
-    const path =
-        window.location.pathname
-        .replace(
-            /\/admin\.html$/i,
-            "/index.html"
-        );
-
-    return (
-        window.location.origin +
-        path
-    );
-
-}
+const STORAGE_KEY = "ega_digital_guest_list_v2";
+const CONFIG_KEY = "ega_digital_invitation_config_v3";
 
 
-document.getElementById(
-    "baseUrl"
-).textContent =
-    getBaseUrl();
+/* =========================================================
+   DEFAULT CONFIG
+========================================================= */
+
+const defaultConfig = {
+
+    eventName: "Surtila S Urep",
+
+    invitationUrl:
+        "https://sije100619.github.io/EGA-Graduation-Demo/"
+
+};
 
 
+let config = loadConfig();
 
-/* =====================================================
-   LOAD DATA
-===================================================== */
+let guests = loadGuests();
 
-function getGuests(){
+
+/* =========================================================
+   LOAD CONFIG
+========================================================= */
+
+function loadConfig(){
 
     try{
 
-        return JSON.parse(
-            localStorage.getItem(
-                STORAGE_KEY
-            )
-        ) || [];
+        const saved =
+            localStorage.getItem(CONFIG_KEY);
+
+        if(saved){
+
+            return {
+                ...defaultConfig,
+                ...JSON.parse(saved)
+            };
+
+        }
 
     }catch(error){
 
-        return [];
+        console.error(error);
 
     }
+
+    return {
+        ...defaultConfig
+    };
 
 }
 
 
-function saveGuests(guests){
+/* =========================================================
+   SAVE CONFIG
+========================================================= */
+
+function saveConfig(){
+
+    const eventName =
+        document.getElementById("eventName").value.trim();
+
+    const invitationUrl =
+        document.getElementById("invitationUrl").value.trim();
+
+
+    if(!eventName){
+
+        showToast("Nama wisudawan belum diisi.");
+
+        return;
+
+    }
+
+
+    if(!invitationUrl){
+
+        showToast("Link undangan belum diisi.");
+
+        return;
+
+    }
+
+
+    config = {
+
+        eventName,
+        invitationUrl
+
+    };
+
+
+    localStorage.setItem(
+        CONFIG_KEY,
+        JSON.stringify(config)
+    );
+
+
+    updateConfigUI();
+
+    showToast("Pengaturan berhasil disimpan ✓");
+
+}
+
+
+/* =========================================================
+   RESET CONFIG
+========================================================= */
+
+function resetConfig(){
+
+    const ok =
+        confirm(
+            "Reset pengaturan ke data default Surtila?"
+        );
+
+    if(!ok) return;
+
+
+    config = {
+        ...defaultConfig
+    };
+
+
+    localStorage.setItem(
+        CONFIG_KEY,
+        JSON.stringify(config)
+    );
+
+
+    updateConfigUI();
+
+    showToast("Pengaturan berhasil direset.");
+
+}
+
+
+/* =========================================================
+   UPDATE CONFIG UI
+========================================================= */
+
+function updateConfigUI(){
+
+    document.getElementById("eventName").value =
+        config.eventName;
+
+    document.getElementById("invitationUrl").value =
+        config.invitationUrl;
+
+    document.getElementById("baseUrl").textContent =
+        config.invitationUrl;
+
+}
+
+
+/* =========================================================
+   LOAD GUESTS
+========================================================= */
+
+function loadGuests(){
+
+    try{
+
+        const saved =
+            localStorage.getItem(STORAGE_KEY);
+
+        if(saved){
+
+            const data = JSON.parse(saved);
+
+            if(Array.isArray(data)){
+
+                return data;
+
+            }
+
+        }
+
+    }catch(error){
+
+        console.error(error);
+
+    }
+
+    return [];
+
+}
+
+
+/* =========================================================
+   SAVE GUESTS
+========================================================= */
+
+function saveGuests(){
 
     localStorage.setItem(
         STORAGE_KEY,
@@ -1765,112 +840,25 @@ function saveGuests(guests){
 }
 
 
-
-/* =====================================================
-   ADD GUESTS
-===================================================== */
-
-function addGuests(){
-
-    const input =
-        document
-        .getElementById("guestInput")
-        .value
-        .trim();
-
-
-    if(!input){
-
-        showToast(
-            "Masukkan nama tamu dulu."
-        );
-
-        return;
-
-    }
-
-
-    const names =
-        input
-        .split(/\r?\n/)
-        .map(
-            name =>
-
-            name
-            .replace(
-                /^\s*\d+[\.\)\-]\s*/,
-                ""
-            )
-            .trim()
-
-        )
-        .filter(Boolean);
-
-
-    if(!names.length){
-
-        showToast(
-            "Nama tamu tidak ditemukan."
-        );
-
-        return;
-
-    }
-
-
-    const guests =
-        getGuests();
-
-
-    names.forEach(
-        name => {
-
-            guests.push({
-
-                id:
-                    Date.now() +
-                    Math.random(),
-
-                name:name,
-
-                phone:"",
-
-                sent:false
-
-            });
-
-        }
-    );
-
-
-    saveGuests(guests);
-
-
-    document.getElementById(
-        "guestInput"
-    ).value = "";
-
-
-    render();
-
-
-    showToast(
-        names.length +
-        " tamu berhasil ditambahkan."
-    );
-
-}
-
-
-
-/* =====================================================
-   CREATE LINK
-===================================================== */
+/* =========================================================
+   CREATE PERSONAL LINK
+========================================================= */
 
 function createGuestLink(name){
 
+    let base =
+        config.invitationUrl.trim();
+
+
+    if(!base.endsWith("/")){
+
+        base += "/";
+
+    }
+
+
     return (
-        getBaseUrl() +
+        base +
         "?to=" +
         encodeURIComponent(name)
     );
@@ -1878,377 +866,479 @@ function createGuestLink(name){
 }
 
 
+/* =========================================================
+   ADD GUESTS
+========================================================= */
 
-/* =====================================================
-   RENDER
-===================================================== */
+function addGuests(){
 
-function render(){
+    const input =
+        document.getElementById("guestInput").value;
 
-    const guests =
-        getGuests();
+
+    const names =
+        input
+        .split("\n")
+        .map(name => name.trim())
+        .filter(name => name);
+
+
+    if(!names.length){
+
+        showToast("Masukkan nama tamu terlebih dahulu.");
+
+        return;
+
+    }
+
+
+    names.forEach(name => {
+
+        guests.push({
+
+            id:
+                Date.now() +
+                Math.random()
+                .toString(36)
+                .substring(2),
+
+            name:name,
+
+            phone:"",
+
+            sent:false
+
+        });
+
+    });
+
+
+    saveGuests();
+
+    clearInput();
+
+    renderGuests();
+
+    showToast(
+        `${names.length} tamu berhasil ditambahkan ✓`
+    );
+
+}
+
+
+/* =========================================================
+   CLEAR INPUT
+========================================================= */
+
+function clearInput(){
+
+    document.getElementById("guestInput").value = "";
+
+}
+
+
+/* =========================================================
+   RENDER GUESTS
+========================================================= */
+
+function renderGuests(){
+
+    const table =
+        document.getElementById("guestTable");
 
 
     const search =
         document
         .getElementById("searchInput")
         .value
-        .trim()
-        .toLowerCase();
-
-
-    const table =
-        document.getElementById(
-            "guestTable"
-        );
-
-
-    const empty =
-        document.getElementById(
-            "emptyState"
-        );
-
-
-    table.innerHTML = "";
+        .toLowerCase()
+        .trim();
 
 
     const filtered =
-        guests.filter(
-            guest =>
+        guests.filter(guest =>
             guest.name
             .toLowerCase()
             .includes(search)
         );
 
 
+    document.getElementById("guestCount").textContent =
+        `${filtered.length} TAMU`;
+
+
     if(!filtered.length){
 
-        empty.style.display =
-            "block";
+        table.innerHTML = `
 
-    }else{
+            <tr>
 
-        empty.style.display =
-            "none";
+                <td
+                    colspan="5"
+                    class="empty"
+                >
 
-    }
+                    <strong>
+                        Belum ada tamu
+                    </strong>
 
+                    Tambahkan nama tamu di bagian atas.
 
-    filtered.forEach(
-        guest => {
+                </td>
 
-            const realIndex =
-                guests.findIndex(
-                    item =>
-                    item.id === guest.id
-                );
+            </tr>
 
+        `;
 
-            const link =
-                createGuestLink(
-                    guest.name
-                );
-
-
-            const tr =
-                document.createElement(
-                    "tr"
-                );
-
-
-            const number =
-                String(
-                    realIndex + 1
-                ).padStart(
-                    3,
-                    "0"
-                );
-
-
-            const status =
-                guest.sent
-                ?
-
-                `
-                <span class="status sent">
-                    <span class="status-dot"></span>
-                    SUDAH DIKIRIM
-                </span>
-                `
-
-                :
-
-                `
-                <span class="status pending">
-                    <span class="status-dot"></span>
-                    BELUM DIKIRIM
-                </span>
-                `;
-
-
-            tr.innerHTML = `
-
-<td class="number">
-${number}
-</td>
-
-
-<td>
-
-<input
-class="phone-input"
-style="
-width:180px;
-color:var(--cream);
-font-size:12px;
-background:#080d17;
-"
-value="${escapeHtml(guest.name)}"
-onchange="editName(${realIndex}, this.value)"
->
-
-</td>
-
-
-<td>
-
-<input
-class="phone-input"
-type="tel"
-placeholder="08xxxxxxxxxx"
-value="${escapeHtml(guest.phone || "")}"
-onchange="editPhone(${realIndex}, this.value)"
->
-
-</td>
-
-
-<td>
-
-${status}
-
-</td>
-
-
-<td class="link-cell">
-
-<div class="guest-link">
-${escapeHtml(link)}
-</div>
-
-</td>
-
-
-<td>
-
-<div class="table-actions">
-
-
-<button
-class="small-btn"
-onclick="copyLink(${realIndex})"
->
-COPY
-</button>
-
-
-<button
-class="small-btn"
-onclick="openLink(${realIndex})"
->
-BUKA
-</button>
-
-
-<button
-class="small-btn wa"
-onclick="sendWhatsApp(${realIndex})"
->
-WA
-</button>
-
-
-<button
-class="small-btn"
-onclick="toggleSent(${realIndex})"
->
-${guest.sent ? "BELUM" : "TERKIRIM"}
-</button>
-
-
-<button
-class="small-btn delete"
-onclick="deleteGuest(${realIndex})"
->
-HAPUS
-</button>
-
-
-</div>
-
-</td>
-
-`;
-
-
-            table.appendChild(
-                tr
-            );
-
-        }
-    );
-
-
-    updateStats(
-        guests
-    );
-
-}
-
-
-
-/* =====================================================
-   EDIT NAME
-===================================================== */
-
-function editName(
-    index,
-    value
-){
-
-    const guests =
-        getGuests();
-
-
-    const name =
-        value.trim();
-
-
-    if(!name){
-
-        showToast(
-            "Nama tidak boleh kosong."
-        );
-
-        render();
+        updateStats();
 
         return;
 
     }
 
 
-    guests[index].name =
-        name;
+    table.innerHTML =
+        filtered
+        .map((guest,index) => {
+
+            return `
+
+            <tr>
+
+                <td class="number">
+                    ${index + 1}
+                </td>
+
+                <td>
+
+                    <div class="guest-name">
+                        ${escapeHTML(guest.name)}
+                    </div>
+
+                </td>
+
+                <td>
+
+                    <input
+                        class="phone-input"
+                        type="tel"
+                        placeholder="08xxxxxxxxxx"
+                        value="${escapeAttr(guest.phone || "")}"
+                        onchange="updatePhone('${guest.id}',this.value)"
+                    >
+
+                </td>
+
+                <td>
+
+                    <span
+                        class="status ${
+                            guest.sent
+                            ? "sent"
+                            : "pending"
+                        }"
+                    >
+
+                        ${
+                            guest.sent
+                            ? "✓ TERKIRIM"
+                            : "BELUM DIKIRIM"
+                        }
+
+                    </span>
+
+                </td>
+
+                <td>
+
+                    <div class="actions">
+
+                        <button
+                            class="small-btn"
+                            onclick="editGuest('${guest.id}')"
+                        >
+                            ✏️ Edit
+                        </button>
+
+                        <button
+                            class="small-btn"
+                            onclick="copyLink('${guest.id}')"
+                        >
+                            🔗 Copy
+                        </button>
+
+                        <button
+                            class="small-btn"
+                            onclick="openLink('${guest.id}')"
+                        >
+                            ↗️ Buka
+                        </button>
+
+                        <button
+                            class="small-btn wa"
+                            onclick="sendWhatsApp('${guest.id}')"
+                        >
+                            WhatsApp
+                        </button>
+
+                        <button
+                            class="small-btn delete"
+                            onclick="deleteGuest('${guest.id}')"
+                        >
+                            🗑
+                        </button>
+
+                    </div>
+
+                </td>
+
+            </tr>
+
+            `;
+
+        })
+        .join("");
 
 
-    saveGuests(
-        guests
-    );
-
-
-    render();
-
-
-    showToast(
-        "Nama berhasil diperbarui."
-    );
+    updateStats();
 
 }
 
 
+/* =========================================================
+   UPDATE PHONE
+========================================================= */
 
-/* =====================================================
-   EDIT PHONE
-===================================================== */
+function updatePhone(id,value){
 
-function editPhone(
-    index,
-    value
-){
-
-    const guests =
-        getGuests();
+    const guest =
+        guests.find(
+            item => item.id === id
+        );
 
 
-    guests[index].phone =
+    if(!guest) return;
+
+
+    guest.phone =
         value.trim();
 
 
-    saveGuests(
-        guests
-    );
+    saveGuests();
+
+}
 
 
-    render();
+/* =========================================================
+   EDIT GUEST
+========================================================= */
+
+function editGuest(id){
+
+    const guest =
+        guests.find(
+            item => item.id === id
+        );
 
 
-    showToast(
-        "Nomor WhatsApp disimpan."
+    if(!guest) return;
+
+
+    const newName =
+        prompt(
+            "Edit nama tamu:",
+            guest.name
+        );
+
+
+    if(newName === null) return;
+
+
+    const cleanName =
+        newName.trim();
+
+
+    if(!cleanName){
+
+        showToast("Nama tidak boleh kosong.");
+
+        return;
+
+    }
+
+
+    guest.name =
+        cleanName;
+
+
+    saveGuests();
+
+    renderGuests();
+
+    showToast("Nama tamu berhasil diperbarui ✓");
+
+}
+
+
+/* =========================================================
+   DELETE GUEST
+========================================================= */
+
+function deleteGuest(id){
+
+    const guest =
+        guests.find(
+            item => item.id === id
+        );
+
+
+    if(!guest) return;
+
+
+    const ok =
+        confirm(
+            `Hapus tamu "${guest.name}"?`
+        );
+
+
+    if(!ok) return;
+
+
+    guests =
+        guests.filter(
+            item => item.id !== id
+        );
+
+
+    saveGuests();
+
+    renderGuests();
+
+    showToast("Tamu berhasil dihapus.");
+
+}
+
+
+/* =========================================================
+   DELETE ALL
+========================================================= */
+
+function deleteAllGuests(){
+
+    if(!guests.length){
+
+        showToast("Belum ada data tamu.");
+
+        return;
+
+    }
+
+
+    const ok =
+        confirm(
+            "Yakin ingin menghapus SEMUA data tamu?"
+        );
+
+
+    if(!ok) return;
+
+
+    guests = [];
+
+
+    saveGuests();
+
+    renderGuests();
+
+    showToast("Semua data tamu berhasil dihapus.");
+
+}
+
+
+/* =========================================================
+   RESET STATUS
+========================================================= */
+
+function markAllPending(){
+
+    guests =
+        guests.map(guest => ({
+
+            ...guest,
+            sent:false
+
+        }));
+
+
+    saveGuests();
+
+    renderGuests();
+
+    showToast("Semua status dikembalikan.");
+
+}
+
+
+/* =========================================================
+   GET GUEST
+========================================================= */
+
+function getGuest(id){
+
+    return guests.find(
+        guest => guest.id === id
     );
 
 }
 
 
-
-/* =====================================================
+/* =========================================================
    COPY LINK
-===================================================== */
+========================================================= */
 
-async function copyLink(
-    index
-){
+async function copyLink(id){
 
-    const guests =
-        getGuests();
+    const guest =
+        getGuest(id);
 
 
-    if(!guests[index]){
-        return;
-    }
+    if(!guest) return;
 
 
     const link =
-        createGuestLink(
-            guests[index].name
-        );
+        createGuestLink(guest.name);
 
 
-    await copyText(
-        link
-    );
+    try{
 
+        await navigator.clipboard.writeText(link);
 
-    showToast(
-        "Link " +
-        guests[index].name +
-        " berhasil disalin."
-    );
+        showToast("Link berhasil disalin ✓");
+
+    }catch(error){
+
+        fallbackCopy(link);
+
+    }
 
 }
 
 
-
-/* =====================================================
+/* =========================================================
    OPEN LINK
-===================================================== */
+========================================================= */
 
-function openLink(
-    index
-){
+function openLink(id){
 
-    const guests =
-        getGuests();
+    const guest =
+        getGuest(id);
 
 
-    if(!guests[index]){
-        return;
-    }
+    if(!guest) return;
 
 
     const link =
-        createGuestLink(
-            guests[index].name
-        );
+        createGuestLink(guest.name);
 
 
     window.open(
@@ -2259,67 +1349,26 @@ function openLink(
 }
 
 
-
-/* =====================================================
+/* =========================================================
    WHATSAPP
-===================================================== */
+========================================================= */
 
-function sendWhatsApp(
-    index
-){
-
-    const guests =
-        getGuests();
-
+function sendWhatsApp(id){
 
     const guest =
-        guests[index];
+        getGuest(id);
 
 
-    if(!guest){
-        return;
-    }
+    if(!guest) return;
 
 
-    let phone =
-        (guest.phone || "")
-        .replace(
-            /\D/g,
-            ""
-        );
-
-
-    if(!phone){
-
-        showToast(
-            "Masukkan nomor WhatsApp dulu."
-        );
-
-        return;
-
-    }
-
-
-    if(
-        phone.startsWith("0")
-    ){
-
-        phone =
-            "62" +
-            phone.substring(1);
-
-    }
-
-
-    if(
-        phone.startsWith("8")
-    ){
-
-        phone =
-            "62" +
-            phone;
-
-    }
+    /*
+       FIX UTAMA:
+       Nama acara sekarang mengambil
+       dari config.eventName.
+       Tidak ada lagi "Nadia Aurelia Putri"
+       yang hardcode.
+    */
 
 
     const link =
@@ -2331,7 +1380,7 @@ function sendWhatsApp(
     const message =
 `Halo ${guest.name},
 
-Saya ingin mengundang Anda untuk hadir di acara Graduation Day Nadia Aurelia Putri.
+Saya ingin mengundang Anda untuk hadir di acara Graduation Day ${config.eventName}.
 
 Berikut undangan personal untuk Anda:
 
@@ -2340,29 +1389,45 @@ ${link}
 Sampai bertemu di hari yang spesial. 🙏`;
 
 
-    const waUrl =
-        "https://wa.me/" +
-        phone +
-        "?text=" +
-        encodeURIComponent(
-            message
-        );
+    let phone =
+        (guest.phone || "")
+        .replace(/\D/g,"");
 
 
-    guests[index].phone =
-        phone;
+    if(phone.startsWith("0")){
+
+        phone =
+            "62" +
+            phone.substring(1);
+
+    }
 
 
-    guests[index].sent =
-        true;
+    let waUrl;
 
 
-    saveGuests(
-        guests
-    );
+    if(phone){
+
+        waUrl =
+            "https://wa.me/" +
+            phone +
+            "?text=" +
+            encodeURIComponent(message);
+
+    }else{
+
+        waUrl =
+            "https://wa.me/?text=" +
+            encodeURIComponent(message);
+
+    }
 
 
-    render();
+    guest.sent = true;
+
+    saveGuests();
+
+    renderGuests();
 
 
     window.open(
@@ -2370,259 +1435,133 @@ Sampai bertemu di hari yang spesial. 🙏`;
         "_blank"
     );
 
-
-    showToast(
-        "WhatsApp untuk " +
-        guest.name +
-        " dibuka."
-    );
-
 }
 
 
-
-/* =====================================================
-   TOGGLE SENT
-===================================================== */
-
-function toggleSent(
-    index
-){
-
-    const guests =
-        getGuests();
-
-
-    if(!guests[index]){
-        return;
-    }
-
-
-    guests[index].sent =
-        !guests[index].sent;
-
-
-    saveGuests(
-        guests
-    );
-
-
-    render();
-
-
-    showToast(
-        guests[index].sent
-        ? "Ditandai sudah dikirim."
-        : "Dikembalikan menjadi belum dikirim."
-    );
-
-}
-
-
-
-/* =====================================================
-   COPY ALL
-===================================================== */
+/* =========================================================
+   COPY ALL LINKS
+========================================================= */
 
 async function copyAllLinks(){
 
-    const guests =
-        getGuests();
-
-
     if(!guests.length){
 
-        showToast(
-            "Belum ada tamu."
-        );
+        showToast("Belum ada data tamu.");
 
         return;
 
     }
 
 
-    const links =
+    const text =
         guests
-        .map(
-            (guest,index) => {
+        .map((guest,index) => {
 
-                return (
+            return (
+                `${index + 1}. ${guest.name}\n` +
+                createGuestLink(guest.name)
+            );
 
-                    String(
-                        index + 1
-                    ).padStart(
-                        3,
-                        "0"
-                    )
-
-                    +
-
-                    " — "
-
-                    +
-
-                    guest.name
-
-                    +
-
-                    "\n"
-
-                    +
-
-                    createGuestLink(
-                        guest.name
-                    )
-
-                );
-
-            }
-        )
-        .join(
-            "\n\n"
-        );
+        })
+        .join("\n\n");
 
 
-    await copyText(
-        links
-    );
+    try{
 
-
-    showToast(
-        "Semua link berhasil disalin."
-    );
-
-}
-
-
-
-/* =====================================================
-   DELETE ONE
-===================================================== */
-
-function deleteGuest(
-    index
-){
-
-    const guests =
-        getGuests();
-
-
-    if(!guests[index]){
-        return;
-    }
-
-
-    const name =
-        guests[index].name;
-
-
-    const yes =
-        confirm(
-            "Hapus tamu " +
-            name +
-            "?"
-        );
-
-
-    if(!yes){
-        return;
-    }
-
-
-    guests.splice(
-        index,
-        1
-    );
-
-
-    saveGuests(
-        guests
-    );
-
-
-    render();
-
-
-    showToast(
-        name +
-        " berhasil dihapus."
-    );
-
-}
-
-
-
-/* =====================================================
-   DELETE ALL
-===================================================== */
-
-function deleteAll(){
-
-    const guests =
-        getGuests();
-
-
-    if(!guests.length){
+        await navigator.clipboard.writeText(text);
 
         showToast(
-            "Daftar tamu sudah kosong."
+            "Semua link berhasil disalin ✓"
         );
 
-        return;
+    }catch(error){
+
+        fallbackCopy(text);
 
     }
 
-
-    const yes =
-        confirm(
-            "Hapus semua " +
-            guests.length +
-            " tamu?"
-        );
+}
 
 
-    if(!yes){
-        return;
-    }
+/* =========================================================
+   FALLBACK COPY
+========================================================= */
+
+function fallbackCopy(text){
+
+    const textarea =
+        document.createElement("textarea");
 
 
-    localStorage.removeItem(
-        STORAGE_KEY
+    textarea.value =
+        text;
+
+
+    textarea.style.position =
+        "fixed";
+
+    textarea.style.opacity =
+        "0";
+
+
+    document.body.appendChild(
+        textarea
     );
 
 
-    render();
+    textarea.select();
 
 
-    showToast(
-        "Semua tamu berhasil dihapus."
+    try{
+
+        document.execCommand("copy");
+
+        showToast("Berhasil disalin ✓");
+
+    }catch(error){
+
+        showToast(
+            "Gagal menyalin. Silakan copy manual."
+        );
+
+    }
+
+
+    document.body.removeChild(
+        textarea
     );
 
 }
 
 
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
 
-/* =====================================================
-   CLEAR INPUT
-===================================================== */
+function escapeHTML(value){
 
-function clearInput(){
-
-    document.getElementById(
-        "guestInput"
-    ).value = "";
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
 
 }
 
 
+function escapeAttr(value){
 
-/* =====================================================
+    return escapeHTML(value);
+
+}
+
+
+/* =========================================================
    STATS
-===================================================== */
+========================================================= */
 
-function updateStats(
-    guests
-){
+function updateStats(){
 
     const total =
         guests.length;
@@ -2630,8 +1569,7 @@ function updateStats(
 
     const sent =
         guests.filter(
-            guest =>
-            guest.sent
+            guest => guest.sent
         ).length;
 
 
@@ -2659,110 +1597,17 @@ function updateStats(
 }
 
 
-
-/* =====================================================
-   COPY HELPER
-===================================================== */
-
-async function copyText(
-    text
-){
-
-    try{
-
-        await navigator
-            .clipboard
-            .writeText(
-                text
-            );
-
-    }catch(error){
-
-        const area =
-            document.createElement(
-                "textarea"
-            );
-
-
-        area.value =
-            text;
-
-
-        document.body.appendChild(
-            area
-        );
-
-
-        area.select();
-
-
-        document.execCommand(
-            "copy"
-        );
-
-
-        area.remove();
-
-    }
-
-}
-
-
-
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
-
-function escapeHtml(
-    text
-){
-
-    return String(text)
-
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-
-        .replace(
-            /</g,
-            "&lt;"
-        )
-
-        .replace(
-            />/g,
-            "&gt;"
-        )
-
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
-}
-
-
-
-/* =====================================================
+/* =========================================================
    TOAST
-===================================================== */
+========================================================= */
 
 let toastTimer;
 
 
-function showToast(
-    message
-){
+function showToast(message){
 
     const toast =
-        document.getElementById(
-            "toast"
-        );
+        document.getElementById("toast");
 
 
     toast.textContent =
@@ -2780,26 +1625,24 @@ function showToast(
 
 
     toastTimer =
-        setTimeout(
-            () => {
+        setTimeout(() => {
 
-                toast.classList.remove(
-                    "show"
-                );
+            toast.classList.remove(
+                "show"
+            );
 
-            },
-            2400
-        );
+        },2500);
 
 }
 
 
+/* =========================================================
+   INITIALIZE
+========================================================= */
 
-/* =====================================================
-   INIT
-===================================================== */
+updateConfigUI();
 
-render();
+renderGuests();
 
 </script>
 
