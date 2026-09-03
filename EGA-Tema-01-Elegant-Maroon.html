@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#210307">
+<title>EGA Digital — Elegant Maroon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#210307;color:#f4e6cc;font-family:Montserrat,sans-serif;overflow-x:hidden}
+:root{--maroon:#210307;--maroon2:#470a17;--deep:#130204;--gold:#d4af62;--gold2:#f0d28a;--cream:#f4e6cc}
+a{text-decoration:none;color:inherit}
+
+#opening{
+position:fixed;inset:0;z-index:9999;display:flex;align-items:flex-end;justify-content:center;
+background:linear-gradient(180deg,rgba(15,1,4,.1),rgba(15,1,4,.35) 42%,rgba(15,1,4,.95)),
+url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1800&q=85") center/cover;
+transition:opacity 1s ease,visibility 1s ease
+}
+body.opened #opening{opacity:0;visibility:hidden;pointer-events:none}
+.opening-content{width:min(92%,560px);text-align:center;padding:0 22px 58px;animation:rise 1.2s ease}
+.brand{font-size:10px;letter-spacing:6px;color:var(--gold2);margin-bottom:20px}
+.opening-title{font:500 clamp(43px,11vw,70px)/.86 "Cormorant Garamond",serif}
+.opening-sub{font:400 18px "Cormorant Garamond",serif;color:var(--gold2);letter-spacing:3px;margin-top:10px}
+.ornament{color:var(--gold);letter-spacing:5px;margin:23px 0}
+.demo-note{font-size:9px;letter-spacing:3px;color:#dfd0b7;margin-bottom:22px}
+.open-btn{border:1px solid var(--gold);background:rgba(71,10,23,.8);color:#f4dca8;padding:15px 31px;border-radius:50px;font:500 10px Montserrat;letter-spacing:3px;cursor:pointer;transition:.35s}
+.open-btn:hover{background:var(--gold);color:#29050a;transform:translateY(-2px)}
+
+#main{opacity:0;visibility:hidden;transition:1s ease}
+body.opened #main{opacity:1;visibility:visible}
+
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:-6%;background:linear-gradient(180deg,rgba(20,2,6,.03),rgba(20,2,6,.12) 40%,rgba(20,2,6,.94) 84%,#210307),url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1800&q=85") center/cover;animation:slowZoom 12s ease-out forwards}
+.hero-content{position:relative;z-index:2;width:100%;text-align:center;padding:0 24px 60px}
+.eyebrow{font-size:10px;letter-spacing:5px;color:var(--gold2);margin-bottom:14px}
+.hero h1{font:600 clamp(52px,15vw,92px)/.82 "Cormorant Garamond",serif;letter-spacing:1px}
+.degree{font:400 22px "Cormorant Garamond",serif;letter-spacing:3px;margin-top:13px}
+.divider{display:flex;align-items:center;gap:12px;width:min(90%,340px);margin:24px auto}
+.divider span{height:1px;flex:1;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.diamond{width:6px;height:6px;border:1px solid var(--gold);transform:rotate(45deg)}
+.date{font:500 25px "Cormorant Garamond",serif;letter-spacing:3px}
+.time{font-size:10px;letter-spacing:3px;color:#dfcfb2;margin-top:6px}
+.scroll{margin-top:30px;font-size:8px;letter-spacing:3px;color:#c3b398;animation:bob 2s infinite}
+
+.section{position:relative;text-align:center;padding:105px 24px;background:radial-gradient(circle at 50% 0,rgba(130,24,48,.24),transparent 45%),var(--maroon)}
+.section:before,.section:after{content:"✦";position:absolute;color:rgba(212,175,98,.28);font-size:25px}
+.section:before{top:40px;left:12%}.section:after{bottom:35px;right:12%}
+.label{font-size:9px;letter-spacing:5px;color:var(--gold2);margin-bottom:18px}
+.section h2{font:500 45px/1 "Cormorant Garamond",serif;margin-bottom:22px}
+.text{max-width:500px;margin:auto;color:#d8c9ae;font-size:13px;line-height:2;font-weight:300}
+.quote{max-width:500px;margin:45px auto 0;padding:28px 22px;border-top:1px solid rgba(212,175,98,.45);border-bottom:1px solid rgba(212,175,98,.45);font:italic 21px/1.55 "Cormorant Garamond",serif;color:#ead9b7}
+
+.achievement{padding:35px 20px 95px;background:var(--maroon)}
+.achievement-card{max-width:540px;margin:auto;text-align:center;padding:45px 25px;border:1px solid rgba(212,175,98,.62);border-radius:30px;background:linear-gradient(145deg,rgba(83,12,28,.62),rgba(28,2,7,.88));box-shadow:0 25px 80px rgba(0,0,0,.3)}
+.medal{width:108px;height:108px;border-radius:50%;margin:0 auto 25px;border:1px solid var(--gold);display:grid;place-items:center;background:radial-gradient(circle,rgba(212,175,98,.18),transparent 65%);color:var(--gold2);font:600 30px "Cormorant Garamond",serif;letter-spacing:2px}
+.achievement-title{font:500 36px "Cormorant Garamond",serif}
+.achievement-sub{margin-top:6px;color:var(--gold2);font:400 18px "Cormorant Garamond",serif;letter-spacing:2px}
+
+.event{padding:20px 20px 95px;background:var(--deep)}
+.event-card{max-width:560px;margin:auto;aspect-ratio:1/1;border-radius:50%;border:1px solid rgba(212,175,98,.72);padding:20%;display:flex;flex-direction:column;justify-content:center;text-align:center;background:radial-gradient(circle,rgba(90,15,32,.55),rgba(25,2,7,.92) 68%);box-shadow:inset 0 0 55px rgba(212,175,98,.05),0 25px 80px rgba(0,0,0,.35)}
+.event-date{font:600 31px "Cormorant Garamond",serif}
+.event-time{font-size:10px;letter-spacing:2px;color:#d5c5aa;margin-top:5px}
+.location{display:inline-block;margin:23px auto 0;padding:12px 21px;border:1px solid var(--gold);border-radius:50px;font-size:9px;letter-spacing:2px;color:#f0d49b;background:#450b17}
+
+.story{padding:105px 24px;background:linear-gradient(180deg,#210307,#31070e)}
+.story-inner{max-width:650px;margin:auto;text-align:center}
+.script{font:italic 500 42px "Cormorant Garamond",serif;color:var(--gold2)}
+.story-line{width:80px;height:1px;background:var(--gold);margin:25px auto}
+.story p{max-width:500px;margin:auto;color:#d8c9ae;font-size:13px;line-height:2.1}
+.demo-photo{width:min(100%,520px);height:300px;margin:42px auto 0;border-radius:26px;background:linear-gradient(180deg,rgba(20,2,6,.05),rgba(20,2,6,.25)),url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=85") center/cover;border:1px solid rgba(212,175,98,.3)}
+
+.cta{padding:90px 22px;text-align:center;background:#140205}
+.cta h2{font:500 43px "Cormorant Garamond",serif}
+.cta p{max-width:430px;margin:15px auto 28px;color:#cbbba0;font-size:11px;line-height:1.9}
+.order{display:inline-flex;padding:15px 28px;border-radius:50px;background:linear-gradient(110deg,#a77c32,#f0d28a,#a77c32);color:#29050a;font-size:10px;font-weight:600;letter-spacing:2px}
+.footer{text-align:center;padding:28px 20px 42px;background:#0d0103;color:#8e7b67;font-size:9px;letter-spacing:2px}
+.footer strong{color:#b9995e}
+
+.reveal{opacity:0;transform:translateY(38px);transition:opacity .9s ease,transform .9s ease}
+.reveal.show{opacity:1;transform:none}
+@keyframes rise{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+@keyframes slowZoom{from{transform:scale(1)}to{transform:scale(1.08)}}
+@keyframes bob{0%,100%{transform:translateY(0);opacity:.45}50%{transform:translateY(7px);opacity:1}}
+@media(min-width:700px){.hero-content{padding-bottom:72px}.section,.story{padding-top:125px;padding-bottom:125px}}
+</style>
+</head>
+
+<body>
+<section id="opening">
+  <div class="opening-content">
+    <div class="brand">EGA DIGITAL</div>
+    <div class="opening-title">Graduation Invitation</div>
+    <div class="opening-sub">ELEGANT MAROON</div>
+    <div class="ornament">✦ ─── ✦ ─── ✦</div>
+    <div class="demo-note">DEMO TEMPLATE • FOTO & DATA HANYA CONTOH</div>
+    <button class="open-btn" onclick="openInvitation()">BUKA DEMO</button>
+  </div>
+</section>
+
+<main id="main">
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="eyebrow reveal">EGA DIGITAL PRESENTS</div>
+    <h1 class="reveal">Graduation Day</h1>
+    <div class="degree reveal">A Premium Invitation Experience</div>
+    <div class="divider reveal"><span></span><i class="diamond"></i><span></span></div>
+    <div class="date reveal">EGA DIGITAL • 2026</div>
+    <div class="time reveal">ELEGANT MAROON COLLECTION</div>
+    <div class="scroll">SCROLL UNTUK MELIHAT DEMO ↓</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="label reveal">THE MOMENT</div>
+  <h2 class="reveal">Sebuah Pencapaian</h2>
+  <p class="text reveal">Setiap kelulusan adalah cerita tentang perjuangan, doa, dan langkah panjang menuju masa depan. Tema ini dirancang untuk mengabadikan momen tersebut dengan nuansa maroon yang hangat dan elegan.</p>
+  <div class="quote reveal">“Hari ini adalah hasil dari setiap langkah yang tidak pernah menyerah.”</div>
+</section>
+
+<section class="achievement">
+  <div class="achievement-card reveal">
+    <div class="medal">EGA</div>
+    <div class="label">GRADUATION COLLECTION</div>
+    <div class="achievement-title">Elegant Maroon</div>
+    <div class="achievement-sub">CLASSIC • WARM • PREMIUM</div>
+    <div class="ornament">✦ ─── ✦ ─── ✦</div>
+    <p class="text">Contoh tampilan kartu pencapaian. Pada order asli, bagian ini dapat diganti dengan nama, gelar, kampus, jurusan, dan detail wisudawan.</p>
+  </div>
+</section>
+
+<section class="event">
+  <div class="event-card reveal">
+    <div class="label">DEMO EVENT</div>
+    <div class="event-date">Graduation Day</div>
+    <div class="event-time">SABTU • 12 DESEMBER 2026</div>
+    <div class="event-time">12.00 WIB</div>
+    <a class="location" href="https://www.google.com/maps/search/?api=1&query=Jakarta" target="_blank" rel="noopener">✦ &nbsp; CONTOH LOKASI</a>
+  </div>
+</section>
+
+<section class="story">
+  <div class="story-inner">
+    <div class="label reveal">A NEW CHAPTER</div>
+    <div class="script reveal">The Journey Continues</div>
+    <div class="story-line reveal"></div>
+    <p class="reveal">Dari halaman pertama hingga langkah berikutnya, setiap detail undangan dibuat agar terasa personal, lembut, dan berkelas.</p>
+    <div class="demo-photo reveal"></div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2 class="reveal">Suka Tema Ini?</h2>
+  <p class="reveal">Jadikan Elegant Maroon sebagai undangan wisuda kamu. Data, foto, warna, dan isi undangan akan disesuaikan setelah pemesanan.</p>
+  <a class="order reveal" href="https://wa.me/?text=Halo%20EGA%20Digital%2C%20saya%20tertarik%20dengan%20Undangan%20Wisuda%20Tema%2001%20%E2%80%94%20Elegant%20Maroon." target="_blank" rel="noopener">ORDER TEMA INI</a>
+</section>
+
+<div class="footer">EGA DIGITAL &nbsp;•&nbsp; <strong>GRADUATION INVITATION</strong></div>
+</main>
+
+<script>
+function openInvitation(){
+  document.body.classList.add("opened");
+  setTimeout(()=>{
+    document.querySelectorAll(".reveal").forEach((el,i)=>{
+      setTimeout(()=>el.classList.add("show"),i*90);
+    });
+  },250);
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add("show");
+  });
+},{threshold:.12});
+document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
