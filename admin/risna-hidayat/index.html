@@ -1,1 +1,1376 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#210307">
+<title>Admin — Risna Hidayat | EGA Digital</title>
 
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    background:
+        radial-gradient(circle at 15% 5%,rgba(212,175,98,.10),transparent 28%),
+        radial-gradient(circle at 90% 40%,rgba(120,20,40,.22),transparent 35%),
+        #210307;
+    color:#ead9b7;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+    min-height:100vh;
+}
+
+.container{
+    width:min(100%,1100px);
+    margin:auto;
+    padding:25px 16px 60px;
+}
+
+/* HEADER */
+
+header{
+    padding:10px 0 25px;
+}
+
+.brand{
+    color:#f0d28a;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:5px;
+}
+
+.customer-badge{
+    display:inline-block;
+    margin-top:15px;
+    padding:7px 12px;
+    border:1px solid rgba(212,175,98,.3);
+    border-radius:30px;
+    color:#f0d28a;
+    font-size:9px;
+    letter-spacing:2px;
+}
+
+h1{
+    margin-top:12px;
+    color:#ead9b7;
+    font-family:Georgia,serif;
+    font-size:clamp(30px,7vw,48px);
+    font-weight:500;
+}
+
+.subtitle{
+    margin-top:8px;
+    color:#b9a991;
+    font-size:13px;
+}
+
+/* PANEL */
+
+.panel{
+    margin-top:18px;
+    padding:20px;
+    border:1px solid rgba(212,175,98,.20);
+    border-radius:18px;
+    background:
+        linear-gradient(145deg,rgba(67,12,23,.96),rgba(39,5,11,.98));
+    box-shadow:0 20px 60px rgba(0,0,0,.22);
+}
+
+.panel-title{
+    margin-bottom:17px;
+    color:#ead9b7;
+    font-family:Georgia,serif;
+    font-size:22px;
+}
+
+label{
+    display:block;
+    margin-bottom:7px;
+    color:#b9a991;
+    font-size:11px;
+}
+
+input,
+textarea{
+    width:100%;
+    border:1px solid rgba(212,175,98,.18);
+    border-radius:11px;
+    outline:none;
+    background:#26050a;
+    color:#ead9b7;
+    padding:13px;
+    font:inherit;
+}
+
+input:focus,
+textarea:focus{
+    border-color:#d4af62;
+    box-shadow:0 0 0 3px rgba(212,175,98,.08);
+}
+
+textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+textarea::placeholder,
+input::placeholder{
+    color:#897968;
+}
+
+.field{
+    margin-bottom:14px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+/* BUTTON */
+
+.actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:12px;
+}
+
+button,
+.btn{
+    border:0;
+    border-radius:10px;
+    padding:12px 16px;
+    cursor:pointer;
+    font-size:11px;
+    font-weight:600;
+    text-decoration:none;
+}
+
+.btn-gold{
+    background:linear-gradient(110deg,#a77c32,#f0d28a,#a77c32);
+    color:#2a0509;
+}
+
+.btn-dark{
+    background:#4a0b16;
+    border:1px solid rgba(212,175,98,.18);
+    color:#ead9b7;
+}
+
+.btn-danger{
+    background:rgba(150,35,48,.12);
+    border:1px solid rgba(229,139,139,.2);
+    color:#e58b8b;
+}
+
+/* URL */
+
+.url-box{
+    margin-top:12px;
+    padding:12px;
+    border:1px solid rgba(212,175,98,.2);
+    border-radius:10px;
+    background:rgba(212,175,98,.05);
+    word-break:break-all;
+}
+
+.url-label{
+    margin-bottom:5px;
+    color:#9e8d79;
+    font-size:9px;
+    letter-spacing:1px;
+}
+
+#baseUrl{
+    color:#f0d28a;
+    font-size:11px;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-top:15px;
+}
+
+.stat{
+    padding:17px 12px;
+    text-align:center;
+    border:1px solid rgba(212,175,98,.16);
+    border-radius:14px;
+    background:linear-gradient(145deg,#430c17,#2b050a);
+}
+
+.stat b{
+    display:block;
+    color:#f0d28a;
+    font-size:23px;
+}
+
+.stat span{
+    display:block;
+    margin-top:4px;
+    color:#aa9984;
+    font-size:9px;
+    letter-spacing:1px;
+}
+
+/* SEARCH */
+
+.search{
+    margin-top:15px;
+}
+
+/* TABLE */
+
+.table-wrap{
+    overflow-x:auto;
+    margin-top:14px;
+}
+
+table{
+    width:100%;
+    min-width:760px;
+    border-collapse:collapse;
+}
+
+th{
+    padding:12px 8px;
+    color:#f0d28a;
+    border-bottom:1px solid rgba(212,175,98,.22);
+    text-align:left;
+    font-size:10px;
+    letter-spacing:1px;
+}
+
+td{
+    padding:13px 8px;
+    color:#c7b9a2;
+    border-bottom:1px solid rgba(212,175,98,.08);
+    font-size:12px;
+    vertical-align:middle;
+}
+
+.number{
+    color:#f0d28a;
+    font-weight:600;
+}
+
+.guest-name{
+    color:#ead9b7;
+    font-weight:600;
+}
+
+.phone-input{
+    width:170px;
+    padding:8px;
+    font-size:11px;
+}
+
+.status{
+    display:inline-block;
+    padding:6px 9px;
+    border-radius:20px;
+    font-size:9px;
+}
+
+.status.pending{
+    color:#e8c975;
+    background:rgba(212,175,98,.08);
+    border:1px solid rgba(212,175,98,.18);
+}
+
+.status.sent{
+    color:#72d89a;
+    background:rgba(72,180,115,.08);
+    border:1px solid rgba(72,180,115,.18);
+}
+
+.small-btn{
+    padding:8px 10px;
+    background:#4a0b16;
+    border:1px solid rgba(212,175,98,.16);
+    color:#ead9b7;
+    border-radius:8px;
+    font-size:10px;
+}
+
+.small-btn.wa{
+    color:#72d89a;
+    background:rgba(72,180,115,.08);
+    border-color:rgba(72,180,115,.20);
+}
+
+.small-btn.delete{
+    color:#e58b8b;
+    background:rgba(150,35,48,.10);
+    border-color:rgba(229,139,139,.20);
+}
+
+.empty{
+    padding:30px 10px;
+    text-align:center;
+    color:#9e8d79;
+    font-size:12px;
+}
+
+/* TOAST */
+
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+    z-index:100;
+    transform:translate(-50%,20px);
+    opacity:0;
+    pointer-events:none;
+
+    padding:13px 18px;
+    border:1px solid rgba(212,175,98,.28);
+    border-radius:12px;
+
+    background:#430c17;
+    color:#ead9b7;
+
+    font-size:11px;
+
+    transition:.3s;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translate(-50%,0);
+}
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .stat{
+        padding:14px 5px;
+    }
+
+    .stat b{
+        font-size:19px;
+    }
+
+    .stat span{
+        font-size:8px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+
+    <div class="brand">
+        EGA DIGITAL
+    </div>
+
+    <div class="customer-badge">
+        CUSTOMER • RISNA HIDAYAT
+    </div>
+
+    <h1>
+        Admin Risna Hidayat
+    </h1>
+
+    <div class="subtitle">
+        Guest Manager • Graduation Invitation
+    </div>
+
+</header>
+
+
+<!-- PENGATURAN -->
+
+<section class="panel">
+
+    <div class="panel-title">
+        Pengaturan Undangan
+    </div>
+
+    <div class="grid">
+
+        <div class="field">
+
+            <label>
+                NAMA CUSTOMER / ACARA
+            </label>
+
+            <input
+                id="eventName"
+                value="Risna Hidayat"
+                placeholder="Nama customer"
+            >
+
+        </div>
+
+        <div class="field">
+
+            <label>
+                LINK UNDANGAN
+            </label>
+
+            <input
+                id="invitationUrl"
+                value="https://sije100619.github.io/EGA-Graduation-Demo/customer/risna-hidayat/"
+                placeholder="Link undangan"
+            >
+
+        </div>
+
+    </div>
+
+    <div class="actions">
+
+        <button
+            class="btn-gold"
+            onclick="saveConfig()"
+        >
+            SIMPAN PENGATURAN
+        </button>
+
+        <a
+            class="btn btn-dark"
+            href="https://sije100619.github.io/EGA-Graduation-Demo/customer/risna-hidayat/"
+            target="_blank"
+        >
+            BUKA UNDANGAN
+        </a>
+
+    </div>
+
+    <div class="url-box">
+
+        <div class="url-label">
+            LINK UNDANGAN CUSTOMER
+        </div>
+
+        <div id="baseUrl"></div>
+
+    </div>
+
+</section>
+
+
+<!-- TAMBAH TAMU -->
+
+<section class="panel">
+
+    <div class="panel-title">
+        Tambah Tamu
+    </div>
+
+    <div class="field">
+
+        <label>
+            NAMA TAMU — SATU NAMA PER BARIS
+        </label>
+
+        <textarea
+            id="names"
+            placeholder="Budi&#10;Siti&#10;Andi&#10;Rina"
+        ></textarea>
+
+    </div>
+
+    <div class="field">
+
+        <label>
+            NOMOR WHATSAPP — SATU NOMOR PER BARIS
+        </label>
+
+        <textarea
+            id="phones"
+            placeholder="628123456789&#10;628987654321"
+        ></textarea>
+
+    </div>
+
+    <div class="actions">
+
+        <button
+            class="btn-gold"
+            onclick="addGuests()"
+        >
+            + TAMBAH TAMU
+        </button>
+
+        <button
+            class="btn-dark"
+            onclick="copyAllLinks()"
+        >
+            COPY SEMUA LINK
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- STATISTIK -->
+
+<section class="stats">
+
+    <div class="stat">
+        <b id="totalCount">0</b>
+        <span>TOTAL TAMU</span>
+    </div>
+
+    <div class="stat">
+        <b id="sentCount">0</b>
+        <span>TERKIRIM</span>
+    </div>
+
+    <div class="stat">
+        <b id="pendingCount">0</b>
+        <span>BELUM DIKIRIM</span>
+    </div>
+
+</section>
+
+
+<!-- DAFTAR TAMU -->
+
+<section class="panel">
+
+    <div class="panel-title">
+        Daftar Tamu
+    </div>
+
+    <input
+        class="search"
+        id="search"
+        placeholder="🔎 Cari nama tamu..."
+        oninput="renderGuests()"
+    >
+
+    <div class="table-wrap">
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>NO</th>
+                    <th>NAMA</th>
+                    <th>WHATSAPP</th>
+                    <th>STATUS</th>
+                    <th>AKSI</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="guestTable"></tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+</div>
+
+
+<div
+    id="toast"
+    class="toast"
+>
+    Berhasil
+</div>
+
+
+<script>
+
+/* =====================================================
+   RISNA — STORAGE TERPISAH
+===================================================== */
+
+const STORAGE_KEY =
+    "ega_digital_guests_risna_hidayat";
+
+const CONFIG_KEY =
+    "ega_digital_invitation_config_risna_hidayat";
+
+
+/* =====================================================
+   DEFAULT CONFIG
+===================================================== */
+
+const DEFAULT_CONFIG = {
+
+    eventName:
+        "Risna Hidayat",
+
+    invitationUrl:
+        "https://sije100619.github.io/EGA-Graduation-Demo/customer/risna-hidayat/"
+
+};
+
+
+/* =====================================================
+   LOAD DATA
+===================================================== */
+
+let config =
+    JSON.parse(
+        localStorage.getItem(CONFIG_KEY)
+    ) ||
+    DEFAULT_CONFIG;
+
+
+let guests =
+    JSON.parse(
+        localStorage.getItem(STORAGE_KEY)
+    ) ||
+    [];
+
+
+eventName.value =
+    config.eventName;
+
+invitationUrl.value =
+    config.invitationUrl;
+
+
+/* =====================================================
+   SAVE
+===================================================== */
+
+function saveData(){
+
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(guests)
+    );
+
+}
+
+
+function saveConfig(){
+
+    config = {
+
+        eventName:
+            eventName.value.trim() ||
+            DEFAULT_CONFIG.eventName,
+
+        invitationUrl:
+            invitationUrl.value.trim() ||
+            DEFAULT_CONFIG.invitationUrl
+
+    };
+
+    localStorage.setItem(
+        CONFIG_KEY,
+        JSON.stringify(config)
+    );
+
+    updateBaseUrl();
+
+    showToast(
+        "Pengaturan berhasil disimpan"
+    );
+
+}
+
+
+/* =====================================================
+   PERSONAL LINK
+===================================================== */
+
+function personalLink(guest){
+
+    const separator =
+        config.invitationUrl.includes("?")
+            ? "&"
+            : "?";
+
+    return (
+        config.invitationUrl +
+        separator +
+        "to=" +
+        encodeURIComponent(guest.name)
+    );
+
+}
+
+
+/* =====================================================
+   ADD GUESTS
+===================================================== */
+
+function addGuests(){
+
+    const namesText =
+        document
+            .getElementById("names")
+            .value;
+
+    const phonesText =
+        document
+            .getElementById("phones")
+            .value;
+
+
+    const names =
+        namesText
+            .split(/\r?\n/)
+            .map(x => x.trim())
+            .filter(Boolean);
+
+
+    const phones =
+        phonesText
+            .split(/\r?\n/)
+            .map(x => x.trim());
+
+
+    if(!names.length){
+
+        showToast(
+            "Masukkan nama tamu dulu"
+        );
+
+        return;
+
+    }
+
+
+    names.forEach(
+        (name,index) => {
+
+            guests.push({
+
+                id:
+                    Date.now() +
+                    "-" +
+                    index,
+
+                name:name,
+
+                phone:
+                    phones[index] || "",
+
+                sent:false
+
+            });
+
+        }
+    );
+
+
+    saveData();
+
+    document.getElementById("names").value = "";
+    document.getElementById("phones").value = "";
+
+    renderGuests();
+
+    showToast(
+        names.length +
+        " tamu berhasil ditambahkan"
+    );
+
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+function sendWhatsApp(id){
+
+    const guest =
+        guests.find(
+            item => String(item.id) === String(id)
+        );
+
+
+    if(!guest){
+
+        return;
+
+    }
+
+
+    if(!guest.phone){
+
+        showToast(
+            "Nomor WhatsApp belum diisi"
+        );
+
+        return;
+
+    }
+
+
+    let phone =
+        guest.phone.replace(/\D/g,"");
+
+
+    /*
+       Kalau nomor dimulai 08,
+       otomatis diubah menjadi 628...
+    */
+
+    if(phone.startsWith("08")){
+
+        phone =
+            "62" +
+            phone.substring(1);
+
+    }
+
+
+    const message =
+`Halo ${guest.name},
+
+Saya ingin mengundang Anda untuk hadir di acara Graduation Day Risna Hidayat.
+
+Berikut undangan personal untuk Anda:
+
+${personalLink(guest)}
+
+Sampai bertemu di hari yang spesial. 🙏`;
+
+
+    guest.sent = true;
+
+    saveData();
+
+    renderGuests();
+
+
+    const url =
+        "https://wa.me/" +
+        phone +
+        "?text=" +
+        encodeURIComponent(message);
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+
+/* =====================================================
+   COPY PERSONAL LINK
+===================================================== */
+
+async function copyLink(id){
+
+    const guest =
+        guests.find(
+            item => String(item.id) === String(id)
+        );
+
+
+    if(!guest){
+
+        return;
+
+    }
+
+
+    try{
+
+        await navigator.clipboard.writeText(
+            personalLink(guest)
+        );
+
+        showToast(
+            "Link berhasil dicopy"
+        );
+
+    }catch(error){
+
+        prompt(
+            "Copy link ini:",
+            personalLink(guest)
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   OPEN PERSONAL LINK
+===================================================== */
+
+function openLink(id){
+
+    const guest =
+        guests.find(
+            item => String(item.id) === String(id)
+        );
+
+
+    if(!guest){
+
+        return;
+
+    }
+
+
+    window.open(
+        personalLink(guest),
+        "_blank"
+    );
+
+}
+
+
+/* =====================================================
+   EDIT PHONE
+===================================================== */
+
+function editPhone(id){
+
+    const guest =
+        guests.find(
+            item => String(item.id) === String(id)
+        );
+
+
+    if(!guest){
+
+        return;
+
+    }
+
+
+    const value =
+        prompt(
+            "Masukkan nomor WhatsApp:",
+            guest.phone
+        );
+
+
+    if(value === null){
+
+        return;
+
+    }
+
+
+    guest.phone =
+        value.trim();
+
+    saveData();
+
+    renderGuests();
+
+    showToast(
+        "Nomor WhatsApp diperbarui"
+    );
+
+}
+
+
+/* =====================================================
+   DELETE
+===================================================== */
+
+function deleteGuest(id){
+
+    const guest =
+        guests.find(
+            item => String(item.id) === String(id)
+        );
+
+
+    if(!guest){
+
+        return;
+
+    }
+
+
+    if(
+        !confirm(
+            "Hapus tamu " +
+            guest.name +
+            "?"
+        )
+    ){
+
+        return;
+
+    }
+
+
+    guests =
+        guests.filter(
+            item =>
+                String(item.id) !== String(id)
+        );
+
+
+    saveData();
+
+    renderGuests();
+
+    showToast(
+        "Tamu dihapus"
+    );
+
+}
+
+
+/* =====================================================
+   COPY ALL
+===================================================== */
+
+async function copyAllLinks(){
+
+    if(!guests.length){
+
+        showToast(
+            "Belum ada tamu"
+        );
+
+        return;
+
+    }
+
+
+    const text =
+        guests
+            .map(
+                (guest,index) =>
+`${index + 1}. ${guest.name}
+${personalLink(guest)}`
+            )
+            .join("\n\n");
+
+
+    try{
+
+        await navigator.clipboard.writeText(
+            text
+        );
+
+        showToast(
+            "Semua link berhasil dicopy"
+        );
+
+    }catch(error){
+
+        prompt(
+            "Copy semua link:",
+            text
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   RENDER
+===================================================== */
+
+function renderGuests(){
+
+    const tbody =
+        document.getElementById(
+            "guestTable"
+        );
+
+
+    const search =
+        document
+            .getElementById("search")
+            .value
+            .toLowerCase()
+            .trim();
+
+
+    const filtered =
+        guests.filter(
+            guest =>
+                guest.name
+                    .toLowerCase()
+                    .includes(search)
+        );
+
+
+    if(!filtered.length){
+
+        tbody.innerHTML = `
+            <tr>
+                <td
+                    colspan="5"
+                    class="empty"
+                >
+                    ${
+                        guests.length
+                        ? "Tamu tidak ditemukan."
+                        : "Belum ada tamu. Tambahkan tamu di atas."
+                    }
+                </td>
+            </tr>
+        `;
+
+    }else{
+
+        tbody.innerHTML =
+            filtered
+                .map(
+                    (guest,index) => {
+
+                        return `
+
+<tr>
+
+<td class="number">
+    ${index + 1}
+</td>
+
+<td class="guest-name">
+    ${escapeHtml(guest.name)}
+</td>
+
+<td>
+
+    <button
+        class="small-btn"
+        onclick="editPhone('${guest.id}')"
+    >
+        ${guest.phone
+            ? escapeHtml(guest.phone)
+            : "+ Tambah Nomor"
+        }
+    </button>
+
+</td>
+
+<td>
+
+    <span
+        class="status ${
+            guest.sent
+                ? "sent"
+                : "pending"
+        }"
+    >
+        ${
+            guest.sent
+                ? "Terkirim"
+                : "Belum dikirim"
+        }
+    </span>
+
+</td>
+
+<td>
+
+    <div class="actions">
+
+        <button
+            class="small-btn"
+            onclick="copyLink('${guest.id}')"
+        >
+            Copy
+        </button>
+
+        <button
+            class="small-btn"
+            onclick="openLink('${guest.id}')"
+        >
+            Buka
+        </button>
+
+        ${
+            guest.phone
+            ?
+            `
+            <button
+                class="small-btn wa"
+                onclick="sendWhatsApp('${guest.id}')"
+            >
+                WhatsApp
+            </button>
+            `
+            :
+            ""
+        }
+
+        <button
+            class="small-btn delete"
+            onclick="deleteGuest('${guest.id}')"
+        >
+            Hapus
+        </button>
+
+    </div>
+
+</td>
+
+</tr>
+
+`;
+
+                    }
+                )
+                .join("");
+
+    }
+
+
+    updateStats();
+
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+function updateStats(){
+
+    const total =
+        guests.length;
+
+
+    const sent =
+        guests.filter(
+            guest => guest.sent
+        ).length;
+
+
+    const pending =
+        total - sent;
+
+
+    document.getElementById(
+        "totalCount"
+    ).textContent =
+        total;
+
+
+    document.getElementById(
+        "sentCount"
+    ).textContent =
+        sent;
+
+
+    document.getElementById(
+        "pendingCount"
+    ).textContent =
+        pending;
+
+}
+
+
+/* =====================================================
+   URL
+===================================================== */
+
+function updateBaseUrl(){
+
+    document.getElementById(
+        "baseUrl"
+    ).textContent =
+        config.invitationUrl;
+
+}
+
+
+/* =====================================================
+   ESCAPE HTML
+===================================================== */
+
+function escapeHtml(value){
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   TOAST
+===================================================== */
+
+let toastTimer;
+
+
+function showToast(message){
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    toast.textContent =
+        message;
+
+
+    toast.classList.add(
+        "show"
+    );
+
+
+    clearTimeout(
+        toastTimer
+    );
+
+
+    toastTimer =
+        setTimeout(
+            () => {
+
+                toast.classList.remove(
+                    "show"
+                );
+
+            },
+            2200
+        );
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+updateBaseUrl();
+
+renderGuests();
+
+</script>
+
+</body>
+</html>
