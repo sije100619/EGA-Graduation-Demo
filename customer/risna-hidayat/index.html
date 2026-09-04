@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <meta name="theme-color" content="#f7f3eb">
 
 <title>Risna Hidayat — Graduation Invitation</title>
@@ -15,10 +14,14 @@
 
 <style>
 
+/* ================================
+   BASIC
+================================ */
+
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 html{
@@ -26,6 +29,7 @@ html{
 }
 
 body{
+    margin:0;
     background:#f7f3eb;
     color:#403a32;
     font-family:'Montserrat',sans-serif;
@@ -33,8 +37,8 @@ body{
 }
 
 a{
-    text-decoration:none;
     color:inherit;
+    text-decoration:none;
 }
 
 :root{
@@ -44,14 +48,13 @@ a{
     --muted:#786f63;
     --gold:#b99755;
     --gold2:#d5bc82;
-    --line:rgba(185,151,85,.45);
-    --white:#fffdf8;
+    --line:rgba(185,151,85,.42);
 }
 
 
-/* =====================================
+/* ================================
    OPENING
-===================================== */
+================================ */
 
 #opening{
     position:fixed;
@@ -64,12 +67,11 @@ a{
 
     background:
         radial-gradient(
-            circle at 50% 38%,
-            rgba(255,255,255,.95),
+            circle at 50% 35%,
+            rgba(255,255,255,.98),
             rgba(247,243,235,.97) 55%,
             rgba(229,219,204,.98)
-        ),
-        var(--paper);
+        );
 
     transition:
         opacity .9s ease,
@@ -108,14 +110,12 @@ body.opened #opening{
 .opening-frame:before{
     top:-13px;
     left:50%;
-
     transform:translateX(-50%);
 }
 
 .opening-frame:after{
     bottom:-13px;
     left:50%;
-
     transform:translateX(-50%);
 }
 
@@ -139,7 +139,10 @@ body.opened #opening{
 }
 
 .opening-kicker{
-    font:500 16px 'Cormorant Garamond',serif;
+    font:
+        500
+        16px
+        'Cormorant Garamond',serif;
 
     letter-spacing:5px;
     text-transform:uppercase;
@@ -153,7 +156,7 @@ body.opened #opening{
     font:
         500
         clamp(48px,12vw,76px)
-        / .9
+        /.9
         'Cormorant Garamond',serif;
 
     color:var(--ink);
@@ -177,12 +180,12 @@ body.opened #opening{
 }
 
 .demo-note{
+    margin-bottom:25px;
+
     font-size:8px;
     letter-spacing:2.5px;
 
     color:#9a9185;
-
-    margin-bottom:25px;
 }
 
 .open-btn{
@@ -209,21 +212,21 @@ body.opened #opening{
 
 .open-btn:hover{
     background:var(--gold);
-    color:white;
-
     transform:translateY(-2px);
 }
 
 
-/* =====================================
+/* ================================
    MAIN
-===================================== */
+================================ */
 
 #main{
     opacity:0;
     visibility:hidden;
 
-    transition:.9s ease;
+    transition:
+        opacity .9s ease,
+        visibility .9s ease;
 }
 
 body.opened #main{
@@ -232,107 +235,177 @@ body.opened #main{
 }
 
 
-/* =====================================
+/* ================================
    HERO
-   FOTO UTUH DI ATAS JUDUL
-===================================== */
+================================ */
 
 .hero{
     position:relative;
 
     width:100%;
 
-    background:var(--paper);
-
     overflow:hidden;
+
+    background:var(--paper);
 }
 
 
-/*
-   FOTO CUSTOMER
-   ================================
-   PENTING:
-   Tidak menggunakan background-image.
-   Tidak menggunakan cover.
-   Tidak menggunakan crop.
+/* ================================
+   FOTO UTAMA
+   ASLI — TIDAK CROP
+================================ */
 
-   Foto ditampilkan sebagai IMG
-   dengan height:auto.
-*/
+.hero-image{
+    position:relative;
 
-.hero-photo-wrap{
     width:100%;
 
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
-
-    background:var(--paper);
+    line-height:0;
 
     overflow:hidden;
+
+    background:var(--paper);
 }
 
-.hero-photo{
+.hero-image img{
     display:block;
 
     width:100%;
     height:auto;
 
-    max-width:100%;
+    max-width:none;
 
     object-fit:contain;
 
     object-position:center top;
 
-    transform:scale(1);
+    transform:scale(1.001);
 
-    animation:photoAppear 1.2s ease;
+    animation:photoIn 1.4s ease forwards;
 }
 
 
-/* =====================================
-   HERO CONTENT
-   BERADA DI BAWAH FOTO
-===================================== */
+/* ================================
+   FADE / BURAM DI BAWAH FOTO
+================================ */
+
+.hero-image:after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:42%;
+
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(247,243,235,0),
+            rgba(247,243,235,.12) 18%,
+            rgba(247,243,235,.58) 48%,
+            rgba(247,243,235,.90) 72%,
+            #f7f3eb 100%
+        );
+
+    backdrop-filter:
+        blur(1px);
+
+    -webkit-backdrop-filter:
+        blur(1px);
+}
+
+
+/* ================================
+   ORNAMEN GOLD
+================================ */
+
+.hero-decoration{
+    position:absolute;
+
+    left:-80px;
+    right:-80px;
+    bottom:90px;
+
+    height:180px;
+
+    border-top:1px solid rgba(185,151,85,.22);
+
+    border-radius:50%;
+
+    transform:rotate(-7deg);
+
+    pointer-events:none;
+
+    z-index:3;
+}
+
+.hero-decoration.two{
+    bottom:35px;
+
+    transform:
+        rotate(8deg)
+        scale(.85);
+
+    opacity:.6;
+}
+
+
+/* ================================
+   HERO TEXT
+================================ */
 
 .hero-content{
     position:relative;
 
-    z-index:2;
+    z-index:5;
 
-    width:100%;
+    margin-top:-130px;
+
+    padding:
+        0
+        20px
+        65px;
 
     text-align:center;
 
-    background:var(--paper);
-
-    padding:
-        34px
-        24px
-        65px;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(247,243,235,0),
+            #f7f3eb 28%
+        );
 }
 
 .eyebrow{
+    margin-bottom:16px;
+
     font-size:9px;
+
     letter-spacing:5px;
 
     color:#a98950;
-
-    margin-bottom:15px;
 }
 
 .hero h1{
     font:
         500
-        clamp(58px,15vw,94px)
-        / .82
+        clamp(55px,14vw,92px)
+        /.84
         'Cormorant Garamond',serif;
 
     color:var(--ink);
+
+    text-shadow:
+        0 2px 15px rgba(247,243,235,.5);
 }
 
 .hero-sub{
-    margin-top:15px;
+    margin-top:18px;
 
     font:
         400
@@ -340,12 +413,14 @@ body.opened #main{
         'Cormorant Garamond',serif;
 
     letter-spacing:3px;
+
+    color:#554e45;
 }
 
 .divider{
     width:min(90%,340px);
 
-    margin:24px auto;
+    margin:25px auto;
 
     display:flex;
 
@@ -369,8 +444,8 @@ body.opened #main{
 }
 
 .diamond{
-    width:6px;
-    height:6px;
+    width:7px;
+    height:7px;
 
     border:1px solid var(--gold);
 
@@ -384,10 +459,12 @@ body.opened #main{
         'Cormorant Garamond',serif;
 
     letter-spacing:3px;
+
+    color:#403a32;
 }
 
 .time{
-    margin-top:6px;
+    margin-top:7px;
 
     font-size:9px;
 
@@ -397,7 +474,7 @@ body.opened #main{
 }
 
 .scroll{
-    margin-top:28px;
+    margin-top:30px;
 
     font-size:8px;
 
@@ -409,16 +486,18 @@ body.opened #main{
 }
 
 
-/* =====================================
-   SECTION
-===================================== */
+/* ================================
+   STORY
+================================ */
 
 .section{
     position:relative;
 
-    text-align:center;
+    padding:
+        110px
+        24px;
 
-    padding:105px 24px;
+    text-align:center;
 
     background:var(--paper);
 }
@@ -429,41 +508,40 @@ body.opened #main{
 
     position:absolute;
 
-    color:rgba(185,151,85,.32);
+    color:rgba(185,151,85,.3);
 
     font-size:21px;
 }
 
 .section:before{
-    top:45px;
+    top:50px;
     left:13%;
 }
 
 .section:after{
-    bottom:42px;
+    bottom:45px;
     right:13%;
 }
 
 .label{
+    margin-bottom:17px;
+
     font-size:9px;
 
     letter-spacing:5px;
 
     color:#a98950;
-
-    margin-bottom:17px;
 }
 
 .section h2{
+    margin-bottom:22px;
+
     font:
         500
-        45px
-        / 1
+        46px/1
         'Cormorant Garamond',serif;
 
     color:var(--ink);
-
-    margin-bottom:22px;
 }
 
 .text{
@@ -483,7 +561,7 @@ body.opened #main{
 .quote{
     max-width:500px;
 
-    margin:44px auto 0;
+    margin:45px auto 0;
 
     padding:27px 22px;
 
@@ -499,12 +577,15 @@ body.opened #main{
 }
 
 
-/* =====================================
+/* ================================
    CARD
-===================================== */
+================================ */
 
 .card-wrap{
-    padding:15px 20px 100px;
+    padding:
+        15px
+        20px
+        100px;
 
     background:var(--paper);
 }
@@ -518,7 +599,8 @@ body.opened #main{
 
     text-align:center;
 
-    background:rgba(255,253,248,.88);
+    background:
+        rgba(255,253,248,.9);
 
     border:1px solid var(--line);
 
@@ -532,11 +614,10 @@ body.opened #main{
 
     margin:0 auto 25px;
 
-    border-radius:50%;
-
     display:grid;
-
     place-items:center;
+
+    border-radius:50%;
 
     border:1px solid var(--gold);
 
@@ -560,8 +641,6 @@ body.opened #main{
         500
         38px
         'Cormorant Garamond',serif;
-
-    color:var(--ink);
 }
 
 .card-sub{
@@ -578,12 +657,14 @@ body.opened #main{
 }
 
 
-/* =====================================
+/* ================================
    EVENT
-===================================== */
+================================ */
 
 .event{
-    padding:95px 20px;
+    padding:
+        95px
+        20px;
 
     background:var(--paper2);
 
@@ -599,7 +680,8 @@ body.opened #main{
 
     border:1px solid var(--line);
 
-    background:rgba(255,253,248,.72);
+    background:
+        rgba(255,253,248,.75);
 }
 
 .event-date{
@@ -612,7 +694,7 @@ body.opened #main{
 }
 
 .event-time{
-    margin-top:6px;
+    margin-top:7px;
 
     font-size:10px;
 
@@ -622,39 +704,41 @@ body.opened #main{
 }
 
 
-/* =====================================
+/* ================================
    ALAMAT
-===================================== */
+================================ */
 
 .event-address{
-    max-width:430px;
+    max-width:440px;
 
-    margin:25px auto 0;
+    margin:26px auto 0;
 
-    padding:20px 18px;
+    padding:
+        20px
+        15px;
 
     border-top:1px solid rgba(185,151,85,.25);
     border-bottom:1px solid rgba(185,151,85,.25);
-
-    color:#655d52;
 
     font:
         400
         18px/1.55
         'Cormorant Garamond',serif;
+
+    color:#655d52;
 }
 
 .event-address strong{
     display:block;
 
-    margin-bottom:5px;
+    margin-bottom:6px;
 
     font:
         600
-        12px
+        10px
         'Montserrat',sans-serif;
 
-    letter-spacing:2px;
+    letter-spacing:3px;
 
     color:#a98950;
 }
@@ -662,21 +746,23 @@ body.opened #main{
 .location{
     display:inline-flex;
 
-    margin-top:25px;
+    margin-top:26px;
 
-    padding:13px 23px;
+    padding:
+        14px
+        23px;
 
     border:1px solid var(--gold);
 
     border-radius:50px;
 
-    color:#8b6d38;
-
     font-size:9px;
 
     letter-spacing:2px;
 
-    background:rgba(255,255,255,.5);
+    color:#8b6d38;
+
+    background:rgba(255,255,255,.55);
 
     transition:.3s;
 }
@@ -688,13 +774,15 @@ body.opened #main{
 }
 
 
-/* =====================================
-   SECOND PHOTO
-   UTUH JUGA
-===================================== */
+/* ================================
+   FOTO KEDUA
+   TIDAK CROP
+================================ */
 
 .photo-section{
-    padding:105px 24px;
+    padding:
+        110px
+        24px;
 
     background:var(--paper);
 
@@ -708,9 +796,9 @@ body.opened #main{
 
     border:1px solid var(--line);
 
-    background:var(--paper);
-
     overflow:hidden;
+
+    background:var(--paper);
 
     box-shadow:
         0 25px 70px rgba(80,63,40,.10);
@@ -726,12 +814,14 @@ body.opened #main{
 }
 
 
-/* =====================================
+/* ================================
    CLOSING
-===================================== */
+================================ */
 
 .cta{
-    padding:95px 22px;
+    padding:
+        100px
+        22px;
 
     text-align:center;
 
@@ -741,16 +831,14 @@ body.opened #main{
 .cta h2{
     font:
         500
-        44px
+        46px
         'Cormorant Garamond',serif;
-
-    color:var(--ink);
 }
 
 .cta p{
     max-width:450px;
 
-    margin:15px auto 28px;
+    margin:16px auto 0;
 
     color:#766d61;
 
@@ -760,14 +848,17 @@ body.opened #main{
 }
 
 
-/* =====================================
+/* ================================
    FOOTER
-===================================== */
+================================ */
 
 .footer{
-    text-align:center;
+    padding:
+        30px
+        20px
+        42px;
 
-    padding:30px 20px 42px;
+    text-align:center;
 
     background:#403a32;
 
@@ -783,9 +874,9 @@ body.opened #main{
 }
 
 
-/* =====================================
+/* ================================
    REVEAL
-===================================== */
+================================ */
 
 .reveal{
     opacity:0;
@@ -804,37 +895,33 @@ body.opened #main{
 }
 
 
-/* =====================================
+/* ================================
    ANIMATION
-===================================== */
+================================ */
 
 @keyframes rise{
 
     from{
         opacity:0;
-
         transform:translateY(28px);
     }
 
     to{
         opacity:1;
-
         transform:none;
     }
 
 }
 
-@keyframes photoAppear{
+@keyframes photoIn{
 
     from{
         opacity:0;
-
-        transform:scale(1.02);
+        transform:scale(1.015);
     }
 
     to{
         opacity:1;
-
         transform:scale(1);
     }
 
@@ -844,76 +931,57 @@ body.opened #main{
 
     0%,100%{
         transform:translateY(0);
-
         opacity:.45;
     }
 
     50%{
         transform:translateY(7px);
-
         opacity:1;
     }
 
 }
 
 
-/* =====================================
-   DESKTOP
-===================================== */
+/* ================================
+   DESKTOP / IPAD
+================================ */
 
 @media(min-width:700px){
 
-    .hero-photo-wrap{
-        padding:0;
-    }
-
-    .hero-photo{
-        width:auto;
-
-        max-width:100%;
-
-        max-height:70vh;
-
-        object-fit:contain;
-    }
-
     .hero-content{
+        margin-top:-160px;
+
         padding:
-            40px
-            24px
-            78px;
+            0
+            30px
+            80px;
+    }
+
+    .hero-image:after{
+        height:38%;
     }
 
     .section,
     .photo-section{
         padding-top:125px;
-
         padding-bottom:125px;
     }
 
 }
 
 
-/* =====================================
-   MOBILE
-===================================== */
+/* ================================
+   REDUCED MOTION
+================================ */
 
-@media(max-width:699px){
+@media(prefers-reduced-motion:reduce){
 
-    .hero-photo-wrap{
-        width:100%;
-
-        padding:0;
-    }
-
-    .hero-photo{
-        width:100%;
-
-        height:auto;
-
-        min-height:0;
-
-        object-fit:contain;
+    *,
+    *::before,
+    *::after{
+        animation:none !important;
+        transition:none !important;
+        scroll-behavior:auto !important;
     }
 
 }
@@ -925,9 +993,9 @@ body.opened #main{
 <body>
 
 
-<!-- =====================================
+<!-- =================================
      OPENING
-===================================== -->
+================================= -->
 
 <section id="opening">
 
@@ -973,34 +1041,38 @@ body.opened #main{
 
 
 
-<!-- =====================================
+<!-- =================================
      MAIN
-===================================== -->
+================================= -->
 
 <main id="main">
 
 
-<!-- =====================================
+<!-- =================================
      HERO
-     FOTO DI ATAS
-===================================== -->
+================================= -->
 
 <section class="hero">
 
 
-    <!-- FOTO CUSTOMER ASLI -->
-    <div class="hero-photo-wrap">
+    <!-- FOTO RISNA ASLI -->
+    <div class="hero-image">
 
         <img
-            class="hero-photo"
             src="risna-01.jpeg"
-            alt="Foto Risna Hidayat"
+            alt="Risna Hidayat"
         >
 
     </div>
 
 
-    <!-- JUDUL DI BAWAH FOTO -->
+    <!-- ORNAMEN GOLD -->
+    <div class="hero-decoration"></div>
+
+    <div class="hero-decoration two"></div>
+
+
+    <!-- TEXT -->
     <div class="hero-content">
 
         <div class="eyebrow reveal">
@@ -1049,9 +1121,9 @@ body.opened #main{
 
 
 
-<!-- =====================================
+<!-- =================================
      STORY
-===================================== -->
+================================= -->
 
 <section class="section">
 
@@ -1085,9 +1157,9 @@ body.opened #main{
 
 
 
-<!-- =====================================
-     CARD
-===================================== -->
+<!-- =================================
+     GRADUATION CARD
+================================= -->
 
 <section class="card-wrap">
 
@@ -1133,9 +1205,9 @@ body.opened #main{
 
 
 
-<!-- =====================================
+<!-- =================================
      EVENT
-===================================== -->
+================================= -->
 
 <section class="event">
 
@@ -1162,7 +1234,6 @@ body.opened #main{
         </div>
 
 
-        <!-- ALAMAT LENGKAP -->
         <div class="event-address">
 
             <strong>
@@ -1180,7 +1251,6 @@ body.opened #main{
         </div>
 
 
-        <!-- GOOGLE MAPS -->
         <a
             class="location"
             href="https://www.google.com/maps/dir/?api=1&destination=0.796625%2C127.387566&travelmode=driving"
@@ -1198,12 +1268,11 @@ body.opened #main{
 
 
 
-<!-- =====================================
-     PHOTO 2
-===================================== -->
+<!-- =================================
+     SECOND PHOTO
+================================= -->
 
 <section class="photo-section">
-
 
     <div class="label reveal">
         THE MOMENT
@@ -1224,12 +1293,11 @@ body.opened #main{
     </p>
 
 
-    <!-- FOTO KEDUA ASLI -->
     <div class="photo reveal">
 
         <img
             src="risna-02.jpeg"
-            alt="Foto Risna Hidayat"
+            alt="Risna Hidayat"
         >
 
     </div>
@@ -1238,12 +1306,11 @@ body.opened #main{
 
 
 
-<!-- =====================================
+<!-- =================================
      CLOSING
-===================================== -->
+================================= -->
 
 <section class="cta">
-
 
     <h2 class="reveal">
         Terima Kasih
@@ -1262,9 +1329,9 @@ body.opened #main{
 
 
 
-<!-- =====================================
+<!-- =================================
      FOOTER
-===================================== -->
+================================= -->
 
 <div class="footer">
 
@@ -1283,15 +1350,13 @@ body.opened #main{
 
 <script>
 
-
-/* =====================================
-   BUKA UNDANGAN
-===================================== */
+/* ================================
+   OPEN INVITATION
+================================ */
 
 function openInvitation(){
 
     document.body.classList.add("opened");
-
 
     setTimeout(function(){
 
@@ -1303,35 +1368,30 @@ function openInvitation(){
 
                     el.classList.add("show");
 
-                },index * 90);
+                },index * 80);
 
             });
 
     },250);
 
-
     window.scrollTo({
-
         top:0,
-
         behavior:"smooth"
-
     });
 
 }
 
 
-/* =====================================
-   BUTTON EVENT
-===================================== */
+/* ================================
+   BUTTON
+================================ */
 
-const openInvitationBtn =
+const openButton =
     document.getElementById("openInvitationBtn");
 
+if(openButton){
 
-if(openInvitationBtn){
-
-    openInvitationBtn.addEventListener(
+    openButton.addEventListener(
         "click",
         openInvitation
     );
@@ -1339,9 +1399,9 @@ if(openInvitationBtn){
 }
 
 
-/* =====================================
+/* ================================
    SCROLL REVEAL
-===================================== */
+================================ */
 
 const observer =
     new IntersectionObserver(
@@ -1374,7 +1434,6 @@ document
         observer.observe(el);
 
     });
-
 
 </script>
 
