@@ -1,7 +1,7 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 
 <title>Admin Risna Hidayat — EGA Digital</title>
@@ -10,29 +10,44 @@
 
 <style>
 :root{
-    --p:#f7f3eb;
-    --p2:#eee7da;
+    --paper:#f7f3eb;
+    --paper2:#eee7da;
+    --card:#fffdf8;
     --ink:#4b4034;
     --muted:#8b7d6d;
-    --g:#b9914a;
-    --g2:#d9bb7a;
+    --gold:#b9914a;
+    --gold2:#d9bb7a;
     --line:rgba(185,145,74,.28);
-    --red:#a65b5b;
     --green:#557b63;
+    --red:#a65b5b;
 }
 
 *{
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     margin:0;
-    background:linear-gradient(135deg,var(--p),var(--p2));
+    min-height:100vh;
+    background:
+        radial-gradient(circle at 15% 5%,rgba(185,145,74,.10),transparent 28%),
+        linear-gradient(135deg,var(--paper),var(--paper2));
     color:var(--ink);
     font-family:Arial,sans-serif;
 }
 
+button,
+input,
+textarea{
+    font-family:inherit;
+}
+
 .wrap{
+    width:100%;
     max-width:1100px;
     margin:auto;
     padding:20px 14px 50px;
@@ -43,14 +58,15 @@ header{
     padding:20px 0;
 }
 
-.ey{
+.eyebrow{
     font-size:12px;
     letter-spacing:4px;
-    color:var(--g);
+    color:var(--gold);
     font-weight:700;
 }
 
-h1,h2{
+h1,
+h2{
     font-family:Georgia,serif;
     font-weight:500;
 }
@@ -60,6 +76,10 @@ h1{
     margin:9px 0;
 }
 
+h2{
+    margin:8px 0 5px;
+}
+
 .sub,
 .note{
     color:var(--muted);
@@ -67,16 +87,16 @@ h1{
 }
 
 .panel{
-    background:rgba(255,253,248,.94);
+    background:rgba(255,253,248,.96);
     border:1px solid var(--line);
     border-radius:20px;
     padding:20px;
     margin:14px 0;
-    box-shadow:0 18px 50px #4f3c2312;
+    box-shadow:0 18px 50px rgba(79,60,35,.08);
 }
 
 .login{
-    max-width:460px;
+    max-width:590px;
     margin:7vh auto;
 }
 
@@ -84,35 +104,43 @@ label{
     display:block;
     color:var(--muted);
     font-size:13px;
-    margin:12px 0 6px;
+    margin:14px 0 6px;
 }
 
 input,
 textarea{
     width:100%;
-    padding:13px;
+    padding:14px;
     border:1px solid var(--line);
     border-radius:12px;
     background:#fffefa;
     color:var(--ink);
+    font-size:15px;
 }
 
 textarea{
-    min-height:125px;
+    min-height:130px;
     resize:vertical;
 }
 
 input:focus,
 textarea:focus{
-    outline:0;
-    border-color:var(--g);
-    box-shadow:0 0 0 3px #b9914a1a;
+    outline:none;
+    border-color:var(--gold);
+    box-shadow:0 0 0 3px rgba(185,145,74,.10);
+}
+
+.actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-top:14px;
 }
 
 .btn{
-    padding:10px 14px;
     border:1px solid var(--line);
     border-radius:11px;
+    padding:11px 15px;
     background:#fffaf0;
     color:var(--ink);
     cursor:pointer;
@@ -123,41 +151,69 @@ textarea:focus{
     transform:scale(.98);
 }
 
-.gold{
-    background:linear-gradient(110deg,#a87b37,#d9bb7a,#a87b37);
+.btn.gold{
+    background:linear-gradient(
+        110deg,
+        #a87b37,
+        #d9bb7a,
+        #a87b37
+    );
     color:#fff;
     border:0;
     font-weight:700;
 }
 
-.green{
-    color:var(--green);
-}
-
-.danger{
+.btn.danger{
     color:var(--red);
 }
 
-.actions{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-    margin-top:12px;
+.btn:disabled{
+    opacity:.55;
+    cursor:not-allowed;
+}
+
+.error{
+    display:none;
+    margin-top:15px;
+    padding:12px 14px;
+    border-radius:12px;
+    background:#f8eaea;
+    border:1px solid rgba(166,91,91,.25);
+    color:#9b4f4f;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.success{
+    display:none;
+    margin-top:15px;
+    padding:12px 14px;
+    border-radius:12px;
+    background:#e9f2ec;
+    border:1px solid rgba(85,123,99,.22);
+    color:var(--green);
+    font-size:13px;
+}
+
+.hidden{
+    display:none!important;
 }
 
 .top{
     display:flex;
     justify-content:space-between;
-    gap:12px;
     align-items:center;
+    gap:15px;
 }
 
 .badge{
+    display:inline-block;
     border:1px solid var(--line);
     border-radius:99px;
     padding:6px 10px;
-    color:var(--g);
+    color:var(--gold);
     font-size:11px;
+    letter-spacing:.5px;
 }
 
 .stats{
@@ -167,105 +223,135 @@ textarea:focus{
 }
 
 .stat{
-    background:var(--p);
+    background:rgba(255,253,248,.96);
     border:1px solid var(--line);
     border-radius:15px;
-    padding:15px;
+    padding:16px;
 }
 
 .stat b{
     display:block;
-    color:var(--g);
-    font-size:24px;
+    color:var(--gold);
+    font-size:25px;
+    margin-bottom:4px;
 }
 
 .stat span{
-    font-size:12px;
     color:var(--muted);
+    font-size:12px;
 }
 
-.table{
-    overflow:auto;
+.table-wrap{
+    overflow-x:auto;
     border:1px solid var(--line);
     border-radius:14px;
 }
 
 table{
-    border-collapse:collapse;
     width:100%;
-    min-width:720px;
+    min-width:760px;
+    border-collapse:collapse;
 }
 
 th,
 td{
-    padding:11px;
-    border-bottom:1px solid #b9914a22;
+    padding:12px;
+    border-bottom:1px solid rgba(185,145,74,.13);
     text-align:left;
     font-size:12px;
+    vertical-align:middle;
 }
 
 th{
-    color:var(--g);
+    color:var(--gold);
 }
 
 tr:last-child td{
-    border:0;
+    border-bottom:0;
 }
 
 .status{
+    display:inline-block;
     padding:5px 8px;
     border-radius:99px;
     font-size:10px;
 }
 
-.pending{
+.status.pending{
     background:#f5ecd3;
     color:#8a6c1f;
 }
 
-.sent{
+.status.sent{
     background:#e6f0e9;
     color:var(--green);
 }
 
-.sm{
-    font-size:10px;
-    padding:7px 9px;
-}
-
-.smallActions{
+.small-actions{
     display:flex;
     gap:5px;
     flex-wrap:wrap;
 }
 
-.hidden{
-    display:none!important;
+.small-btn{
+    padding:7px 9px;
+    border:1px solid var(--line);
+    border-radius:9px;
+    background:#fffaf0;
+    color:var(--ink);
+    cursor:pointer;
+    font-size:10px;
+}
+
+.small-btn:hover{
+    border-color:var(--gold);
+}
+
+.small-btn.wa{
+    color:var(--green);
+    background:#eef6f0;
+}
+
+.small-btn.delete{
+    color:var(--red);
+    background:#faeeee;
+}
+
+.phone{
+    width:150px;
+    padding:8px 9px;
+    font-size:11px;
 }
 
 .empty{
     text-align:center;
-    padding:25px;
+    padding:28px;
     color:var(--muted);
+}
+
+.search-box{
+    margin-bottom:14px;
 }
 
 #toast{
     position:fixed;
-    bottom:20px;
     left:50%;
+    bottom:20px;
     transform:translateX(-50%);
     background:#4b4034;
     color:#fff;
-    padding:10px 15px;
+    padding:11px 16px;
     border-radius:10px;
     display:none;
     z-index:9999;
+    font-size:13px;
+    max-width:90%;
+    text-align:center;
 }
 
-#errorBox{
-    color:#a65b5b;
-    font-size:13px;
-    line-height:1.5;
+.loading{
+    opacity:.65;
+    pointer-events:none;
 }
 
 @media(max-width:650px){
@@ -275,12 +361,16 @@ tr:last-child td{
     }
 
     .top{
-        align-items:flex-start;
         flex-direction:column;
+        align-items:flex-start;
     }
 
     h1{
         font-size:27px;
+    }
+
+    .login{
+        margin-top:4vh;
     }
 
 }
@@ -289,14 +379,17 @@ tr:last-child td{
 
 <body>
 
-<!-- LOGIN -->
-<div id="login" class="wrap login">
+<!-- =========================
+     LOGIN
+========================= -->
+
+<div id="loginPage" class="wrap login">
 
     <div class="panel">
 
         <header>
 
-            <div class="ey">
+            <div class="eyebrow">
                 EGA DIGITAL
             </div>
 
@@ -310,7 +403,7 @@ tr:last-child td{
 
         </header>
 
-        <label>
+        <label for="email">
             Email Admin
         </label>
 
@@ -318,50 +411,48 @@ tr:last-child td{
             id="email"
             type="email"
             autocomplete="username"
-            placeholder="Email admin"
+            placeholder="Masukkan email admin"
         >
 
-        <label>
+        <label for="password">
             Password
         </label>
 
         <input
-            id="pass"
+            id="password"
             type="password"
             autocomplete="current-password"
-            placeholder="Password"
+            placeholder="Masukkan password"
         >
 
         <div class="actions">
 
             <button
-                class="btn gold"
                 id="loginBtn"
+                class="btn gold"
+                type="button"
             >
                 Masuk ke Admin
             </button>
 
         </div>
 
-        <p
-            id="err"
-            class="note"
-        ></p>
+        <div id="loginError" class="error"></div>
 
     </div>
 
 </div>
 
 
-<!-- DASHBOARD -->
-<div
-    id="app"
-    class="wrap hidden"
->
+<!-- =========================
+     DASHBOARD
+========================= -->
+
+<div id="appPage" class="wrap hidden">
 
     <header>
 
-        <div class="ey">
+        <div class="eyebrow">
             EGA DIGITAL • ADMIN
         </div>
 
@@ -377,6 +468,7 @@ tr:last-child td{
 
 
     <!-- INFO -->
+
     <section class="panel">
 
         <div class="top">
@@ -398,8 +490,9 @@ tr:last-child td{
             </div>
 
             <button
+                id="logoutBtn"
                 class="btn"
-                id="logout"
+                type="button"
             >
                 Keluar
             </button>
@@ -410,6 +503,7 @@ tr:last-child td{
 
 
     <!-- STATISTIK -->
+
     <section class="stats">
 
         <div class="stat">
@@ -452,15 +546,16 @@ tr:last-child td{
 
 
     <!-- TAMBAH TAMU -->
+
     <section class="panel">
 
         <h2>
             Tambah Banyak Tamu
         </h2>
 
-        <label>
+        <div class="note">
             Satu nama per baris
-        </label>
+        </div>
 
         <textarea
             id="names"
@@ -472,33 +567,39 @@ Keluarga Budi"
         <div class="actions">
 
             <button
+                id="addBtn"
                 class="btn gold"
-                id="add"
+                type="button"
             >
                 Tambah ke Database
             </button>
 
         </div>
 
+        <div id="addError" class="error"></div>
+
     </section>
 
 
     <!-- DAFTAR TAMU -->
+
     <section class="panel">
 
         <h2>
             Daftar Tamu
         </h2>
 
-        <input
-            id="search"
-            placeholder="Cari nama atau nomor WhatsApp..."
-        >
+        <div class="search-box">
 
-        <br>
-        <br>
+            <input
+                id="search"
+                type="search"
+                placeholder="Cari nama atau nomor WhatsApp..."
+            >
 
-        <div class="table">
+        </div>
+
+        <div class="table-wrap">
 
             <table>
 
@@ -553,12 +654,1049 @@ Keluarga Budi"
 
 <script>
 
-/* =========================
-   SUPABASE
-========================= */
+/* ==========================================
+   SUPABASE CONFIG
+========================================== */
 
 const SUPABASE_URL =
 "https://arfhgjjwfwmsepwtbdtc.supabase.co";
 
 const SUPABASE_KEY =
-"sb_publishable_QJct86dZ3zcJgPx6sgvXBA_dZTVT8ls
+"sb_publishable_QJct86DZ3zcJgPx6sgvXBA_dZTVT8ls";
+
+const db =
+supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+
+/* ==========================================
+   CUSTOMER CONFIG
+========================================== */
+
+const CUSTOMER_SLUG =
+"risna-hidayat";
+
+const INVITATION_URL =
+"https://sije100619.github.io/EGA-Graduation-Demo/customer/risna-hidayat/";
+
+const EVENT_NAME =
+"Graduation Day Risna Hidayat";
+
+
+/* ==========================================
+   STATE
+========================================== */
+
+let currentUser = null;
+let customer = null;
+let guests = [];
+
+
+/* ==========================================
+   ELEMENTS
+========================================== */
+
+const loginPage =
+document.getElementById("loginPage");
+
+const appPage =
+document.getElementById("appPage");
+
+const emailInput =
+document.getElementById("email");
+
+const passwordInput =
+document.getElementById("password");
+
+const loginBtn =
+document.getElementById("loginBtn");
+
+const loginError =
+document.getElementById("loginError");
+
+const logoutBtn =
+document.getElementById("logoutBtn");
+
+const namesInput =
+document.getElementById("names");
+
+const addBtn =
+document.getElementById("addBtn");
+
+const addError =
+document.getElementById("addError");
+
+const searchInput =
+document.getElementById("search");
+
+const rows =
+document.getElementById("rows");
+
+const empty =
+document.getElementById("empty");
+
+const total =
+document.getElementById("total");
+
+const sent =
+document.getElementById("sent");
+
+const pending =
+document.getElementById("pending");
+
+const toast =
+document.getElementById("toast");
+
+
+/* ==========================================
+   HELPERS
+========================================== */
+
+function showLoginError(message){
+
+    loginError.textContent = message;
+    loginError.style.display = "block";
+
+}
+
+function hideLoginError(){
+
+    loginError.textContent = "";
+    loginError.style.display = "none";
+
+}
+
+function showAddError(message){
+
+    addError.textContent = message;
+    addError.style.display = "block";
+
+}
+
+function hideAddError(){
+
+    addError.textContent = "";
+    addError.style.display = "none";
+
+}
+
+function showToast(message){
+
+    toast.textContent = message;
+    toast.style.display = "block";
+
+    clearTimeout(window.toastTimer);
+
+    window.toastTimer =
+    setTimeout(()=>{
+        toast.style.display = "none";
+    },2500);
+
+}
+
+function escapeHtml(value){
+
+    return String(value || "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* ==========================================
+   LOGIN
+========================================== */
+
+async function login(){
+
+    hideLoginError();
+
+    const email =
+    emailInput.value.trim();
+
+    const password =
+    passwordInput.value;
+
+    if(!email){
+
+        showLoginError(
+            "Email admin belum diisi."
+        );
+
+        return;
+    }
+
+    if(!password){
+
+        showLoginError(
+            "Password belum diisi."
+        );
+
+        return;
+    }
+
+    loginBtn.disabled = true;
+    loginBtn.textContent = "Memeriksa...";
+
+    try{
+
+        const { data, error } =
+        await db.auth.signInWithPassword({
+            email:email,
+            password:password
+        });
+
+        if(error){
+
+            console.error("LOGIN ERROR:",error);
+
+            showLoginError(
+                "Login gagal: " + error.message
+            );
+
+            return;
+        }
+
+        if(!data || !data.user){
+
+            showLoginError(
+                "Login gagal: user tidak ditemukan."
+            );
+
+            return;
+        }
+
+        currentUser =
+        data.user;
+
+        await loadCustomer();
+
+    }catch(error){
+
+        console.error("LOGIN EXCEPTION:",error);
+
+        showLoginError(
+            "Terjadi kesalahan koneksi: " +
+            (error.message || error)
+        );
+
+    }finally{
+
+        loginBtn.disabled = false;
+        loginBtn.textContent = "Masuk ke Admin";
+
+    }
+
+}
+
+
+/* ==========================================
+   LOAD CUSTOMER
+========================================== */
+
+async function loadCustomer(){
+
+    const { data, error } =
+    await db
+        .from("customers")
+        .select("*")
+        .eq("user_id",currentUser.id)
+        .maybeSingle();
+
+    if(error){
+
+        console.error("CUSTOMER ERROR:",error);
+
+        await db.auth.signOut();
+
+        showLoginError(
+            "Login berhasil, tetapi data Admin Risna tidak ditemukan. " +
+            "Detail: " + error.message
+        );
+
+        return;
+    }
+
+    if(!data){
+
+        await db.auth.signOut();
+
+        showLoginError(
+            "Akun berhasil login, tetapi belum terhubung ke customer Risna Hidayat."
+        );
+
+        return;
+    }
+
+    customer =
+    data;
+
+    loginPage.classList.add("hidden");
+
+    appPage.classList.remove("hidden");
+
+    await loadGuests();
+
+}
+
+
+/* ==========================================
+   LOAD GUESTS
+========================================== */
+
+async function loadGuests(){
+
+    if(!customer){
+
+        return;
+    }
+
+    rows.innerHTML = "";
+
+    const { data, error } =
+    await db
+        .from("guests")
+        .select("*")
+        .eq("customer_id",customer.id)
+        .order("created_at",{ascending:true});
+
+    if(error){
+
+        console.error("GUEST LOAD ERROR:",error);
+
+        rows.innerHTML = "";
+
+        empty.classList.remove("hidden");
+
+        showToast(
+            "Gagal memuat tamu: " +
+            error.message
+        );
+
+        return;
+    }
+
+    guests =
+    data || [];
+
+    renderGuests();
+
+}
+
+
+/* ==========================================
+   RENDER
+========================================== */
+
+function renderGuests(){
+
+    const keyword =
+    searchInput.value
+        .trim()
+        .toLowerCase();
+
+    const filtered =
+    guests.filter(guest => {
+
+        const name =
+        String(guest.name || "")
+            .toLowerCase();
+
+        const phone =
+        String(guest.phone || "")
+            .toLowerCase();
+
+        return (
+            name.includes(keyword) ||
+            phone.includes(keyword)
+        );
+
+    });
+
+    rows.innerHTML = "";
+
+    if(filtered.length === 0){
+
+        empty.classList.remove("hidden");
+
+    }else{
+
+        empty.classList.add("hidden");
+
+    }
+
+    filtered.forEach((guest,index)=>{
+
+        const tr =
+        document.createElement("tr");
+
+        const personalLink =
+        INVITATION_URL +
+        "?to=" +
+        encodeURIComponent(guest.name);
+
+        const status =
+        guest.sent
+            ? `<span class="status sent">SUDAH DIKIRIM</span>`
+            : `<span class="status pending">BELUM DIKIRIM</span>`;
+
+        tr.innerHTML = `
+
+            <td>
+                ${index + 1}
+            </td>
+
+            <td>
+                <strong>
+                    ${escapeHtml(guest.name)}
+                </strong>
+            </td>
+
+            <td>
+
+                <input
+                    class="phone"
+                    data-id="${guest.id}"
+                    value="${escapeHtml(guest.phone || "")}"
+                    placeholder="628xxx"
+                >
+
+            </td>
+
+            <td>
+                ${status}
+            </td>
+
+            <td>
+
+                <div class="small-actions">
+
+                    <button
+                        class="small-btn"
+                        data-copy="${escapeHtml(personalLink)}"
+                        type="button"
+                    >
+                        Salin Link
+                    </button>
+
+                    <button
+                        class="small-btn"
+                        data-open="${escapeHtml(personalLink)}"
+                        type="button"
+                    >
+                        Buka
+                    </button>
+
+                    <button
+                        class="small-btn wa"
+                        data-wa="${guest.id}"
+                        type="button"
+                    >
+                        WhatsApp
+                    </button>
+
+                    <button
+                        class="small-btn delete"
+                        data-delete="${guest.id}"
+                        type="button"
+                    >
+                        Hapus
+                    </button>
+
+                </div>
+
+            </td>
+        `;
+
+        rows.appendChild(tr);
+
+    });
+
+    updateStats();
+
+}
+
+
+/* ==========================================
+   STATS
+========================================== */
+
+function updateStats(){
+
+    const totalCount =
+    guests.length;
+
+    const sentCount =
+    guests.filter(g => g.sent).length;
+
+    const pendingCount =
+    totalCount - sentCount;
+
+    total.textContent =
+    totalCount;
+
+    sent.textContent =
+    sentCount;
+
+    pending.textContent =
+    pendingCount;
+
+}
+
+
+/* ==========================================
+   ADD GUESTS
+========================================== */
+
+async function addGuests(){
+
+    hideAddError();
+
+    if(!customer){
+
+        showAddError(
+            "Data customer belum tersedia."
+        );
+
+        return;
+    }
+
+    const lines =
+    namesInput.value
+        .split("\n")
+        .map(name => name.trim())
+        .filter(Boolean);
+
+    if(lines.length === 0){
+
+        showAddError(
+            "Masukkan minimal satu nama tamu."
+        );
+
+        return;
+    }
+
+    addBtn.disabled = true;
+    addBtn.textContent = "Menyimpan...";
+
+    try{
+
+        const payload =
+        lines.map(name => ({
+            customer_id:customer.id,
+            name:name,
+            phone:"",
+            sent:false
+        }));
+
+        const { error } =
+        await db
+            .from("guests")
+            .insert(payload);
+
+        if(error){
+
+            console.error("ADD ERROR:",error);
+
+            showAddError(
+                "Gagal menyimpan: " +
+                error.message
+            );
+
+            return;
+        }
+
+        namesInput.value = "";
+
+        showToast(
+            lines.length +
+            " tamu berhasil ditambahkan."
+        );
+
+        await loadGuests();
+
+    }catch(error){
+
+        console.error(error);
+
+        showAddError(
+            "Terjadi kesalahan: " +
+            (error.message || error)
+        );
+
+    }finally{
+
+        addBtn.disabled = false;
+        addBtn.textContent =
+        "Tambah ke Database";
+
+    }
+
+}
+
+
+/* ==========================================
+   UPDATE PHONE
+========================================== */
+
+async function updatePhone(id,value){
+
+    const phone =
+    value.trim();
+
+    const { error } =
+    await db
+        .from("guests")
+        .update({
+            phone:phone
+        })
+        .eq("id",id)
+        .eq("customer_id",customer.id);
+
+    if(error){
+
+        console.error(error);
+
+        showToast(
+            "Gagal menyimpan nomor WhatsApp."
+        );
+
+        return;
+    }
+
+    const guest =
+    guests.find(g => g.id === id);
+
+    if(guest){
+
+        guest.phone =
+        phone;
+
+    }
+
+    showToast(
+        "Nomor WhatsApp tersimpan."
+    );
+
+}
+
+
+/* ==========================================
+   COPY LINK
+========================================== */
+
+async function copyLink(link){
+
+    try{
+
+        await navigator.clipboard.writeText(link);
+
+        showToast(
+            "Link personal berhasil disalin."
+        );
+
+    }catch(error){
+
+        const temp =
+        document.createElement("textarea");
+
+        temp.value =
+        link;
+
+        document.body.appendChild(temp);
+
+        temp.select();
+
+        document.execCommand("copy");
+
+        temp.remove();
+
+        showToast(
+            "Link personal berhasil disalin."
+        );
+
+    }
+
+}
+
+
+/* ==========================================
+   WHATSAPP
+========================================== */
+
+async function sendWhatsApp(id){
+
+    const guest =
+    guests.find(g => g.id === id);
+
+    if(!guest){
+
+        return;
+    }
+
+    const phone =
+    String(guest.phone || "")
+        .replace(/\D/g,"");
+
+    if(!phone){
+
+        showToast(
+            "Isi nomor WhatsApp terlebih dahulu."
+        );
+
+        return;
+    }
+
+    let waNumber =
+    phone;
+
+    if(waNumber.startsWith("0")){
+
+        waNumber =
+        "62" + waNumber.substring(1);
+
+    }
+
+    const link =
+    INVITATION_URL +
+    "?to=" +
+    encodeURIComponent(guest.name);
+
+    const message =
+`Halo ${guest.name},
+
+Saya ingin mengundang Anda untuk hadir di acara ${EVENT_NAME}.
+
+Berikut undangan personal untuk Anda:
+
+${link}
+
+Sampai bertemu di hari yang spesial. 🙏`;
+
+    const waUrl =
+    "https://wa.me/" +
+    waNumber +
+    "?text=" +
+    encodeURIComponent(message);
+
+    window.open(
+        waUrl,
+        "_blank"
+    );
+
+    const { error } =
+    await db
+        .from("guests")
+        .update({
+            sent:true
+        })
+        .eq("id",id)
+        .eq("customer_id",customer.id);
+
+    if(error){
+
+        console.error(
+            "STATUS ERROR:",
+            error
+        );
+
+        return;
+    }
+
+    guest.sent =
+    true;
+
+    renderGuests();
+
+}
+
+
+/* ==========================================
+   DELETE
+========================================== */
+
+async function deleteGuest(id){
+
+    const guest =
+    guests.find(g => g.id === id);
+
+    if(!guest){
+
+        return;
+    }
+
+    const confirmed =
+    confirm(
+        'Hapus tamu "' +
+        guest.name +
+        '"?'
+    );
+
+    if(!confirmed){
+
+        return;
+    }
+
+    const { error } =
+    await db
+        .from("guests")
+        .delete()
+        .eq("id",id)
+        .eq("customer_id",customer.id);
+
+    if(error){
+
+        console.error(error);
+
+        showToast(
+            "Gagal menghapus tamu."
+        );
+
+        return;
+    }
+
+    guests =
+    guests.filter(g => g.id !== id);
+
+    renderGuests();
+
+    showToast(
+        "Tamu berhasil dihapus."
+    );
+
+}
+
+
+/* ==========================================
+   EVENTS
+========================================== */
+
+loginBtn.addEventListener(
+    "click",
+    login
+);
+
+passwordInput.addEventListener(
+    "keydown",
+    event => {
+
+        if(event.key === "Enter"){
+
+            login();
+
+        }
+
+    }
+);
+
+emailInput.addEventListener(
+    "keydown",
+    event => {
+
+        if(event.key === "Enter"){
+
+            passwordInput.focus();
+
+        }
+
+    }
+);
+
+addBtn.addEventListener(
+    "click",
+    addGuests
+);
+
+searchInput.addEventListener(
+    "input",
+    renderGuests
+);
+
+logoutBtn.addEventListener(
+    "click",
+    async ()=>{
+
+        await db.auth.signOut();
+
+        currentUser = null;
+        customer = null;
+        guests = [];
+
+        appPage.classList.add("hidden");
+        loginPage.classList.remove("hidden");
+
+        passwordInput.value = "";
+
+        showLoginError(
+            "Anda sudah keluar dari Admin."
+        );
+
+    }
+);
+
+
+/* ==========================================
+   TABLE ACTIONS
+========================================== */
+
+rows.addEventListener(
+    "click",
+    async event => {
+
+        const button =
+        event.target.closest("button");
+
+        if(!button){
+
+            return;
+        }
+
+        if(button.dataset.copy){
+
+            await copyLink(
+                button.dataset.copy
+            );
+
+            return;
+        }
+
+        if(button.dataset.open){
+
+            window.open(
+                button.dataset.open,
+                "_blank"
+            );
+
+            return;
+        }
+
+        if(button.dataset.wa){
+
+            await sendWhatsApp(
+                button.dataset.wa
+            );
+
+            return;
+        }
+
+        if(button.dataset.delete){
+
+            await deleteGuest(
+                button.dataset.delete
+            );
+
+        }
+
+    }
+);
+
+
+/* ==========================================
+   PHONE BLUR
+========================================== */
+
+rows.addEventListener(
+    "change",
+    async event => {
+
+        const input =
+        event.target.closest(
+            "input[data-id]"
+        );
+
+        if(!input){
+
+            return;
+        }
+
+        await updatePhone(
+            input.dataset.id,
+            input.value
+        );
+
+    }
+);
+
+
+/* ==========================================
+   AUTH SESSION
+========================================== */
+
+async function init(){
+
+    try{
+
+        const {
+            data
+        } =
+        await db.auth.getSession();
+
+        if(
+            data &&
+            data.session &&
+            data.session.user
+        ){
+
+            currentUser =
+            data.session.user;
+
+            await loadCustomer();
+
+        }
+
+    }catch(error){
+
+        console.error(
+            "SESSION ERROR:",
+            error
+        );
+
+    }
+
+}
+
+
+/* ==========================================
+   AUTH STATE
+========================================== */
+
+db.auth.onAuthStateChange(
+    async (event,session)=>{
+
+        if(
+            event === "SIGNED_OUT"
+        ){
+
+            currentUser = null;
+            customer = null;
+            guests = [];
+
+            appPage.classList.add(
+                "hidden"
+            );
+
+            loginPage.classList.remove(
+                "hidden"
+            );
+
+        }
+
+    }
+);
+
+
+/* ==========================================
+   START
+========================================== */
+
+init();
+
+</script>
+
+</body>
+</html>
