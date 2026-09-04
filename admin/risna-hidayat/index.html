@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 
 <title>Admin Risna Hidayat — EGA Digital</title>
 
@@ -10,15 +10,15 @@
 
 <style>
 :root{
-    --paper:#f7f3eb;
-    --paper2:#eee7da;
+    --p:#f7f3eb;
+    --p2:#eee7da;
     --ink:#4b4034;
     --muted:#8b7d6d;
-    --gold:#b9914a;
-    --gold2:#d9bb7a;
+    --g:#b9914a;
+    --g2:#d9bb7a;
     --line:rgba(185,145,74,.28);
-    --green:#557b63;
     --red:#a65b5b;
+    --green:#557b63;
 }
 
 *{
@@ -27,51 +27,37 @@
 
 body{
     margin:0;
-    background:
-        radial-gradient(circle at 10% 0%,rgba(185,145,74,.12),transparent 30%),
-        linear-gradient(135deg,var(--paper),var(--paper2));
+    background:linear-gradient(135deg,var(--p),var(--p2));
     color:var(--ink);
     font-family:Arial,sans-serif;
 }
 
-button,
-input,
-textarea{
-    font:inherit;
-}
-
 .wrap{
-    width:min(1100px,100%);
+    max-width:1100px;
     margin:auto;
-    padding:20px 14px 60px;
+    padding:20px 14px 50px;
 }
 
 header{
     text-align:center;
-    padding:22px 0;
+    padding:20px 0;
 }
 
-.eyebrow{
-    font-size:11px;
+.ey{
+    font-size:12px;
     letter-spacing:4px;
-    color:var(--gold);
+    color:var(--g);
     font-weight:700;
 }
 
-h1,
-h2{
+h1,h2{
     font-family:Georgia,serif;
     font-weight:500;
 }
 
 h1{
     font-size:32px;
-    margin:10px 0 6px;
-}
-
-h2{
-    margin:10px 0;
-    font-size:22px;
+    margin:9px 0;
 }
 
 .sub,
@@ -86,11 +72,11 @@ h2{
     border-radius:20px;
     padding:20px;
     margin:14px 0;
-    box-shadow:0 18px 50px rgba(79,60,35,.07);
+    box-shadow:0 18px 50px #4f3c2312;
 }
 
 .login{
-    max-width:470px;
+    max-width:460px;
     margin:7vh auto;
 }
 
@@ -98,29 +84,29 @@ label{
     display:block;
     color:var(--muted);
     font-size:13px;
-    margin:14px 0 7px;
+    margin:12px 0 6px;
 }
 
 input,
 textarea{
     width:100%;
-    padding:13px 14px;
+    padding:13px;
     border:1px solid var(--line);
     border-radius:12px;
     background:#fffefa;
     color:var(--ink);
 }
 
-input:focus,
-textarea:focus{
-    outline:none;
-    border-color:var(--gold);
-    box-shadow:0 0 0 3px rgba(185,145,74,.10);
+textarea{
+    min-height:125px;
+    resize:vertical;
 }
 
-textarea{
-    min-height:130px;
-    resize:vertical;
+input:focus,
+textarea:focus{
+    outline:0;
+    border-color:var(--g);
+    box-shadow:0 0 0 3px #b9914a1a;
 }
 
 .btn{
@@ -130,20 +116,16 @@ textarea{
     background:#fffaf0;
     color:var(--ink);
     cursor:pointer;
+    font-size:13px;
 }
 
-.btn:hover{
-    border-color:var(--gold);
+.btn:active{
+    transform:scale(.98);
 }
 
 .gold{
-    background:linear-gradient(
-        110deg,
-        #a87b37,
-        #d9bb7a,
-        #a87b37
-    );
-    color:white;
+    background:linear-gradient(110deg,#a87b37,#d9bb7a,#a87b37);
+    color:#fff;
     border:0;
     font-weight:700;
 }
@@ -160,25 +142,22 @@ textarea{
     display:flex;
     gap:8px;
     flex-wrap:wrap;
-    margin-top:13px;
+    margin-top:12px;
 }
 
 .top{
     display:flex;
     justify-content:space-between;
+    gap:12px;
     align-items:center;
-    gap:15px;
 }
 
 .badge{
-    display:inline-block;
     border:1px solid var(--line);
     border-radius:99px;
     padding:6px 10px;
-    color:var(--gold);
-    font-size:10px;
-    letter-spacing:1px;
-    font-weight:700;
+    color:var(--g);
+    font-size:11px;
 }
 
 .stats{
@@ -188,17 +167,16 @@ textarea{
 }
 
 .stat{
-    background:rgba(255,253,248,.8);
+    background:var(--p);
     border:1px solid var(--line);
     border-radius:15px;
-    padding:16px;
+    padding:15px;
 }
 
 .stat b{
     display:block;
-    color:var(--gold);
-    font-size:25px;
-    margin-bottom:4px;
+    color:var(--g);
+    font-size:24px;
 }
 
 .stat span{
@@ -215,32 +193,29 @@ textarea{
 table{
     border-collapse:collapse;
     width:100%;
-    min-width:760px;
+    min-width:720px;
 }
 
 th,
 td{
     padding:11px;
-    border-bottom:1px solid rgba(185,145,74,.13);
+    border-bottom:1px solid #b9914a22;
     text-align:left;
     font-size:12px;
-    vertical-align:middle;
 }
 
 th{
-    color:var(--gold);
+    color:var(--g);
 }
 
 tr:last-child td{
-    border-bottom:0;
+    border:0;
 }
 
 .status{
-    display:inline-block;
     padding:5px 8px;
     border-radius:99px;
     font-size:10px;
-    white-space:nowrap;
 }
 
 .pending{
@@ -258,10 +233,14 @@ tr:last-child td{
     padding:7px 9px;
 }
 
-.small-actions{
+.smallActions{
     display:flex;
     gap:5px;
     flex-wrap:wrap;
+}
+
+.hidden{
+    display:none!important;
 }
 
 .empty{
@@ -270,50 +249,23 @@ tr:last-child td{
     color:var(--muted);
 }
 
-.hidden{
-    display:none !important;
-}
-
-.error{
-    color:var(--red);
-    font-size:13px;
-    line-height:1.5;
-}
-
-.success{
-    color:var(--green);
-    font-size:13px;
-}
-
-.url-box{
-    margin-top:10px;
-    padding:11px 13px;
-    border:1px dashed var(--line);
-    border-radius:11px;
-    background:rgba(185,145,74,.05);
-    word-break:break-all;
-    font-size:12px;
-    color:var(--gold);
-}
-
 #toast{
     position:fixed;
-    left:50%;
     bottom:20px;
+    left:50%;
     transform:translateX(-50%);
     background:#4b4034;
-    color:white;
+    color:#fff;
     padding:10px 15px;
     border-radius:10px;
     display:none;
     z-index:9999;
-    font-size:13px;
 }
 
-.loading{
-    text-align:center;
-    padding:30px;
-    color:var(--muted);
+#errorBox{
+    color:#a65b5b;
+    font-size:13px;
+    line-height:1.5;
 }
 
 @media(max-width:650px){
@@ -331,26 +283,20 @@ tr:last-child td{
         font-size:27px;
     }
 
-    .panel{
-        padding:16px;
-    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- =========================
-     LOGIN
-========================= -->
-
-<div id="loginPage" class="wrap login">
+<!-- LOGIN -->
+<div id="login" class="wrap login">
 
     <div class="panel">
 
         <header>
 
-            <div class="eyebrow">
+            <div class="ey">
                 EGA DIGITAL
             </div>
 
@@ -364,7 +310,7 @@ tr:last-child td{
 
         </header>
 
-        <label for="email">
+        <label>
             Email Admin
         </label>
 
@@ -372,48 +318,50 @@ tr:last-child td{
             id="email"
             type="email"
             autocomplete="username"
-            placeholder="Masukkan email admin"
+            placeholder="Email admin"
         >
 
-        <label for="password">
+        <label>
             Password
         </label>
 
         <input
-            id="password"
+            id="pass"
             type="password"
             autocomplete="current-password"
-            placeholder="Masukkan password"
+            placeholder="Password"
         >
 
         <div class="actions">
 
             <button
-                id="loginBtn"
                 class="btn gold"
-                type="button"
+                id="loginBtn"
             >
                 Masuk ke Admin
             </button>
 
         </div>
 
-        <p id="loginMessage" class="note"></p>
+        <p
+            id="err"
+            class="note"
+        ></p>
 
     </div>
 
 </div>
 
 
-<!-- =========================
-     ADMIN APP
-========================= -->
-
-<div id="adminPage" class="wrap hidden">
+<!-- DASHBOARD -->
+<div
+    id="app"
+    class="wrap hidden"
+>
 
     <header>
 
-        <div class="eyebrow">
+        <div class="ey">
             EGA DIGITAL • ADMIN
         </div>
 
@@ -429,7 +377,6 @@ tr:last-child td{
 
 
     <!-- INFO -->
-
     <section class="panel">
 
         <div class="top">
@@ -445,35 +392,29 @@ tr:last-child td{
                 </h2>
 
                 <div class="note">
-                    Data tamu tersimpan di Supabase
+                    customer/risna-hidayat/
                 </div>
 
             </div>
 
             <button
-                id="logoutBtn"
                 class="btn"
-                type="button"
+                id="logout"
             >
                 Keluar
             </button>
 
         </div>
 
-        <div class="url-box">
-            https://sije100619.github.io/EGA-Graduation-Demo/customer/risna-hidayat/
-        </div>
-
     </section>
 
 
-    <!-- STATS -->
-
+    <!-- STATISTIK -->
     <section class="stats">
 
         <div class="stat">
 
-            <b id="totalCount">
+            <b id="total">
                 0
             </b>
 
@@ -485,7 +426,7 @@ tr:last-child td{
 
         <div class="stat">
 
-            <b id="sentCount">
+            <b id="sent">
                 0
             </b>
 
@@ -497,7 +438,7 @@ tr:last-child td{
 
         <div class="stat">
 
-            <b id="pendingCount">
+            <b id="pending">
                 0
             </b>
 
@@ -510,38 +451,31 @@ tr:last-child td{
     </section>
 
 
-    <!-- ADD GUEST -->
-
+    <!-- TAMBAH TAMU -->
     <section class="panel">
 
         <h2>
             Tambah Banyak Tamu
         </h2>
 
-        <div class="note">
-            Masukkan satu nama di setiap baris.
-        </div>
-
-        <label for="guestNames">
-            Daftar Nama
+        <label>
+            Satu nama per baris
         </label>
 
         <textarea
-            id="guestNames"
+            id="names"
             placeholder="Bapak Ahmad
 Ibu Siti
-Keluarga Budi
-Keluarga Andi"
+Keluarga Budi"
         ></textarea>
 
         <div class="actions">
 
             <button
-                id="addGuestsBtn"
                 class="btn gold"
-                type="button"
+                id="add"
             >
-                + Tambah ke Database
+                Tambah ke Database
             </button>
 
         </div>
@@ -549,8 +483,7 @@ Keluarga Andi"
     </section>
 
 
-    <!-- GUEST LIST -->
-
+    <!-- DAFTAR TAMU -->
     <section class="panel">
 
         <h2>
@@ -558,21 +491,14 @@ Keluarga Andi"
         </h2>
 
         <input
-            id="searchInput"
-            type="search"
+            id="search"
             placeholder="Cari nama atau nomor WhatsApp..."
         >
 
-        <br><br>
+        <br>
+        <br>
 
-        <div id="loading" class="loading">
-            Memuat data tamu...
-        </div>
-
-        <div
-            id="tableWrapper"
-            class="table hidden"
-        >
+        <div class="table">
 
             <table>
 
@@ -604,15 +530,14 @@ Keluarga Andi"
 
                 </thead>
 
-                <tbody id="guestRows">
-                </tbody>
+                <tbody id="rows"></tbody>
 
             </table>
 
         </div>
 
         <div
-            id="emptyMessage"
+            id="empty"
             class="empty hidden"
         >
             Belum ada data tamu.
@@ -628,984 +553,12 @@ Keluarga Andi"
 
 <script>
 
-/* =====================================================
-   SUPABASE CONFIG
-===================================================== */
+/* =========================
+   SUPABASE
+========================= */
 
 const SUPABASE_URL =
-    "https://arfhgjjwfwmsepwtbdtc.supabase.co";
+"https://arfhgjjwfwmsepwtbdtc.supabase.co";
 
-const SUPABASE_PUBLISHABLE_KEY =
-    "sb_publishable_QJct86dZ3zcJgPx6sgvXBA_dZTVT8ls";
-
-const supabaseClient =
-    supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_PUBLISHABLE_KEY
-    );
-
-
-/* =====================================================
-   CUSTOMER CONFIG
-===================================================== */
-
-const CUSTOMER_SLUG =
-    "risna-hidayat";
-
-const INVITATION_URL =
-    "https://sije100619.github.io/EGA-Graduation-Demo/customer/risna-hidayat/";
-
-
-/* =====================================================
-   STATE
-===================================================== */
-
-let currentUser = null;
-let customerData = null;
-let guests = [];
-
-
-/* =====================================================
-   HELPER
-===================================================== */
-
-function $(id){
-    return document.getElementById(id);
-}
-
-
-function showToast(message){
-
-    const toast = $("toast");
-
-    toast.textContent = message;
-
-    toast.style.display = "block";
-
-    clearTimeout(window.toastTimer);
-
-    window.toastTimer =
-        setTimeout(function(){
-
-            toast.style.display = "none";
-
-        },2300);
-}
-
-
-function escapeHTML(value){
-
-    return String(value ?? "")
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
-}
-
-
-function getGuestLink(guest){
-
-    return INVITATION_URL +
-        "?to=" +
-        encodeURIComponent(guest.name);
-
-}
-
-
-/* =====================================================
-   LOGIN
-===================================================== */
-
-async function login(){
-
-    const email =
-        $("email").value.trim();
-
-    const password =
-        $("password").value;
-
-    $("loginMessage").textContent =
-        "Sedang masuk...";
-
-    $("loginMessage").className =
-        "note";
-
-    if(!email || !password){
-
-        $("loginMessage").textContent =
-            "Email dan password wajib diisi.";
-
-        $("loginMessage").className =
-            "error";
-
-        return;
-    }
-
-
-    const result =
-        await supabaseClient.auth.signInWithPassword({
-
-            email:email,
-
-            password:password
-
-        });
-
-
-    if(result.error){
-
-        $("loginMessage").textContent =
-            "Login gagal: " +
-            result.error.message;
-
-        $("loginMessage").className =
-            "error";
-
-        return;
-    }
-
-
-    currentUser =
-        result.data.user;
-
-
-    await initializeAdmin();
-
-}
-
-
-/* =====================================================
-   INITIALIZE ADMIN
-===================================================== */
-
-async function initializeAdmin(){
-
-    if(!currentUser){
-
-        return;
-    }
-
-
-    const result =
-        await supabaseClient
-            .from("customers")
-            .select(
-                "id,user_id,slug,name,invitation_url"
-            )
-            .eq(
-                "user_id",
-                currentUser.id
-            )
-            .eq(
-                "slug",
-                CUSTOMER_SLUG
-            )
-            .maybeSingle();
-
-
-    if(result.error){
-
-        $("loginMessage").textContent =
-            "Database error: " +
-            result.error.message;
-
-        $("loginMessage").className =
-            "error";
-
-        return;
-    }
-
-
-    if(!result.data){
-
-        $("loginMessage").textContent =
-            "Akun login belum terhubung ke customer Risna Hidayat.";
-
-        $("loginMessage").className =
-            "error";
-
-        await supabaseClient.auth.signOut();
-
-        return;
-    }
-
-
-    customerData =
-        result.data;
-
-
-    $("loginPage").classList.add("hidden");
-
-    $("adminPage").classList.remove("hidden");
-
-
-    await loadGuests();
-
-}
-
-
-/* =====================================================
-   LOAD GUESTS
-===================================================== */
-
-async function loadGuests(){
-
-    $("loading").classList.remove("hidden");
-
-    $("tableWrapper").classList.add("hidden");
-
-    $("emptyMessage").classList.add("hidden");
-
-
-    const result =
-        await supabaseClient
-            .from("guests")
-            .select(
-                "id,name,phone,sent,created_at"
-            )
-            .eq(
-                "customer_id",
-                customerData.id
-            )
-            .order(
-                "created_at",
-                {
-                    ascending:true
-                }
-            );
-
-
-    $("loading").classList.add("hidden");
-
-
-    if(result.error){
-
-        showToast(
-            "Gagal memuat data tamu."
-        );
-
-        console.error(result.error);
-
-        return;
-    }
-
-
-    guests =
-        result.data || [];
-
-
-    renderGuests();
-
-}
-
-
-/* =====================================================
-   RENDER
-===================================================== */
-
-function renderGuests(){
-
-    const search =
-        $("searchInput")
-            .value
-            .trim()
-            .toLowerCase();
-
-
-    const filtered =
-        guests.filter(function(guest){
-
-            const name =
-                String(guest.name || "")
-                    .toLowerCase();
-
-            const phone =
-                String(guest.phone || "")
-                    .toLowerCase();
-
-            return (
-                name.includes(search) ||
-                phone.includes(search)
-            );
-
-        });
-
-
-    $("totalCount").textContent =
-        guests.length;
-
-
-    $("sentCount").textContent =
-        guests.filter(function(g){
-
-            return g.sent === true;
-
-        }).length;
-
-
-    $("pendingCount").textContent =
-        guests.filter(function(g){
-
-            return g.sent !== true;
-
-        }).length;
-
-
-    if(filtered.length === 0){
-
-        $("guestRows").innerHTML = "";
-
-        $("tableWrapper")
-            .classList
-            .add("hidden");
-
-        $("emptyMessage")
-            .classList
-            .remove("hidden");
-
-        return;
-
-    }
-
-
-    $("tableWrapper")
-        .classList
-        .remove("hidden");
-
-    $("emptyMessage")
-        .classList
-        .add("hidden");
-
-
-    $("guestRows").innerHTML =
-        filtered.map(function(guest){
-
-            const originalIndex =
-                guests.indexOf(guest) + 1;
-
-
-            return `
-
-                <tr>
-
-                    <td>
-                        ${originalIndex}
-                    </td>
-
-                    <td>
-                        <strong>
-                            ${escapeHTML(guest.name)}
-                        </strong>
-                    </td>
-
-                    <td>
-
-                        <input
-                            type="tel"
-                            value="${escapeHTML(guest.phone || "")}"
-                            placeholder="08xxxxxxxxxx"
-                            data-phone-id="${guest.id}"
-                        >
-
-                    </td>
-
-                    <td>
-
-                        <span
-                            class="status ${
-                                guest.sent
-                                ? "sent"
-                                : "pending"
-                            }"
-                        >
-
-                            ${
-                                guest.sent
-                                ? "SUDAH DIKIRIM"
-                                : "BELUM DIKIRIM"
-                            }
-
-                        </span>
-
-                    </td>
-
-                    <td>
-
-                        <div class="small-actions">
-
-                            <button
-                                class="btn sm"
-                                type="button"
-                                onclick="copyGuestLink('${guest.id}')"
-                            >
-                                Copy Link
-                            </button>
-
-
-                            <button
-                                class="btn sm green"
-                                type="button"
-                                onclick="sendWhatsApp('${guest.id}')"
-                            >
-                                WhatsApp
-                            </button>
-
-
-                            <button
-                                class="btn sm"
-                                type="button"
-                                onclick="toggleSent('${guest.id}')"
-                            >
-                                ${
-                                    guest.sent
-                                    ? "Belum Terkirim"
-                                    : "Terkirim"
-                                }
-                            </button>
-
-
-                            <button
-                                class="btn sm danger"
-                                type="button"
-                                onclick="deleteGuest('${guest.id}')"
-                            >
-                                Hapus
-                            </button>
-
-                        </div>
-
-                    </td>
-
-                </tr>
-
-            `;
-
-        })
-        .join("");
-
-}
-
-
-/* =====================================================
-   ADD GUESTS
-===================================================== */
-
-async function addGuests(){
-
-    const raw =
-        $("guestNames")
-            .value
-            .split("\n")
-            .map(function(name){
-
-                return name.trim();
-
-            })
-            .filter(Boolean);
-
-
-    if(raw.length === 0){
-
-        showToast(
-            "Masukkan nama tamu dulu."
-        );
-
-        return;
-    }
-
-
-    const rows =
-        raw.map(function(name){
-
-            return {
-
-                customer_id:
-                    customerData.id,
-
-                name:name,
-
-                phone:"",
-
-                sent:false
-
-            };
-
-        });
-
-
-    const result =
-        await supabaseClient
-            .from("guests")
-            .insert(rows);
-
-
-    if(result.error){
-
-        showToast(
-            "Gagal menambah tamu."
-        );
-
-        console.error(result.error);
-
-        return;
-    }
-
-
-    $("guestNames").value = "";
-
-
-    await loadGuests();
-
-
-    showToast(
-        raw.length +
-        " tamu berhasil ditambahkan."
-    );
-
-}
-
-
-/* =====================================================
-   SAVE PHONE
-===================================================== */
-
-async function savePhone(
-    guestId,
-    phone
-){
-
-    const result =
-        await supabaseClient
-            .from("guests")
-            .update({
-
-                phone:phone
-
-            })
-            .eq(
-                "id",
-                guestId
-            )
-            .eq(
-                "customer_id",
-                customerData.id
-            );
-
-
-    if(result.error){
-
-        console.error(
-            "Phone update:",
-            result.error
-        );
-
-    }
-
-}
-
-
-/* =====================================================
-   COPY PERSONAL LINK
-===================================================== */
-
-async function copyGuestLink(id){
-
-    const guest =
-        guests.find(function(g){
-
-            return g.id === id;
-
-        });
-
-
-    if(!guest){
-
-        return;
-    }
-
-
-    const link =
-        getGuestLink(guest);
-
-
-    try{
-
-        await navigator.clipboard.writeText(
-            link
-        );
-
-        showToast(
-            "Link personal berhasil disalin."
-        );
-
-    }catch(error){
-
-        window.prompt(
-            "Salin link ini:",
-            link
-        );
-
-    }
-
-}
-
-
-/* =====================================================
-   TOGGLE SENT
-===================================================== */
-
-async function toggleSent(id){
-
-    const guest =
-        guests.find(function(g){
-
-            return g.id === id;
-
-        });
-
-
-    if(!guest){
-
-        return;
-    }
-
-
-    const result =
-        await supabaseClient
-            .from("guests")
-            .update({
-
-                sent:!guest.sent
-
-            })
-            .eq(
-                "id",
-                id
-            )
-            .eq(
-                "customer_id",
-                customerData.id
-            );
-
-
-    if(result.error){
-
-        showToast(
-            "Gagal mengubah status."
-        );
-
-        return;
-    }
-
-
-    await loadGuests();
-
-}
-
-
-/* =====================================================
-   DELETE
-===================================================== */
-
-async function deleteGuest(id){
-
-    const guest =
-        guests.find(function(g){
-
-            return g.id === id;
-
-        });
-
-
-    if(!guest){
-
-        return;
-    }
-
-
-    const confirmDelete =
-        confirm(
-            "Hapus tamu " +
-            guest.name +
-            "?"
-        );
-
-
-    if(!confirmDelete){
-
-        return;
-    }
-
-
-    const result =
-        await supabaseClient
-            .from("guests")
-            .delete()
-            .eq(
-                "id",
-                id
-            )
-            .eq(
-                "customer_id",
-                customerData.id
-            );
-
-
-    if(result.error){
-
-        showToast(
-            "Gagal menghapus tamu."
-        );
-
-        return;
-    }
-
-
-    await loadGuests();
-
-
-    showToast(
-        "Tamu berhasil dihapus."
-    );
-
-}
-
-
-/* =====================================================
-   WHATSAPP
-===================================================== */
-
-async function sendWhatsApp(id){
-
-    const guest =
-        guests.find(function(g){
-
-            return g.id === id;
-
-        });
-
-
-    if(!guest){
-
-        return;
-    }
-
-
-    const input =
-        document.querySelector(
-            `[data-phone-id="${id}"]`
-        );
-
-
-    const phone =
-        (input?.value || "")
-            .replace(/\D/g,"");
-
-
-    if(!phone){
-
-        showToast(
-            "Isi nomor WhatsApp dulu."
-        );
-
-        return;
-    }
-
-
-    await savePhone(
-        id,
-        input.value.trim()
-    );
-
-
-    let whatsappNumber =
-        phone;
-
-
-    if(
-        whatsappNumber.startsWith("0")
-    ){
-
-        whatsappNumber =
-            "62" +
-            whatsappNumber.substring(1);
-
-    }
-
-
-    const personalLink =
-        getGuestLink(guest);
-
-
-    const message =
-`Halo ${guest.name},
-
-Saya ingin mengundang Anda untuk hadir di acara Graduation Day Risna Hidayat.
-
-Berikut undangan personal untuk Anda:
-
-${personalLink}
-
-Sampai bertemu di hari yang spesial. 🙏`;
-
-
-    const whatsappURL =
-        "https://wa.me/" +
-        whatsappNumber +
-        "?text=" +
-        encodeURIComponent(message);
-
-
-    window.open(
-        whatsappURL,
-        "_blank"
-    );
-
-
-    const result =
-        await supabaseClient
-            .from("guests")
-            .update({
-
-                sent:true,
-
-                phone:input.value.trim()
-
-            })
-            .eq(
-                "id",
-                id
-            )
-            .eq(
-                "customer_id",
-                customerData.id
-            );
-
-
-    if(!result.error){
-
-        await loadGuests();
-
-    }
-
-}
-
-
-/* =====================================================
-   LOGOUT
-===================================================== */
-
-async function logout(){
-
-    await supabaseClient.auth.signOut();
-
-    currentUser = null;
-
-    customerData = null;
-
-    guests = [];
-
-    location.reload();
-
-}
-
-
-/* =====================================================
-   EVENTS
-===================================================== */
-
-$("loginBtn")
-    .addEventListener(
-        "click",
-        login
-    );
-
-
-$("password")
-    .addEventListener(
-        "keydown",
-        function(event){
-
-            if(event.key === "Enter"){
-
-                login();
-
-            }
-
-        }
-    );
-
-
-$("addGuestsBtn")
-    .addEventListener(
-        "click",
-        addGuests
-    );
-
-
-$("logoutBtn")
-    .addEventListener(
-        "click",
-        logout
-    );
-
-
-$("searchInput")
-    .addEventListener(
-        "input",
-        renderGuests
-    );
-
-
-/* Simpan nomor WhatsApp ketika input kehilangan fokus */
-
-document.addEventListener(
-    "change",
-    function(event){
-
-        if(
-            event.target.matches(
-                "[data-phone-id]"
-            )
-        ){
-
-            savePhone(
-                event.target.dataset.phoneId,
-                event.target.value.trim()
-            );
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   CHECK SESSION
-===================================================== */
-
-(async function(){
-
-    const result =
-        await supabaseClient.auth.getSession();
-
-
-    if(
-        result.data &&
-        result.data.session
-    ){
-
-        currentUser =
-            result.data.session.user;
-
-        await initializeAdmin();
-
-    }
-
-})();
-
-</script>
-
-</body>
-</html>
+const SUPABASE_KEY =
+"sb_publishable_QJct86dZ3zcJgPx6sgvXBA_dZTVT8ls
