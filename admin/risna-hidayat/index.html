@@ -1422,53 +1422,67 @@ Sampai bertemu di hari yang spesial. 🙏`;
 
 async function deleteGuest(id){
 
-    const guest =
-    guests.find(g => g.id === id);
+    const guest = guests.find(
+        g => g.id === id
+    );
 
     if(!guest){
-
+        showToast("Data tamu tidak ditemukan.");
         return;
     }
 
-    const confirmed =
-    confirm(
-        'Hapus tamu "' +
-        guest.name +
-        '"?'
+    const confirmed = confirm(
+        'Hapus tamu "' + guest.name + '"?'
     );
 
     if(!confirmed){
-
         return;
     }
 
-    const { error } =
-    await db
-        .from("guests")
-        .delete()
-        .eq("id",id)
-        .eq("customer_id",customer.id);
+    try{
 
-    if(error){
+        const { error } = await db
+            .from("guests")
+            .delete()
+            .eq("id", id)
+            .eq("customer_id", customer.id);
 
-        console.error(error);
+        if(error){
 
-        showToast(
-            "Gagal menghapus tamu."
+            console.error(
+                "DELETE ERROR:",
+                error
+            );
+
+            showToast(
+                "Gagal menghapus tamu."
+            );
+
+            return;
+        }
+
+        guests = guests.filter(
+            g => g.id !== id
         );
 
-        return;
+        renderGuests();
+
+        showToast(
+            "Tamu berhasil dihapus."
+        );
+
+    }catch(error){
+
+        console.error(
+            "DELETE EXCEPTION:",
+            error
+        );
+
+        showToast(
+            "Terjadi kesalahan saat menghapus."
+        );
+
     }
-
-    guests =
-    guests.filter(g => g.id !== id);
-
-    renderGuests();
-
-    showToast(
-        "Tamu berhasil dihapus."
-    );
-
 }
 
 
@@ -1586,11 +1600,15 @@ rows.addEventListener(
 
         if(button.dataset.delete){
 
-            await deleteGuest(
-                button.dataset.delete
-            );
+    event.preventDefault();
+    event.stopPropagation();
 
-        }
+    await deleteGuest(
+        button.dataset.delete
+    );
+
+    return;
+}
 
     }
 );
